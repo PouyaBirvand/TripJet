@@ -1,26 +1,441 @@
 @import 'tailwindcss';
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@plugin "daisyui" {
+  themes: all;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* ==================== تنظیمات پایه ==================== */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Segoe UI',
+      Roboto,
+      sans-serif;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  body {
+    min-height: 100vh;
+    line-height: 1.5;
+  }
+
+  h1 {
+    font-size: 2.25rem; /* 36px */
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    font-size: 1.875rem; /* 30px */
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 0.875rem;
+  }
+
+  h3 {
+    font-size: 1.5rem; /* 24px */
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 0.75rem;
+  }
+
+  h4 {
+    font-size: 1.25rem; /* 20px */
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 0.625rem;
+  }
+
+  h5 {
+    font-size: 1.125rem; /* 18px */
+    font-weight: 500;
+    line-height: 1.4;
+    margin-bottom: 0.5rem;
+  }
+
+  h6 {
+    font-size: 1rem; /* 16px */
+    font-weight: 500;
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    margin-bottom: 1rem;
+  }
+
+  a {
+    color: hsl(var(--p));
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  a:hover {
+    color: hsl(var(--pf));
+  }
+
+  img,
+  video {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* تنظیمات اسکرول‌بار */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--b2));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--p));
+    border-radius: 4px;
+  }
+
+  /* تنظیمات انتخاب متن */
+  ::selection {
+    background-color: hsl(var(--p) / 30%);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ==================== تنظیمات ریسپانسیو ==================== */
+@custom-media --xs (min-width: 480px);
+@custom-media --sm (min-width: 640px);
+@custom-media --md (min-width: 768px);
+@custom-media --lg (min-width: 1024px);
+@custom-media --xl (min-width: 1280px);
+@custom-media --2xl (min-width: 1536px);
+
+/* تنظیمات موبایل */
+@custom-media --mobile-only (max-width: 639px);
+@custom-media --tablet-only (min-width: 640px) and (max-width: 1023px);
+@custom-media --desktop-only (min-width: 1024px);
+
+/* تنظیمات جهت صفحه نمایش */
+@custom-media --landscape (orientation: landscape);
+@custom-media --portrait (orientation: portrait);
+
+/* تنظیمات چاپ */
+@custom-media --print-only print;
+
+/* ==================== کامپوننت‌ها ==================== */
+@layer components {
+  /* کانتینر استاندارد با پدینگ مناسب برای همه دستگاه‌ها */
+  .container {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 1rem;
+    padding-left: 1rem;
+
+    @media (--sm) {
+      max-width: 640px;
+      padding-right: 1.5rem;
+      padding-left: 1.5rem;
+    }
+
+    @media (--md) {
+      max-width: 768px;
+    }
+
+    @media (--lg) {
+      max-width: 1024px;
+      padding-right: 2rem;
+      padding-left: 2rem;
+    }
+
+    @media (--xl) {
+      max-width: 1280px;
+    }
+
+    @media (--2xl) {
+      max-width: 1536px;
+    }
+  }
+
+  /* پدینگ استاندارد برای بخش‌ها */
+  .section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+
+    @media (--md) {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+
+    @media (--lg) {
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+    }
+  }
+
+  /* کارت استاندارد */
+  .card-custom {
+    background-color: hsl(var(--b1));
+    border-radius: 0.5rem;
+    box-shadow:
+      0 4px 6px -1px rgb(0 0 0 / 0.1),
+      0 2px 4px -2px rgb(0 0 0 / 0.1);
+    overflow: hidden;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow:
+        0 10px 15px -3px rgb(0 0 0 / 0.1),
+        0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+  }
+
+  /* دکمه استاندارد */
+  .btn-custom {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    border-radius: 0.375rem;
+    transition: all 0.2s ease;
+
+    &.btn-primary {
+      background-color: hsl(var(--p));
+      color: hsl(var(--pc));
+
+      &:hover {
+        background-color: hsl(var(--pf));
+      }
+    }
+
+    &.btn-secondary {
+      background-color: hsl(var(--s));
+      color: hsl(var(--sc));
+
+      &:hover {
+        background-color: hsl(var(--sf));
+      }
+    }
+
+    &.btn-accent {
+      background-color: hsl(var(--a));
+      color: hsl(var(--ac));
+
+      &:hover {
+        background-color: hsl(var(--af));
+      }
+    }
+
+    &.btn-outline {
+      background-color: transparent;
+      border: 1px solid currentColor;
+
+      &:hover {
+        background-color: hsl(var(--b3));
+      }
+    }
+  }
+
+  /* گرید ریسپانسیو */
+  .grid-responsive {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: 1fr;
+
+    @media (--sm) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (--lg) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (--xl) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  /* فلکس ریسپانسیو */
+  .flex-responsive {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    @media (--md) {
+      flex-direction: row;
+    }
+  }
+}
+
+/* ==================== یوتیلیتی‌ها ==================== */
+@layer utilities {
+  /* دسترسی‌پذیری */
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  /* فوکوس */
+  .focus-ring {
+    outline: none;
+
+    &:focus-visible {
+      outline: none;
+      box-shadow:
+        0 0 0 2px hsl(var(--b1)),
+        0 0 0 4px hsl(var(--p));
+    }
+  }
+
+  /* جهت متن */
+  .force-ltr {
+    direction: ltr !important;
+  }
+
+  .force-rtl {
+    direction: rtl !important;
+  }
+
+  /* نسبت تصویر */
+  .aspect-square {
+    aspect-ratio: 1/1;
+  }
+
+  .aspect-video {
+    aspect-ratio: 16/9;
+  }
+
+  .aspect-portrait {
+    aspect-ratio: 3/4;
+  }
+
+  /* گرید اتوماتیک */
+  .grid-auto-fit {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .grid-auto-fill {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+
+  /* فاصله‌گذاری */
+  .space-y {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .space-x {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  /* ترانزیشن‌ها */
+  .transition-standard {
+    transition-property:
+      color, background-color, border-color, text-decoration-color, fill, stroke, opacity,
+      box-shadow, transform, filter, backdrop-filter;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+  }
+
+  /* انیمیشن‌ها */
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.5s ease forwards;
+  }
+
+  .animate-bounce-in {
+    animation: bounceIn 0.6s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+  }
+}
+
+/* ==================== انیمیشن‌ها ==================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  20% {
+    transform: scale(1.1);
+  }
+  40% {
+    transform: scale(0.9);
+  }
+  60% {
+    transform: scale(1.03);
+    opacity: 1;
+  }
+  80% {
+    transform: scale(0.97);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ==================== تنظیمات چاپ ==================== */
+@media print {
+  body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  .container {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
 }

@@ -33,6 +33,7 @@ npm run dev
 
 - [لینک به مستندات API]
 - [لینک به طراحی UI/UX]
+
 ```
 
 ## 4. ایجاد ساختار پوشه‌ها
@@ -40,22 +41,24 @@ npm run dev
 ساختار پوشه‌های اصلی را ایجاد کنید:
 
 ```
+
 /app
-  /components
-    /ui
-    /layout
-    /features
-  /hooks
-  /lib
-  /utils
-  /styles
-```
+/components
+/ui
+/layout
+/features
+/hooks
+/lib
+/utils
+/styles
+
+````
 
 ## 5. تنظیم Git Hooks با Husky
 
 ```bash
 npm install --save-dev husky lint-staged
-```
+````
 
 ```json:package.json
 {
@@ -151,9 +154,11 @@ next-env.d.ts
 پیام‌های commit باید از این الگو پیروی کنند:
 
 ```
+
 type(scope): short description
 
 longer description if needed
+
 ```
 
 انواع:
@@ -173,15 +178,15 @@ longer description if needed
 ```javascript:/app/components/ui/Button.js
 export default function Button({ children, variant = 'primary', ...props }) {
   const baseClasses = 'px-4 py-2 rounded font-medium focus:outline-none focus:ring-2';
-  
+
   const variantClasses = {
     primary: 'bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500',
     secondary: 'bg-gray-200 text-gray-800 hover:bg-gray-300 focus:ring-gray-500',
     danger: 'bg-red-600 text-white hover:bg-red-700 focus:ring-red-500',
   };
-  
+
   const className = `${baseClasses} ${variantClasses[variant]}`;
-  
+
   return (
     <button className={className} {...props}>
       {children}
@@ -209,19 +214,19 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    
+
     - name: Setup Node.js
       uses: actions/setup-node@v3
       with:
         node-version: '18'
         cache: 'npm'
-    
+
     - name: Install dependencies
       run: npm ci
-    
+
     - name: Lint
       run: npm run lint
-    
+
     - name: Build
       run: npm run build
 ```
@@ -372,3 +377,4 @@ git commit -m "initial: Project setup with basic structure and configurations"
 git branch -M main
 git remote add origin https://github.com/your-username/your-repo.git
 git push -u origin main
+```
