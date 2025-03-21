@@ -8,7 +8,7 @@ import TelBtn from "../ui/TelBtn";
 const Header = () => {
     return (
         <div className="navbar justify-between">
-            <div className="navbar-start gap-2 w-fit">
+            <div className="navbar-start gap-1 w-fit">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost size-16 lg:hidden">
                         <Logs className="size-8" />
@@ -26,7 +26,7 @@ const Header = () => {
                     </ul>
                 </div>
                 <Link href="/">
-                    <Image width={155} height={45} className="sm:w-28" src="/logo.svg" alt="Logo" />
+                    <Image width={130} height={45} src="/logo.svg" alt="Logo" />
                 </Link>
             </div>
 
