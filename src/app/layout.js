@@ -2,6 +2,7 @@ import { Vazirmatn } from 'next/font/google';
 
 import './globals.css';
 import ThemeToggle from '../components/ui/theme-toggle';
+import Header from '../components/layout/Header';
 
 const vazir = Vazirmatn({
   variable: '--font-vazir',
@@ -20,9 +21,7 @@ export default function RootLayout({ children }) {
     <html lang="fa" dir="rtl">
       <body className={`${vazir.className} container antialiased min-h-screen flex flex-col`}>
         <header>
-          <div>
-            <ThemeToggle />
-          </div>
+          <Header/>
         </header>
 
         <main className="">{children}</main>
