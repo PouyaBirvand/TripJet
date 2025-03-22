@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
       <body className={`${vazir.className} antialiased min-h-screen flex flex-col`}>
         <Header />
 
-        <main className="container my-4">{children}</main>
+        <main className="container my-4 pt-60">{children}</main>
 
         <Footer />
       </body>
