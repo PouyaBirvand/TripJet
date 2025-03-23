@@ -6,7 +6,7 @@ const TripSearch = () => {
     const [tourType, setTourType] = useState("تورهای خارجی")
 
     return (
-        <div className="bg-base-100 rounded p-4 shadow mt-60">
+        <div className="bg-base-100 rounded p-4 shadow mt-60 relative z-10">
             <div className="flex gap-5 mb-8">
                 {
                     ["تورهای خارجی", "تورهای داخلی"].map(tour => (

@@ -19,7 +19,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="fa" dir="rtl">
-      <body className={`${vazir.className} antialiased min-h-screen flex flex-col`}>
+      <body className={`${vazir.className} antialiased min-h-screen flex flex-col bg-base-300`}>
         <Header />
 
         <main className="container my-4">{children}</main>
