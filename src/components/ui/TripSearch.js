@@ -2,7 +2,10 @@
 
 import { useState } from "react"
 
+import Loading from '../../app/loading';
+
 const TripSearch = () => {
+
     const [tourType, setTourType] = useState("تورهای خارجی")
 
     return (
