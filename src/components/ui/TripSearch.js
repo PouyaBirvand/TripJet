@@ -21,7 +21,7 @@ const TripSearch = () => {
             
             <form action="#">
 
-                <div className="flex gap-5">
+                <div className="flex gap-5 flex-wrap sm:flex-nowrap">
                     <select defaultValue="Pick a text editor" className="select select-primary w-full">
                         <option disabled={true}>Pick a text editor</option>
                         <option>VScode</option>
@@ -36,7 +36,7 @@ const TripSearch = () => {
                         <option>Another VScode fork</option>
                     </select>
 
-                    <button className="btn btn-primary px-10">
+                    <button className="btn btn-primary px-10 w-full sm:basis-1/4">
                         جستجو
                     </button>
                 </div>
