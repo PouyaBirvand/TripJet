@@ -5,7 +5,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import 'swiper/css';
 import 'swiper/css/navigation';
-import TextSliderItem from "./TextSliderItem";
 import NavigationButtons from "./NavigationButtons"
 import Loading from "../../app/loading";
 import SideNavigationButtons from "./SideNavigationButtons";
@@ -14,39 +13,14 @@ const Slider = ({
     items,
     children,
     buttonsPosition, // "header" or "sides"
+    breakpoints,
+    defaultSlidesPerView,
+    renderItem, // This will be a JSX element, not a function
 }) => {
     const swiperRef = useRef(null);
     const [swiperEnabled, setSwiperEnabled] = useState(true);
     const [currentBreakpoint, setCurrentBreakpoint] = useState('default');
     const [isLoading, setIsLoading] = useState(true);
-
-    // Define breakpoints for both swiper and static view
-    const breakpoints = {
-        0: {
-            slidesPerView: 1,
-            spaceBetween: 8,
-        },
-        640: {
-            slidesPerView: 3,
-            spaceBetween: 8,
-        },
-        768: {
-            slidesPerView: 4,
-            spaceBetween: 15,
-        },
-        1024: {
-            slidesPerView: 5,
-            spaceBetween: 15,
-        },
-        1280: {
-            slidesPerView: 6,
-            spaceBetween: 15,
-        },
-        default: {
-            slidesPerView: 6,
-            spaceBetween: 20,
-        }
-    };
 
     useEffect(() => {
         const handleResize = () => {
@@ -72,7 +46,6 @@ const Slider = ({
             setIsLoading(false);
         };
 
-        // Run the resize handler once on mount
         handleResize();
 
         // Add event listener for window resize
@@ -111,6 +84,20 @@ const Slider = ({
         );
     }
 
+    // Create a component renderer function
+    const renderComponent = (item, index) => {
+        if (typeof renderItem === 'function') {
+            return renderItem(item, index);
+        }
+        
+        // Default fallback if no renderItem is provided
+        return (
+            <div>
+                {JSON.stringify(item)}
+            </div>
+        );
+    };
+
     return (
         <div className="w-full my-8">
             {/* Header Section */}
@@ -124,7 +111,7 @@ const Slider = ({
                         loop={true}
                         modules={[Navigation]}
                         spaceBetween={20}
-                        slidesPerView={1}
+                        slidesPerView={defaultSlidesPerView}
                         onBeforeInit={(swiper) => {
                             swiperRef.current = swiper;
                         }}
@@ -150,7 +137,7 @@ const Slider = ({
                     >
                         {items.map((item, index) => (
                             <SwiperSlide key={index}>
-                                <TextSliderItem origin={item.origin} destination={item.destination} />
+                                {renderComponent(item, index)}
                             </SwiperSlide>
                         ))}
                     </Swiper>
@@ -158,7 +145,7 @@ const Slider = ({
                     <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
                         {items.map((item, index) => (
                             <div key={index} className="flex justify-center">
-                                <TextSliderItem origin={item.origin} destination={item.destination} />
+                                {renderComponent(item, index)}
                             </div>
                         ))}
                     </div>
