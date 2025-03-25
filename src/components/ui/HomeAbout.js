@@ -3,8 +3,8 @@ import Image from "next/image"
 
 const HomeAbout = () => {
     return (
-        <div className="my-10">
-            <h5 className="text-center mb-6">حالا چرا تریپ جت؟</h5>
+        <div className="my-10 mt-32">
+            <h5 className="text-center mb-10">حالا چرا تریپ جت؟</h5>
 
             <div className="flex flex-col md:flex-row justify-between items-center gap-6">
                 <div className="flex flex-col gap-4 w-full md:w-1/3">

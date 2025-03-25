@@ -77,7 +77,7 @@ const Slider = ({
 
     if (isLoading) {
         return (
-            <div className="w-full my-8">
+            <div className="w-full mb-8 mt-32">
                 {renderHeader()}
                 <Loading />
             </div>
@@ -99,7 +99,7 @@ const Slider = ({
     };
 
     return (
-        <div className="w-full my-8">
+        <div className="w-full mb-8 mt-32">
             {/* Header Section */}
             {renderHeader()}
 
