@@ -15,7 +15,7 @@ const CommentsBox = ({ item }) => {
 
     return (
         <div className="bg-base-100 p-4 rounded-2xl flex flex-col relative min-h-64">
-            <div className="flex justify-between mb-4">
+            <div className="flex justify-between gap-2 mb-4">
                 <div className="flex items-center gap-2">
                     <Image
                         width={50}
@@ -28,7 +28,7 @@ const CommentsBox = ({ item }) => {
                 </div>
                 <div>
                     <Stars filled={item.stars} />
-                    <p className="text-sm text-base-content mt-1">تاریخ سفر: {item.date}</p>
+                    <p className="text-sm text-base-content mt-1 text-end">تاریخ سفر: {item.date}</p>
                 </div>
             </div>
 
@@ -45,7 +45,6 @@ const CommentsBox = ({ item }) => {
                 )}
             </div>
 
-            {/* گرادیان فقط در حالت خلاصه نمایش داده می‌شود */}
             {isTextLong && !isExpanded && (
                 <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-base-100 to-transparent pointer-events-none"></div>
             )}
