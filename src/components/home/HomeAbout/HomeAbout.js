@@ -7,7 +7,7 @@ const HomeAbout = () => {
             <h5 className="text-center mb-10">حالا چرا تریپ جت؟</h5>
 
             <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-                <div className="flex flex-col gap-4 w-full md:w-1/3">
+                <div className="flex flex-col gap-4 md:gap-16 w-full md:w-1/3">
                     <div className="flex justify-start md:justify-end">
                         <button className="btn btn-base-100 w-full md:w-auto">
                             <Plane className="w-4 h-4 md:w-5 md:h-5 ml-1 text-primary" />
@@ -39,7 +39,7 @@ const HomeAbout = () => {
                     />
                 </div>
 
-                <div className="flex flex-col gap-4 md:gap-5 w-full md:w-1/3">
+                <div className="flex flex-col gap-4 md:gap-16 w-full md:w-1/3">
                     <div className="flex justify-end md:justify-start">
                         <button className="btn btn-base-100 w-full md:w-auto">
                             <MapPin className="w-4 h-4 md:w-5 md:h-5 ml-1 text-primary"/>
