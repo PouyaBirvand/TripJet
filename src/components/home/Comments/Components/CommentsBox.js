@@ -5,7 +5,7 @@ import Stars from "./Stars";
 const CommentsBox = ({ item }) => {
     const [isExpanded, setIsExpanded] = useState(false);
 
-    const maxLength = 200;
+    const maxLength = 150;
 
     const isTextLong = item.message.length > maxLength;
 
@@ -14,7 +14,7 @@ const CommentsBox = ({ item }) => {
         : `${item.message.substring(0, maxLength)}...`;
 
     return (
-        <div className="bg-base-100 p-4 rounded-2xl flex flex-col relative min-h-64">
+        <div className="bg-base-100 p-4 rounded-xl flex flex-col relative min-h-60">
             <div className="flex justify-between gap-2 mb-4">
                 <div className="flex items-center gap-2">
                     <Image
@@ -28,7 +28,7 @@ const CommentsBox = ({ item }) => {
                 </div>
                 <div>
                     <Stars filled={item.stars} />
-                    <p className="text-sm text-base-content mt-1 text-end">تاریخ سفر: {item.date}</p>
+                    <p className="text-sm text-gray-700 dark:text-gray-300 mt-4 text-end not-:">تاریخ سفر: {item.date}</p>
                 </div>
             </div>
 
@@ -46,7 +46,7 @@ const CommentsBox = ({ item }) => {
             </div>
 
             {isTextLong && !isExpanded && (
-                <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-base-100 to-transparent pointer-events-none"></div>
+                <div className="absolute bottom-0 left-0 right-0 h-16 from-base-100 to-transparent pointer-events-none rounded-xl"></div>
             )}
         </div>
     );

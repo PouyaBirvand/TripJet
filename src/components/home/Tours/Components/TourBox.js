@@ -5,7 +5,7 @@ import Link from "next/link";
 const TourBox = ({ item }) => {
     return (
         <Link href="/">
-            <div className="bg-base-100 p-2 rounded">
+            <div className="bg-base-100 p-2 rounded-xl">
                 <div className="relative mb-4">
                     <Image width={500} height={500} className="w-full rounded" src="/japen.png" alt={item.title} />
                     <button className="absolute top-1 right-1 btn btn-base-100 p-2 text-primary">
