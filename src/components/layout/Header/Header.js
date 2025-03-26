@@ -1,13 +1,13 @@
 import { ArrowRightFromLine, Logs } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import NavItmes from "../ui/NavItems";
-import SearchBtn from "../ui/SearchBtn";
-import TelBtn from "../ui/TelBtn";
+import NavItmes from "./Components/NavItems";
+import SearchBtn from "./Components/SearchBtn";
+import TelBtn from "./Components/TelBtn";
 
 const Header = () => {
     return (
-        <header className="shadow">
+        <header className="shadow bg-base-100">
             <div className="container">
                 <div className="navbar justify-between">
                     <div className="navbar-start gap-1 w-fit">

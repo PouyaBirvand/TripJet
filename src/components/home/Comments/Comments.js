@@ -1,9 +1,9 @@
 "use client"
 
 import { MessageCircleMore } from "lucide-react"
-import CommentsBox from "./CommentsBox"
-import SecHeader from "./SecHeader"
-import Slider from "./Slider"
+import CommentsBox from "./Components/CommentsBox"
+import SecHeader from "../Slider/Components/SecHeader"
+import Slider from "../Slider/Slider"
 
 const data = [
     {

@@ -5,9 +5,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import 'swiper/css';
 import 'swiper/css/navigation';
-import NavigationButtons from "./NavigationButtons"
-import Loading from "../../app/loading";
-import SideNavigationButtons from "./SideNavigationButtons";
+import NavigationButtons from "./Components/NavigationButtons"
+import Loading from "../../../app/loading";
+import SideNavigationButtons from "./Components/SideNavigationButtons";
 
 const Slider = ({
     items,

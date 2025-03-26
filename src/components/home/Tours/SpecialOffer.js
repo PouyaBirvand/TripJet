@@ -1,9 +1,9 @@
 "use client"
 
-import { MessageSquareHeart } from "lucide-react";
-import SecHeader from "./SecHeader"
-import Slider from "./Slider"
-import TourBox from "./TourBox";
+import { BadgePercent } from "lucide-react"
+import SecHeader from "../Slider/Components/SecHeader"
+import Slider from "../Slider/Slider"
+import TourBox from "./Components/TourBox";
 
 const data = [
     {
@@ -150,17 +150,17 @@ const swiperConfig = {
     defaultSlidesPerView: 1,
 }
 
-const PopularTours = () => {
+const SpecialOffer = () => {
     return (
         <Slider
             renderItem={(item) => <TourBox item={item}/>}
             {...swiperConfig}
         >
-            <SecHeader lTitle="تورهای محبوب">
-                <MessageSquareHeart />
+            <SecHeader lTitle="تورهای پیشنهادی">
+                <BadgePercent />
             </SecHeader>
         </Slider>
     )
 }
 
-export default PopularTours
+export default SpecialOffer

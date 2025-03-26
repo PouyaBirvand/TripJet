@@ -1,8 +1,8 @@
 "use client"
 import { History } from "lucide-react"
-import SecHeader from "./SecHeader"
-import Slider from "./Slider"
-import TextSliderItem from "./TextSliderItem";
+import SecHeader from "../Slider/Components/SecHeader"
+import Slider from "../Slider/Slider"
+import TextSliderItem from "./Components/TextSliderItem";
 
 // fack data
 const data = [
