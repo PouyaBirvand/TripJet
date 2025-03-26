@@ -1,7 +1,7 @@
 const Hero = () => {
     return (
         <div
-            className="hero absolute top-20 right-0"
+            className="hero absolute top-16 right-0"
             style={{
                 backgroundImage: "url(/hero.png)",
             }}>
