@@ -1,6 +1,6 @@
 const SecHeader = ({ lTitle, rTitle, children }) => {
     return (
-        <div className="flex justify-between gap-10 my-10 text-primary">
+        <div className="flex justify-between flex-wrap gap-10 my-10 text-primary">
             <div className="flex gap-2">
                 {children}
                 <h5 className="text-base-content">{lTitle}</h5>
