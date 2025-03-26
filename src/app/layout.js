@@ -2,6 +2,8 @@ import { Vazirmatn } from 'next/font/google';
 
 import './globals.css';
 import ThemeToggle from '../components/ui/theme-toggle';
+import { QueryProvider } from '../providers/QueryProvider';
+import { AuthProvider } from '../hooks/useAuth';
 
 const vazir = Vazirmatn({
   variable: '--font-vazir',
@@ -15,7 +17,7 @@ export const metadata = {
   description: 'سایت فروش بلیط تور های گردشگری',
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children, auth }) {
   return (
     <html lang="fa" dir="rtl">
       <body className={`${vazir.className} container antialiased min-h-screen flex flex-col`}>
@@ -25,7 +27,14 @@ export default function RootLayout({ children }) {
           </div>
         </header>
 
-        <main className="">{children}</main>
+        <main className="">
+          <AuthProvider>
+            <QueryProvider>
+              {children}
+              {auth}
+            </QueryProvider>
+          </AuthProvider>
+        </main>
 
         <footer>{/* FOOTER */}</footer>
       </body>

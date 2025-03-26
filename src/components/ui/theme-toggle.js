@@ -25,7 +25,7 @@ export default function ThemeToggle() {
   };
 
   return (
-    <div className="dropdown">
+    <div className="dropdown z-[999]">
       <div tabIndex={0} role="button" className="btn m-1">
         Theme
         <svg

@@ -1,7 +1,10 @@
+import Link from "next/link";
+
 const HomePage = () => {
   return (
     <div className="flex flex-col gap-5">
       <div className=" flex gap-5 flex-wrap justify-center mt-10">
+      <Link href="phone" className="btn btn-primary">Sign in</Link>
         <div className="flex w-52 flex-col gap-4">
           <div className="flex items-center gap-4">
             <div className="skeleton h-16 w-16 shrink-0 rounded-full"></div>
