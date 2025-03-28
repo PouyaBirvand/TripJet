@@ -1,8 +1,10 @@
 import { Vazirmatn } from 'next/font/google';
 
 import './globals.css';
-import Header from '../components/layout/header';
-import Footer from '../components/layout/footer';
+
+import Header from '../components/layout/Header/Header';
+import Footer from '../components/layout/Footer/Footer';
+
 
 const vazir = Vazirmatn({
   variable: '--font-vazir',
@@ -19,7 +21,7 @@ export const metadata = {
 export default function RootLayout({ children, auth }) {
   return (
     <html lang="fa" dir="rtl">
-      <body className={`${vazir.className} antialiased min-h-screen flex flex-col`}>
+      <body className={`${vazir.className} antialiased min-h-screen flex flex-col bg-base-300`}>
         <Header />
 
         <main className="container my-4">{children}</main>

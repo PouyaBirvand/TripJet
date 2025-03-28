@@ -1,7 +1,7 @@
 import Link from "next/link"
-import ThemeToggle from "../ui/ThemeToggle"
 import Image from "next/image"
 import { Instagram, Linkedin, Mail } from "lucide-react"
+import ThemeToggle from "./Components/ThemeToggle"
 
 const Footer = () => {
     return (
