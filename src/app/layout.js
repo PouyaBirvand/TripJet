@@ -1,8 +1,10 @@
 import { Vazirmatn } from 'next/font/google';
 
 import './globals.css';
+
 import Header from '../components/layout/Header/Header';
 import Footer from '../components/layout/Footer/Footer';
+
 
 const vazir = Vazirmatn({
   variable: '--font-vazir',
@@ -16,7 +18,7 @@ export const metadata = {
   description: 'سایت فروش بلیط تور های گردشگری',
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children, auth }) {
   return (
     <html lang="fa" dir="rtl">
       <body className={`${vazir.className} antialiased min-h-screen flex flex-col bg-base-300`}>
