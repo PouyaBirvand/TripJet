@@ -10,3 +10,7 @@ export const toEnglishNumber = (number) => {
     .replace(/[۰-۹]/g, d => '۰۱۲۳۴۵۶۷۸۹'.indexOf(d))
     .replace(/[٠-٩]/g, d => '٠١٢٣٤٥٦٧٨٩'.indexOf(d));
 };
+
+export const formatPrice = (price) => {
+  return new Intl.NumberFormat('fa-IR').format(price) + ' تومان';
+};
