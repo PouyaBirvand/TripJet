@@ -28,7 +28,7 @@ export default function FiltersSidebar() {
   }
 
   return (
-    <div className="bg-white rounded-lg border border-gray-200 px-4 py-1 sticky top-4 max-h-[calc(100vh-2rem)] overflow-y-auto scroll-bar custom-scrollbar">
+    <div className="bg-white rounded-xl border border-gray-200 px-4 py-1">
       <div className="space-y-1">
         <PriceFilter options={filterOptions?.price_ranges} />
         <HotelFilter />

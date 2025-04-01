@@ -1,35 +1,32 @@
 import Image from 'next/image';
-import TourBadges from './TourBadges';
-import { Tag } from 'lucide-react';
+import { Heart } from 'lucide-react';
+import { useState } from 'react';
 
-export default function TourImage({ id, title, destination, hasDiscount, discountPercentage, isLastMinute }) {
+export default function TourImage({ id, destination }) {
+  const [isFavorite, setIsFavorite] = useState(false);
   const tourImage = `https://picsum.photos/700/300?random=${id}`;
   
   return (
-    <div className="w-full lg:w-2/5 h-64 lg:h-auto relative">
-      <figure className="relative h-full w-full">
+    <div className="relative h-48 md:h-full">
+      <figure className="h-full w-full">
         <Image 
           src={tourImage}
           alt={destination}
           fill
-          className="object-cover"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          className="object-cover transition-transform duration-500 rounded-xl"
+          sizes="(max-width: 768px) 100vw, 33vw"
         />
-        
-        <TourBadges 
-          hasDiscount={hasDiscount}
-          discountPercentage={discountPercentage}
-          isLastMinute={isLastMinute}
-        />
-        
-        <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/80 to-transparent">
-          <h3 className={`text-white text-lg font-bold ${!hasDiscount ? 'mt-0': ' mt-5'}`}>{title}</h3>
-          <div className="flex items-center gap-1 text-white/90 text-xs mt-1">
-            <Tag size={14} />
-            <span>{destination}</span>
-          </div>
-        </div>
       </figure>
+      
+      <button 
+        onClick={() => setIsFavorite(!isFavorite)}
+        className="absolute top-3 right-3 bg-white/80 backdrop-blur-sm p-2 rounded-xl shadow-sm hover:bg-white transition-colors z-10"
+      >
+        <Heart 
+          size={20} 
+          className={`${isFavorite ? 'fill-red-500 text-red-500' : 'text-primary'} transition-colors`} 
+        />
+      </button>
     </div>
   );
 }

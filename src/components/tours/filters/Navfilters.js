@@ -18,25 +18,25 @@ const Navfilters = () => {
         
         <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3 w-full relative bottom-2">
           <button 
-            className={`btn btn-sm md:btn-md ${currentSort === 'luxury' ? 'bg-sky-200 text-primary' : 'btn-outline'} rounded-lg border border-base-300 font-normal text-xs sm:text-sm`}
+            className={`btn btn-sm md:btn-md text-slate-500 bg-white ${currentSort === 'luxury' ? '!bg-sky-200 !text-primary !border-none' : 'btn-outline'} rounded-lg border border-slate-300 font-medium text-xs sm:text-sm`}
             onClick={() => handleSortChange('luxury')}
           >
             لوکس ترین
           </button>
           <button 
-            className={`btn btn-sm md:btn-md ${currentSort === 'special' ? 'bg-sky-200 text-primary' : 'btn-outline'} rounded-lg border border-base-300 font-normal text-xs sm:text-sm`}
+            className={`btn btn-sm md:btn-md text-slate-500 bg-white ${currentSort === 'special' ? '!bg-sky-200 !text-primary !border-none' : 'btn-outline'} rounded-lg border border-slate-300 font-medium text-xs sm:text-sm`}
             onClick={() => handleSortChange('special')}
           >
             تور های ویژه
           </button>
           <button 
-            className={`btn btn-sm md:btn-md ${currentSort === 'nearest_date' ? 'bg-sky-200 text-primary' : 'btn-outline'} rounded-lg border border-base-300 font-normal text-xs sm:text-sm`}
+            className={`btn btn-sm md:btn-md text-slate-500 bg-white ${currentSort === 'nearest_date' ? '!bg-sky-200 !text-primary !border-none' : 'btn-outline'} rounded-lg border border-slate-300 font-medium text-xs sm:text-sm`}
             onClick={() => handleSortChange('nearest_date')}
           >
             نزدیک ترین تاریخ اجرا
           </button>
           <button 
-            className={`btn btn-sm md:btn-md ${currentSort === 'weekend' ? 'bg-sky-200 text-primary' : 'btn-outline'} rounded-lg border border-base-300 font-normal text-xs sm:text-sm`}
+            className={`btn btn-sm md:btn-md text-slate-500 bg-white ${currentSort === 'weekend' ? '!bg-sky-200 !text-primary !border-none' : 'btn-outline'} rounded-lg border border-slate-300 font-medium text-xs sm:text-sm`}
             onClick={() => handleSortChange('weekend')}
           >
             تعطیلات اخر هفته
