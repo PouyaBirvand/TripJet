@@ -1,6 +1,6 @@
 @import "tailwindcss";
 @plugin "daisyui" {
-  themes: light --default, dark --prefersdark;
+  themes: light --default;
 }
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
@@ -223,6 +223,15 @@
         0 4px 6px -4px rgb(0 0 0 / 0.1);
     }
   }
+
+  .swiper-container {
+    height: auto !important; /* یا ارتفاع ثابت مثلاً `height: 500px;` */
+}
+
+.swiper-slide {
+    height: calc(50% - 10px) !important; /* برای دو ردیف */
+    margin-bottom: 20px; /* فاصله بین ردیف‌ها */
+}
 
   /* دکمه استاندارد */
   .btn-custom {

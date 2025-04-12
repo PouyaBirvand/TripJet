@@ -4,7 +4,7 @@ const Hero = () => {
   const pathname = usePathname();
   return (
     <div
-      className="hero absolute top-20 lg:top-16 right-0"
+      className="hero absolute top-20 lg:top-16 right-0 brightness-125"
       style={{
         backgroundImage: 'url(/hero.png)',
       }}
