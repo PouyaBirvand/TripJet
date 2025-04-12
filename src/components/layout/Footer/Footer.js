@@ -1,96 +1,179 @@
-import Link from "next/link"
-import Image from "next/image"
-import { Instagram, Linkedin, Mail } from "lucide-react"
-import ThemeToggle from "./Components/ThemeToggle"
+  import Link from "next/link";
+  import Image from "next/image";
+  import { Instagram, Linkedin, Mail, Phone, MapPin } from "lucide-react";
 
-const Footer = () => {
+  const Footer = () => {
     return (
-        <footer className="bg-base-200">
-            <div className="container">
-                <footer className="footer lg:footer-horizontal text-base-content p-10">
-                    <aside>
-                        <Link href="/">
-                            <Image width={130} height={45} src="/logo.svg" alt="Logo" />
-                        </Link>
-                        <p>
-                            تلفن پشتیبانی : <Link href="tel:+02170709797">۰۲۱۷۰۷۰۹۷۹۷</Link>
-                            <br />
-                            <br />
-                            آدرس دفتر مرکزی : تهران، سعادت آباد، خیابان کاج، پلاک ۱۶
-                            <br />
-                            <br />
-                            آدرس ایمیل : tripjet@gmail.com
-                        </p>
-                    </aside>
-                    <nav>
-                        <h6 className="footer-title">تریپ جت</h6>
-                        <Link href="about-us" className="link link-hover">درباره ما</Link>
-                        <Link href="contact-us" className="link link-hover">تماس با ما</Link>
-                        <Link href="insurance" className="link link-hover">بیمه مسافرتی</Link>
-                        <Link href="/" className="link link-hover">پرسش و پاسخ</Link>
-                    </nav>
-                    <nav>
-                        <h6 className="footer-title">خدمات مشتریان</h6>
-                        <Link href="/" className="link link-hover">راهنمای خرید</Link>
-                        <Link href="/" className="link link-hover">قوانین و مقررات</Link>
-                        <Link href="/" className="link link-hover">راهنمای استرداد</Link>
-                        <Link href="/" className="link link-hover">مرکز پشتیبانی آنلاین</Link>
-                    </nav>
-                    <nav>
-                        <h6 className="footer-title">تور های پرطرفدار</h6>
-                        <Link href="/" className="link link-hover">تور دبی</Link>
-                        <Link href="/" className="link link-hover">تور کیش</Link>
-                        <Link href="/" className="link link-hover">تور آنتالیا</Link>
-                        <Link href="/" className="link link-hover">تور استانبول</Link>
-                    </nav>
-                    <nav>
-                        <h6 className="footer-title">اطلاعات تکمیلی</h6>
-                        <Link href="/" className="link link-hover">فروش سازمانی</Link>
-                        <Link href="/" className="link link-hover">فرصت‌های شغلی</Link>
-                        <Link href="/" className="link link-hover">سنجش رضایتمندی</Link>
-                        <Link href="/" className="link link-hover">همکاری با آژانس ها</Link>
-                    </nav>
-                </footer>
-
-                <footer className="footer sm:footer-horizontal text-base-content items-center p-10">
-                    <aside className="grid-flow-col gap-5 items-center">
-                        <ThemeToggle />
-                        
-                        <Link href="https://mail.google.com/">
-                            <Mail />
-                        </Link>
-                        <Link href="https://www.linkedin.com/">
-                            <Linkedin />
-                        </Link>
-                        <Link href="https://www.instagram.com/">
-                            <Instagram />
-                        </Link>
-                    </aside>
-                    <nav className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
-                        <div className="grid grid-flow-col gap-4">
-                            <Link href="http://samandehi.ir">
-                                <Image width={50} height={45} src="/samandehi.png" alt="samandehi" />
-                            </Link>
-                            <Link href="https://enamad.ir/">
-                                <Image width={50} height={45} src="/enamad.png" alt="enamad" />
-                            </Link>
-                            <Link href="https://www.aira.ir/">
-                                <Image width={50} height={45} src="/aira.png" alt="aira" />
-                            </Link>
-                            <Link href="http://samandehi.ir">
-                                <Image width={50} height={45} src="/airPlane.png" alt="airPlane" />
-                            </Link>
-                        </div>
-                    </nav>
-                </footer>
-
-                <footer className="text-center border-base-300 border-t py-4">
-                    ©تمامی حقوق این وبگاه محفوظ و مربوط به آژانس مسافرتی تریپ جت است.
-                </footer>
+      <footer className="bg-gray-50 text-gray-700 border-t border-gray-200">
+        <div className="container mx-auto px-4 py-12">
+          {/* Main Footer Content */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-10">
+            {/* Logo and Contact Info */}
+            <div className="space-y-6">
+              <Link href="/" className="inline-block">
+                <Image 
+                  width={150} 
+                  height={50} 
+                  src="/logo.svg" 
+                  alt="TripJet Logo"
+                  className="h-10 w-auto dark:invert"
+                />
+              </Link>
+              
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <Phone className="h-5 w-5 mt-1 flex-shrink-0 text-blue-600 " />
+                  <div>
+                    <p className="font-medium text-gray-900 dark:text-white">پشتیبانی تلفنی</p>
+                    <Link href="tel:+02170709797" className="hover:text-blue-600 ">
+                      ۰۲۱۷۰۷۰۹۷۹۷
+                    </Link>
+                  </div>
+                </div>
+                
+                <div className="flex items-start gap-3">
+                  <MapPin className="h-5 w-5 mt-1 flex-shrink-0 text-blue-600 " />
+                  <div>
+                    <p className="font-medium text-gray-900 dark:text-white">آدرس دفتر مرکزی</p>
+                    <p>تهران، سعادت آباد، خیابان کاج، پلاک ۱۶</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start gap-3">
+                  <Mail className="h-5 w-5 mt-1 flex-shrink-0 text-blue-600 " />
+                  <div>
+                    <p className="font-medium text-gray-900 dark:text-white">آدرس ایمیل</p>
+                    <Link href="mailto:tripjet@gmail.com" className="hover:text-blue-600 ">
+                      tripjet@gmail.com
+                    </Link>
+                  </div>
+                </div>
+              </div>
             </div>
-        </footer>
+            
+            {/* Quick Links */}
+            <div className="space-y-6">
+              <h3 className="text-lg font-bold text-gray-900 dark:text-white">تریپ جت</h3>
+              <ul className="space-y-3">
+                <li><Link href="/about-us" className="hover:text-blue-600 ">درباره ما</Link></li>
+                <li><Link href="/contact-us" className="hover:text-blue-600 ">تماس با ما</Link></li>
+                <li><Link href="/insurance" className="hover:text-blue-600 ">بیمه مسافرتی</Link></li>
+                <li><Link href="/faq" className="hover:text-blue-600 ">پرسش و پاسخ</Link></li>
+              </ul>
+            </div>
+            
+            {/* Customer Service */}
+            <div className="space-y-6">
+              <h3 className="text-lg font-bold text-gray-900 dark:text-white">خدمات مشتریان</h3>
+              <ul className="space-y-3">
+                <li><Link href="/purchase-guide" className="hover:text-blue-600 ">راهنمای خرید</Link></li>
+                <li><Link href="/terms" className="hover:text-blue-600 ">قوانین و مقررات</Link></li>
+                <li><Link href="/refund" className="hover:text-blue-600 ">راهنمای استرداد</Link></li>
+                <li><Link href="/support" className="hover:text-blue-600 ">پشتیبانی آنلاین</Link></li>
+              </ul>
+            </div>
+            
+            {/* Popular Tours */}
+            <div className="space-y-6">
+              <h3 className="text-lg font-bold text-gray-900 dark:text-white">تورهای پرطرفدار</h3>
+              <ul className="space-y-3">
+                <li><Link href="/tours/dubai" className="hover:text-blue-600 ">تور دبی</Link></li>
+                <li><Link href="/tours/kish" className="hover:text-blue-600 ">تور کیش</Link></li>
+                <li><Link href="/tours/antalya" className="hover:text-blue-600 ">تور آنتالیا</Link></li>
+                <li><Link href="/tours/istanbul" className="hover:text-blue-600 ">تور استانبول</Link></li>
+              </ul>
+            </div>
+            
+            {/* Additional Info */}
+            <div className="space-y-6">
+              <h3 className="text-lg font-bold text-gray-900 dark:text-white">اطلاعات تکمیلی</h3>
+              <ul className="space-y-3">
+                <li><Link href="/corporate" className="hover:text-blue-600 ">فروش سازمانی</Link></li>
+                <li><Link href="/careers" className="hover:text-blue-600 ">فرصت‌های شغلی</Link></li>
+                <li><Link href="/feedback" className="hover:text-blue-600 ">سنجش رضایتمندی</Link></li>
+                <li><Link href="/partnership" className="hover:text-blue-600 ">همکاری با آژانس‌ها</Link></li>
+              </ul>
+            </div>
+          </div>
+          
+          {/* Social and Certification Section */}
+          <div className="flex flex-col md:flex-row justify-between items-center border-t border-gray-200  pt-8 gap-6">
+            {/* Social Links */}
+            <div className="flex items-center space-x-6 space-x-reverse">
+              
+              <div className="flex items-center gap-4">
+                <Link 
+                  href="https://www.instagram.com/" 
+                  aria-label="اینستاگرام"
+                  className="p-2 rounded-lg hover:text-blue-600 bg-slate-200"
+                >
+                  <Instagram className="h-5 w-5" />
+                </Link>
+                <Link 
+                  href="https://www.linkedin.com/" 
+                  aria-label="لینکدین"
+                  className="p-2 rounded-lg hover:text-blue-600 bg-slate-200"
+                >
+                  <Linkedin className="h-5 w-5" />
+                </Link>
+                <Link 
+                  href="mailto:tripjet@gmail.com" 
+                  aria-label="ایمیل"
+                  className="p-2 rounded-lg hover:text-blue-600 bg-slate-200"
+                >
+                  <Mail className="h-5 w-5" />
+                </Link>
+              </div>
+            </div>
+            
+            {/* Certifications */}
+            <div className="flex flex-wrap justify-center gap-4">
+              <Link href="https://enamad.ir/" className="hover:opacity-80 transition-opacity">
+                <Image 
+                  width={70} 
+                  height={70} 
+                  src="/enamad.png" 
+                  alt="نماد الکترونیکی" 
+                  className="h-16 w-auto dark:invert"
+                />
+              </Link>
+              <Link href="http://samandehi.ir" className="hover:opacity-80 transition-opacity">
+                <Image 
+                  width={70} 
+                  height={70} 
+                  src="/samandehi.png" 
+                  alt="ساماندهی" 
+                  className="h-16 w-auto dark:invert"
+                />
+              </Link>
+              <Link href="https://www.aira.ir/" className="hover:opacity-80 transition-opacity">
+                <Image 
+                  width={70} 
+                  height={70} 
+                  src="/aira.png" 
+                  alt="انجمن صنفی کسب و کار اینترنتی" 
+                  className="h-16 w-auto dark:invert"
+                />
+              </Link>
+              <Link href="#" className="hover:opacity-80 transition-opacity">
+                <Image 
+                  width={70} 
+                  height={70} 
+                  src="/airPlane.png" 
+                  alt="مجوز رسمی آژانس مسافرتی" 
+                  className="h-16 w-auto dark:invert"
+                />
+              </Link>
+            </div>
+          </div>
+          
+          {/* Copyright */}
+          <div className="mt-8 pt-6 border-t border-gray-200  text-center text-sm text-gray-500 dark:text-gray-400">
+            © {new Date().getFullYear()} تمامی حقوق این وبگاه محفوظ و متعلق به آژانس مسافرتی تریپ جت می‌باشد.
+          </div>
+        </div>
+      </footer>
+    );
+  };
 
-    )
-}
-
-export default Footer
+  export default Footer;

@@ -1,96 +1,87 @@
-"use client"
+"use client";
+import { CircleX, Loader2, Search } from 'lucide-react';
+import { useRef, useState, useEffect } from 'react';
+import { Formik, Form, Field } from 'formik';
 
-import { CircleX, Search } from "lucide-react";
-import { useRef, useState, useEffect } from "react";
+const SearchBtn = ({ className = '' }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const inputRef = useRef(null);
 
-const SearchBtn = ({ className }) => {
-    const [display, setDisplay] = useState("hidden");
-    const [isMobile, setIsMobile] = useState(false);
-    const [inputValue, setInputValue] = useState("");
-    const inputRef = useRef(null);
+  useEffect(() => {
+    if (isExpanded && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [isExpanded]);
 
-    useEffect(() => {
-        const handleResize = () => {
-            if (typeof window !== "undefined") {
-                const newIsMobile = window.innerWidth <= 1024;
-                setIsMobile(newIsMobile);
-                
-                if (newIsMobile && !isMobile) {
-                    setDisplay("visible");
-                }
-            }
-        };
+  const handleSubmit = async (values, { resetForm }) => {
+    const query = values.searchQuery.trim();
+    if (!query) return;
+    
+    setIsLoading(true);
+    
+    try {
+      console.log('Searching for:', query);
+      await new Promise(resolve => setTimeout(resolve, 800));
+      setIsExpanded(false);
+      resetForm();
+    } catch (error) {
+      console.error('Search error:', error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
-        handleResize();
-
-        window.addEventListener('resize', handleResize);
-        
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
-    }, [isMobile])
-
-    const openInput = () => {
-        if (!isMobile) {
-            if (display === "visible") {
-                if (inputValue.trim()) {
-                    search();
-                } else {
-                    closeInput();
-                }
-            } else {
-                setDisplay("visible");
-                setTimeout(() => {
-                    if (inputRef.current) {
-                        inputRef.current.focus();
-                    }
-                }, 10);
-            }
-        } else {
-            if (inputValue.trim()) {
-                search();
-            }
-        }
-    };
-
-    const closeInput = () => {
-        setDisplay("hidden");
-        cleanInput();
-    };
-
-    const search = () => {
-        ////////////////////// Search Things //////////////////////////// 
-        console.log("Searching for:", inputValue);
-        
-        if (!isMobile) {
-            closeInput();
-        } else {
-            cleanInput();
-        }
-    };
-
-    const cleanInput = () => {
-        setInputValue("");
-    };
-
-    return (
-        <div className={`gap-2 p-2 rounded shadow-2xs text-neutral lg:flex ${className} ${display === "visible" ? "bg-primary-content" : ""}`}>
-            <Search onClick={openInput} className="cursor-pointer text-primary" />
-            <input
-                ref={inputRef}
-                onKeyDown={e => e.key === "Enter" && inputValue.trim() ? search() : null}
-                onChange={e => setInputValue(e.target.value)}
-                value={inputValue}
-                type="text"
-                placeholder="جستجو..."
-                className={`outline-0 active text-neutral lg:w-14 xl:w-auto ${display === "visible" || isMobile ? "" : "hidden"}`}
-                aria-label="Search input"
-            />
-            {!isMobile && display === "visible" && (
-                <CircleX className="cursor-pointer text-primary" onClick={closeInput} />
-            )}
-        </div>
-    );
+  return (
+    <div className={`relative ${className}`}>
+      <Formik
+        initialValues={{ searchQuery: '' }}
+        onSubmit={handleSubmit}
+      >
+        {({ values, resetForm }) => (
+          <Form>
+            <div className={`flex items-center rounded-xl transition-all duration-300 overflow-hidden ${isExpanded ? 'bg-blue-50 border border-blue-200' : 'bg-transparent'}`}>
+              <button
+                type={values.searchQuery.trim() && isExpanded ? 'submit' : 'button'}
+                onClick={() => !values.searchQuery.trim() && setIsExpanded(!isExpanded)}
+                className={`p-2 text-blue-600 transition-colors ${isLoading ? 'cursor-wait' : 'cursor-pointer'}`}
+                disabled={isLoading}
+              >
+                {isLoading ? (
+                  <Loader2 className="w-5 h-5 animate-spin" />
+                ) : (
+                  <Search className="w-5 h-5" />
+                )}
+              </button>
+              
+              <div className={`transition-all duration-300 ${isExpanded ? 'md:w-48  opacity-100 px-2' : 'w-0 opacity-0'}`}>
+                <Field
+                  innerRef={inputRef}
+                  name="searchQuery"
+                  type="text"
+                  placeholder="جستجو..."
+                  className="w-full outline-none bg-transparent text-right text-gray-800 placeholder:text-gray-400"
+                />
+              </div>
+              
+              {isExpanded && values.searchQuery && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    resetForm();
+                    setIsExpanded(false);
+                  }}
+                  className="p-2 text-gray-400 hover:text-gray-600"
+                >
+                  <CircleX className="w-5 h-5" />
+                </button>
+              )}
+            </div>
+          </Form>
+        )}
+      </Formik>
+    </div>
+  );
 };
 
 export default SearchBtn;
