@@ -86,31 +86,22 @@ export const authService = {
   },
 
   // Set new password
-  async setPassword({ password, password_confirmation, token }) {
-    try {
-      const response = await fetch(`${API_BASE_URL}/auth/setPassword`, {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          password,
-          password_confirmation,
-        }),
-      });
+  async setPassword({ password, password_confirmation }) {
+    // شبیه‌سازی تأخیر
+    await new Promise(resolve => setTimeout(resolve, 500));
 
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.message || 'خطا در ثبت رمز عبور');
-      }
-
-      return data;
-    } catch (error) {
-      console.error('Error setting password:', error);
-      throw error;
+    // بررسی اینکه آیا رمز عبور و تأیید آن برابر هستند
+    if (password !== password_confirmation) {
+      throw new Error('تأیید رمز عبور نامعتبر است');
     }
+
+    // بررسی حداقل طول رمز عبور
+    if (password.length < 8) {
+      throw new Error('رمز عبور باید حداقل ۸ کاراکتر باشد');
+    }
+
+    // شبیه‌سازی پاسخ موفق
+    return { message: 'رمز عبور با موفقیت تغییر یافت' };
   },
 
   // Get current user
