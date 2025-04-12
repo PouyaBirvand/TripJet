@@ -2,21 +2,23 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const NavigationButtons = ({swiperEnabled, swiperRef}) => (
     swiperEnabled && (
-        <div className="flex gap-2">
+        <div className="flex gap-2 items-center pr-4">
+            <span className="text-blue-600 text-lg ml-3" >مشاهده همه</span>
             <button
-                className="bg-base-100 shadow-md rounded-2xl p-3 hover:bg-base-200"
+                className="bg-base-100 border-base-300 border rounded-xl p-2 hover:bg-base-200"
                 onClick={() => swiperRef.current?.slideNext()}
                 aria-label="Next slide"
             >
-                <ChevronRight />
+                <ChevronRight size={25} className="text-slate-500" />
             </button>
             <button
-                className="bg-base-100 shadow-md rounded-2xl p-3 hover:bg-base-200"
+                className="bg-base-100 border-base-300 border rounded-xl p-2 hover:bg-base-200"
                 onClick={() => swiperRef.current?.slidePrev()}
                 aria-label="Previous slide"
             >
-                <ChevronLeft />
+                <ChevronLeft size={25} className="text-slate-500" />
             </button>
+
         </div>
     )
 );

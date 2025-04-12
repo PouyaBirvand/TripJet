@@ -1,76 +1,52 @@
-"use client"
-import { History } from "lucide-react"
-import SecHeader from "../Slider/Components/SecHeader"
-import Slider from "../Slider/Slider"
-import TextSliderItem from "./Components/TextSliderItem";
-
-// fack data
-const data = [
-    { origin: "شوش", destination: "اهواز" },
-    { origin: "تهران", destination: "مشهد" },
-    { origin: "اصفهان", destination: "شیراز" },
-    { origin: "تبریز", destination: "ارومیه" },
-    { origin: "رشت", destination: "انزلی" },
-    { origin: "کرمانشاه", destination: "همدان" },
-    { origin: "یزد", destination: "کرمان" },
-    { origin: "بندرعباس", destination: "قشم" },
-    { origin: "زاهدان", destination: "چابهار" },
-    { origin: "اردبیل", destination: "سرعین" },
-    { origin: "سنندج", destination: "مریوان" },
-    { origin: "گرگان", destination: "ساری" },
-    { origin: "خرم‌آباد", destination: "ایلام" },
-    { origin: "بیرجند", destination: "مشهد" },
-    { origin: "اهواز", destination: "آبادان" },
-    { origin: "شیراز", destination: "بوشهر" },
-    { origin: "تهران", destination: "قم" },
-    { origin: "اصفهان", destination: "کاشان" },
-    { origin: "مشهد", destination: "نیشابور" },
-    { origin: "تبریز", destination: "اردبیل" }
-];
-
-const swiperConfig = {
-    items: data,
-    buttonsPosition: "sides",
-    breakpoints: {
-        0: {
-            slidesPerView: 1,
-            spaceBetween: 8,
-        },
-        640: {
-            slidesPerView: 3,
-            spaceBetween: 8,
-        },
-        768: {
-            slidesPerView: 4,
-            spaceBetween: 15,
-        },
-        1024: {
-            slidesPerView: 5,
-            spaceBetween: 15,
-        },
-        1280: {
-            slidesPerView: 6,
-            spaceBetween: 15,
-        },
-        default: {
-            slidesPerView: 6,
-            spaceBetween: 20,
-        }
-    },
-    defaultSlidesPerView: 1,
-}
+'use client';
+import { History } from 'lucide-react';
+import SecHeader from '../Slider/Components/SecHeader';
+import Slider from '../Slider/Slider';
+import TextSliderItem from './Components/TextSliderItem';
 
 const RecentlySearch = () => {
-    return (
-        <Slider
-            renderItem={(item) => <TextSliderItem origin={item.origin} destination={item.destination} />}
-            {...swiperConfig}
-        >
-            <SecHeader lTitle="جستجوهای اخیر" rTitle="حذف همه">
-                <History />
-            </SecHeader>
-        </Slider>
-    )
-}
+  const data = [
+    { origin: 'شوش', destination: 'اهواز' },
+    { origin: 'تهران', destination: 'مشهد' },
+    { origin: 'تهران', destination: 'مشهد' },
+    { origin: 'تهران', destination: 'مشهد' },
+    { origin: 'تهران', destination: 'مشهد' },
+    { origin: 'تهران', destination: 'مشهد' },
+    { origin: 'تهران', destination: 'مشهد' },
+    { origin: 'تهران', destination: 'مشهد' },
+    { origin: 'تهران', destination: 'مشهد' },
+    { origin: 'تهران', destination: 'مشهد' },
+    { origin: 'تهران', destination: 'مشهد' },
+    { origin: 'تهران', destination: 'مشهد' },
+    { origin: 'تهران', destination: 'مشهد' },
 
-export default RecentlySearch
+    // ... سایر موارد
+  ];
+
+  return (
+    <Slider
+      items={data}
+      buttonsPosition="sides"
+      breakpoints={{
+        640: { slidesPerView: 2, spaceBetween: 12 },
+        768: { slidesPerView: 3, spaceBetween: 16 },
+        1024: { slidesPerView: 4, spaceBetween: 16 },
+        1280: { slidesPerView: 6, spaceBetween: 16 },
+      }}
+      defaultSlidesPerView={1}
+      renderItem={item => (
+        <div className="px-1 pb-1 h-full">
+          <TextSliderItem {...item} />
+        </div>
+      )}
+    >
+      <div className="relative top-1">
+        <SecHeader lTitle="جستجوهای اخیر" rTitle="پاک کردن همه">
+          <History size={28} className="text-blue-600 relative mt-1" />
+        </SecHeader>
+      </div>
+    </Slider>
+  );
+};
+
+export default RecentlySearch;
