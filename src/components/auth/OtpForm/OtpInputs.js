@@ -66,7 +66,7 @@ const OtpInputs = ({ inputRefs }) => {
                   ? 'border-error focus:border-error'
                   : 'border-base-300 focus:border-primary'
               } 
-              bg-base-200 dark:bg-base-100
+  border-slate-300
               focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all`}
             onChange={e => handleInputChange(e, index)}
             onKeyDown={e => handleKeyDown(e, index)}

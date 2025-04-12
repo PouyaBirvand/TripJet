@@ -70,6 +70,9 @@ export function usePhoneAuth() {
       getUserMutation.mutate(authToken);
       router.push('/');
     },
+    onError: () => {
+      router.back(2)
+    }
   });
 
   // Login with password

@@ -1,24 +1,23 @@
-"use client";
+'use client';
+import { Form, Formik } from 'formik';
+import OtpInputs from './OtpInputs';
+import { X } from 'lucide-react';
+import { useModal } from '../../../hooks/useModal';
+import { useRouter } from 'next/navigation';
+import { usePhoneAuth } from '../../../hooks/usePhoneAuth';
+import { useAuth } from '../../../contexts/AuthContext';
+import { useEffect, useRef, useState } from 'react';
+import Cookies from 'js-cookie';
+import { validationSchema } from './validation';
+import { formatTime } from '../../../lib/utils/formatting';
 
-import { Form, Formik } from "formik";
-import OtpInputs from "./OtpInputs";
-import { X } from "lucide-react";
-import { useModal } from "../../../hooks/useModal";
-import { useRouter } from "next/navigation";
-import { usePhoneAuth } from "../../../hooks/usePhoneAuth";
-import { useAuth } from "../../../contexts/AuthContext";
-import { useEffect, useRef, useState } from "react";
-import Cookies from "js-cookie";
-import { validationSchema } from "./validation";
-import { formatTime } from "../../../lib/utils/formatting";
-
-const OtpForm = () => {
+export default function OtpForm() {
   const { isOpen, handleClose } = useModal();
   const router = useRouter();
   const [timer, setTimer] = useState(120);
   const [canResend, setCanResend] = useState(false);
   const inputRefs = [useRef(null), useRef(null), useRef(null), useRef(null)];
-  
+
   const {
     verifyOtp,
     isOtpVerificationLoading,
@@ -26,9 +25,9 @@ const OtpForm = () => {
     sendPhoneVerification,
     getPhoneNumber,
   } = usePhoneAuth();
-  
+
   const { phoneVerificationToken } = useAuth();
-  
+
   const verificationToken = phoneVerificationToken || Cookies.get('phone_verification_token');
   const phoneNumber = getPhoneNumber();
 
@@ -45,11 +44,10 @@ const OtpForm = () => {
 
   const handleResendCode = async () => {
     if (!canResend || !phoneNumber) return;
-
     try {
       // resend OTP
       sendPhoneVerification(phoneNumber);
-      
+
       setTimer(120);
       setCanResend(false);
     } catch (error) {
@@ -63,13 +61,13 @@ const OtpForm = () => {
         console.error('No verification token found');
         return;
       }
-
       const otpCode = Object.values(values).join('');
-      
+
       verifyOtp({
         code: otpCode,
         token: verificationToken,
       });
+      router.push('/set-password');
     } catch (error) {
       console.error('Error submitting OTP code:', error);
     } finally {
@@ -80,93 +78,98 @@ const OtpForm = () => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex justify-center items-center z-50 p-4 animate-fade-in">
-      <div
-        className="w-full max-w-md bg-base-100 dark:bg-base-300 rounded-xl shadow-2xl animate-slide-up overflow-hidden"
-        dir="rtl"
-      >
-        <div className="flex justify-between items-center p-4 border-b border-base-200 dark:border-base-content/10">
-          <h3 className="text-lg font-semibold text-base-content">کد تایید را وارد کنید</h3>
+    <div
+      className="fixed inset-0 bg-black/50 backdrop-blur-sm flex justify-center items-center z-50 animate-fade-in p-4 sm:p-6"
+      dir="rtl"
+    >
+      <div className="bg-white rounded-xl animate-slide-up overflow-hidden w-full max-w-[40rem] md:p-15 relative">
+        <div className="absolute top-4 sm:top-5 left-4 sm:left-5">
           <button
             onClick={handleClose}
-            className="p-1.5 rounded-full hover:bg-base-200 dark:hover:bg-base-content/10 transition-colors focus-ring"
+            className="rounded-full cursor-pointer hover:bg-gray-100 dark:hover:bg-base-content/10 transition-colors p-1 focus-ring border text-slate-400 border-slate-400"
             aria-label="بستن"
           >
-            <X className="w-5 h-5 text-base-content/70" />
+            <X size={15} strokeWidth={2} />
           </button>
         </div>
 
-        <Formik
-          initialValues={{ digit1: '', digit2: '', digit3: '', digit4: '' }}
-          validationSchema={validationSchema}
-          onSubmit={handleSubmit}
-        >
-          {({ isValid, dirty, errors, touched }) => (
-            <Form className="flex flex-col p-6 space-y-8">
-              <p className="text-base-content/80 text-center">
-                کد تایید به شماره موبایل شما ارسال شد.
-              </p>
+        <div className="flex flex-col items-center justify-center px-4 sm:px-8 pt-14 sm:pt-16 pb-8 sm:pb-10">
+          <h1 className="text-xl sm:text-2xl font-semibold mb-3 sm:mb-5 text-center">
+            کد تایید را وارد کنید
+          </h1>
+          <p className="text-center text-slate-400 font-light mb-6 sm:mb-8 max-w-md text-sm sm:text-base">
+            کد تایید به شماره موبایل شما ارسال شد.
+          </p>
 
-              <div className="flex flex-col items-center space-y-6">
-                <OtpInputs inputRefs={inputRefs} />
+          <Formik
+            initialValues={{ digit1: '', digit2: '', digit3: '', digit4: '' }}
+            validationSchema={validationSchema}
+            onSubmit={handleSubmit}
+          >
+            {({ isValid, dirty, errors, touched }) => (
+              <Form className="w-full max-w-md flex flex-col items-center">
+                <div className="w-full flex flex-col items-center space-y-6 mb-6">
+                  <OtpInputs inputRefs={inputRefs} />
 
-                {otpVerificationError && (
-                  <div className="text-error text-sm text-center">
-                    {otpVerificationError.message}
-                  </div>
-                )}
-
-                <div className="text-center space-y-2">
-                  <p className="text-base-content/70 text-sm">
-                    {canResend ? (
-                      <button
-                        type="button"
-                        onClick={handleResendCode}
-                        className="text-primary hover:underline focus:outline-none"
-                      >
-                        ارسال مجدد کد
-                      </button>
-                    ) : (
-                      <>
-                        زمان باقی‌مانده: <span className="font-medium">{formatTime(timer)}</span>
-                      </>
-                    )}
-                  </p>
-                </div>
-              </div>
-
-              <div className="space-y-4">
-                <button
-                  className="btn btn-primary w-full py-3 rounded-lg font-medium transition-all hover:shadow-md 
-                    disabled:opacity-70 disabled:cursor-not-allowed text-primary-content
-                    disabled:text-primary-content/90 disabled:bg-primary/70"
-                  type="submit"
-                  disabled={isOtpVerificationLoading || !(isValid && dirty)}
-                >
-                  {isOtpVerificationLoading ? (
-                    <span className="flex items-center justify-center">
-                      <span className="w-5 h-5 border-2 border-primary-content border-t-transparent rounded-full animate-spin mr-2"></span>
-                      در حال پردازش...
-                    </span>
-                  ) : (
-                    'تایید و ادامه'
+                  {otpVerificationError && (
+                    <div className="text-red-500 text-sm text-center">
+                      {otpVerificationError.message}
+                    </div>
                   )}
-                </button>
 
-                <button
-                  type="button"
-                  onClick={() => router.push('/')}
-                  className="btn btn-outline btn-primary w-full py-3 rounded-lg font-medium transition-all hover:shadow-md"
-                >
-                  بازگشت
-                </button>
-              </div>
-            </Form>
-          )}
-        </Formik>
+                  <div className="text-center space-y-2">
+                    <p className="text-slate-500 text-sm">
+                      {canResend ? (
+                        <button
+                          type="button"
+                          onClick={handleResendCode}
+                          className="!text-blue-600 hover:underline focus:outline-none"
+                        >
+                          ارسال مجدد کد
+                        </button>
+                      ) : (
+                        <>
+                          زمان باقی‌مانده: <span className="font-medium">{formatTime(timer)}</span>
+                        </>
+                      )}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex flex-col items-center justify-center gap-2 sm:gap-3 w-full">
+                  <button
+                    className="w-full py-2.5 px-4 rounded-lg font-normal bg-blue-600 text-white hover:bg-blue-700 
+                    transition-all duration-200 text-xs sm:text-sm h-auto min-h-0
+                    disabled:bg-blue-300 disabled:cursor-not-allowed disabled:hover:bg-blue-300
+                    focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+                    type="submit"
+                    disabled={isOtpVerificationLoading || !(isValid && dirty)}
+                  >
+                    {isOtpVerificationLoading ? (
+                      <span className="flex items-center justify-center">
+                        <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin ml-2"></span>
+                        در حال پردازش...
+                      </span>
+                    ) : (
+                      'تایید و ادامه'
+                    )}
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => router.push('/set-password')}
+                    className="w-full py-2.5 px-4 rounded-lg font-normal bg-white !text-blue-600 border border-blue-600
+                    hover:bg-blue-50 transition-all duration-200 text-xs sm:text-sm h-auto min-h-0
+                    focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+                  >
+                    ورود با رمز عبور
+                  </button>
+                </div>
+              </Form>
+            )}
+          </Formik>
+        </div>
       </div>
     </div>
   );
-};
-
-export default OtpForm;
+}
