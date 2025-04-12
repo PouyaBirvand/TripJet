@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { AlertCircle } from 'lucide-react';
 import TourCard from './TourCard';
 import Pagination from '../ui/Pagination';
+import Image from 'next/image';
+import Link from 'next/link'; // Import Link for navigation
 
 export default function ToursList({ tours }) {
   const [currentPage, setCurrentPage] = useState(1);
@@ -22,16 +24,20 @@ export default function ToursList({ tours }) {
 
   if (tours.length === 0) {
     return (
-      <div className="bg-base-100 shadow-md rounded-lg p-8 text-center">
-        <AlertCircle size={48} className="mx-auto mb-4 text-warning" />
-        <h3 className="text-xl font-bold mb-2">متأسفانه توری یافت نشد</h3>
-        <p className="text-gray-600">لطفاً فیلترهای جستجو را تغییر دهید یا معیارهای دیگری را امتحان کنید.</p>
+      <div className="p-8 text-center flex flex-col justify-center items-center mt-15">
+        <Image alt='empty' src="/emptytours.png" width={500} height={500} />
+        <div className="flex items-center justify-center mt-4">
+          <p className="text-gray-600 text-lg">متأسفانه برای مبدا تهران به مقصد مالزی توری یافت نشد!</p>
+        </div>
+        <Link href="/" className=" text-nowrap  mt-6 inline-block bg-blue-500 text-white py-2 px-4 rounded-lg md:w-1/2 w-full duration-150 transition-all hover:bg-blue-600">
+          بازگشت به صفحه اصلی
+        </Link>
       </div>
     );
   }
 
   return (
-    <div>      
+    <div>
       <div className="flex flex-col gap-6">
         {paginatedTours.map(tour => (
           <TourCard key={tour.id} tour={tour} />

@@ -1,11 +1,24 @@
+"use client";
 import Image from 'next/image';
-import { Heart } from 'lucide-react';
-import { useState } from 'react';
+import tourData from '../tourData';
+import { useFavorite } from '../../../hooks/useFavorite';
+import FavoriteButton from '../../../components/common/FavoriteButton';
 
-export default function TourImage({ id, destination }) {
-  const [isFavorite, setIsFavorite] = useState(false);
+export default function TourImage({ id, destination}) {
+  const { isFavorite, toggleFavorite, isAdding, isRemoving } = useFavorite();
   const tourImage = `https://picsum.photos/700/300?random=${id}`;
   
+  const handleToggleFavorite = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    // Find the full tour object from the id
+    const tour = tourData.find(t => t.id === id);
+    if (tour) {
+      toggleFavorite(tour);
+    }
+  };
+
   return (
     <div className="relative h-48 md:h-full">
       <figure className="h-full w-full">
@@ -18,15 +31,12 @@ export default function TourImage({ id, destination }) {
         />
       </figure>
       
-      <button 
-        onClick={() => setIsFavorite(!isFavorite)}
-        className="absolute top-3 right-3 bg-white/80 backdrop-blur-sm p-2 rounded-xl shadow-sm hover:bg-white transition-colors z-10"
-      >
-        <Heart 
-          size={20} 
-          className={`${isFavorite ? 'fill-red-500 text-red-500' : 'text-primary'} transition-colors`} 
-        />
-      </button>
+      <FavoriteButton
+        isFavorite={isFavorite(id)}
+        onClick={handleToggleFavorite}
+        isLoading={isAdding || isRemoving}
+        className="top-3 right-3"
+      />
     </div>
   );
 }

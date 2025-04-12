@@ -6,12 +6,10 @@ import TourPricing from './TourPricing';
 
 export default function TourCard({ tour }) {
   return (
-    <div dir="rtl" className="card bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden h-full border border-gray-100">
+    <div dir="rtl" className="card bg-white rounded-xl overflow-hidden h-full border border-slate-200">
       <div className="flex flex-col">
-        {/* بخش بالایی: عکس و اطلاعات اصلی در کنار هم */}
         <div className="flex flex-col md:flex-row">
-          {/* عکس - عرض کامل در موبایل، 1/3 در دسکتاپ */}
-          <div className="md:w-1/3">
+          <div className="md:w-1/3 p-1">
             <TourImage
               id={tour.id}
               title={tour.title}
@@ -22,7 +20,6 @@ export default function TourCard({ tour }) {
             />
           </div>
           
-          {/* اطلاعات اصلی - عرض کامل در موبایل، 2/3 در دسکتاپ */}
           <div className="md:w-2/3 p-4">
             <TourHeader 
               title={tour.title}
@@ -37,7 +34,6 @@ export default function TourCard({ tour }) {
           </div>
         </div>
         
-        {/* بخش پایینی: سرویس‌ها و قیمت‌گذاری */}
         <div className="p-4 pt-0">
           <div className="grid md:grid-cols-2 gap-4">
             <TourServices services={tour.services} />

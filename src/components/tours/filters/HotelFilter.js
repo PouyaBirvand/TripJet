@@ -10,7 +10,7 @@ export default function HotelFilter() {
   const [showNoStar, setShowNoStar] = useState(getFilterValue('show_no_star') === 'true');
 
   // به‌روزرسانی فیلتر نام هتل
-  const handleHotelNameChange = (e) => {
+  const handleHotelNameChange = e => {
     setHotelName(e.target.value);
   };
 
@@ -20,11 +20,11 @@ export default function HotelFilter() {
   };
 
   // به‌روزرسانی فیلتر ستاره هتل
-  const handleStarChange = (star) => {
+  const handleStarChange = star => {
     const newStars = hotelStars.includes(star)
       ? hotelStars.filter(s => s !== star)
       : [...hotelStars, star];
-    
+
     setHotelStars(newStars);
     updateFilters('hotel_stars', newStars.length > 0 ? newStars.join(',') : null);
   };
@@ -53,13 +53,13 @@ export default function HotelFilter() {
               type="text"
               value={hotelName}
               onChange={handleHotelNameChange}
-              onKeyDown={(e) => e.key === 'Enter' && handleHotelNameSubmit()}
+              onKeyDown={e => e.key === 'Enter' && handleHotelNameSubmit()}
               placeholder="جستجوی نام هتل یا اقامتگاه"
               className="input input-bordered w-full pr-10 text-sm"
             />
-            <button 
+            <button
               onClick={handleHotelNameSubmit}
-              className="absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-primary"
+              className="absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-400 hover:!text-blue-600"
             >
               <Search size={18} />
             </button>
@@ -69,7 +69,7 @@ export default function HotelFilter() {
         <div>
           <h4 className="text-sm font-medium mb-2">ستاره هتل</h4>
           <div className="space-y-2">
-            {[1, 2, 3, 4, 5].map((star) => (
+            {[1, 2, 3, 4, 5].map(star => (
               <div key={star} className="flex items-center">
                 <input
                   type="checkbox"
@@ -81,14 +81,16 @@ export default function HotelFilter() {
                 <label htmlFor={`star-${star}`} className="mr-2 text-sm flex items-center">
                   {star} ستاره
                   <span className="flex mr-1 text-yellow-400">
-                    {Array(star).fill().map((_, i) => (
-                      <Star key={i} size={14} fill="currentColor" />
-                    ))}
+                    {Array(star)
+                      .fill()
+                      .map((_, i) => (
+                        <Star key={i} size={14} fill="currentColor" />
+                      ))}
                   </span>
                 </label>
               </div>
             ))}
-            
+
             <div className="flex items-center">
               <input
                 type="checkbox"

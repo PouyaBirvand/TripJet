@@ -16,9 +16,9 @@ export default function MobileFilters() {
       </button>
       
       {isOpen && (
-        <div className="fixed inset-0 z-50 bg-black bg-opacity-50 flex items-end">
+        <div className="fixed inset-0 z-50 bg-white mb-15 bg-opacity-50 flex items-end">
           <div className="bg-white w-full h-[90vh] rounded-t-xl p-4 overflow-y-auto">
-            <div className="flex justify-between items-center mb-4 sticky top-0 bg-white z-10 pb-2 border-b">
+            <div className="flex justify-between items-center sticky -top-5 bg-white z-10 pb-2 border-b">
               <h2 className="text-lg font-bold">فیلترها</h2>
               <button 
                 onClick={() => setIsOpen(false)}

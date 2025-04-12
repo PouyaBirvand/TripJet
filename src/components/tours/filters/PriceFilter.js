@@ -9,7 +9,7 @@ export default function PriceFilter({ options = [] }) {
   const [showDiscounted, setShowDiscounted] = useState(getFilterValue('discounted') === 'true');
 
   // به‌روزرسانی فیلتر قیمت در URL
-  const handlePriceRangeChange = (value) => {
+  const handlePriceRangeChange = value => {
     setSelectedPriceRange(value);
     updateFilters('price_range', value);
   };
@@ -36,18 +36,18 @@ export default function PriceFilter({ options = [] }) {
             <span className="text-sm">نمایش تورهای تخفیف‌دار</span>
           </div>
           <label className="relative inline-flex items-center cursor-pointer">
-            <input 
-              type="checkbox" 
+            <input
+              type="checkbox"
               checked={showDiscounted}
               onChange={handleDiscountedChange}
               className="sr-only peer"
             />
-            <div className="w-8 h-4 bg-gray-200 peer-focus:outline-none  peer-focus:ring-primary rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:translate-x-[-130%] peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:right-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-3 after:w-3 after:transition-all peer-checked:bg-primary"></div>
+            <div className="w-8 h-4 bg-gray-200 peer-focus:outline-none  peer-focus:ring-primary rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:translate-x-[-130%] peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:right-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-3 after:w-3 after:transition-all peer-checked:bg-blue-600 text-white"></div>
           </label>
         </div>
 
         <div className="space-y-2">
-          {options.map((range) => (
+          {options.map(range => (
             <div key={range.id} className="flex items-center">
               <input
                 type="radio"
@@ -63,10 +63,8 @@ export default function PriceFilter({ options = [] }) {
               </label>
             </div>
           ))}
-          
-          {options.length === 0 && (
-            <p className="text-sm text-gray-500">گزینه‌ای موجود نیست</p>
-          )}
+
+          {options.length === 0 && <p className="text-sm text-gray-500">گزینه‌ای موجود نیست</p>}
         </div>
       </div>
     </Accordion>

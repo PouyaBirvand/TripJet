@@ -5,32 +5,36 @@ import { Activity } from 'lucide-react';
 
 export default function DifficultyFilter({ options = [] }) {
   const { updateFilters, getFilterValue } = useFilters();
-  const [selectedLevels, setSelectedLevels] = useState(getFilterValue('difficulty_levels')?.split(',') || []);
-  
+  const [selectedLevels, setSelectedLevels] = useState(
+    getFilterValue('difficulty_levels')?.split(',') || []
+  );
+
   // به‌روزرسانی فیلتر سطح سختی
-  const handleLevelChange = (levelId) => {
+  const handleLevelChange = levelId => {
     const newLevels = selectedLevels.includes(levelId)
       ? selectedLevels.filter(l => l !== levelId)
       : [...selectedLevels, levelId];
-    
+
     setSelectedLevels(newLevels);
     updateFilters('difficulty_levels', newLevels.length > 0 ? newLevels.join(',') : null);
   };
-  
+
   // به‌روزرسانی state هنگام تغییر URL
   useEffect(() => {
     setSelectedLevels(getFilterValue('difficulty_levels')?.split(',') || []);
   }, [getFilterValue]);
-  
+
   return (
-    <Accordion title={
-      <span className="flex items-center">
-        <Activity size={18} className="ml-2 text-primary" />
-        سطح تورها
-      </span>
-    }>
+    <Accordion
+      title={
+        <span className="flex items-center">
+          <Activity size={18} className="ml-2 !text-blue-600" />
+          سطح تورها
+        </span>
+      }
+    >
       <div className="space-y-2">
-        {options.map((level) => (
+        {options.map(level => (
           <div key={level.id} className="flex items-center">
             <input
               type="checkbox"
@@ -44,10 +48,8 @@ export default function DifficultyFilter({ options = [] }) {
             </label>
           </div>
         ))}
-        
-        {options.length === 0 && (
-          <p className="text-sm text-gray-500">گزینه‌ای موجود نیست</p>
-        )}
+
+        {options.length === 0 && <p className="text-sm text-gray-500">گزینه‌ای موجود نیست</p>}
       </div>
     </Accordion>
   );
