@@ -24,7 +24,7 @@ export default function RootLayout({ children, auth }) {
         <QueryProvider>
           <AuthProvider>
             <Header />
-            <main className="container my-4">
+            <main className="container my-4 pb-24">
               {children}
               {auth}
             </main>
