@@ -48,14 +48,14 @@ export default function HotelFilter() {
       <div className="space-y-4">
         <div>
           <h4 className="text-sm font-medium mb-2">نام هتل یا اقامتگاه</h4>
-          <div className="relative">
+          <div className="relative group">
             <input
               type="text"
               value={hotelName}
               onChange={handleHotelNameChange}
               onKeyDown={e => e.key === 'Enter' && handleHotelNameSubmit()}
               placeholder="جستجوی نام هتل یا اقامتگاه"
-              className="input input-bordered w-full pr-10 text-sm"
+              className="input input-bordered w-full pr-10 text-sm !outline-none focus:border-blue-600 duration-150 transition-colors"
             />
             <button
               onClick={handleHotelNameSubmit}

@@ -4,10 +4,12 @@ import Link from 'next/link';
 import Image from 'next/image';
 import NavItems from './Components/NavItems';
 import TelBtn from './Components/TelBtn';
-import SearchBtn from './Components/SearchBtn';
+const SearchBtn = dynamic(() => import('./Components/SearchBtn'), { ssr: false });
 import { useState, useEffect } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import Cookies from 'js-cookie';
+import MyTravelsButton from './Components/MyTravelsButton';
+import dynamic from 'next/dynamic';
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -56,24 +58,29 @@ const Header = () => {
           </div>
           <div className="flex items-center gap-4">
             <SearchBtn />
-            <TelBtn className="hidden lg:flex" />
             {isLoggedIn ? (
-              <button
-                onClick={() => router.push('/profile')}
-                className="btn flex gap-2 relative bg-blue-600 hover:bg-blue-700 text-white rounded-xl px-6 py-6 transition-colors duration-200"
-              >
-                <Image alt="profile" src={'/profile.png'} width={35} height={35} />
-                <span className="absolute w-2 border border-white h-2 rounded-full bg-success right-7 top-8"></span>
-                <span className="font-normal">کوروش صفایی</span>
-              </button>
+              <>
+                <MyTravelsButton className="hidden lg:flex" />
+                <button
+                  onClick={() => router.push('/profile')}
+                  className="btn flex gap-2 relative bg-blue-600 hover:bg-blue-700 text-white rounded-xl px-6 py-6 transition-colors duration-200"
+                >
+                  <Image alt="profile" src={'/profile.png'} width={35} height={35} />
+                  <span className="absolute w-2 border border-white h-2 rounded-full bg-success right-7 top-8"></span>
+                  <span className="font-normal">کوروش صفایی</span>
+                </button>
+              </>
             ) : (
-              <button
-                onClick={() => router.push('/phone')}
-                className="btn flex gap-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl px-6 py-6 transition-colors duration-200"
-              >
-                <ArrowRight className="w-5 h-5" />
-                <span>ورود / ثبت نام</span>
-              </button>
+              <>
+                <TelBtn className="hidden lg:flex" />
+                <button
+                  onClick={() => router.push('/phone')}
+                  className="btn flex gap-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl px-6 py-6 transition-colors duration-200"
+                >
+                  <ArrowRight className="w-5 h-5" />
+                  <span>ورود / ثبت نام</span>
+                </button>
+              </>
             )}
           </div>
         </div>
@@ -131,22 +138,27 @@ const Header = () => {
                 <NavItems mobileMode />
               </div>
               <div className="mt-auto pt-4 border-t border-gray-100 pb-6">
-                <TelBtn className="w-full justify-center mb-3 py-3 text-base" />
                 {isLoggedIn ? (
-                  <button
-                    onClick={() => router.push('/profile')}
-                    className="btn w-full bg-blue-600 hover:bg-blue-700 text-white rounded-xl py-5 text-base"
-                  >
-                    <Image alt="profile" src={'/profile.png'} width={35} height={35} />
-                    <span className="font-normal">کوروش صفایی</span>
-                  </button>
+                  <>
+                    <MyTravelsButton className="w-full justify-center mb-3 !py-2" />
+                    <button
+                      onClick={() => router.push('/profile')}
+                      className="btn w-full bg-blue-600 hover:bg-blue-700 text-white rounded-xl py-5 text-base"
+                    >
+                      <Image alt="profile" src={'/profile.png'} width={35} height={35} />
+                      <span className="font-normal">کوروش صفایی</span>
+                    </button>
+                  </>
                 ) : (
-                  <button
-                    onClick={() => router.push('/phone')}
-                    className="btn w-full bg-blue-600 hover:bg-blue-700 text-white rounded-lg py-3 text-base"
-                  >
-                    ورود / ثبت نام
-                  </button>
+                  <>
+                    <TelBtn className="w-full justify-center mb-3 py-3 text-base" />
+                    <button
+                      onClick={() => router.push('/phone')}
+                      className="btn w-full bg-blue-600 hover:bg-blue-700 text-white rounded-lg py-3 text-base"
+                    >
+                      ورود / ثبت نام
+                    </button>
+                  </>
                 )}
               </div>
             </div>

@@ -91,7 +91,7 @@ const NavItem = ({ item, level = 0, mobileMode = false }) => {
           >
             <div className="flex items-center gap-2">
               {item.icon}
-              <span className="whitespace-nowrap">{item.title}</span>
+              <span className="whitespace-nowrap font-normal">{item.title}</span>
             </div>
             <ChevronDown 
               className={`w-4 h-4 transition-transform duration-200 ${
@@ -109,7 +109,7 @@ const NavItem = ({ item, level = 0, mobileMode = false }) => {
             }`}
           >
             {item.icon}
-            <span className="whitespace-nowrap">{item.title}</span>
+            <span className="whitespace-nowrap font-normal">{item.title}</span>
           </Link>
         )}
       </div>
