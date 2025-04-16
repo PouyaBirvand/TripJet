@@ -82,7 +82,7 @@ const Comments = () => {
 
   return (
     <Slider renderItem={item => <CommentsBox item={item} />} {...swiperConfig}>
-      <div className='mb-4 sm:mb-0'>
+      <div className='relative top-3 md:top-0'>
         <SecHeader lTitle="نظرات کاربران">
           <MessageCircleMore size={30} />
         </SecHeader>
