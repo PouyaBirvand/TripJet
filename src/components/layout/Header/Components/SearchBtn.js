@@ -40,7 +40,7 @@ const SearchBtn = ({ className = '' }) => {
       >
         {({ values, resetForm }) => (
           <Form>
-            <div className={`flex items-center py-1 rounded-xl transition-all duration-300 overflow-hidden ${isExpanded ? 'bg-blue-50 border border-blue-200' : 'bg-transparent'}`}>
+            <div className={`flex items-center py-1 border-none rounded-xl transition-all duration-300 overflow-hidden ${isExpanded ? 'bg-blue-50' : 'bg-transparent'}`}>
               <button
                 type={values.searchQuery.trim() && isExpanded ? 'submit' : 'button'}
                 onClick={() => !values.searchQuery.trim() && setIsExpanded(!isExpanded)}
