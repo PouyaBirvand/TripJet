@@ -8,19 +8,12 @@ const RecentlySearch = () => {
   const data = [
     { origin: 'شوش', destination: 'اهواز' },
     { origin: 'تهران', destination: 'مشهد' },
-    { origin: 'تهران', destination: 'مشهد' },
-    { origin: 'تهران', destination: 'مشهد' },
-    { origin: 'تهران', destination: 'مشهد' },
-    { origin: 'تهران', destination: 'مشهد' },
-    { origin: 'تهران', destination: 'مشهد' },
-    { origin: 'تهران', destination: 'مشهد' },
-    { origin: 'تهران', destination: 'مشهد' },
-    { origin: 'تهران', destination: 'مشهد' },
-    { origin: 'تهران', destination: 'مشهد' },
-    { origin: 'تهران', destination: 'مشهد' },
-    { origin: 'تهران', destination: 'مشهد' },
+    { origin: 'شوشتر', destination: 'بندر عباس' },
+    { origin: 'ترکیه', destination: 'افریقا' },
+    { origin: 'سبزوار', destination: 'گوهردشت' },
+    { origin: 'کرج', destination: 'دزفول' },
+    { origin: 'شاهین شهر', destination: 'بهبان' }
 
-    // ... سایر موارد
   ];
 
   return (

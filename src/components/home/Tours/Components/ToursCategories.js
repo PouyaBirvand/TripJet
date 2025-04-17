@@ -1,14 +1,15 @@
 "use client";
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Map } from 'lucide-react';
 import { useQuery } from '@tanstack/react-query';
+import { useQueryState } from 'nuqs';
 import TourCategoryItem from './TourCategoryItem';
 import { tourService } from '../../../../services/tour/tourService';
 import Slider from '../../Slider/Slider';
 import SecHeader from '../../Slider/Components/SecHeader';
 
 const TourCategories = () => {
-  const [activeFilter, setActiveFilter] = useState('');
+  const [activeFilter, setActiveFilter] = useQueryState('sort');
   const [filteredTours, setFilteredTours] = useState([]);
 
   const { data: tours, isLoading } = useQuery({
@@ -34,7 +35,8 @@ const TourCategories = () => {
   }, [tours, activeFilter]);
 
   const handleFilterChange = (filter) => {
-    setActiveFilter(filter === activeFilter ? '' : filter);
+    // If the same filter is clicked again, clear it
+    setActiveFilter(filter === activeFilter ? null : filter);
   };
 
   const swiperConfig = {
@@ -88,7 +90,10 @@ const TourCategories = () => {
                     className={`btn btn-sm md:btn-md font-normal !text-[0.9rem] text-slate-500 bg-white ${activeFilter === filter ? '!bg-sky-200 !text-blue-600 !border-none' : 'btn-outline'} rounded-lg border border-slate-300 font-medium text-xs sm:text-sm`}
                     onClick={() => handleFilterChange(filter)}
                   >
-                    {filter === 'luxury' ? 'لوکس ترین' : filter === 'special' ? 'تور های ویژه' : filter === 'nearest_date' ? 'نزدیک ترین تاریخ اجرا' : 'تعطیلات اخر هفته'}
+                    {filter === 'luxury' ? 'لوکس ترین' : 
+                     filter === 'special' ? 'تور های ویژه' : 
+                     filter === 'nearest_date' ? 'نزدیک ترین تاریخ اجرا' : 
+                     'تعطیلات اخر هفته'}
                   </button>
                 ))}
               </div>
