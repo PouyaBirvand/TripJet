@@ -4,6 +4,7 @@ import Header from '../components/layout/Header/Header';
 import Footer from '../components/layout/Footer/Footer';
 import { QueryProvider } from '../providers/QueryProvider';
 import { AuthProvider } from '../providers/AuthProvider';
+import { NuqsAdapter } from 'nuqs/adapters/next/app'
 
 const vazir = Vazirmatn({
   variable: '--font-vazir',
@@ -21,16 +22,18 @@ export default function RootLayout({ children, auth }) {
   return (
     <html lang="fa" dir="rtl">
       <body className={`${vazir.className} antialiased min-h-screen flex flex-col bg-base-200`}>
-        <QueryProvider>
-          <AuthProvider>
-            <Header />
-            <main className="container my-4 pb-24">
-              {children}
-              {auth}
-            </main>
-            <Footer />
-          </AuthProvider>
-        </QueryProvider>
+        <NuqsAdapter>
+          <QueryProvider>
+            <AuthProvider>
+              <Header />
+              <main className="container my-4 pb-24">
+                {children}
+                {auth}
+              </main>
+              <Footer />
+            </AuthProvider>
+          </QueryProvider>
+        </NuqsAdapter>
       </body>
     </html>
   );
