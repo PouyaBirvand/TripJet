@@ -133,10 +133,17 @@ export const formatRelativeTime = (dateString) => {
  * @param {boolean} state.isFocused - Whether the input is focused
  * @param {string} state.value - The input value
  * @returns {string} The Tailwind CSS class for border color
- */
+*/
 export const getBorderColorClass = ({ isValid, isDirty, isFocused, value }) => {
   if (!isValid && isDirty && !isFocused) return 'border-red-500';
   if (isValid && value.length === 10) return 'border-green-500';
   if (isFocused) return 'border-blue-500';
   return 'border-gray-300';
+};
+
+export const getColorClass = () => {
+  if (error && touched && !isFocused) return 'text-error';
+  if (!error && value && value.length > 0) return 'text-success';
+  if (isFocused) return '!text-blue-600';
+  return 'text-base-content/50';
 };
