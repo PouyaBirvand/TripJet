@@ -34,8 +34,6 @@ export default function Timeline() {
         <div className="flex justify-between w-full relative z-10 lg:w-1/3 lg:mx-auto">
           {steps.map((step) => {
             const Icon = step.icon;
-            const isCompleted = step.id < currentStep;
-            const isCurrent = step.id === currentStep;
             const isActive = step.id <= currentStep;
             
             return (
