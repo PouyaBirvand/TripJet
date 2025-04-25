@@ -5,6 +5,8 @@
 ## ⚠️ Development Status
 
 > **Note:** This project is currently under active development. Features may change and improve over time.
+> 
+> **Important:** The main codebase is available in the `dev` branch. Please check out the dev branch to see the latest code and features.
 
 ## 🌟 Overview
 
