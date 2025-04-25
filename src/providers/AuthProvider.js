@@ -13,7 +13,6 @@ export function AuthProvider({ children }) {
   const [needsPasswordSetup, setNeedsPasswordSetup] = useState(false);
   const queryClient = useQueryClient();
 
-  // Initialize state from cookies
   useEffect(() => {
     const savedToken = Cookies.get('auth_token');
     const savedVerificationToken = Cookies.get('phone_verification_token');
@@ -29,7 +28,6 @@ export function AuthProvider({ children }) {
     }
   }, []);
 
-  // Use React Query to fetch user data
   const { isLoading } = useQuery({
     queryKey: ['currentUser', authToken],
     queryFn: () => authService.getCurrentUser(authToken),
@@ -43,7 +41,6 @@ export function AuthProvider({ children }) {
       if (error.needsPassword) {
         setNeedsPasswordSetup(true);
       } else {
-        // If there's another error, clear the token
         logout();
       }
       setLoading(false);
@@ -52,7 +49,6 @@ export function AuthProvider({ children }) {
     refetchOnWindowFocus: false,
   });
 
-  // Update loading state based on query loading
   useEffect(() => {
     if (authToken) {
       setLoading(isLoading);
@@ -62,7 +58,6 @@ export function AuthProvider({ children }) {
   const login = (token) => {
     setAuthToken(token);
     Cookies.set('auth_token', token, { expires: 7 });
-    // Invalidate and refetch user data
     queryClient.invalidateQueries({ queryKey: ['currentUser'] });
   };
 
@@ -72,13 +67,11 @@ export function AuthProvider({ children }) {
     setNeedsPasswordSetup(false);
     setPhoneVerificationToken(null);
     
-    // Remove cookies
     Cookies.remove('auth_token');
     Cookies.remove('user');
     Cookies.remove('phone_verification_token');
     Cookies.remove('phone_number');
     
-    // Clear related queries from cache
     queryClient.removeQueries({ queryKey: ['currentUser'] });
   };
 
