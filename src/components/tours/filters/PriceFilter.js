@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useFilters } from '../../../contexts/FiltersContext';
+import { useFilters } from '../../../contexts/TourFiltersContext';
 import Accordion from '../../../components/common/Accordion';
 import { Percent } from 'lucide-react';
 
@@ -8,20 +8,17 @@ export default function PriceFilter({ options = [] }) {
   const [selectedPriceRange, setSelectedPriceRange] = useState(getFilterValue('price_range') || '');
   const [showDiscounted, setShowDiscounted] = useState(getFilterValue('discounted') === 'true');
 
-  // به‌روزرسانی فیلتر قیمت در URL
   const handlePriceRangeChange = value => {
     setSelectedPriceRange(value);
     updateFilters('price_range', value);
   };
 
-  // به‌روزرسانی فیلتر تخفیف‌دار
   const handleDiscountedChange = () => {
     const newValue = !showDiscounted;
     setShowDiscounted(newValue);
     updateFilters('discounted', newValue ? 'true' : null);
   };
 
-  // به‌روزرسانی state هنگام تغییر URL
   useEffect(() => {
     setSelectedPriceRange(getFilterValue('price_range') || '');
     setShowDiscounted(getFilterValue('discounted') === 'true');

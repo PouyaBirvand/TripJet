@@ -3,17 +3,20 @@
 import { ChevronLeft } from 'lucide-react';
 import Navfilters from './filters/Navfilters';
 import Countresult from './filters/Countresult';
-import { useFilters } from '../../contexts/FiltersContext';
+import { useFilters } from '../../contexts/TourFiltersContext';
 import { useRouter } from 'next/navigation';
 
 const ToursNavbar = ({ totalResults }) => {
   const { clearFilters } = useFilters();
-  const router = useRouter()
+  const router = useRouter();
 
   return (
     <div className="w-full">
       <p className="flex items-center text-sm md:text-base mb-4 flex-wrap">
-        <span className="flex items-center !text-blue-600 ml-1 cursor-pointer" onClick={() => router.push("/")}>
+        <span
+          className="flex items-center !text-blue-600 ml-1 cursor-pointer"
+          onClick={() => router.push('/')}
+        >
           صفحه اصلی <ChevronLeft size={16} className="mx-1" />
         </span>
         نتیجه جستجو های تور های تهران به فرانسه

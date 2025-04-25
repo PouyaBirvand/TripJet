@@ -1,4 +1,4 @@
-import { useFilters } from '../../../contexts/FiltersContext';
+import { useFilters } from '../../../contexts/TourFiltersContext';
 import PriceFilter from './PriceFilter';
 import HotelFilter from './HotelFilter';
 import TourTypeFilter from './TourTypeFilter';

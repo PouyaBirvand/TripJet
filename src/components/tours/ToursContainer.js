@@ -2,13 +2,12 @@
 
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 import ToursContent from './ToursContent';
-import { FiltersProvider } from '../../providers/FiltersProvider';
+import { TourFiltersProvider } from '../../providers/TourFiltersProvider';
 
-// Create a client
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      staleTime: 60 * 1000, // 1 minute
+      staleTime: 60 * 1000, // 1 min
     },
   },
 });
@@ -19,15 +18,15 @@ function prefillCache(initialTours, initialFilterOptions) {
   queryClient.setQueryData(['filterOptions'], initialFilterOptions);
 }
 
-export default function ToursContainer({ initialTours, initialFilters, initialFilterOptions }) {
+export default function ToursContainer({ initialTours ,initialFilterOptions }) {
   // Prefill the cache with server data
   prefillCache(initialTours, initialFilterOptions);
   
   return (
     <QueryClientProvider client={queryClient}>
-      <FiltersProvider initialFilters={initialFilters}>
+      <TourFiltersProvider>
         <ToursContent initialTours={initialTours} />
-      </FiltersProvider>
+      </TourFiltersProvider>
     </QueryClientProvider>
   );
 }

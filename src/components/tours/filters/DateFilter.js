@@ -1,13 +1,12 @@
 import { useState, useEffect } from 'react';
 import { Calendar } from 'lucide-react';
-import { useFilters } from '../../../contexts/FiltersContext';
+import { useFilters } from '../../../contexts/TourFiltersContext';
 import Accordion from '../../../components/common/Accordion';
 
 export default function DateFilter({ options = [] }) {
   const { updateFilters, getFilterValue } = useFilters();
   const [selectedMonths, setSelectedMonths] = useState(getFilterValue('months')?.split(',') || []);
 
-  // به‌روزرسانی فیلتر ماه
   const handleMonthChange = monthId => {
     const newMonths = selectedMonths.includes(monthId)
       ? selectedMonths.filter(m => m !== monthId)
@@ -17,7 +16,6 @@ export default function DateFilter({ options = [] }) {
     updateFilters('months', newMonths.length > 0 ? newMonths.join(',') : null);
   };
 
-  // به‌روزرسانی state هنگام تغییر URL
   useEffect(() => {
     setSelectedMonths(getFilterValue('months')?.split(',') || []);
   }, [getFilterValue]);

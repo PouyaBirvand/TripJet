@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useFilters } from '../../../contexts/FiltersContext';
+import { useFilters } from '../../../contexts/TourFiltersContext';
 import Accordion from '../../../components/common/Accordion';
 import { Bus, Plane, Train } from 'lucide-react';
 
@@ -9,7 +9,6 @@ export default function TransportFilter({ options = [] }) {
     getFilterValue('transport_types')?.split(',') || []
   );
 
-  // به‌روزرسانی فیلتر نوع حمل و نقل
   const handleTransportChange = transportId => {
     const newTransports = selectedTransports.includes(transportId)
       ? selectedTransports.filter(t => t !== transportId)
@@ -19,12 +18,10 @@ export default function TransportFilter({ options = [] }) {
     updateFilters('transport_types', newTransports.length > 0 ? newTransports.join(',') : null);
   };
 
-  // به‌روزرسانی state هنگام تغییر URL
   useEffect(() => {
     setSelectedTransports(getFilterValue('transport_types')?.split(',') || []);
   }, [getFilterValue]);
 
-  // نمایش آیکون مناسب برای هر نوع حمل و نقل
   const getTransportIcon = transportName => {
     const name = transportName.toLowerCase();
     if (name.includes('هواپیما')) return <Plane size={16} className="ml-1" />;

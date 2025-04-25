@@ -1,8 +1,8 @@
 "use client";
 import Image from 'next/image';
-import tourData from '../tourData';
 import { useFavorite } from '../../../hooks/useFavorite';
 import FavoriteButton from '../../../components/common/FavoriteButton';
+import { mockTourData } from '../../../services/tour/tourService';
 
 export default function TourImage({ id, destination}) {
   const { isFavorite, toggleFavorite, isAdding, isRemoving } = useFavorite();
@@ -12,8 +12,7 @@ export default function TourImage({ id, destination}) {
     e.preventDefault();
     e.stopPropagation();
     
-    // Find the full tour object from the id
-    const tour = tourData.find(t => t.id === id);
+    const tour = mockTourData.find(t => t.id === id);
     if (tour) {
       toggleFavorite(tour);
     }

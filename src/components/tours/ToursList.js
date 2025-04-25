@@ -1,16 +1,18 @@
 import { useState, useEffect } from 'react';
-import { AlertCircle } from 'lucide-react';
 import TourCard from './TourCard';
 import Pagination from '../ui/Pagination';
 import Image from 'next/image';
 import Link from 'next/link'; // Import Link for navigation
+import { useFilters } from '../../contexts/TourFiltersContext';
 
 export default function ToursList({ tours }) {
-  const [currentPage, setCurrentPage] = useState(1);
-  const [paginatedTours, setPaginatedTours] = useState([]);
+  const { getFilterValue, updateFilters } = useFilters()
+
+  const currentPage = parseInt(getFilterValue('page') || '1', 10);
   const toursPerPage = 6;
   const totalPages = Math.ceil(tours.length / toursPerPage);
-
+  const [paginatedTours, setPaginatedTours] = useState([]);
+  
   useEffect(() => {
     const startIndex = (currentPage - 1) * toursPerPage;
     const endIndex = startIndex + toursPerPage;
@@ -18,7 +20,7 @@ export default function ToursList({ tours }) {
   }, [currentPage, tours]);
 
   const handlePageChange = (page) => {
-    setCurrentPage(page);
+    updateFilters('page', page.toString());
     window.scrollTo({ top: 400, behavior: 'smooth' });
   };
 

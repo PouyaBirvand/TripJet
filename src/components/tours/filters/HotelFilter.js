@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useFilters } from '../../../contexts/FiltersContext';
+import { useFilters } from '../../../contexts/TourFiltersContext';
 import { Search, Star } from 'lucide-react';
 import Accordion from '../../../components/common/Accordion';
 
@@ -9,17 +9,14 @@ export default function HotelFilter() {
   const [hotelStars, setHotelStars] = useState(getFilterValue('hotel_stars')?.split(',') || []);
   const [showNoStar, setShowNoStar] = useState(getFilterValue('show_no_star') === 'true');
 
-  // به‌روزرسانی فیلتر نام هتل
   const handleHotelNameChange = e => {
     setHotelName(e.target.value);
   };
 
-  // ارسال فیلتر نام هتل با فشردن Enter یا کلیک روی آیکون جستجو
   const handleHotelNameSubmit = () => {
     updateFilters('hotel_name', hotelName);
   };
 
-  // به‌روزرسانی فیلتر ستاره هتل
   const handleStarChange = star => {
     const newStars = hotelStars.includes(star)
       ? hotelStars.filter(s => s !== star)
@@ -29,14 +26,12 @@ export default function HotelFilter() {
     updateFilters('hotel_stars', newStars.length > 0 ? newStars.join(',') : null);
   };
 
-  // به‌روزرسانی فیلتر نمایش هتل‌های بدون ستاره
   const handleNoStarChange = () => {
     const newValue = !showNoStar;
     setShowNoStar(newValue);
     updateFilters('show_no_star', newValue ? 'true' : null);
   };
 
-  // به‌روزرسانی state هنگام تغییر URL
   useEffect(() => {
     setHotelName(getFilterValue('hotel_name') || '');
     setHotelStars(getFilterValue('hotel_stars')?.split(',') || []);

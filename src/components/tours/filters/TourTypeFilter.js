@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useFilters } from '../../../contexts/FiltersContext';
+import { useFilters } from '../../../contexts/TourFiltersContext';
 import Accordion from '../../../components/common/Accordion';
 import { Map } from 'lucide-react';
 
@@ -9,7 +9,6 @@ export default function TourTypeFilter({ options = [] }) {
     getFilterValue('tour_types')?.split(',') || []
   );
 
-  // به‌روزرسانی فیلتر نوع تور
   const handleTypeChange = typeId => {
     const newTypes = selectedTypes.includes(typeId)
       ? selectedTypes.filter(t => t !== typeId)
@@ -19,7 +18,6 @@ export default function TourTypeFilter({ options = [] }) {
     updateFilters('tour_types', newTypes.length > 0 ? newTypes.join(',') : null);
   };
 
-  // به‌روزرسانی state هنگام تغییر URL
   useEffect(() => {
     setSelectedTypes(getFilterValue('tour_types')?.split(',') || []);
   }, [getFilterValue]);

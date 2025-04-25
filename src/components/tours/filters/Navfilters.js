@@ -1,5 +1,5 @@
 import { SlidersHorizontal } from 'lucide-react';
-import { useFilters } from '../../../contexts/FiltersContext';
+import { useFilters } from '../../../contexts/TourFiltersContext';
 
 const Navfilters = () => {
   const { updateFilters, getFilterValue } = useFilters();

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useFilters } from '../../../contexts/FiltersContext';
+import { useFilters } from '../../../contexts/TourFiltersContext';
 import Accordion from '../../../components/common/Accordion';
 import { Activity } from 'lucide-react';
 
@@ -9,7 +9,6 @@ export default function DifficultyFilter({ options = [] }) {
     getFilterValue('difficulty_levels')?.split(',') || []
   );
 
-  // به‌روزرسانی فیلتر سطح سختی
   const handleLevelChange = levelId => {
     const newLevels = selectedLevels.includes(levelId)
       ? selectedLevels.filter(l => l !== levelId)
@@ -19,7 +18,6 @@ export default function DifficultyFilter({ options = [] }) {
     updateFilters('difficulty_levels', newLevels.length > 0 ? newLevels.join(',') : null);
   };
 
-  // به‌روزرسانی state هنگام تغییر URL
   useEffect(() => {
     setSelectedLevels(getFilterValue('difficulty_levels')?.split(',') || []);
   }, [getFilterValue]);
