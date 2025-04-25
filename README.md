@@ -40,7 +40,7 @@ TripJet is a cutting-edge tourism booking platform built with Next.js 15 and Rea
 
 ## 📂 Project Structure
 
-tipjet/
+```bash
 my-next-app/
 ├── node_modules/
 ├── public/
@@ -91,6 +91,7 @@ my-next-app/
 ├── package.json
 ├── postcss.config.mjs
 ├── README.md
+```
 
 ## 🚦 Getting Started
 
