@@ -86,7 +86,6 @@ const CustomTextArea = ({
             {...props}
           />
           
-          {/* نمایش دکمه X برای پاک کردن متن */}
           {value && value.length > 0 && (
             <div
               className="absolute left-3 top-3 cursor-pointer hover:opacity-70 transition-opacity z-10"
@@ -97,7 +96,6 @@ const CustomTextArea = ({
             </div>
           )}
           
-          {/* نمایش تیک برای ورودی معتبر */}
           {value && value.length > 0 && !error && (
             <div className="absolute left-3 bottom-3">
               <CheckCircle size="18" stroke="1" className="text-success" />
