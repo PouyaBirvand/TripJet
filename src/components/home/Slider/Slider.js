@@ -12,7 +12,7 @@ import SideNavigationButtons from "./Components/SideNavigationButtons";
 const Slider = ({
   items,
   children,
-  buttonsPosition = "header", // مقدار پیش‌فرض
+  buttonsPosition = "header",
   breakpoints = {
       '0': { slidesPerView: 1, spaceBetween: 10 },
       '640': { slidesPerView: 2, spaceBetween: 20 },

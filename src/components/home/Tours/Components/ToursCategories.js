@@ -15,7 +15,7 @@ const TourCategories = () => {
   const { data: tours, isLoading } = useQuery({
     queryKey: ['tours'],
     queryFn: () => tourService.getTours(),
-    staleTime: 5 * 60 * 1000, // 5 minutes
+    staleTime: 5 * 60 * 1000, // 5 min
   });
 
   useEffect(() => {
@@ -35,7 +35,6 @@ const TourCategories = () => {
   }, [tours, activeFilter]);
 
   const handleFilterChange = (filter) => {
-    // If the same filter is clicked again, clear it
     setActiveFilter(filter === activeFilter ? null : filter);
   };
 

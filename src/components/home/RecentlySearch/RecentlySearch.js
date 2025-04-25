@@ -5,7 +5,7 @@ import Slider from '../Slider/Slider';
 import TextSliderItem from './Components/TextSliderItem';
 
 const RecentlySearch = () => {
-  const data = [
+  const MockRecentlySearchData = [
     { origin: 'شوش', destination: 'اهواز' },
     { origin: 'تهران', destination: 'مشهد' },
     { origin: 'شوشتر', destination: 'بندر عباس' },
@@ -18,7 +18,7 @@ const RecentlySearch = () => {
 
   return (
     <Slider
-      items={data}
+      items={MockRecentlySearchData}
       buttonsPosition="sides"
       breakpoints={{
         640: { slidesPerView: 2, spaceBetween: 12 },

@@ -1,7 +1,6 @@
 import { Star } from "lucide-react"
 
 const Stars = ({ filled = 0 }) => {
-    // ایجاد آرایه‌ای از ستاره‌ها
     const stars = [];
     
     for (let i = 0; i < 5; i++) {

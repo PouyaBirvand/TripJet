@@ -19,7 +19,6 @@ const TourBox = ({ item }) => {
       className="block h-full"
     >
       <div className="bg-white border border-gray-200 rounded-lg h-full flex flex-col">
-        {/* بخش تصویر */}
         <div className="relative pt-[75%] overflow-hidden rounded-t-lg">
           <Image
             src="/japen.png"
@@ -28,7 +27,6 @@ const TourBox = ({ item }) => {
             className="object-cover"
           />
           
-          {/* دکمه علاقه‌مندی */}
           <div className="absolute top-2 left-2 z-10">
             <FavoriteButton 
               isFavorite={isFavorite(item.id)} 
@@ -36,7 +34,6 @@ const TourBox = ({ item }) => {
             />
           </div>
           
-          {/* نشان‌ها */}
           <div className="absolute bottom-2 right-2 flex gap-2">
             {item.price.hasDiscount && (
               <DiscountBadge 
@@ -50,7 +47,6 @@ const TourBox = ({ item }) => {
           </div>
         </div>
         
-        {/* اطلاعات تور */}
         <TourInfo 
           title={item.title}
           duration={item.duration.description}

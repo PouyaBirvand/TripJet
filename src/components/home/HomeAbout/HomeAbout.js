@@ -9,21 +9,21 @@ const HomeAbout = () => {
       <div className="flex flex-col md:flex-row justify-between items-center gap-6">
         <div className="flex flex-col gap-4 md:gap-20 w-full md:w-1/3">
           <div className="flex justify-start md:justify-end">
-            <button className="btn rounded-lg font-normal border !border-slate-300 !py-6 !px-7 text-slate-500 text-[1rem] font-base w-full md:w-auto">
+            <button className="flex gap-2 rounded-lg font-normal border !border-slate-300 items-center justify-center py-3 px-5 bg-white text-slate-500 text-[1rem] font-base w-full md:w-auto">
               <Plane className="w-4 h-4 md:w-5 md:h-5 ml-1 !text-blue-600" />
               ارائه تورهای خارجی
             </button>
           </div>
 
           <div className="flex justify-center">
-            <button className="btn rounded-lg font-normal border !border-slate-300 !py-6 !px-7 text-slate-500 text-[1rem] font-base w-full md:w-auto">
+            <button className="flex gap-2 rounded-lg font-normal border !border-slate-300 items-center justify-center py-3 px-5 bg-white text-slate-500 text-[1rem] font-base w-full md:w-auto">
               <Star className="w-4 h-4 md:w-5 md:h-5 ml-1 !text-blue-600" />
               بیشترین تعداد تور
             </button>
           </div>
 
           <div className="flex justify-start md:justify-end">
-            <button className="btn rounded-lg font-normal border !border-slate-300 !py-6 !px-7 text-slate-500 text-[1rem] font-base w-full md:w-auto">
+            <button className="flex gap-2 rounded-lg font-normal border !border-slate-300 items-center justify-center py-3 px-5 bg-white text-slate-500 text-[1rem] font-base w-full md:w-auto">
               <Medal className="w-4 h-4 md:w-5 md:h-5 ml-1 !text-blue-600" />
               رتبه یک سفر
             </button>
@@ -45,21 +45,21 @@ const HomeAbout = () => {
 
         <div className="flex flex-col gap-4 md:gap-20 w-full md:w-1/3">
           <div className="flex justify-end md:justify-start">
-            <button className="btn rounded-lg font-normal border !border-slate-300 !py-6 !px-7 text-slate-500 text-[1rem] font-base w-full md:w-auto">
+            <button className="flex gap-2 rounded-lg font-normal border !border-slate-300 items-center justify-center py-3 px-5 bg-white text-slate-500 text-[1rem] font-base w-full md:w-auto">
               <MapPin className="w-4 h-4 md:w-5 md:h-5 ml-1 !text-blue-600" />
               هرجا که بخوای!
             </button>
           </div>
 
           <div className="flex justify-center">
-            <button className="btn rounded-lg font-normal border !border-slate-300 !py-6 !px-7 text-slate-500 text-[1rem] font-base w-full md:w-auto">
+            <button className="flex gap-2 rounded-lg font-normal border !border-slate-300 items-center justify-center py-3 px-5 bg-white text-slate-500 text-[1rem] font-base w-full md:w-auto">
               <PhoneCall className="w-4 h-4 md:w-5 md:h-5 ml-1 !text-blue-600" />
               پشتیبانی ۲۴ ساعته
             </button>
           </div>
 
           <div className="flex justify-end md:justify-start">
-            <button className="btn rounded-lg font-normal border !border-slate-300 !py-6 !px-7 text-slate-500 text-[1rem] font-base w-full md:w-auto">
+            <button className="flex gap-2 rounded-lg font-normal border !border-slate-300 items-center justify-center py-3 px-5 bg-white text-slate-500 text-[1rem] font-base w-full md:w-auto">
               <CreditCard className="w-4 h-4 md:w-5 md:h-5 ml-1 !text-blue-600" />
               بهترین قیمت ها
             </button>
