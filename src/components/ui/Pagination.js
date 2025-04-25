@@ -1,39 +1,41 @@
-import { ChevronRight, ChevronLeft } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 export default function Pagination({ currentPage, totalPages, onPageChange }) {
-  // Don't render pagination if there's only one page
   if (totalPages <= 1) return null;
 
-  // Calculate which page numbers to display
   const getPageNumbers = () => {
     const pageNumbers = [];
+    const showDirectNeighbors = 1;
+    const boundaryCount = 1;
 
-    // Always show first page
-    pageNumbers.push(1);
-
-    if (currentPage > 3) {
-      pageNumbers.push('ellipsis');
+    for (let i = 1; i <= boundaryCount; i++) {
+      pageNumbers.push(i);
     }
 
-    // Pages around current page
+    if (currentPage - showDirectNeighbors > boundaryCount + 1) {
+      pageNumbers.push('ellipsis-start');
+    }
+
     for (
-      let i = Math.max(2, currentPage - 1);
-      i <= Math.min(totalPages - 1, currentPage + 1);
+      let i = Math.max(boundaryCount + 1, currentPage - showDirectNeighbors);
+      i <= Math.min(totalPages - boundaryCount, currentPage + showDirectNeighbors);
       i++
     ) {
       pageNumbers.push(i);
     }
 
-    if (currentPage < totalPages - 2) {
-      pageNumbers.push('ellipsis');
+    if (currentPage + showDirectNeighbors < totalPages - boundaryCount) {
+      pageNumbers.push('ellipsis-end');
     }
 
-    // Always show last page if more than 1 page
-    if (totalPages > 1) {
-      pageNumbers.push(totalPages);
+    for (
+      let i = Math.max(totalPages - boundaryCount + 1, boundaryCount + 1);
+      i <= totalPages;
+      i++
+    ) {
+      pageNumbers.push(i);
     }
 
-    // Remove duplicates
     return [...new Set(pageNumbers)];
   };
 
@@ -47,8 +49,8 @@ export default function Pagination({ currentPage, totalPages, onPageChange }) {
           <button
             onClick={() => onPageChange(currentPage - 1)}
             disabled={currentPage === 1}
-            className="flex items-center justify-center w-10 h-10 transition-all duration-200 
-                      hover:bg-blue-600 text-white/10 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-transparent"
+            className="flex items-center rounded-full justify-center w-10 h-10 transition-all duration-200
+                     hover:bg-blue-600 text-black hover:text-white disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-transparent"
             aria-label="Previous page"
           >
             <ChevronRight size={20} />
@@ -57,17 +59,17 @@ export default function Pagination({ currentPage, totalPages, onPageChange }) {
 
         {/* Page numbers */}
         {pageNumbers.map((page, index) => (
-          <li key={`page-${index}`}>
-            {page === 'ellipsis' ? (
-              <span className="flex items-center justify-center w-10 h-10 text-gray-500">...</span>
+          <li key={`page-${page}-${index}`}>
+            {page === 'ellipsis-start' || page === 'ellipsis-end' ? (
+              <span className="flex items-center justify-center w-8 h-10 text-black/60">•••</span>
             ) : (
               <button
                 onClick={() => onPageChange(page)}
-                className={`flex items-center justify-center w-10 h-10 rounded-lg transition-all duration-200
+                className={`flex items-center justify-center w-10 h-10 rounded-full transition-all duration-200
                           ${
                             currentPage === page
-                              ? 'bg-blue-600 text-white text-white font-medium shadow-md'
-                              : 'hover:bg-blue-600 text-white/10'
+                              ? 'bg-blue-600 text-white font-medium'
+                              : 'hover:bg-blue-500/20 '
                           }`}
                 aria-label={`Page ${page}`}
                 aria-current={currentPage === page ? 'page' : undefined}
@@ -83,8 +85,8 @@ export default function Pagination({ currentPage, totalPages, onPageChange }) {
           <button
             onClick={() => onPageChange(currentPage + 1)}
             disabled={currentPage === totalPages}
-            className="flex items-center justify-center w-10 h-10 rounded-lg transition-all duration-200 
-                      hover:bg-blue-600 text-white/10 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-transparent"
+            className="flex items-center justify-center w-10 h-10 rounded-full transition-all duration-200
+                     hover:bg-blue-600 text-black hover:text-white disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-transparent"
             aria-label="Next page"
           >
             <ChevronLeft size={20} />
