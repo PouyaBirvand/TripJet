@@ -20,7 +20,6 @@ const EditProfileCard = ({ initialData, onSubmit, returnPath }) => {
       <Formik initialValues={initialData} validationSchema={validationSchema} onSubmit={onSubmit}>
         {({ isSubmitting, errors, touched }) => (
           <Form className="space-y-4">
-            {/* Gender Radio Buttons - Positioned at the top */}
             <div className="mb-8">
               <div className="flex gap-4">
                 <label className="flex items-center gap-2 cursor-pointer">

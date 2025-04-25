@@ -18,11 +18,9 @@ const TripDetailsModal = ({ trip, onClose }) => {
     if (trip.passengers && Array.isArray(trip.passengers)) {
       setPassengers(trip.passengers);
     } else {
-      // داده‌های پیش‌فرض برای مسافران
       const defaultPassengers = [];
       const passengerCount = trip.participants || 2;
 
-      // مسافر اول همیشه رزرو کننده است (کاربر فعلی)
       defaultPassengers.push({
         name: userProfile ? `${userProfile.firstName} ${userProfile.lastName}` : 'کوروش صفایی',
         type: 'بزرگسال',
@@ -30,9 +28,8 @@ const TripDetailsModal = ({ trip, onClose }) => {
         gender: userProfile?.gender === 'male' ? 'مذکر' : 'مؤنث',
       });
 
-      // اضافه کردن سایر مسافران
       for (let i = 1; i < passengerCount; i++) {
-        const isChild = i === passengerCount - 1; // آخرین مسافر کودک است
+        const isChild = i === passengerCount - 1; 
         defaultPassengers.push({
           name: isChild ? `آریو بهرامی` : `علی بهرامی ${i}`,
           type: isChild ? 'کودک' : 'بزرگسال',

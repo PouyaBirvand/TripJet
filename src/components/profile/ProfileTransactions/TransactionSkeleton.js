@@ -21,7 +21,6 @@ export default function TransactionSkeleton() {
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100">
-              {/* 5 ردیف اسکلتون */}
               {Array(5).fill(0).map((_, index) => (
                 <tr key={index} className="border-b border-gray-100">
                   <td className="py-4 px-2">

@@ -7,7 +7,7 @@ import CustomFormField from '../../../../components/common/CustomFormField';
 
 const EditPaymentCard = ({ initialData, onSubmit, returnPath }) => {
   const validationSchema = Yup.object({
-    // اعتبارسنجی اختیاری است چون این فیلدها اجباری نیستند
+    // Not Required
   });
 
   return (

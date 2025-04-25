@@ -1,19 +1,16 @@
 import { useAuth } from '../../contexts/AuthContext';
 import Cookies from 'js-cookie';
 import { X } from 'lucide-react';
-import { redirect, useRouter } from 'next/navigation';
+import { redirect } from 'next/navigation';
 
 export default function ProfileLogoutModal({ onClose }) {
-  const router = useRouter();
   const { logout } = useAuth()
   const handleLogout = () => {
     Cookies.remove("phone_verification_token");
     
-    // به‌روزرسانی وضعیت احراز هویت
-    logout(); // فرض کنید این تابع وضعیت احراز هویت را به‌روزرسانی می‌کند
-  
-    router.refresh(); // این خط ممکن است لازم نباشد
-    redirect('/'); // به صفحه اصلی منتقل شوید
+    logout(); 
+    // router.refresh();
+    redirect('/');
   }
   
   return (
