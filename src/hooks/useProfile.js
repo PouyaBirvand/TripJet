@@ -8,7 +8,6 @@ export function useProfile() {
   const { authToken, user: authUser } = useAuth();
   const queryClient = useQueryClient();
 
-  // دریافت اطلاعات پروفایل
   const {
     data: profile,
     isLoading: isProfileLoading,
@@ -17,11 +16,10 @@ export function useProfile() {
   } = useQuery({
     queryKey: ['userProfile'],
     queryFn: profileService.getUserProfile,
-    // enabled: !!authToken, // فقط زمانی که کاربر لاگین کرده باشد
-    staleTime: 5 * 60 * 1000, // 5 دقیقه
+    // enabled: !!authToken,
+    staleTime: 5 * 60 * 1000, // 5 min
   });
 
-  // دریافت لیست تورهای رزرو شده
   const {
     data: trips,
     isLoading: isTripsLoading,
@@ -30,11 +28,10 @@ export function useProfile() {
   } = useQuery({
     queryKey: ['userTrips'],
     queryFn: profileService.getUserTrips,
-    // enabled: !!authToken, // فقط زمانی که کاربر لاگین کرده باشد
-    staleTime: 5 * 60 * 1000, // 5 دقیقه
+    // enabled: !!authToken, 
+    staleTime: 5 * 60 * 1000, // 5 min
   });
 
-  // دریافت تاریخچه تراکنش‌ها
   const {
     data: transactions,
     isLoading: isTransactionsLoading,
@@ -47,11 +44,9 @@ export function useProfile() {
     staleTime: 5 * 60 * 1000, // 5 دقیقه
   });
 
-  // به‌روزرسانی اطلاعات پروفایل
   const updateProfileMutation = useMutation({
     mutationFn: profileService.updateUserProfile,
     onSuccess: (data) => {
-      // به‌روزرسانی کش React Query
       queryClient.setQueryData(['userProfile'], data);
       alert("اطلاعات پروفایل با موفقیت به‌روز شد'")
     },
@@ -60,11 +55,9 @@ export function useProfile() {
     }
   });
 
-  // آپلود تصویر پروفایل
   const uploadAvatarMutation = useMutation({
     mutationFn: profileService.uploadProfileImage,
     onSuccess: (data) => {
-      // به‌روزرسانی کش React Query با تصویر جدید
       queryClient.setQueryData(['userProfile'], (oldData) => {
         return oldData ? { ...oldData, avatar: data.avatar } : oldData;
       });
@@ -75,7 +68,6 @@ export function useProfile() {
     }
   });
 
-  // تغییر رمز عبور
   const changePasswordMutation = useMutation({
     mutationFn: profileService.changePassword,
     onSuccess: () => {
@@ -86,7 +78,6 @@ export function useProfile() {
     }
   });
 
-  // دریافت جزئیات یک تور خاص
   const getTripDetails = async (tripId) => {
     try {
       return await profileService.getTripDetails(tripId);
@@ -96,7 +87,6 @@ export function useProfile() {
     }
   };
 
-  // دریافت جزئیات یک تراکنش خاص
   const getTransactionDetails = async (transactionId) => {
     try {
       return await profileService.getTransactionDetails(transactionId);
@@ -107,12 +97,10 @@ export function useProfile() {
   };
 
   return {
-    // داده‌ها
     profile,
     trips,
     transactions,
     
-    // توابع اصلی
     updateProfile: updateProfileMutation.mutate,
     uploadAvatar: uploadAvatarMutation.mutate,
     changePassword: changePasswordMutation.mutate,
@@ -122,7 +110,6 @@ export function useProfile() {
     getTripDetails,
     getTransactionDetails,
     
-    // وضعیت‌های بارگذاری
     isProfileLoading,
     isTripsLoading,
     isTransactionsLoading,
@@ -130,7 +117,6 @@ export function useProfile() {
     isUploadingAvatar: uploadAvatarMutation.isPending,
     isChangingPassword: changePasswordMutation.isPending,
     
-    // خطاها
     profileError,
     tripsError,
     transactionsError,

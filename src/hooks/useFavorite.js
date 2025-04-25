@@ -10,7 +10,6 @@ export function useFavorite() {
     queryFn: tourService.getFavorites,
   });
 
-  // Add to favorites mutation
   const addToFavoritesMutation = useMutation({
     mutationFn: tourService.addToFavorites,
     onSuccess: () => {
@@ -18,7 +17,6 @@ export function useFavorite() {
     },
   });
 
-  // Remove from favorites mutation
   const removeFromFavoritesMutation = useMutation({
     mutationFn: tourService.removeFromFavorites,
     onSuccess: () => {
@@ -26,12 +24,10 @@ export function useFavorite() {
     },
   });
 
-  // Check if a tour is in favorites
   const isFavorite = tourId => {
     return favorites.some(fav => fav.id === tourId);
   };
 
-  // Toggle favorite status
   const toggleFavorite = tour => {
     if (isFavorite(tour.id)) {
       removeFromFavoritesMutation.mutate(tour.id);

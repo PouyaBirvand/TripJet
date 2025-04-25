@@ -9,7 +9,7 @@ export default function usePaymentProcess() {
   const mutation = useMutation({
     mutationFn: async (paymentData) => {
       const response = await bookingService.processPayment(paymentData);
-      return response; // کل پاسخ سرویس (شامل success و data)
+      return response; 
     },
     onSuccess: () => {
       queryClient.invalidateQueries(['bookingDetails']);

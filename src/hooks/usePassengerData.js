@@ -6,7 +6,6 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 export default function usePassengerData() {
   const queryClient = useQueryClient();
 
-  // دریافت تاریخچه مسافران
   const {
     data: passengerHistory = [],
     isLoading: isHistoryLoading,
@@ -18,11 +17,9 @@ export default function usePassengerData() {
     select: response => response?.data || []
   });
 
-  // ذخیره مسافران
   const savePassengersMutation = useMutation({
     mutationFn: bookingService.savePassengers,
     onSuccess: () => {
-      // پس از ذخیره موفق، تاریخچه مسافران را مجدداً دریافت می‌کنیم
       queryClient.invalidateQueries(['passengerHistory']);
     }
   });
