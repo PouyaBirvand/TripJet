@@ -1,7 +1,6 @@
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 export const authService = {
-  // Send phone number to get OTP
   async sendOTP(phoneNumber) {
     try {
       const response = await fetch(`${API_BASE_URL}/auth/login`, {
@@ -15,7 +14,6 @@ export const authService = {
       const data = await response.json();
 
       if (!response.ok) {
-        // Create a custom error object with additional properties
         const error = new Error(data.message || 'خطا در ارسال کد تایید');
         error.status = response.status;
         error.isCodeAlreadySent =
@@ -31,7 +29,6 @@ export const authService = {
     }
   },
 
-  // Verify OTP code
   async verifyOTP({ token, code }) {
     try {
       const response = await fetch(`${API_BASE_URL}/auth/verifyOtp`, {
@@ -58,7 +55,6 @@ export const authService = {
     }
   },
 
-  // Login with password
   async loginWithPassword({ phone, password }) {
     try {
       const response = await fetch(`${API_BASE_URL}/auth/loginWithPassword`, {
@@ -85,26 +81,20 @@ export const authService = {
     }
   },
 
-  // Set new password
   async setPassword({ password, password_confirmation }) {
-    // شبیه‌سازی تأخیر
     await new Promise(resolve => setTimeout(resolve, 500));
 
-    // بررسی اینکه آیا رمز عبور و تأیید آن برابر هستند
     if (password !== password_confirmation) {
       throw new Error('تأیید رمز عبور نامعتبر است');
     }
 
-    // بررسی حداقل طول رمز عبور
     if (password.length < 8) {
       throw new Error('رمز عبور باید حداقل ۸ کاراکتر باشد');
     }
 
-    // شبیه‌سازی پاسخ موفق
     return { message: 'رمز عبور با موفقیت تغییر یافت' };
   },
 
-  // Get current user
   async getCurrentUser(token) {
     try {
       const response = await fetch(`${API_BASE_URL}/auth/user`, {

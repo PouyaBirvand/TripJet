@@ -1,6 +1,3 @@
-// services/bookingService.js
-
-// ماک دیتا برای اطلاعات رزرو
 const mockBookingData = {
   id: 'BK-12345',
   status: 'confirmed',
@@ -77,7 +74,6 @@ const mockPassengerHistory = [
   }
 ];
 
-// ماک دیتا برای بانک‌ها
 const mockBanks = [
   { id: 'mellat', name: 'بانک ملت', logo: '/banks/mellat.png' },
   { id: 'melli', name: 'بانک ملی', logo: '/banks/melli.png' },
@@ -104,7 +100,6 @@ export const bookingService = {
     try {
       await new Promise(resolve => setTimeout(resolve, 800));
       
-      // در حالت واقعی اینجا API فراخوانی می‌شود
       return { 
         success: true,
         message: 'اطلاعات مسافران با موفقیت ذخیره شد'

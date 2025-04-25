@@ -1,12 +1,326 @@
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3000/api';
-import tourData from '../../components/tours/tourData';
 
-// Mock favorites storage (in a real app, this would be server-side)
+export const mockTourData = [
+  {
+    id: 1,
+    destination: "هندوستان",
+    title: "تور ویژه هندوستان",
+    date: "۱۴۰۳/۰۵/۰۶",
+    duration: {
+      nights: 9,
+      days: 10,
+      description: "۹ شب و ۱۰ روز"
+    },
+    price: {
+      original: 85000000,
+      discounted: 75000000,
+      hasDiscount: true
+    },
+    hotel: {
+      stars: 4,
+      description: "اقامت در هتل ۴ ستاره"
+    },
+    services: {
+      insurance: "بيمه مسافرتي",
+      transport: "حمل و نقل هواپيما",
+      capacity: "ظرفيت تور حداکثر ۳۰ نفر",
+      meals: "۷ وعده غذايي",
+      accommodation: "اقامت در هتل"
+    },
+    remaining: 5,
+    isLastMinute: false,
+    image: "https://example.com/images/india-tour.jpg"
+  },
+  {
+    id: 2,
+    destination: "ترکیه",
+    title: "تور استانبول",
+    date: "۱۴۰۳/۰۵/۱۵",
+    duration: {
+      nights: 7,
+      days: 8,
+      description: "۷ شب و ۸ روز"
+    },
+    price: {
+      original: 95000000,
+      discounted: 85000000,
+      hasDiscount: true
+    },
+    hotel: {
+      stars: 5,
+      description: "اقامت در هتل ۵ ستاره"
+    },
+    services: {
+      insurance: "بيمه مسافرتي",
+      transport: "حمل و نقل هواپيما",
+      capacity: "ظرفيت تور حداکثر ۲۵ نفر",
+      meals: "۱۰ وعده غذايي",
+      accommodation: "اقامت در هتل"
+    },
+    remaining: 3,
+    isLastMinute: true,
+    image: "https://example.com/images/turkey-tour.jpg"
+  },
+  {
+    id: 3,
+    destination: "مالزی",
+    title: "تور کوالالامپور",
+    date: "۱۴۰۳/۰۶/۱۰",
+    duration: {
+      nights: 8,
+      days: 9,
+      description: "۸ شب و ۹ روز"
+    },
+    price: {
+      original: 78000000,
+      discounted: 78000000,
+      hasDiscount: false
+    },
+    hotel: {
+      stars: 4,
+      description: "اقامت در هتل ۴ ستاره"
+    },
+    services: {
+      insurance: "بيمه مسافرتي",
+      transport: "حمل و نقل هواپيما",
+      capacity: "ظرفيت تور حداکثر ۲۰ نفر",
+      meals: "۸ وعده غذايي",
+      accommodation: "اقامت در هتل"
+    },
+    remaining: 8,
+    isLastMinute: false,
+    image: "https://example.com/images/malaysia-tour.jpg"
+  },
+  {
+    id: 4,
+    destination: "تایلند",
+    title: "تور بانکوک",
+    date: "۱۴۰۳/۰۵/۲۵",
+    duration: {
+      nights: 10,
+      days: 11,
+      description: "۱۰ شب و ۱۱ روز"
+    },
+    price: {
+      original: 110000000,
+      discounted: 95000000,
+      hasDiscount: true
+    },
+    hotel: {
+      stars: 5,
+      description: "اقامت در هتل ۵ ستاره"
+    },
+    services: {
+      insurance: "بيمه مسافرتي",
+      transport: "حمل و نقل هواپيما",
+      capacity: "ظرفيت تور حداکثر ۳۵ نفر",
+      meals: "۱۲ وعده غذايي",
+      accommodation: "اقامت در هتل"
+    },
+    remaining: 2,
+    isLastMinute: true,
+    image: "https://example.com/images/thailand-tour.jpg"
+  },
+  {
+    id: 5,
+    destination: "دبی",
+    title: "تور دبی",
+    date: "۱۴۰۳/۰۶/۰۵",
+    duration: {
+      nights: 6,
+      days: 7,
+      description: "۶ شب و ۷ روز"
+    },
+    price: {
+      original: 65000000,
+      discounted: 60000000,
+      hasDiscount: true
+    },
+    hotel: {
+      stars: 4,
+      description: "اقامت در هتل ۴ ستاره"
+    },
+    services: {
+      insurance: "بيمه مسافرتي",
+      transport: "حمل و نقل هواپيما",
+      capacity: "ظرفيت تور حداکثر ۲۸ نفر",
+      meals: "۶ وعده غذايي",
+      accommodation: "اقامت در هتل"
+    },
+    remaining: 7,
+    isLastMinute: false,
+    image: "https://example.com/images/dubai-tour.jpg"
+  },
+  {
+    id: 6,
+    destination: "ارمنستان",
+    title: "تور ایروان",
+    date: "۱۴۰۳/۰۵/۲۰",
+    duration: {
+      nights: 5,
+      days: 6,
+      description: "۵ شب و ۶ روز"
+    },
+    price: {
+      original: 45000000,
+      discounted: 40000000,
+      hasDiscount: true
+    },
+    hotel: {
+      stars: 3,
+      description: "اقامت در هتل ۳ ستاره"
+    },
+    services: {
+      insurance: "بيمه مسافرتي",
+      transport: "حمل و نقل هواپيما",
+      capacity: "ظرفيت تور حداکثر ۲۵ نفر",
+      meals: "۵ وعده غذايي",
+      accommodation: "اقامت در هتل"
+    },
+    remaining: 4,
+    isLastMinute: true,
+    image: "https://example.com/images/armenia-tour.jpg"
+  },
+  {
+    id: 7,
+    destination: "گرجستان",
+    title: "تور تفلیس",
+    date: "۱۴۰۳/۰۶/۱۵",
+    duration: {
+      nights: 7,
+      days: 8,
+      description: "۷ شب و ۸ روز"
+    },
+    price: {
+      original: 55000000,
+      discounted: 55000000,
+      hasDiscount: false
+    },
+    hotel: {
+      stars: 4,
+      description: "اقامت در هتل ۴ ستاره"
+    },
+    services: {
+      insurance: "بيمه مسافرتي",
+      transport: "حمل و نقل هواپيما",
+      capacity: "ظرفيت تور حداکثر ۲۰ نفر",
+      meals: "۷ وعده غذايي",
+      accommodation: "اقامت در هتل"
+    },
+    remaining: 6,
+    isLastMinute: false,
+    image: "https://example.com/images/georgia-tour.jpg"
+  },
+  {
+    id: 8,
+    destination: "سریلانکا",
+    title: "تور کلمبو",
+    date: "۱۴۰۳/۰۷/۰۱",
+    duration: {
+      nights: 8,
+      days: 9,
+      description: "۸ شب و ۹ روز"
+    },
+    price: {
+      original: 90000000,
+      discounted: 80000000,
+      hasDiscount: true
+    },
+    hotel: {
+      stars: 5,
+      description: "اقامت در هتل ۵ ستاره"
+    },
+    services: {
+      insurance: "بيمه مسافرتي",
+      transport: "حمل و نقل هواپيما",
+      capacity: "ظرفيت تور حداکثر ۲۲ نفر",
+      meals: "۹ وعده غذايي",
+      accommodation: "اقامت در هتل"
+    },
+    remaining: 3,
+    isLastMinute: true,
+    image: "https://example.com/images/srilanka-tour.jpg"
+  },
+  {
+    id: 9,
+    destination: "ویتنام",
+    title: "تور هانوی",
+    date: "۱۴۰۳/۰۶/۲۵",
+    duration: {
+      nights: 10,
+      days: 11,
+      description: "۱۰ شب و ۱۱ روز"
+    },
+    price: {
+      original: 120000000,
+      discounted: 110000000,
+      hasDiscount: true
+    },
+    hotel: {
+      stars: 4,
+      description: "اقامت در هتل ۴ ستاره"
+    },
+    services: {
+      insurance: "بيمه مسافرتي",
+      transport: "حمل و نقل هواپيما",
+      capacity: "ظرفيت تور حداکثر ۱۸ نفر",
+      meals: "۱۱ وعده غذايي",
+      accommodation: "اقامت در هتل"
+    },
+    remaining: 2,
+    isLastMinute: true,
+    image: "https://example.com/images/vietnam-tour.jpg"
+  },
+  {
+    id: 10,
+    destination: "چین",
+    title: "تور پکن",
+    date: "۱۴۰۳/۰۷/۱۰",
+    duration: {
+      nights: 9,
+      days: 10,
+      description: "۹ شب و ۱۰ روز"
+    },
+    price: {
+      original: 130000000,
+      discounted: 120000000,
+      hasDiscount: true
+    },
+    hotel: {
+      stars: 5,
+      description: "اقامت در هتل ۵ ستاره"
+    },
+    services: {
+      insurance: "بيمه مسافرتي",
+      transport: "حمل و نقل هواپيما",
+      capacity: "ظرفيت تور حداکثر ۱۵ نفر",
+      meals: "۱۰ وعده غذايي",
+      accommodation: "اقامت در هتل"
+    },
+    remaining: 5,
+    isLastMinute: false,
+    image: "https://example.com/images/china-tour.jpg"
+  },
+];
+
+const isBrowser = typeof window !== 'undefined';
+
 let favoriteTours = [];
-setInterval(() => {
-  console.log(favoriteTours);
-  
-}, 1000);
+
+
+if (isBrowser) {
+  try {
+    const stored = localStorage.getItem('favoriteTours');
+    if (stored) {
+      favoriteTours = JSON.parse(stored);
+    }
+  } catch (e) {
+    console.error('Error loading favorites from localStorage:', e);
+  }
+} else {
+  // We're on the server, use the mock data
+  favoriteTours = [];
+}
 
 export const tourService = {
   async getTours(filters = {}) {
@@ -21,14 +335,12 @@ export const tourService = {
       
       await new Promise(resolve => setTimeout(resolve, 500));
       
-      let filteredTours = [...tourData];
+      let filteredTours = [...mockTourData];
       
-      // Filter for isLastMinute tours (special offers)
       if (filters.isLastMinute) {
         filteredTours = filteredTours.filter(tour => tour.isLastMinute === true);
       }
       
-      // Filter for popular tours (tours with discount)
       if (filters.isPopular) {
         filteredTours = filteredTours.filter(tour => tour.price.hasDiscount === true);
       }
@@ -52,7 +364,7 @@ export const tourService = {
     try {
       await new Promise(resolve => setTimeout(resolve, 500));
       
-      const tour = tourData.find(tour => tour.id.toString() === id.toString());
+      const tour = mockTourData.find(tour => tour.id.toString() === id.toString());
       
       if (!tour) {
         throw new Error('تور مورد نظر یافت نشد');
@@ -115,12 +427,22 @@ export const tourService = {
     }
   },
 
-  // Favorites functionality
   async getFavorites() {
     try {
       await new Promise(resolve => setTimeout(resolve, 300));
       
-      // In a real app, this would fetch from an API
+      // Get the latest from localStorage if in browser
+      if (isBrowser) {
+        try {
+          const stored = localStorage.getItem('favoriteTours');
+          if (stored) {
+            favoriteTours = JSON.parse(stored);
+          }
+        } catch (e) {
+          console.error('Error loading favorites from localStorage:', e);
+        }
+      }
+      
       return favoriteTours;
     } catch (error) {
       console.error('Error fetching favorites:', error);
@@ -135,6 +457,15 @@ export const tourService = {
       // Check if already in favorites
       if (!favoriteTours.some(fav => fav.id === tour.id)) {
         favoriteTours.push(tour);
+        
+        // Save to localStorage if in browser
+        if (isBrowser) {
+          try {
+            localStorage.setItem('favoriteTours', JSON.stringify(favoriteTours));
+          } catch (e) {
+            console.error('Error saving to localStorage:', e);
+          }
+        }
       }
       
       return { success: true };
@@ -149,6 +480,15 @@ export const tourService = {
       await new Promise(resolve => setTimeout(resolve, 300));
       
       favoriteTours = favoriteTours.filter(tour => tour.id !== tourId);
+      
+      // Update localStorage if in browser
+      if (isBrowser) {
+        try {
+          localStorage.setItem('favoriteTours', JSON.stringify(favoriteTours));
+        } catch (e) {
+          console.error('Error saving to localStorage:', e);
+        }
+      }
       
       return { success: true };
     } catch (error) {

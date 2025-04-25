@@ -1,6 +1,5 @@
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3000/api';
 
-// داده‌های ساختگی برای شبیه‌سازی API
 const mockUserProfile = {
   id: 1,
   name: 'کوروش صفایی',
@@ -28,7 +27,6 @@ const mockUserProfile = {
   bank_sheba: '',
 };
 
-// داده‌های ساختگی برای تورهای رزرو شده
 const mockUserTrips = [
   {
     id: 1,
@@ -124,7 +122,6 @@ const mockUserTrips = [
   },
 ];
 
-// داده‌های ساختگی برای تراکنش‌ها
 const mockTransactions = [
   {
     id: 'TW8790741',
@@ -173,7 +170,6 @@ const mockTransactions = [
 ];
 
 export const profileService = {
-  // دریافت اطلاعات پروفایل کاربر
   async getUserProfile() {
     try {
       // شبیه‌سازی تأخیر API
@@ -193,7 +189,6 @@ export const profileService = {
     }
   },
 
-  // به‌روزرسانی اطلاعات پروفایل کاربر
   async updateUserProfile(profileData, section = 'profile') {
     try {
       // شبیه‌سازی تأخیر API
@@ -223,7 +218,6 @@ export const profileService = {
     }
   },
 
-  // آپلود تصویر پروفایل
   async uploadProfileImage(file) {
     try {
       // شبیه‌سازی تأخیر API
@@ -253,7 +247,6 @@ export const profileService = {
     }
   },
 
-  // تغییر رمز عبور
   async changePassword(passwordData) {
     try {
       // شبیه‌سازی تأخیر API
@@ -281,7 +274,6 @@ export const profileService = {
     }
   },
 
-  // دریافت لیست تورهای رزرو شده
   async getUserTrips() {
     try {
       // شبیه‌سازی تأخیر API
@@ -303,7 +295,6 @@ export const profileService = {
     }
   },
 
-  // دریافت جزئیات یک تور خاص
   async getTripDetails(tripId) {
     try {
       // شبیه‌سازی تأخیر API
@@ -329,7 +320,6 @@ export const profileService = {
     }
   },
 
-  // دریافت تاریخچه تراکنش‌ها
   async getUserTransactions() {
     try {
       // شبیه‌سازی تأخیر API
@@ -344,7 +334,6 @@ export const profileService = {
       // return await response.json();
       
       // شبیه‌سازی پاسخ موفق
-      // شبیه‌سازی پاسخ موفق
       return mockTransactions;
     } catch (error) {
       console.error('Error fetching user transactions:', error);
@@ -352,7 +341,6 @@ export const profileService = {
     }
   },
 
-  // دریافت جزئیات یک تراکنش خاص
   async getTransactionDetails(transactionId) {
     try {
       // شبیه‌سازی تأخیر API
