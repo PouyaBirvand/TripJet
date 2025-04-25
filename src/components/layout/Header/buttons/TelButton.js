@@ -1,8 +1,7 @@
-"use client";
-import { PhoneCall } from "lucide-react";
-import Link from "next/link";
+import { PhoneCall } from 'lucide-react';
+import Link from 'next/link';
 
-const TelBtn = ({ className = '' }) => {
+const TelButton = ({ className = '' }) => {
   return (
     <Link 
       href="tel:+02170709797"
@@ -14,4 +13,4 @@ const TelBtn = ({ className = '' }) => {
   );
 };
 
-export default TelBtn;
+export default TelButton;

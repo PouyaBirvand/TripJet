@@ -1,18 +1,12 @@
-"use client";
+'use client';
 import { CircleX, Loader2, Search } from 'lucide-react';
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState } from 'react';
 import { Formik, Form, Field } from 'formik';
 
-const SearchBtn = ({ className = '' }) => {
+const SearchButton = ({ className = '' }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const inputRef = useRef(null);
-
-  useEffect(() => {
-    if (isExpanded && inputRef.current) {
-      inputRef.current.focus();
-    }
-  }, [isExpanded]);
 
   const handleSubmit = async (values, { resetForm }) => {
     const query = values.searchQuery.trim();
@@ -43,7 +37,14 @@ const SearchBtn = ({ className = '' }) => {
             <div className={`flex items-center py-1 border-none rounded-xl transition-all duration-300 overflow-hidden ${isExpanded ? 'bg-blue-50' : 'bg-transparent'}`}>
               <button
                 type={values.searchQuery.trim() && isExpanded ? 'submit' : 'button'}
-                onClick={() => !values.searchQuery.trim() && setIsExpanded(!isExpanded)}
+                onClick={() => {
+                  if (!values.searchQuery.trim()) {
+                    setIsExpanded(!isExpanded);
+                    if (!isExpanded && inputRef.current) {
+                      setTimeout(() => inputRef.current?.focus(), 0);
+                    }
+                  }
+                }}
                 className={`p-2 text-blue-600 transition-colors ${isLoading ? 'cursor-wait' : 'cursor-pointer'}`}
                 disabled={isLoading}
               >
@@ -54,7 +55,7 @@ const SearchBtn = ({ className = '' }) => {
                 )}
               </button>
               
-              <div className={`transition-all duration-300 ${isExpanded ? 'md:w-48  opacity-100 px-2' : 'w-0 opacity-0'}`}>
+              <div className={`transition-all duration-300 ${isExpanded ? 'md:w-48 opacity-100 px-2' : 'w-0 opacity-0'}`}>
                 <Field
                   innerRef={inputRef}
                   name="searchQuery"
@@ -84,4 +85,4 @@ const SearchBtn = ({ className = '' }) => {
   );
 };
 
-export default SearchBtn;
+export default SearchButton;
