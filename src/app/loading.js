@@ -1,77 +1,83 @@
+'use client';
+
+import { useEffect, useState } from 'react';
+import { Compass } from 'lucide-react';
+
 export default function Loading() {
+  const [progress, setProgress] = useState(0);
+  
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setProgress(prev => (prev < 100 ? prev + 1 : 0));
+    }, 30);
+    
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-4">
-      <div className="flex flex-col items-center gap-4">
-        <div className="relative w-24 h-24">
-          <div className="absolute inset-0">
-            <div className="w-full h-full rounded-full border-4 border-primary/30 animate-pulse"></div>
-          </div>
-          <div className="absolute inset-0 flex items-center justify-center">
-            <svg
-              className="animate-spin h-12 w-12 text-primary"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-            >
-              <circle
-                className="opacity-25"
-                cx="12"
-                cy="12"
-                r="10"
-                stroke="currentColor"
-                strokeWidth="4"
-              ></circle>
-              <path
-                className="opacity-75"
-                fill="currentColor"
-                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-              ></path>
-            </svg>
-          </div>
+    <div className="min-h-screen flex items-center justify-center">
+      <div className="flex flex-col items-center">
+        {/* کامپاس با انیمیشن */}
+        <div className="relative mb-8">
+          {/* حلقه‌های دور کامپاس */}
+          <div className="absolute inset-0 rounded-full border-4 border-primary/20"></div>
+          
+          {/* حلقه متحرک */}
+          <svg className="w-24 h-24" viewBox="0 0 100 100">
+            <circle 
+              cx="50" 
+              cy="50" 
+              r="46" 
+              fill="none" 
+              stroke="currentColor" 
+              strokeWidth="8" 
+              strokeLinecap="round" 
+              strokeDasharray="289.27"
+              strokeDashoffset={289.27 - (289.27 * progress) / 100}
+              className="text-primary transform -rotate-90 origin-center transition-all duration-300 ease-out"
+            />
+          </svg>
+          
+          {/* آیکون کامپاس */}
+          <Compass 
+            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-primary" 
+            size={36}
+          />
+          
+          {/* افکت درخشش */}
+          <div className="absolute inset-0 rounded-full bg-primary/5 animate-pulse"></div>
         </div>
-
-        <div className="text-center">
-          <h2 className="text-xl font-bold text-base-content animate-pulse">در حال بارگذاری...</h2>
-          <p className="mt-2 text-base-content/70">لطفاً کمی صبر کنید</p>
-        </div>
-
-        <div className="w-full max-w-xs mt-4">
-          <div className="h-2 bg-base-300 rounded-full overflow-hidden">
-            <div className="h-full bg-primary rounded-full animate-progress"></div>
+        
+        {/* متن لودینگ */}
+        <div className="text-center relative">
+          <h2 className="text-2xl font-medium text-gray-800 mb-1">
+            در حال بارگذاری
+          </h2>
+          <p className="text-gray-500 text-md mb-3">
+            لطفاً کمی صبر کنید
+          </p>
+          
+          {/* نوار پیشرفت */}
+          <div className="w-48 h-1 bg-gray-200 rounded-full overflow-hidden">
+            <div 
+              className="h-full bg-primary rounded-full transition-all duration-300 ease-out"
+              style={{ width: `${progress}%` }}
+            ></div>
+          </div>
+          
+          {/* درصد پیشرفت */}
+          <div className="mt-2 text-md text-primary font-medium">
+            {progress}%
           </div>
         </div>
       </div>
-
-      <div className="w-full max-w-4xl mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {[...Array(3)].map((_, i) => (
-          <div key={i} className="card bg-base-200 shadow-xl animate-pulse">
-            <div className="h-48 bg-base-300 rounded-t-xl"></div>
-            <div className="card-body">
-              <div className="h-6 bg-base-300 rounded-full w-3/4 mb-3"></div>
-              <div className="space-y-2">
-                <div className="h-4 bg-base-300 rounded-full"></div>
-                <div className="h-4 bg-base-300 rounded-full w-5/6"></div>
-                <div className="h-4 bg-base-300 rounded-full w-4/6"></div>
-              </div>
-              <div className="card-actions justify-end mt-4">
-                <div className="h-10 bg-base-300 rounded-full w-28"></div>
-              </div>
-            </div>
-          </div>
-        ))}
+      
+      {/* افکت‌های پس‌زمینه */}
+      <div className="fixed inset-0 pointer-events-none">
+        <div className="absolute top-1/4 left-1/4 w-1 h-1 bg-primary rounded-full animate-ping opacity-20" style={{ animationDuration: '3s', animationDelay: '0.5s' }}></div>
+        <div className="absolute top-3/4 left-1/3 w-1 h-1 bg-primary rounded-full animate-ping opacity-20" style={{ animationDuration: '2.5s', animationDelay: '0.2s' }}></div>
+        <div className="absolute top-1/3 right-1/4 w-1 h-1 bg-primary rounded-full animate-ping opacity-20" style={{ animationDuration: '4s', animationDelay: '1s' }}></div>
       </div>
     </div>
   );
 }
-
-//   <style jsx global>{`
-//     @keyframes progress {
-//       0% { width: 5%; }
-//       50% { width: 70%; }
-//       100% { width: 95%; }
-//     }
-
-//     .animate-progress {
-//       animation: progress 2s ease-in-out infinite;
-//     }
-//   `}</style>

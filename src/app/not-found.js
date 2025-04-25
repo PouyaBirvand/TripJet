@@ -1,38 +1,42 @@
 import Link from 'next/link';
+import { Compass, ArrowLeft, Map } from 'lucide-react';
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 py-16 bg-base-100">
-      <div className="card w-full max-w-md bg-base-200 shadow-xl">
-        <div className="card-body">
-          <div className="flex flex-col items-center text-center">
-            <div className="text-error mb-4">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-24 w-24"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
+    <div className="min-h-screen flex items-center justify-center">
+      <div className="max-w-5xl w-full bg-white rounded-2xl shadow-xl overflow-hidden">
+        <div className="flex flex-col md:flex-row">
+          <div className="md:w-1/2 bg-blue-600 p-8 flex items-center justify-center">
+            <div className="text-center">
+              <div className="relative">
+                <Compass className="h-32 w-32 text-white mx-auto animate-pulse" strokeWidth={1.5} />
+              </div>
+              <h3 className="text-white text-xl mt-6 font-light">مسیر شما گم شده است</h3>
             </div>
-
-            <h2 className="card-title text-3xl font-bold mb-2">404</h2>
-            <h3 className="text-xl font-semibold mb-4">صفحه مورد نظر یافت نشد</h3>
-
-            <p className="text-base-content/80 mb-6">
-              صفحه‌ای که به دنبال آن هستید وجود ندارد یا حذف شده است.
-            </p>
-
-            <Link href="/" className="btn btn-primary w-full">
-              بازگشت به صفحه اصلی
-            </Link>
+          </div>
+          
+          <div className="md:w-1/2 p-8 md:p-10">
+            <div className="text-center md:text-right">
+              <h2 className="text-5xl font-bold text-gray-800 mb-2">404</h2>
+              <h3 className="text-2xl font-semibold text-gray-700 mb-4">صفحه مورد نظر پیدا نشد</h3>
+              
+              <div className="mb-8 text-gray-600">
+                <p className="mb-4">صفحه‌ای که به دنبال آن هستید در نقشه سفر ما وجود ندارد.</p>
+                <p>شاید مسیر را اشتباه آمده‌اید یا این مقصد دیگر در تورهای ما موجود نیست.</p>
+              </div>
+              
+              <div className="space-y-3">
+                <Link href="/" className="btn rounded-lg !bg-blue-600 !text-white w-full flex items-center justify-center gap-2 group">
+                  <ArrowLeft className="h-5 w-5 transition-transform group-hover:-translate-x-1" />
+                  <span>بازگشت به صفحه اصلی</span>
+                </Link>
+                
+                <Link href="/tours" className="btn rounded-lg btn-outline !bg-blue-600 !text-white w-full flex items-center justify-center gap-2">
+                  <Map className="h-5 w-5" />
+                  <span>مشاهده تورهای ویژه</span>
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </div>

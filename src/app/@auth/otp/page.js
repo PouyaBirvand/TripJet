@@ -1,5 +1,5 @@
-import OtpForm from '../../../components/auth/OtpForm/OtpForm';
+import OTPForm from "../../../components/auth/OTPForm";
 
-export default function PhoneModal() {
-  return <OtpForm />;
+export default function OtpModal() {
+  return <OTPForm />;
 }

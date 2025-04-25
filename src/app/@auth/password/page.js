@@ -1,6 +1,5 @@
-import PasswordForm from '../../../components/auth/PasswordForm/PasswordForm';
+import PasswordForm from '../../../components/auth/PasswordForm';
 
-
-export default function PhoneModal() {
+export default function PasswordModal() {
   return <PasswordForm />;
 }

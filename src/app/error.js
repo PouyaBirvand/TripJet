@@ -2,76 +2,99 @@
 
 import { useEffect } from 'react';
 import Link from 'next/link';
+import { AlertTriangle, RefreshCw, Home, Wifi, Globe, Trash2 } from 'lucide-react';
 
 export default function Error({ error, reset }) {
   useEffect(() => {
-    // اینجا می‌توانید خطا را به سرویس‌های مانیتورینگ گزارش دهید
+    // گزارش خطا به سرویس‌های مانیتورینگ
     console.error('Error occurred:', error);
   }, [error]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 py-16 bg-base-100">
-      <div className="card w-full max-w-md bg-base-200 shadow-xl">
-        <div className="card-body">
-          <div className="flex flex-col items-center text-center">
-            <div className="text-error mb-4">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-16 w-16"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
-                />
-              </svg>
-            </div>
-
-            <h2 className="card-title text-2xl font-bold mb-2">مشکلی پیش آمد!</h2>
-
-            <p className="text-base-content/80 mb-6">
-              متأسفانه خطایی در برنامه رخ داده است. می‌توانید دوباره تلاش کنید یا به صفحه اصلی
-              بازگردید.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-3 w-full">
-              <button onClick={() => reset()} className="btn btn-primary flex-1">
-                تلاش مجدد
-              </button>
-
-              <Link href="/" className="btn btn-outline flex-1">
-                بازگشت به صفحه اصلی
-              </Link>
-            </div>
-
-            {process.env.NODE_ENV === 'development' && (
-              <div className="mt-8 p-4 bg-base-300 rounded-box w-full text-left overflow-auto">
-                <h3 className="font-mono font-bold text-sm mb-2">
-                  جزئیات خطا (فقط در محیط توسعه):
-                </h3>
-                <pre className="text-xs font-mono whitespace-pre-wrap break-words text-error">
-                  {error?.message || 'خطای نامشخص'}
-                </pre>
-                {error?.stack && (
-                  <pre className="text-xs font-mono mt-2 whitespace-pre-wrap break-words text-base-content/70">
-                    {error.stack}
-                  </pre>
-                )}
+    <div className="min-h-screen flex items-center justify-center px-4 py-12">
+      <div className="w-full max-w-lg bg-white rounded-2xl shadow-lg overflow-hidden">
+        <div className="p-6 md:p-8">
+          {/* هدر */}
+          <div className="flex flex-col items-center text-center mb-8">
+            <div className="relative mb-4">
+              <div className="w-20 h-20 rounded-full bg-red-50 flex items-center justify-center">
+                <AlertTriangle className="h-10 w-10 text-red-500" />
               </div>
-            )}
-
-            <div className="divider mt-8 mb-4">راهنمایی</div>
-
-            <ul className="text-sm text-base-content/70 space-y-2 text-right w-full">
-              <li>• صفحه را رفرش کنید</li>
-              <li>• اتصال اینترنت خود را بررسی کنید</li>
-              <li>• از مرورگر دیگری استفاده کنید</li>
-              <li>• کوکی‌ها و کش مرورگر را پاک کنید</li>
+              <div className="absolute -top-1 -right-1 w-6 h-6 bg-red-500 rounded-full animate-pulse"></div>
+            </div>
+            
+            <h2 className="text-2xl font-bold text-gray-800 mb-2">مشکلی در مسیر سفر شما پیش آمد!</h2>
+            <p className="text-gray-600 max-w-md">
+              متأسفانه در پردازش درخواست شما خطایی رخ داده است. می‌توانید دوباره تلاش کنید یا به صفحه اصلی بازگردید.
+            </p>
+          </div>
+          
+          {/* دکمه‌ها */}
+          <div className="flex flex-col sm:flex-row gap-3 w-full mb-8">
+            <button 
+              onClick={() => reset()} 
+              className="btn bg-blue-600 text-white rounded-lg flex-1 gap-2"
+            >
+              <RefreshCw className="h-5 w-5" />
+              تلاش مجدد
+            </button>
+            
+            <Link 
+              href="/" 
+              className="btn btn-outline rounded-lg flex-1 gap-2"
+            >
+              <Home className="h-5 w-5" />
+              بازگشت به صفحه اصلی
+            </Link>
+          </div>
+          
+          {/* جزئیات خطا در محیط توسعه */}
+          {process.env.NODE_ENV === 'development' && (
+            <div className="mb-8 p-4 bg-gray-50 border border-gray-200 rounded-xl w-full text-left overflow-auto">
+              <h3 className="font-mono font-bold text-sm mb-2 text-gray-700">
+                جزئیات خطا (فقط در محیط توسعه):
+              </h3>
+              <pre className="text-xs font-mono whitespace-pre-wrap break-words text-red-600">
+                {error?.message || 'خطای نامشخص'}
+              </pre>
+              {error?.stack && (
+                <pre className="text-xs font-mono mt-2 whitespace-pre-wrap break-words text-gray-600 max-h-40 overflow-y-auto">
+                  {error.stack}
+                </pre>
+              )}
+            </div>
+          )}
+          
+          {/* راهنمایی */}
+          <div className="bg-blue-50 rounded-xl p-5">
+            <h3 className="font-medium text-blue-700 mb-3 flex items-center gap-2">
+              <Globe className="h-5 w-5" />
+              راهکارهای پیشنهادی
+            </h3>
+            
+            <ul className="text-sm text-gray-700 space-y-3">
+              <li className="flex items-center gap-2">
+                <RefreshCw className="h-4 w-4 text-blue-500 flex-shrink-0" />
+                <span>صفحه را رفرش کنید</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <Wifi className="h-4 w-4 text-blue-500 flex-shrink-0" />
+                <span>اتصال اینترنت خود را بررسی کنید</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <Globe className="h-4 w-4 text-blue-500 flex-shrink-0" />
+                <span>از مرورگر دیگری استفاده کنید</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <Trash2 className="h-4 w-4 text-blue-500 flex-shrink-0" />
+                <span>کوکی‌ها و کش مرورگر را پاک کنید</span>
+              </li>
             </ul>
+          </div>
+          
+          {/* پیام پشتیبانی */}
+          <div className="mt-6 text-center text-sm text-gray-500">
+            اگر مشکل همچنان ادامه دارد، لطفاً با پشتیبانی تماس بگیرید
           </div>
         </div>
       </div>

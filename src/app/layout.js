@@ -1,10 +1,10 @@
 import { Vazirmatn } from 'next/font/google';
 import './globals.css';
-import Header from '../components/layout/Header/Header';
-import Footer from '../components/layout/Footer/Footer';
+import Footer from '../components/layout/Footer';
 import { QueryProvider } from '../providers/QueryProvider';
 import { AuthProvider } from '../providers/AuthProvider';
-import { NuqsAdapter } from 'nuqs/adapters/next/app'
+import { NuqsAdapter } from 'nuqs/adapters/next/app';
+import Header from '../components/layout/Header/Header';
 
 const vazir = Vazirmatn({
   variable: '--font-vazir',
