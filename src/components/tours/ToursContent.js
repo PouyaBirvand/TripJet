@@ -1,5 +1,4 @@
 'use client';
-
 import { useQuery } from '@tanstack/react-query';
 import { useFilters } from '../../contexts/TourFiltersContext';
 import { tourService } from '../../services/tour/tourService';

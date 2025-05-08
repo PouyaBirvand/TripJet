@@ -1,21 +1,17 @@
 'use client';
 import { Formik, Form } from 'formik';
-import * as Yup from 'yup';
 import Link from 'next/link';
 import CustomFormField from '../../../../components/common/CustomFormField';
+import { travelInfoSchema } from '../../../../lib/validation';
 
 const EditTravelCard = ({ initialData, onSubmit, returnPath }) => {
-  const validationSchema = Yup.object({
-    nationalId: Yup.string().required('کد ملی الزامی است'),
-    birthDate: Yup.string().required('تاریخ تولد الزامی است'),
-  });
 
   return (
     <div className="bg-white rounded-xl border border-base-300 p-4 md:p-6">
       <div className="mb-6">
         <h2 className="text-xl font-semibold">ویرایش اطلاعات مسافرتی</h2>
       </div>
-      <Formik initialValues={initialData} validationSchema={validationSchema} onSubmit={onSubmit}>
+      <Formik initialValues={initialData} validationSchema={travelInfoSchema} onSubmit={onSubmit}>
         {({ isSubmitting }) => (
           <Form className="space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 space-y-4">

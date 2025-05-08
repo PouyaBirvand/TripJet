@@ -1,11 +1,11 @@
 'use client';
 import PassengerInfo from '../../../components/booking/Confirmation/PassengerInfo';
 import TicketInfo from '../../../components/booking/Confirmation/TicketInfo';
-import useBookingDetails from '../../../hooks/useBookingDetails';
 import LoadingSpinner from '../../../components/ui/LoadingSpinner';
 import ErrorMessage from '../../../components/ui/ErrorMessage';
 import HotelInfo from '../../../components/booking/Confirmation/HotelInfo';
 import PaymentConfirmation from '../../../components/booking/Confirmation/PaymentConfirmation';
+import useBookingDetails from '../../../hooks/BookingHooks/useBookingDetails';
 
 
 export default function ConfirmationPage({ bookingId }) {

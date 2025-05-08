@@ -1,12 +1,12 @@
 'use client';
+import { useUserProfile } from "../../../hooks/ProfileHooks/useUserProfile";
 import { AutoReservationHeader } from "../../../components/profile/ProfileReservation/AutoReservationHeader";
 import { AutoReservationInfo } from "../../../components/profile/ProfileReservation/AutoReservationInfo";
 import { CreditButton } from "../../../components/profile/ProfileReservation/CreditButton";
 import { UserCredit } from "../../../components/profile/ProfileReservation/UserCredit";
-import { useProfile } from "../../../hooks/useProfile";
 
 export default function AutoReservation() {
-  const { profile } = useProfile();
+  const { profile } = useUserProfile();
   
   return (
     <div className="bg-white border border-base-300 rounded-xl p-3 sm:p-4 md:p-6">

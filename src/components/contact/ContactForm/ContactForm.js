@@ -1,10 +1,10 @@
 'use client';
 import { Formik, Form } from 'formik';
-import { initialValues, subjectOptions } from './formConfig';
 import CustomFormField from '../../common/CustomFormField';
 import MessageTextArea from './MessageTextArea';
 import SubmitButton from './SubmitButton';
-import validationSchema from '../validation';
+import { contactFormSchema } from '../../../lib/validation';
+import { getContactInitialValues, getSubjectOptionsInitialValues } from '../../../lib/formInitialValues';
 
 export default function ContactForm() {
   const handleSubmit = (values, { setSubmitting, resetForm }) => {
@@ -20,8 +20,8 @@ export default function ContactForm() {
       <h2 className="text-2xl font-bold mb-8 text-gray-800">ارتباط با ما</h2>
 
       <Formik
-        initialValues={initialValues}
-        validationSchema={validationSchema}
+        initialValues={getContactInitialValues}
+        validationSchema={contactFormSchema}
         onSubmit={handleSubmit}
       >
         <Form className="space-y-6">
@@ -87,7 +87,7 @@ function SubjectField() {
       label="موضوع"
       placeholder="موضوع را انتخاب کنید"
       type="select"
-      options={subjectOptions}
+      options={getSubjectOptionsInitialValues}
     />
   );
 }

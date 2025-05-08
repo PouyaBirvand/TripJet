@@ -1,23 +1,16 @@
 'use client';
+import CustomFormField from '../../../../components/common/CustomFormField';
+import { personalInfoSchema } from '../../../../lib/validation';
 import { Formik, Form, Field } from 'formik';
-import * as Yup from 'yup';
-import { ArrowLeft, Save } from 'lucide-react';
 import Link from 'next/link';
-import CustomFormField from '../../../common/CustomFormField';
 
 const EditProfileCard = ({ initialData, onSubmit, returnPath }) => {
-  const validationSchema = Yup.object({
-    firstName: Yup.string().required('نام الزامی است'),
-    lastName: Yup.string().required('نام خانوادگی الزامی است'),
-    gender: Yup.string().required('انتخاب جنسیت الزامی است'),
-  });
-
   return (
     <div className="bg-white rounded-xl border border-base-300 p-4 md:p-6">
       <div className="mb-6">
         <h2 className="text-xl font-semibold">ویرایش اطلاعات کاربری</h2>
       </div>
-      <Formik initialValues={initialData} validationSchema={validationSchema} onSubmit={onSubmit}>
+      <Formik initialValues={initialData} validationSchema={personalInfoSchema} onSubmit={onSubmit}>
         {({ isSubmitting, errors, touched }) => (
           <Form className="space-y-4">
             <div className="mb-8">

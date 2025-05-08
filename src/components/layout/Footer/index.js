@@ -47,7 +47,6 @@ const Footer = () => {
   return (
     <footer className="bg-gray-50 text-gray-700 border-t border-gray-200">
       <div className="container mx-auto px-4 py-12">
-        {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-10">
           <ContactInfo />
           {linksData.map((section) => (
@@ -59,7 +58,6 @@ const Footer = () => {
           ))}
         </div>
         
-        {/* Social and Certification Section */}
         <div className="flex flex-col md:flex-row justify-between items-center border-t border-gray-200 pt-8 gap-6">
           <SocialLinks />
           <Certifications />

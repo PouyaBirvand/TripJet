@@ -3,7 +3,7 @@ import { Edit, Users, UserCheck } from 'lucide-react';
 import { useState } from 'react';
 import ErrorMessage from '../../../components/ui/ErrorMessage';
 import LoadingSpinner from '../../../components/ui/LoadingSpinner';
-import useBookingDetails from '../../../hooks/useBookingDetails';
+import useBookingDetails from '../../../hooks/BookingHooks/useBookingDetails';
 
 export default function PassengerInfo({ bookingId }) {
   const [editingPassengerId, setEditingPassengerId] = useState(null);

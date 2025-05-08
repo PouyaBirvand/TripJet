@@ -1,8 +1,8 @@
 'use client';
 import { Hotel, Calendar, Clock, Bed } from 'lucide-react';
-import useBookingDetails from '../../../hooks/useBookingDetails';
 import ErrorMessage from '../../../components/ui/ErrorMessage';
 import LoadingSpinner from '../../../components/ui/LoadingSpinner';
+import useBookingDetails from '../../../hooks/BookingHooks/useBookingDetails';
 
 export default function HotelInfo({ bookingId }) {
   const { bookingDetails, isLoading, error } = useBookingDetails(bookingId);

@@ -6,7 +6,6 @@ import { useField } from 'formik';
 import { PATTERNS } from '../../lib/constants/regex';
 import { toEnglishNumber, toFarsiNumber } from '../../lib/utils/numbers';
 
-// آرایه‌های مورد نیاز برای تاریخ تولد
 const YEARS = Array.from({ length: 100 }, (_, i) => 1300 + i);
 const MONTHS = [
   { value: 1, label: 'فروردین' },
@@ -23,18 +22,13 @@ const MONTHS = [
   { value: 12, label: 'اسفند' },
 ];
 
-// تابع کمکی برای محاسبه تعداد روزهای ماه
 const getDaysInMonth = (year, month) => {
-  // ماه‌های 31 روزه: 1, 3, 5, 7, 8, 10, 12
   if ([1, 3, 5, 7, 8, 10, 12].includes(month)) return 31;
-  // ماه‌های 30 روزه: 4, 6, 9, 11
   if ([4, 6, 9, 11].includes(month)) return 30;
-  // اسفند: 29 روز در سال کبیسه، 28 روز در سال عادی
-  // محاسبه ساده سال کبیسه در تقویم شمسی
   if (month === 2) {
     return (year % 4 === 3 && year % 100 !== 3) || year % 400 === 3 ? 29 : 28;
   }
-  return 30; // حالت پیش‌فرض
+  return 30; 
 };
 
 const CustomFormField = ({
@@ -49,9 +43,9 @@ const CustomFormField = ({
   convertToFarsi = false,
   digitsOnly = false,
   autoComplete,
-  options = [], // برای سلکت
-  masked = false, // برای مخفی کردن مقادیر حساس مثل کد ملی
-  dateFormat = false, // برای تاریخ تولد
+  options = [], 
+  masked = false, 
+  dateFormat = false, 
   textAlign = 'right',
   ...props
 }) => {
@@ -67,7 +61,6 @@ const CustomFormField = ({
   const [showPassword, setShowPassword] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  // برای تاریخ تولد
   const [selectedYear, setSelectedYear] = useState('');
   const [selectedMonth, setSelectedMonth] = useState('');
   const [selectedDay, setSelectedDay] = useState('');
@@ -80,7 +73,6 @@ const CustomFormField = ({
   const inputRef = useRef(null);
   const dropdownRef = useRef(null);
 
-  // برای بستن دراپ‌داون وقتی خارج از آن کلیک می‌شود
   useEffect(() => {
     const handleClickOutside = event => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -94,14 +86,12 @@ const CustomFormField = ({
     };
   }, []);
 
-  // برای تاریخ تولد: به‌روزرسانی روزها بر اساس سال و ماه انتخاب شده
   useEffect(() => {
     if (dateFormat && selectedYear && selectedMonth) {
       setDaysInMonth(getDaysInMonth(parseInt(selectedYear), parseInt(selectedMonth)));
     }
   }, [selectedYear, selectedMonth, dateFormat]);
 
-  // برای تاریخ تولد: تنظیم مقادیر اولیه
   useEffect(() => {
     if (dateFormat && value) {
       const parts = value.split('/');
@@ -133,24 +123,18 @@ const CustomFormField = ({
   const handleChange = e => {
     let inputValue = e.target.value;
 
-    // اگر تبدیل به فارسی فعال است
     if (convertToFarsi) {
-      // تبدیل به انگلیسی برای اعتبارسنجی
       const englishValue = toEnglishNumber(inputValue);
 
-      // اعمال محدودیت‌ها
       if (
         englishValue === '' ||
         ((!digitsOnly || PATTERNS.DIGITS_ONLY.test(englishValue)) &&
           (!maxLength || englishValue.length <= maxLength))
       ) {
-        // ذخیره مقدار انگلیسی در فرمیک
         setValue(englishValue);
-        // نمایش اعداد فارسی به کاربر
         setDisplayValue(toFarsiNumber(englishValue));
       }
     } else {
-      // برای سایر انواع ورودی
       if (!maxLength || inputValue.length <= maxLength) {
         if (!digitsOnly || PATTERNS.DIGITS_ONLY.test(inputValue)) {
           setValue(inputValue);
@@ -193,7 +177,6 @@ const CustomFormField = ({
     setIsDropdownOpen(false);
     setTouched(true);
   };
-  // برای تاریخ تولد
   const handleDateChange = (part, value) => {
     let newYear = selectedYear;
     let newMonth = selectedMonth;
@@ -203,13 +186,11 @@ const CustomFormField = ({
     if (part === 'month') newMonth = value;
     if (part === 'day') newDay = value;
 
-    // اگر همه قسمت‌ها انتخاب شده‌اند، مقدار را در فرمیک ذخیره کنید
     if (newYear && newMonth && newDay) {
       const formattedDate = `${newYear}/${newMonth.padStart(2, '0')}/${newDay.padStart(2, '0')}`;
       setValue(formattedDate);
     }
 
-    // بروزرسانی state‌های مربوطه
     if (part === 'year') setSelectedYear(value);
     if (part === 'month') setSelectedMonth(value);
     if (part === 'day') setSelectedDay(value);
@@ -231,10 +212,8 @@ const CustomFormField = ({
     return 'text-base-content/50';
   };
 
-  // تعیین نوع ورودی واقعی (برای رمز عبور و کد ملی)
   const actualType = (type === 'password' || masked) && !showPassword ? 'password' : type;
 
-  // رندر کردن فیلد مناسب بر اساس نوع
   const renderField = () => {
     // برای سلکت
     if (type === 'select') {
@@ -269,19 +248,15 @@ const CustomFormField = ({
       );
     }
 
-    // برای تاریخ تولد
-    // بخش مربوط به تاریخ تولد در تابع renderField را با این کد جایگزین کنید
 
     if (dateFormat) {
       return (
         <div className="grid grid-cols-3 gap-2 w-full" ref={datePickerRef}>
-          {/* سلکت روز */}
           <div className="relative">
             <div className="relative">
               <div
                 className="flex items-center justify-between w-full border-none outline-none py-3 px-3 cursor-pointer border border-base-300 rounded-md bg-base-100"
                 onClick={() => {
-                  // بستن سایر دراپ‌داون‌ها
                   setIsYearDropdownOpen(false);
                   setIsMonthDropdownOpen(false);
                   setIsDayDropdownOpen(!isDayDropdownOpen);
@@ -319,13 +294,11 @@ const CustomFormField = ({
             </div>
           </div>
 
-          {/* سلکت ماه */}
           <div className="relative">
             <div className="relative">
               <div
                 className="flex items-center justify-between w-full border-none outline-none py-3 px-3 cursor-pointer border border-base-300 rounded-md bg-base-100"
                 onClick={() => {
-                  // بستن سایر دراپ‌داون‌ها
                   setIsYearDropdownOpen(false);
                   setIsDayDropdownOpen(false);
                   setIsMonthDropdownOpen(!isMonthDropdownOpen);
@@ -361,13 +334,11 @@ const CustomFormField = ({
             </div>
           </div>
 
-          {/* سلکت سال */}
           <div className="relative">
             <div className="relative">
               <div
                 className="flex items-center justify-between w-full border-none outline-none py-3 px-3 cursor-pointer border border-base-300 rounded-md bg-base-100"
                 onClick={() => {
-                  // بستن سایر دراپ‌داون‌ها
                   setIsMonthDropdownOpen(false);
                   setIsDayDropdownOpen(false);
                   setIsYearDropdownOpen(!isYearDropdownOpen);
@@ -408,8 +379,6 @@ const CustomFormField = ({
       );
     }
 
-    // برای سایر انواع ورودی (متن، عدد، رمز عبور و...)
-    // جایگزین کردن این بخش در تابع renderField برای اینپوت‌های معمولی
     return (
       <div className="flex-1 py-3 relative">
         <input
@@ -451,7 +420,6 @@ const CustomFormField = ({
           className={`flex items-center border ${getBorderColorClass()} rounded-lg transition-all duration-200 ${isFocused ? 'shadow-sm' : ''}`}
           onClick={handleContainerClick}
         >
-          {/* دکمه X برای پاک کردن ورودی */}
           {type === 'select' && value && value.length > 0 && (
             <div
               className="absolute left-9 cursor-pointer hover:opacity-70 transition-opacity z-10"
@@ -464,7 +432,6 @@ const CustomFormField = ({
 
           {renderField()}
 
-          {/* نمایش آیکون چشم برای رمز عبور یا فیلدهای مخفی */}
           {(type === 'password' || masked) && (
             <div
               className="px-3 cursor-pointer"
@@ -479,14 +446,12 @@ const CustomFormField = ({
             </div>
           )}
 
-          {/* نمایش پیشوند (مثل +۹۸) */}
           {showPrefix && prefix && !dateFormat && (
             <div className="flex items-center px-3 border-l border-base-300 dark:border-base-content/20">
               <span className="text-base-content/70 whitespace-nowrap">{prefix}</span>
             </div>
           )}
 
-          {/* نمایش تیک برای ورودی معتبر */}
           {value && value.length > 0 && !error && !dateFormat && (
             <div className="absolute left-3">
               <CheckCircle size="18" stroke="1" className="text-success" />

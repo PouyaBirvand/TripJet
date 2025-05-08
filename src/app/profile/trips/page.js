@@ -1,16 +1,15 @@
 'use client';
 import { useState } from 'react';
-import { useProfile } from '../../../hooks/useProfile';
 import { Loader } from 'lucide-react';
 import TripCard from '../../../components/profile/ProfileTrips/TripCard';
 import TripDetailsModal from '../../../components/profile/ProfileTrips/TripDetailsModal';
 import LoadingTripCard from '../../../components/profile/ProfileTrips/TripCard/LoadingTripCard';
+import { useUserTrips } from '../../../hooks/ProfileHooks/useUserTrips';
 
 export default function TripsPage() {
-  const { trips, isTripsLoading, tripsError, getTripDetails } = useProfile();
+  const { trips, isTripsLoading, tripsError, getTripDetails } = useUserTrips();
   const [selectedTrip, setSelectedTrip] = useState(null);
   const [isLoadingDetails, setIsLoadingDetails] = useState(false);
-  console.warn(trips);
 
   const handleViewDetails = async tripId => {
     try {

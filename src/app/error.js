@@ -6,7 +6,6 @@ import { AlertTriangle, RefreshCw, Home, Wifi, Globe, Trash2 } from 'lucide-reac
 
 export default function Error({ error, reset }) {
   useEffect(() => {
-    // گزارش خطا به سرویس‌های مانیتورینگ
     console.error('Error occurred:', error);
   }, [error]);
 
@@ -14,7 +13,6 @@ export default function Error({ error, reset }) {
     <div className="min-h-screen flex items-center justify-center px-4 py-12">
       <div className="w-full max-w-lg bg-white rounded-2xl shadow-lg overflow-hidden">
         <div className="p-6 md:p-8">
-          {/* هدر */}
           <div className="flex flex-col items-center text-center mb-8">
             <div className="relative mb-4">
               <div className="w-20 h-20 rounded-full bg-red-50 flex items-center justify-center">
@@ -29,7 +27,6 @@ export default function Error({ error, reset }) {
             </p>
           </div>
           
-          {/* دکمه‌ها */}
           <div className="flex flex-col sm:flex-row gap-3 w-full mb-8">
             <button 
               onClick={() => reset()} 
@@ -48,7 +45,6 @@ export default function Error({ error, reset }) {
             </Link>
           </div>
           
-          {/* جزئیات خطا در محیط توسعه */}
           {process.env.NODE_ENV === 'development' && (
             <div className="mb-8 p-4 bg-gray-50 border border-gray-200 rounded-xl w-full text-left overflow-auto">
               <h3 className="font-mono font-bold text-sm mb-2 text-gray-700">
@@ -65,7 +61,6 @@ export default function Error({ error, reset }) {
             </div>
           )}
           
-          {/* راهنمایی */}
           <div className="bg-blue-50 rounded-xl p-5">
             <h3 className="font-medium text-blue-700 mb-3 flex items-center gap-2">
               <Globe className="h-5 w-5" />
@@ -92,7 +87,6 @@ export default function Error({ error, reset }) {
             </ul>
           </div>
           
-          {/* پیام پشتیبانی */}
           <div className="mt-6 text-center text-sm text-gray-500">
             اگر مشکل همچنان ادامه دارد، لطفاً با پشتیبانی تماس بگیرید
           </div>

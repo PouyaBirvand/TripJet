@@ -2,7 +2,7 @@
 'use client';
 import { useState } from 'react';
 import { X, Check, Users, SearchX, Plus, Search } from 'lucide-react';
-import usePassengerData from '../../../hooks/usePassengerData';
+import usePassengerData from '../../../hooks/BookingHooks/usePassengerData';
 
 export default function PassengerHistoryModal({ onClose, onSelect }) {
   const [selectedPassengers, setSelectedPassengers] = useState([]);

@@ -1,12 +1,12 @@
 'use client';
 
+import { useUserTransactions } from "../../../hooks/ProfileHooks/useUserTransactions";
 import TransactionRow from "../../../components/profile/ProfileTransactions/TransactionRow";
 import TransactionSkeleton from "../../../components/profile/ProfileTransactions/TransactionSkeleton";
-import { useProfile } from "../../../hooks/useProfile";
 
 
 export default function TransactionPage() {
-  const { transactions, isTransactionsLoading, transactionsError } = useProfile();
+  const { transactions, isTransactionsLoading, transactionsError } = useUserTransactions();
 
   if (isTransactionsLoading) {
     return <TransactionSkeleton />;

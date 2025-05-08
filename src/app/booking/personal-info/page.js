@@ -4,7 +4,8 @@ import { useState } from 'react';
 import { Users } from 'lucide-react';
 import PassengerForm from '../../../components/booking/PerosnalInfo/PassengerForm';
 import TourReservationConfirmation from '../../../components/booking/PerosnalInfo/TourReservationConfirmation';
-import usePassengerData from '../../../hooks/usePassengerData';
+import usePassengerData from '../../../hooks/BookingHooks/usePassengerData';
+import { getPersonalInfoInitialValue } from '../../../lib/formInitialValues';
 
 export default function PersonalInfoPage() {
   const [showPassengerModal, setShowPassengerModal] = useState(false);
@@ -29,10 +30,7 @@ export default function PersonalInfoPage() {
         </div>
 
         <Formik
-          initialValues={{
-            adults: [],
-            children: [],
-          }}
+          initialValues={getPersonalInfoInitialValue}
           onSubmit={handleSubmit}
         >
           <Form>

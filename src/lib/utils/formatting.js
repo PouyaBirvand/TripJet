@@ -51,14 +51,12 @@ export const formatDate = (dateString) => {
   }
 };
 
-// تبدیل تاریخ و زمان به فرمت فارسی
 export const formatDateTime = (dateTimeString) => {
   if (!dateTimeString) return '';
   
   try {
     const date = new Date(dateTimeString);
     
-    // تبدیل به تاریخ و زمان شمسی
     const dateOptions = { year: 'numeric', month: '2-digit', day: '2-digit' };
     const timeOptions = { hour: '2-digit', minute: '2-digit' };
     
@@ -72,7 +70,6 @@ export const formatDateTime = (dateTimeString) => {
   }
 };
 
-// تبدیل تاریخ به فرمت نسبی (مثلاً "۲ روز پیش")
 export const formatRelativeTime = (dateString) => {
   if (!dateString) return '';
   
@@ -81,42 +78,35 @@ export const formatRelativeTime = (dateString) => {
     const now = new Date();
     const diffInSeconds = Math.floor((now - date) / 1000);
     
-    // کمتر از یک دقیقه
     if (diffInSeconds < 60) {
       return 'چند لحظه پیش';
     }
     
-    // کمتر از یک ساعت
     if (diffInSeconds < 3600) {
       const minutes = Math.floor(diffInSeconds / 60);
       return `${minutes} دقیقه پیش`;
     }
     
-    // کمتر از یک روز
     if (diffInSeconds < 86400) {
       const hours = Math.floor(diffInSeconds / 3600);
       return `${hours} ساعت پیش`;
     }
     
-    // کمتر از یک هفته
     if (diffInSeconds < 604800) {
       const days = Math.floor(diffInSeconds / 86400);
       return `${days} روز پیش`;
     }
     
-    // کمتر از یک ماه
     if (diffInSeconds < 2592000) {
       const weeks = Math.floor(diffInSeconds / 604800);
       return `${weeks} هفته پیش`;
     }
     
-    // کمتر از یک سال
     if (diffInSeconds < 31536000) {
       const months = Math.floor(diffInSeconds / 2592000);
       return `${months} ماه پیش`;
     }
     
-    // بیشتر از یک سال
     const years = Math.floor(diffInSeconds / 31536000);
     return `${years} سال پیش`;
   } catch (error) {

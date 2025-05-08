@@ -1,4 +1,5 @@
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3000/api';
+const isBrowser = typeof window !== 'undefined';
 
 export const mockTourData = [
   {
@@ -303,10 +304,7 @@ export const mockTourData = [
   },
 ];
 
-const isBrowser = typeof window !== 'undefined';
-
 let favoriteTours = [];
-
 
 if (isBrowser) {
   try {
@@ -318,21 +316,12 @@ if (isBrowser) {
     console.error('Error loading favorites from localStorage:', e);
   }
 } else {
-  // We're on the server, use the mock data
   favoriteTours = [];
 }
 
 export const tourService = {
   async getTours(filters = {}) {
     try {
-      const queryParams = new URLSearchParams();
-      
-      Object.entries(filters).forEach(([key, value]) => {
-        if (value !== undefined && value !== null && value !== '') {
-          queryParams.append(key, value);
-        }
-      });
-      
       await new Promise(resolve => setTimeout(resolve, 500));
       
       let filteredTours = [...mockTourData];
@@ -343,6 +332,24 @@ export const tourService = {
       
       if (filters.isPopular) {
         filteredTours = filteredTours.filter(tour => tour.price.hasDiscount === true);
+      }
+      
+      if (filters.destination) {
+        filteredTours = filteredTours.filter(tour => 
+          tour.destination.toLowerCase().includes(filters.destination.toLowerCase())
+        );
+      }
+      
+      if (filters.minPrice) {
+        filteredTours = filteredTours.filter(tour => 
+          tour.price.discounted >= parseInt(filters.minPrice, 10)
+        );
+      }
+      
+      if (filters.maxPrice) {
+        filteredTours = filteredTours.filter(tour => 
+          tour.price.discounted <= parseInt(filters.maxPrice, 10)
+        );
       }
       
       return {
@@ -431,7 +438,6 @@ export const tourService = {
     try {
       await new Promise(resolve => setTimeout(resolve, 300));
       
-      // Get the latest from localStorage if in browser
       if (isBrowser) {
         try {
           const stored = localStorage.getItem('favoriteTours');
@@ -454,11 +460,9 @@ export const tourService = {
     try {
       await new Promise(resolve => setTimeout(resolve, 300));
       
-      // Check if already in favorites
       if (!favoriteTours.some(fav => fav.id === tour.id)) {
         favoriteTours.push(tour);
         
-        // Save to localStorage if in browser
         if (isBrowser) {
           try {
             localStorage.setItem('favoriteTours', JSON.stringify(favoriteTours));
@@ -481,7 +485,6 @@ export const tourService = {
       
       favoriteTours = favoriteTours.filter(tour => tour.id !== tourId);
       
-      // Update localStorage if in browser
       if (isBrowser) {
         try {
           localStorage.setItem('favoriteTours', JSON.stringify(favoriteTours));

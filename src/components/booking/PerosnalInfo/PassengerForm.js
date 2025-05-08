@@ -3,7 +3,8 @@ import { FieldArray, useFormikContext } from 'formik';
 import AdultPassengerSection from './AdultPassengerSection';
 import ChildPassengerSection from './ChildPassengerSection';
 import PassengerHistoryModal from './PassengerHistoryModal';
-import { adultInitialValues, childInitialValues } from '../../../lib/constants/PassengerForm';
+import { getAdultInitialValues, getChildInitialValues } from '../../../lib/formInitialValues';
+
 
 const PassengerForm = ({
   showPassengerModal,
@@ -17,7 +18,7 @@ const PassengerForm = ({
     const adultPassengers = selectedPassengers
       .filter(p => p.type === 'بزرگسال')
       .map(passenger => ({
-        ...adultInitialValues,
+        ...getAdultInitialValues,
         fullName: passenger.name,
         gender: passenger.gender === 'مذکر' ? 'مرد' : 'زن',
         birthDate: passenger.birthDate,
@@ -27,7 +28,7 @@ const PassengerForm = ({
     const childPassengers = selectedPassengers
       .filter(p => p.type === 'کودک')
       .map(passenger => ({
-        ...childInitialValues,
+        ...getChildInitialValues,
         fullName: passenger.name,
         birthDate: passenger.birthDate,
       }));
@@ -59,7 +60,7 @@ const PassengerForm = ({
           <ChildPassengerSection
             pushChild={pushChild}
             removeChild={removeChild}
-            childInitialValues={childInitialValues}
+            getChildInitialValues={getChildInitialValues}
           >
             {values.children}
           </ChildPassengerSection>

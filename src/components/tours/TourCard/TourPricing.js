@@ -16,7 +16,7 @@ export default function TourPricing({ id, price }) {
       </div>
 
       <Link href={`/tours/${id}`} className="w-full">
-        <button className="btn bg-blue-600 text-white w-full rounded-lg hover:bg-blue-600 text-white-focus transition-colors flex items-center justify-center gap-2">
+        <button className="btn bg-blue-600 text-white w-full !py-5 rounded-lg hover:bg-blue-600 text-white-focus transition-colors flex items-center justify-center gap-2">
           <span>مشاهده جزئیات و رزرو</span>
           <ArrowLeft size={16} />
         </button>

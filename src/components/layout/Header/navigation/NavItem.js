@@ -28,7 +28,7 @@ const NavItem = ({ item, level = 0, mobileMode = false }) => {
         {hasChildren ? (
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className={`flex items-center justify-between w-full gap-2 px-4 py-3 rounded-lg transition-all duration-200 ${
+            className={`flex items-center cursor-pointer justify-between w-full gap-2 px-4 py-3 rounded-lg transition-all duration-200 ${
               isTopLevel && !mobileMode
                 ? 'text-gray-800 hover:text-blue-600 font-medium hover:bg-blue-50'
                 : 'text-gray-700 hover:bg-gray-100'
@@ -63,7 +63,7 @@ const NavItem = ({ item, level = 0, mobileMode = false }) => {
         <ul
           className={`${
             isTopLevel && !mobileMode
-              ? 'absolute left-0 -right-1 top-16 mt-0 min-w-[240px] bg-white shadow-xl rounded-b-lg py-2 z-50 border border-gray-100 border-t-0'
+              ? 'absolute left-0 -right-1 top-16 mt-0 cursor-pointer min-w-[240px] bg-white shadow-xl rounded-b-lg py-2 z-50 border border-gray-100 border-t-0'
               : 'pl-4 mt-1'
           }`}
           style={isTopLevel && !mobileMode ? { width: 'max-content' } : {}}

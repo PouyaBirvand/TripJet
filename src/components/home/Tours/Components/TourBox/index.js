@@ -1,12 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useFavorite } from "../../../../../hooks/useFavorite";
 import FavoriteButton from "../../../../common/FavoriteButton";
 import TourInfo from "./TourInfo";
 import { DiscountBadge, RemainingBadge } from "./TourBadge";
+import { useFavorite } from "../../../../../hooks/useFavorite";
 
 const TourBox = ({ item }) => {
-  const { isFavorite, toggleFavorite } = useFavorite();
+  const { isFavorite , toggleFavorite } = useFavorite();
   
   const handleFavorite = (e) => {
     e.preventDefault();

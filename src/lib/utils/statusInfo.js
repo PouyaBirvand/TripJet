@@ -1,5 +1,3 @@
-// utils/statusInfo.js
-
 import { Check, Clock, X } from "lucide-react";
 
 const getStatusInfo = status => {

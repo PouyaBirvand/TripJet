@@ -14,13 +14,11 @@ export default function TripSearch() {
   
   const [selectedType, setSelectedType] = useState(queryParams.type || "domestic");
   
-  // Update URL when type changes
   const handleTypeChange = (type) => {
     setSelectedType(type);
     setQueryParams({ type });
   };
   
-  // Sync with URL on initial load
   useEffect(() => {
     if (queryParams.type && queryParams.type !== selectedType) {
       setSelectedType(queryParams.type);

@@ -1,7 +1,7 @@
 'use client';
 import { Users, UserCheck, UserPlus } from 'lucide-react';
-import { adultInitialValues } from '../../../lib/constants/PassengerForm';
 import AdultPassengerForm from './AdultPassengerForm';
+import { adultInitialValues } from './constants/PassengerForm';
 
 const AdultPassengerSection = ({
   children,

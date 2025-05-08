@@ -17,7 +17,6 @@ const TripSearchForm = ({ tripType, initialOrigin = "", initialDestination = "" 
     destination: {},
   });
   
-  // گزینه‌های مبدا و مقصد
   const originOptions = [
     { value: "tehran", label: "تهران" },
     { value: "mashhad", label: "مشهد" },
@@ -36,13 +35,11 @@ const TripSearchForm = ({ tripType, initialOrigin = "", initialDestination = "" 
         { value: "antalya", label: "آنتالیا" },
       ]
   
-  // استفاده از useState برای مدیریت مقادیر فرم
   const [formValues, setFormValues] = useState({
     origin: initialOrigin || queryParams.origin || "",
     destination: initialDestination || queryParams.destination || ""
   });
   
-  // بروزرسانی مقادیر فرم وقتی پارامترهای URL تغییر می‌کنند
   useEffect(() => {
     setFormValues({
       origin: queryParams.origin || initialOrigin || "",
@@ -51,22 +48,17 @@ const TripSearchForm = ({ tripType, initialOrigin = "", initialDestination = "" 
   }, [queryParams, initialOrigin, initialDestination]);
   
   const handleSubmit = (values) => {
-    // بررسی مقادیر ورودی
     console.log("Form submitted with values:", values);
     
-    // ذخیره در جستجوهای اخیر
     saveToRecentSearches(values.origin, values.destination);
     
-    // بروزرسانی پارامترهای URL
     setQueryParams({
       type: tripType,
       origin: values.origin,
       destination: values.destination
     });
     
-    // هدایت به صفحه تورها اگر در صفحه اصلی هستیم
     if (pathname === "/") {
-      // استفاده از setTimeout برای اطمینان از اینکه هدایت بعد از بروزرسانی پارامترها انجام شود
       setTimeout(() => {
         router.push("/tours");
       }, 100);
@@ -77,15 +69,12 @@ const TripSearchForm = ({ tripType, initialOrigin = "", initialDestination = "" 
     if (!origin || !destination) return;
     
     try {
-      // دریافت جستجوهای قبلی از localStorage
       const savedSearches = localStorage.getItem('searchHistory');
       const searches = savedSearches ? JSON.parse(savedSearches) : [];
       
-      // یافتن برچسب‌های مبدا و مقصد
       const originLabel = originOptions.find(opt => opt.value === origin)?.label || origin;
       const destinationLabel = destinationOptions.find(opt => opt.value === destination)?.label || destination;
       
-      // افزودن جستجوی جدید به ابتدا، حذف موارد تکراری، محدود کردن به 10 مورد
       const newSearches = [
         { origin: originLabel, destination: destinationLabel },
         ...searches.filter(item => 
@@ -93,7 +82,6 @@ const TripSearchForm = ({ tripType, initialOrigin = "", initialDestination = "" 
         )
       ].slice(0, 10);
       
-      // ذخیره در localStorage
       localStorage.setItem('searchHistory', JSON.stringify(newSearches));
     } catch (error) {
       console.error('Error saving search history:', error);
