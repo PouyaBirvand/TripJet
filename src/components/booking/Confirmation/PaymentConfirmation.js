@@ -3,17 +3,14 @@ import { useState } from 'react';
 import { BadgeInfo, Check, CreditCard } from 'lucide-react';
 import { formatPrice } from '../../../lib/utils/numbers';
 import { Formik, Form } from 'formik';
-import * as Yup from 'yup';
 import CustomFormField from '../../../components/common/CustomFormField';
 import PaymentSuccessModal from './PaymentSuccessModal';
 import { useRouter } from 'next/navigation';
-import useBankList from '../../../hooks/useBankList';
-import usePaymentProcess from '../../../hooks/usePaymentProcess';
-import useBookingDetails from '../../../hooks/useBookingDetails';
+import { bookingPaymentSchema } from '../../../lib/validation';
+import useBankList from '../../../hooks/BookingHooks/useBankList';
+import useBookingDetails from '../../../hooks/BookingHooks/useBookingDetails';
+import usePaymentProcess from '../../../hooks/BookingHooks/usePaymentProcess';
 
-const paymentSchema = Yup.object().shape({
-  bank: Yup.string().required('لطفاً بانک مورد نظر خود را انتخاب کنید'),
-});
 
 export default function PaymentConfirmation({ bookingId }) {
   const router = useRouter();
@@ -71,7 +68,7 @@ export default function PaymentConfirmation({ bookingId }) {
         </div>
         <Formik
           initialValues={{ bank: selectedBank }}
-          validationSchema={paymentSchema}
+          validationSchema={bookingPaymentSchema}
           onSubmit={handleSubmit}
         >
           {({ isValid, values, setFieldValue }) => (

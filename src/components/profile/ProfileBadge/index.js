@@ -1,15 +1,15 @@
 'use client';
 
 import { useState, useRef } from 'react';
-import { useProfile } from '../../../hooks/useProfile';
 import ProfileImage from './ProfileImage';
 import ProfileInfo from './ProfileInfo';
 import WalletInfo from './WalletInfo';
 import ProfileImageModal from './ProfileImageModal';
 import LoadingBadge from './LoadingBadge';
+import { useUserProfile } from '../../../hooks/ProfileHooks/useUserProfile';
 
 export default function ProfileBadge() {
-  const { profile, uploadAvatar, isProfileLoading, isUploadingAvatar } = useProfile();
+  const { profile, uploadAvatar, isProfileLoading, isUploadingAvatar } = useUserProfile();
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [newImage, setNewImage] = useState(null);

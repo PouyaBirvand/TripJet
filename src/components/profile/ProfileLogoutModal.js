@@ -1,15 +1,11 @@
 import { useAuth } from '../../contexts/AuthContext';
-import Cookies from 'js-cookie';
 import { X } from 'lucide-react';
 import { redirect } from 'next/navigation';
 
 export default function ProfileLogoutModal({ onClose }) {
   const { logout } = useAuth()
-  const handleLogout = () => {
-    Cookies.remove("phone_verification_token");
-    
+  const handleLogout = () => {    
     logout(); 
-    // router.refresh();
     redirect('/');
   }
   

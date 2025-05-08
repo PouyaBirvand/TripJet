@@ -1,16 +1,22 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 
 export function useModal(initialState = true) {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(initialState);
 
   const handleClose = () => {
+
     router.back();
     setIsOpen(false);
   };
+
+  const handleLastClose = () => {
+    setIsOpen(false);
+    router.push('/')
+  }
 
   const handleOpen = () => {
     setIsOpen(true);
@@ -20,6 +26,7 @@ export function useModal(initialState = true) {
     isOpen,
     setIsOpen,
     handleClose,
+    handleLastClose,
     handleOpen
   };
 }

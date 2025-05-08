@@ -42,7 +42,6 @@ export default function ProfileLayout({ children }) {
       </div>
 
       <main className="flex flex-col lg:flex-row gap-6 max-w-7xl mx-auto">
-        {/* سایدبار اصلی برای دسکتاپ */}
         <div className="hidden lg:flex flex-col w-full lg:w-1/3 xl:w-1/4 space-y-4 md:space-y-6">
           <div className="w-full">
             <ProfileBadge />

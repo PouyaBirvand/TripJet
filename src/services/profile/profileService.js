@@ -31,7 +31,7 @@ const mockUserTrips = [
   {
     id: 1,
     title: 'تور سواد کوه',
-    image: "/japen.png",
+    image: '/japen.png',
     status: 'success', // موفق
     paymentAmount: '35000000',
     paymentDate: '1402/08/15',
@@ -59,12 +59,12 @@ const mockUserTrips = [
       meals: 'صبحانه و شام',
       guide: 'دارد',
       insurance: 'دارد',
-    }
+    },
   },
   {
     id: 2,
     title: 'تور هند',
-    image: "/japen.png",
+    image: '/japen.png',
     status: 'failed', // ناموفق
     paymentAmount: '35000000',
     paymentDate: '1402/07/20',
@@ -86,11 +86,12 @@ const mockUserTrips = [
       meals: 'صبحانه، ناهار و شام',
       guide: 'دارد',
       insurance: 'دارد',
-    }
-  }, {
+    },
+  },
+  {
     id: 3,
     title: 'تور ویتنام',
-    image: "/japen.png",
+    image: '/japen.png',
     status: 'pending', // در حال بررسی
     paymentAmount: '45000000',
     paymentDate: '1402/09/01',
@@ -118,7 +119,7 @@ const mockUserTrips = [
       meals: 'صبحانه و شام',
       guide: 'دارد',
       insurance: 'دارد',
-    }
+    },
   },
 ];
 
@@ -172,9 +173,7 @@ const mockTransactions = [
 export const profileService = {
   async getUserProfile() {
     try {
-      // شبیه‌سازی تأخیر API
       await new Promise(resolve => setTimeout(resolve, 500));
-      // در حالت واقعی، این یک درخواست API خواهد بود
       // const response = await fetch(`${API_BASE_URL}/profile`, {
       //   headers: {
       //     'Authorization': `Bearer ${localStorage.getItem('auth_token')}`,
@@ -191,10 +190,8 @@ export const profileService = {
 
   async updateUserProfile(profileData, section = 'profile') {
     try {
-      // شبیه‌سازی تأخیر API
       await new Promise(resolve => setTimeout(resolve, 800));
-      
-      // در حالت واقعی، این یک درخواست API خواهد بود
+
       // const response = await fetch(`${API_BASE_URL}/profile/update/${section}`, {
       //   method: 'PUT',
       //   headers: {
@@ -205,8 +202,7 @@ export const profileService = {
       // });
       // if (!response.ok) throw new Error('خطا در به‌روزرسانی اطلاعات پروفایل');
       // return await response.json();
-      
-      // شبیه‌سازی به‌روزرسانی موفق
+
       return {
         ...mockUserProfile,
         ...profileData,
@@ -220,9 +216,7 @@ export const profileService = {
 
   async uploadProfileImage(file) {
     try {
-      // شبیه‌سازی تأخیر API
       await new Promise(resolve => setTimeout(resolve, 1000));
-      // در حالت واقعی، این یک درخواست API با FormData خواهد بود
       // const formData = new FormData();
       // formData.append('avatar', file);
       //
@@ -235,7 +229,6 @@ export const profileService = {
       // });
       // if (!response.ok) throw new Error('خطا در آپلود تصویر پروفایل');
       // return await response.json();
-      // شبیه‌سازی URL تصویر آپلود شده
       const mockImageUrl = URL.createObjectURL(file);
       return {
         avatar: mockImageUrl,
@@ -249,9 +242,7 @@ export const profileService = {
 
   async changePassword(passwordData) {
     try {
-      // شبیه‌سازی تأخیر API
       await new Promise(resolve => setTimeout(resolve, 700));
-      // در حالت واقعی، این یک درخواست API خواهد بود
       // const response = await fetch(`${API_BASE_URL}/profile/change-password`, {
       //   method: 'POST',
       //   headers: {
@@ -266,7 +257,6 @@ export const profileService = {
       //   throw new Error(errorData.message || 'خطا در تغییر رمز عبور');
       // }
       // return await response.json();
-      // شبیه‌سازی پاسخ موفق
       return { message: 'رمز عبور با موفقیت تغییر یافت' };
     } catch (error) {
       console.error('Error changing password:', error);
@@ -276,9 +266,7 @@ export const profileService = {
 
   async getUserTrips() {
     try {
-      // شبیه‌سازی تأخیر API
       await new Promise(resolve => setTimeout(resolve, 700));
-      // در حالت واقعی، این یک درخواست API خواهد بود
       // const response = await fetch(`${API_BASE_URL}/profile/trips`, {
       //   headers: {
       //     'Authorization': `Bearer ${localStorage.getItem('auth_token')}`,
@@ -286,8 +274,7 @@ export const profileService = {
       // });
       // if (!response.ok) throw new Error('خطا در دریافت لیست تورها');
       // return await response.json();
-      
-      // شبیه‌سازی پاسخ موفق
+
       return mockUserTrips;
     } catch (error) {
       console.error('Error fetching user trips:', error);
@@ -297,9 +284,7 @@ export const profileService = {
 
   async getTripDetails(tripId) {
     try {
-      // شبیه‌سازی تأخیر API
       await new Promise(resolve => setTimeout(resolve, 500));
-      // در حالت واقعی، این یک درخواست API خواهد بود
       // const response = await fetch(`${API_BASE_URL}/profile/trips/${tripId}`, {
       //   headers: {
       //     'Authorization': `Bearer ${localStorage.getItem('auth_token')}`,
@@ -307,8 +292,7 @@ export const profileService = {
       // });
       // if (!response.ok) throw new Error('خطا در دریافت جزئیات تور');
       // return await response.json();
-      
-      // شبیه‌سازی پاسخ موفق
+
       const trip = mockUserTrips.find(trip => trip.id === parseInt(tripId));
       if (!trip) {
         throw new Error('تور مورد نظر یافت نشد');
@@ -322,9 +306,7 @@ export const profileService = {
 
   async getUserTransactions() {
     try {
-      // شبیه‌سازی تأخیر API
       await new Promise(resolve => setTimeout(resolve, 600));
-      // در حالت واقعی، این یک درخواست API خواهد بود
       // const response = await fetch(`${API_BASE_URL}/profile/transactions`, {
       //   headers: {
       //     'Authorization': `Bearer ${localStorage.getItem('auth_token')}`,
@@ -332,7 +314,7 @@ export const profileService = {
       // });
       // if (!response.ok) throw new Error('خطا در دریافت تاریخچه تراکنش‌ها');
       // return await response.json();
-      
+
       // شبیه‌سازی پاسخ موفق
       return mockTransactions;
     } catch (error) {
@@ -343,9 +325,7 @@ export const profileService = {
 
   async getTransactionDetails(transactionId) {
     try {
-      // شبیه‌سازی تأخیر API
       await new Promise(resolve => setTimeout(resolve, 400));
-      // در حالت واقعی، این یک درخواست API خواهد بود
       // const response = await fetch(`${API_BASE_URL}/profile/transactions/${transactionId}`, {
       //   headers: {
       //     'Authorization': `Bearer ${localStorage.getItem('auth_token')}`,
@@ -353,8 +333,7 @@ export const profileService = {
       // });
       // if (!response.ok) throw new Error('خطا در دریافت جزئیات تراکنش');
       // return await response.json();
-      
-      // شبیه‌سازی پاسخ موفق
+
       const transaction = mockTransactions.find(transaction => transaction.id === transactionId);
       if (!transaction) {
         throw new Error('تراکنش مورد نظر یافت نشد');
@@ -364,5 +343,5 @@ export const profileService = {
       console.error('Error fetching transaction details:', error);
       throw error;
     }
-  }
+  },
 };

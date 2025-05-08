@@ -1,6 +1,5 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { useProfile } from '../../../../hooks/useProfile';
 import getStatusInfo from '../../../../lib/utils/statusInfo';
 import ModalHeader from './ModalHeader';
 import TripInfo from './TripInfo';
@@ -8,9 +7,11 @@ import ActionButtons from './ActionButtons';
 import PassengerTable from './PassengerTable';
 import TripDetails from './TripDetails';
 import ModalFooter from './ModalFooter';
+import { useUserProfile } from '../../../../hooks/ProfileHooks/useUserProfile';
 
 const TripDetailsModal = ({ trip, onClose }) => {
-  const { userProfile } = useProfile();
+  const { profile } = useUserProfile();
+  
   const [passengers, setPassengers] = useState([]);
   const statusInfo = getStatusInfo(trip.status);
 
@@ -20,16 +21,16 @@ const TripDetailsModal = ({ trip, onClose }) => {
     } else {
       const defaultPassengers = [];
       const passengerCount = trip.participants || 2;
-
+      
       defaultPassengers.push({
-        name: userProfile ? `${userProfile.firstName} ${userProfile.lastName}` : 'کوروش صفایی',
+        name: profile ? `${profile.firstName} ${profile.lastName}` : 'کوروش صفایی',
         type: 'بزرگسال',
-        birthDate: userProfile?.birth_date || '۱۳۶۲/۰۴/۲۳',
-        gender: userProfile?.gender === 'male' ? 'مذکر' : 'مؤنث',
+        birthDate: profile?.birth_date || '۱۳۶۲/۰۴/۲۳',
+        gender: profile?.gender === 'male' ? 'مذکر' : 'مؤنث',
       });
-
+      
       for (let i = 1; i < passengerCount; i++) {
-        const isChild = i === passengerCount - 1; 
+        const isChild = i === passengerCount - 1;
         defaultPassengers.push({
           name: isChild ? `آریو بهرامی` : `علی بهرامی ${i}`,
           type: isChild ? 'کودک' : 'بزرگسال',
@@ -37,10 +38,9 @@ const TripDetailsModal = ({ trip, onClose }) => {
           gender: 'مذکر',
         });
       }
-
       setPassengers(defaultPassengers);
     }
-  }, [trip, userProfile]);
+  }, [trip, profile]); // Update dependency here too
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 overflow-y-auto">

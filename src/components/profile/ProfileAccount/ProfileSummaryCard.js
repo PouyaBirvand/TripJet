@@ -3,11 +3,11 @@ import { useRouter } from 'next/navigation';
 import { formatPrice } from '../../../lib/utils/numbers';
 import CardBase from '../../common/CardBase';
 import InfoRow from '../../common/InfoRow';
-import { useProfile } from '../../../hooks/useProfile';
+import { useUserProfile } from '../../../hooks/ProfileHooks/useUserProfile';
 
 export default function ProfileSummaryCard() {
   const router = useRouter();
-  const { profile, isProfileLoading } = useProfile();
+  const { profile, isProfileLoading } = useUserProfile();
 
   const handleEdit = () => {
     router.push('/profile/account/edit/profile');

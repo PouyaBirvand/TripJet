@@ -6,12 +6,10 @@ export default function TourPage({ params }) {
     <div className="min-h-screen flex items-center justify-center">
       <div className="max-w-2xl w-full bg-white rounded-2xl shadow-lg overflow-hidden">
         <div className="relative h-48 bg-blue-600 flex items-center justify-center overflow-hidden">
-          {/* پترن تزئینی */}
           <div className="absolute inset-0 opacity-10">
             <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC40Ij48cGF0aCBkPSJNMzYgMzRjMC0yLjIwOS0xLjc5MS00LTQtNHMtNCAxLjc5MS00IDQgMS43OTEgNCA0IDQgNC0xLjc5MSA0LTRtMC0xOGMwLTIuMjA5LTEuNzkxLTQtNC00cy00IDEuNzkxLTQgNCAxLjc5MSA0IDQgNCA0LTEuNzkxIDQtNG0xOCA5YzAtMS4xMDUtLjg5NS0yLTItMnMtMiAuODk1LTIgMiAuODk1IDIgMiAyIDItLjg5NSAyLTJNMjQgMTZjMC0xLjEwNS0uODk1LTItMi0ycy0yIC44OTUtMiAyIC44OTUgMiAyIDIgMi0uODk1IDItMm0tMTggOWMwLTEuMTA1LS44OTUtMi0yLTJzLTIgLjg5NS0yIDIgLjg5NSAyIDIgMiAyLS44OTUgMi0ybTE4IDljMC0xLjEwNS0uODk1LTItMi0ycy0yIC44OTUtMiAyIC44OTUgMiAyIDIgMi0uODk1IDItMiIvPjwvZz48L2c+PC9zdmc+')]"></div>
           </div>
           
-          {/* آیکون و عنوان */}
           <div className="relative text-white text-center z-10">
             <Construction className="h-16 w-16 mx-auto mb-2" />
             <h1 className="text-2xl font-bold">در حال ساخت</h1>
@@ -64,7 +62,6 @@ export default function TourPage({ params }) {
             </Link>
           </div>
           
-          {/* نوار پیشرفت */}
           <div className="mt-8">
             <div className="flex justify-between text-sm mb-1">
               <span className="text-gray-600">پیشرفت توسعه</span>

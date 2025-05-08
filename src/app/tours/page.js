@@ -11,7 +11,6 @@ export const metadata = {
 };
 
 export default async function ToursPage({ searchParams }) {
-  // دریافت داده‌ها در سرور برای SEO
   const initialTours = await tourService.getTours(searchParams);
   const filterOptions = await tourService.getFiltersOptions();
 

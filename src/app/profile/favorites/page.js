@@ -10,7 +10,6 @@ export default function FavoritesPage() {
   const [currentSort, setCurrentSort] = useState('');
   const { favorites, isLoading, toggleFavorite, isRemoving } = useFavorite();
 
-  // Sync URL parameter with state
   useEffect(() => {
     if (sortParam) {
       setCurrentSort(sortParam);

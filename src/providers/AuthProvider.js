@@ -14,8 +14,8 @@ export function AuthProvider({ children }) {
   const queryClient = useQueryClient();
 
   useEffect(() => {
-    const savedToken = Cookies.get('auth_token');
-    const savedVerificationToken = Cookies.get('phone_verification_token');
+    const savedToken = Cookies.get('phone_verification_token');
+    const savedVerificationToken = Cookies.get('phone_verification_token'); // dead code  ...
     
     if (savedVerificationToken) {
       setPhoneVerificationToken(savedVerificationToken);
@@ -57,7 +57,7 @@ export function AuthProvider({ children }) {
 
   const login = (token) => {
     setAuthToken(token);
-    Cookies.set('auth_token', token, { expires: 7 });
+    Cookies.set('phone_verification_token', token, { expires: 7 });
     queryClient.invalidateQueries({ queryKey: ['currentUser'] });
   };
 
@@ -67,10 +67,10 @@ export function AuthProvider({ children }) {
     setNeedsPasswordSetup(false);
     setPhoneVerificationToken(null);
     
-    Cookies.remove('auth_token');
-    Cookies.remove('user');
     Cookies.remove('phone_verification_token');
+    Cookies.remove('user'); // dead code
     Cookies.remove('phone_number');
+    
     
     queryClient.removeQueries({ queryKey: ['currentUser'] });
   };

@@ -2,7 +2,7 @@
 import { Mountain, Clock, Plane, Calendar, Briefcase, Building } from 'lucide-react';
 import ErrorMessage from '../../../components/ui/ErrorMessage';
 import LoadingSpinner from '../../../components/ui/LoadingSpinner';
-import useBookingDetails from '../../../hooks/useBookingDetails';
+import useBookingDetails from '../../../hooks/BookingHooks/useBookingDetails';
 
 export default function TicketInfo({ bookingId }) {
   const { bookingDetails, isLoading, error } = useBookingDetails(bookingId);

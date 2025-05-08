@@ -1,21 +1,18 @@
 'use client';
 import { Formik, Form } from 'formik';
-import * as Yup from 'yup';
-import { ArrowLeft, Save } from 'lucide-react';
 import Link from 'next/link';
 import CustomFormField from '../../../../components/common/CustomFormField';
+import { paymentInfoSchema } from '../../../../lib/validation';
 
 const EditPaymentCard = ({ initialData, onSubmit, returnPath }) => {
-  const validationSchema = Yup.object({
-    // Not Required
-  });
+
 
   return (
     <div className="bg-white rounded-xl border border-base-300 p-4 md:p-6">
       <div className="mb-6">
         <h2 className="text-xl font-semibold">ویرایش اطلاعات بانکی</h2>
       </div>
-      <Formik initialValues={initialData} validationSchema={validationSchema} onSubmit={onSubmit}>
+      <Formik initialValues={initialData} validationSchema={paymentInfoSchema} onSubmit={onSubmit}>
         {({ isSubmitting }) => (
           <Form className="space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 space-y-4">

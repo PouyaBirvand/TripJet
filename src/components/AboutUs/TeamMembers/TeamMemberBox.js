@@ -8,7 +8,6 @@ export default function TeamMemberBox({ item }) {
           src={item.image}
           alt={item.name}
           fill
-          className=""
           objectFit='contain'
         />
       </div>
