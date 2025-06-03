@@ -6,7 +6,6 @@ import { useEffect } from 'react';
 const OTPField = ({ inputRefs, length = 4 }) => {
   const formik = useFormikContext();
 
-  // Auto-focus first input on mount
   useEffect(() => {
     if (inputRefs[0]?.current) {
       inputRefs[0].current.focus();

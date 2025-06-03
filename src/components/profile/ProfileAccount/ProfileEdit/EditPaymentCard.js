@@ -5,8 +5,6 @@ import CustomFormField from '../../../../components/common/CustomFormField';
 import { paymentInfoSchema } from '../../../../lib/validation';
 
 const EditPaymentCard = ({ initialData, onSubmit, returnPath }) => {
-
-
   return (
     <div className="bg-white rounded-xl border border-base-300 p-4 md:p-6">
       <div className="mb-6">

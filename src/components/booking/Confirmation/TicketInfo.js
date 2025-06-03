@@ -17,7 +17,7 @@ export default function TicketInfo({ bookingId }) {
     flightDuration = 'مدت نامشخص',
     flightNumber = 'شماره نامشخص',
     allowedBaggage = 'بار مجاز نامشخص',
-    airline = 'شرکت نامشخص'
+    airline = 'شرکت نامشخص',
   } = bookingDetails?.ticket || {};
 
   return (

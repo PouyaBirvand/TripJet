@@ -12,7 +12,7 @@ export function usePasswordAuth() {
     mutationFn: ({ phone, password }) => {
       return authService.loginWithPassword({ phone, password });
     },
-    onSuccess: (data) => {
+    onSuccess: data => {
       login(data.token);
       router.push('/');
     },

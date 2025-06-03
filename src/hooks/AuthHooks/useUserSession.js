@@ -9,18 +9,18 @@ export function useUserSession() {
   const { authToken, setNeedsPasswordSetup } = useAuth();
 
   const getUserMutation = useMutation({
-    mutationFn: (token) => {
+    mutationFn: token => {
       return authService.getCurrentUser(token || authToken);
     },
     onSuccess: () => {
       router.push('/');
     },
-    onError: (error) => {
+    onError: error => {
       if (error.needsPassword) {
         setNeedsPasswordSetup(true);
         router.push('/set-password');
       }
-    }
+    },
   });
 
   return {

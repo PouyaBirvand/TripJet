@@ -11,9 +11,7 @@ const SortButtons = ({ currentSort, onSortChange }) => {
         <button
           onClick={() => onSortChange('foreign')}
           className={`btn btn-sm md:btn-md !py-2 !px-3 md:!px-5 font-normal text-slate-500 bg-white flex-1 min-w-[120px] ${
-            currentSort === 'foreign' 
-              ? '!bg-sky-200 !text-blue-600 !border-none' 
-              : 'btn-outline'
+            currentSort === 'foreign' ? '!bg-sky-200 !text-blue-600 !border-none' : 'btn-outline'
           } rounded-lg border border-slate-300 font-medium`}
         >
           تور های خارجی
@@ -21,9 +19,7 @@ const SortButtons = ({ currentSort, onSortChange }) => {
         <button
           onClick={() => onSortChange('domestic')}
           className={`btn btn-sm md:btn-md !py-2 !px-3 md:!px-5 font-normal text-slate-500 bg-white flex-1 min-w-[120px] ${
-            currentSort === 'domestic' 
-              ? '!bg-sky-200 !text-blue-600 !border-none' 
-              : 'btn-outline'
+            currentSort === 'domestic' ? '!bg-sky-200 !text-blue-600 !border-none' : 'btn-outline'
           } rounded-lg border border-slate-300 font-medium`}
         >
           تور های داخلی

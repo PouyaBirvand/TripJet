@@ -10,18 +10,18 @@ export default function usePassengerData() {
     data: passengerHistory = [],
     isLoading: isHistoryLoading,
     error: historyError,
-    refetch
+    refetch,
   } = useQuery({
     queryKey: ['passengerHistory'],
     queryFn: () => bookingService.getPassengerHistory(),
-    select: response => response?.data || []
+    select: response => response?.data || [],
   });
 
   const savePassengersMutation = useMutation({
     mutationFn: bookingService.savePassengers,
     onSuccess: () => {
       queryClient.invalidateQueries(['passengerHistory']);
-    }
+    },
   });
 
   return {
@@ -32,6 +32,6 @@ export default function usePassengerData() {
     savePassengersAsync: savePassengersMutation.mutateAsync,
     isSaving: savePassengersMutation.isPending,
     saveError: savePassengersMutation.error,
-    refetch
+    refetch,
   };
 }

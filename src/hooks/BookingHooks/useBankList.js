@@ -7,17 +7,17 @@ export default function useBankList() {
   const {
     data: banks = [],
     isLoading,
-    error
+    error,
   } = useQuery({
     queryKey: ['bankList'],
     queryFn: bookingService.getBankList,
     select: response => response?.data || [],
-    staleTime: 60 * 60 * 1000 // 1 hour
+    staleTime: 60 * 60 * 1000, // 1 hour
   });
 
   return {
     banks,
     isLoading,
-    error
+    error,
   };
 }

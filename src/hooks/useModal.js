@@ -8,15 +8,14 @@ export function useModal(initialState = true) {
   const [isOpen, setIsOpen] = useState(initialState);
 
   const handleClose = () => {
-
     router.back();
     setIsOpen(false);
   };
 
   const handleLastClose = () => {
     setIsOpen(false);
-    router.push('/')
-  }
+    router.push('/');
+  };
 
   const handleOpen = () => {
     setIsOpen(true);
@@ -27,6 +26,6 @@ export function useModal(initialState = true) {
     setIsOpen,
     handleClose,
     handleLastClose,
-    handleOpen
+    handleOpen,
   };
 }

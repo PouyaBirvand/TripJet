@@ -35,12 +35,12 @@ const Header = () => {
     <header className="bg-white sticky top-0 z-50 shadow-sm">
       <div className="container mx-auto px-4">
         <DesktopNav isLoggedIn={isLoggedIn} />
-        <MobileHeader 
+        <MobileHeader
           isLoggedIn={isLoggedIn}
           isMenuOpen={mobileMenuOpen}
           onMenuToggle={() => setMobileMenuOpen(!mobileMenuOpen)}
         />
-        <MobileMenu 
+        <MobileMenu
           isOpen={mobileMenuOpen}
           isLoggedIn={isLoggedIn}
           onClose={() => setMobileMenuOpen(false)}

@@ -5,12 +5,7 @@ export default function RecentlyBox({ item }) {
   return (
     <div className="bg-white rounded-xl  border border-slate-200 overflow-hidden h-full">
       <div className="relative h-96 w-full">
-        <Image
-          src={item.image}
-          alt={item.title}
-          fill
-          className="object-cover"
-        />
+        <Image src={item.image} alt={item.title} fill className="object-cover" />
       </div>
       <div className="p-4">
         <div className="flex items-center gap-2 text-gray-500 mb-2">

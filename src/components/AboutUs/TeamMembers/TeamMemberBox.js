@@ -4,12 +4,7 @@ export default function TeamMemberBox({ item }) {
   return (
     <div className="bg-white rounded-xl border border-slate-200 overflow-hidden h-full sm:w-11/12 w-full mt-5">
       <div className="relative h-24 mt-6">
-        <Image
-          src={item.image}
-          alt={item.name}
-          fill
-          objectFit='contain'
-        />
+        <Image src={item.image} alt={item.name} fill objectFit="contain" />
       </div>
       <div className="p-4 text-center">
         <h3 className="font-normal text-lg mb-1">{item.name}</h3>

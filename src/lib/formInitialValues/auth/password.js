@@ -1,4 +1,4 @@
 export const getPasswordInitialValues = {
-    password: '',
-    confirmPassword: ''
-  };
+  password: '',
+  confirmPassword: '',
+};

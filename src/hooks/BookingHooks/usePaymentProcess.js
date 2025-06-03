@@ -7,13 +7,13 @@ export default function usePaymentProcess() {
   const queryClient = useQueryClient();
 
   const mutation = useMutation({
-    mutationFn: async (paymentData) => {
+    mutationFn: async paymentData => {
       const response = await bookingService.processPayment(paymentData);
-      return response; 
+      return response;
     },
     onSuccess: () => {
       queryClient.invalidateQueries(['bookingDetails']);
-    }
+    },
   });
 
   return {
@@ -21,6 +21,6 @@ export default function usePaymentProcess() {
     processPaymentAsync: mutation.mutateAsync,
     isProcessing: mutation.isPending,
     paymentResult: mutation.data,
-    paymentError: mutation.error
+    paymentError: mutation.error,
   };
 }

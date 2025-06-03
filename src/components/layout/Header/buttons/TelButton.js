@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const TelButton = ({ className = '' }) => {
   return (
-    <Link 
+    <Link
       href="tel:+02170709797"
       className={`flex items-center gap-2 px-4 py-3 bg-white text-blue-600 hover:bg-blue-600 hover:text-white rounded-xl transition-colors duration-300 border border-blue-200 hover:border-blue-600 ${className}`}
     >

@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { BadgeAlert, BadgePercent } from "lucide-react";
+import { BadgeAlert, BadgePercent } from 'lucide-react';
 
 export const DiscountBadge = ({ discount }) => (
   <div className="badge badge-soft badge-error rounded-md text-[0.9rem] py-[0.9rem]">

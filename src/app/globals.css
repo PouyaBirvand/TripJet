@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 @plugin "daisyui" {
   themes: light --default;
 }
@@ -91,37 +91,37 @@
   .custom-scrollbar::-webkit-scrollbar {
     width: 0.5rem;
   }
-  
+
   .custom-scrollbar::-webkit-scrollbar-track {
     border-radius: 9999px;
     background-color: #f3f4f6;
   }
-  
+
   .custom-scrollbar::-webkit-scrollbar-thumb {
     border-radius: 9999px;
     background-color: #d1d5db;
   }
-  
+
   /* استایل‌های حالت تاریک */
   .dark .custom-scrollbar::-webkit-scrollbar-track {
     background-color: #404040;
   }
-  
+
   .dark .custom-scrollbar::-webkit-scrollbar-thumb {
     background-color: #737373;
   }
-  
+
   /* برای فایرفاکس */
   .custom-scrollbar {
     scrollbar-width: thin;
     scrollbar-color: #d1d5db #f3f4f6;
   }
-  
+
   /* برای فایرفاکس در حالت تاریک */
   .dark .custom-scrollbar {
     scrollbar-color: #737373 #404040;
   }
-  
+
   /* اضافه کردن انیمیشن برای اسکرول نرم */
   .custom-scrollbar {
     scroll-behavior: smooth;
@@ -226,12 +226,12 @@
 
   .swiper-container {
     height: auto !important; /* یا ارتفاع ثابت مثلاً `height: 500px;` */
-}
+  }
 
-.swiper-slide {
+  .swiper-slide {
     height: calc(50% - 10px) !important; /* برای دو ردیف */
     margin-bottom: 20px; /* فاصله بین ردیف‌ها */
-}
+  }
 
   /* دکمه استاندارد */
   .btn-custom {

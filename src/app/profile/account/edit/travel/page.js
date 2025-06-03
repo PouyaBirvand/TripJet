@@ -8,24 +8,25 @@ export default function EditTravelPage() {
   const router = useRouter();
   const { updateProfile, isProfileLoading } = useUserProfile();
 
-  const handleSubmit = (values) => {
+  const handleSubmit = values => {
     console.log('Submitting travel data:', values);
-    
-    updateProfile({
-      national_id: values.nationalId,
-      birth_date: values.birthDate,
-      passport_number: values.passportNumber,
-      passport_expiry: values.passportExpiry
-    }, 'travel');
-    
+
+    updateProfile(
+      {
+        national_id: values.nationalId,
+        birth_date: values.birthDate,
+        passport_number: values.passportNumber,
+        passport_expiry: values.passportExpiry,
+      },
+      'travel'
+    );
+
     router.push('/profile/account');
   };
 
   if (isProfileLoading) {
     return <div className="animate-pulse bg-white rounded-xl p-6 h-96"></div>;
   }
-
-
 
   return (
     <EditTravelCard

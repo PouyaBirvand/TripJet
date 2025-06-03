@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 
 export const ActionButtons = () => {
   const router = useRouter();
-  
+
   return (
     <div className="flex flex-col sm:flex-row w-full max-w-md gap-3 mt-4">
       <Link
@@ -18,7 +18,7 @@ export const ActionButtons = () => {
       </Link>
       <button
         type="button"
-        onClick={() => router.push("/booking/confirmation")}
+        onClick={() => router.push('/booking/confirmation')}
         className="flex items-center justify-center gap-2 cursor-pointer py-3 px-4 bg-blue-600 hover:bg-blue-600 text-white rounded-lg transition-colors w-full"
       >
         <CreditCard size={18} />

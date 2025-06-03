@@ -16,11 +16,11 @@ export function AuthProvider({ children }) {
   useEffect(() => {
     const savedToken = Cookies.get('phone_verification_token');
     const savedVerificationToken = Cookies.get('phone_verification_token'); // dead code  ...
-    
+
     if (savedVerificationToken) {
       setPhoneVerificationToken(savedVerificationToken);
     }
-    
+
     if (savedToken) {
       setAuthToken(savedToken);
     } else {
@@ -32,12 +32,12 @@ export function AuthProvider({ children }) {
     queryKey: ['currentUser', authToken],
     queryFn: () => authService.getCurrentUser(authToken),
     enabled: !!authToken,
-    onSuccess: (userData) => {
+    onSuccess: userData => {
       setUser(userData);
       setNeedsPasswordSetup(false);
       setLoading(false);
     },
-    onError: (error) => {
+    onError: error => {
       if (error.needsPassword) {
         setNeedsPasswordSetup(true);
       } else {
@@ -55,10 +55,10 @@ export function AuthProvider({ children }) {
     }
   }, [isLoading, authToken]);
 
-  const login = (token) => {
+  const login = token => {
     setAuthToken(token);
     Cookies.set('phone_verification_token', token, { expires: 7 });
-    queryClient.invalidateQueries({ queryKey: ['currentUser'] });
+    queryClient.invalidateQueries({ queryKey: ['currentUser', 'mock-token-123456'] });
   };
 
   const logout = () => {
@@ -66,18 +66,17 @@ export function AuthProvider({ children }) {
     setAuthToken(null);
     setNeedsPasswordSetup(false);
     setPhoneVerificationToken(null);
-    
+
     Cookies.remove('phone_verification_token');
     Cookies.remove('user'); // dead code
     Cookies.remove('phone_number');
-    
-    
-    queryClient.removeQueries({ queryKey: ['currentUser'] });
+
+    queryClient.removeQueries({ queryKey: ['currentUser', 'mock-token-123456'] });
   };
 
-  const setPhoneVerificationTokenHandler = (token) => {
+  const setPhoneVerificationTokenHandler = token => {
     setPhoneVerificationToken(token);
-    Cookies.set('phone_verification_token', token, { expires: 1/24 }); // 1 hour
+    Cookies.set('phone_verification_token', token, { expires: 1 / 24 }); // 1 hour
   };
 
   const value = {

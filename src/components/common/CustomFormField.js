@@ -28,7 +28,7 @@ const getDaysInMonth = (year, month) => {
   if (month === 2) {
     return (year % 4 === 3 && year % 100 !== 3) || year % 400 === 3 ? 29 : 28;
   }
-  return 30; 
+  return 30;
 };
 
 const CustomFormField = ({
@@ -43,9 +43,9 @@ const CustomFormField = ({
   convertToFarsi = false,
   digitsOnly = false,
   autoComplete,
-  options = [], 
-  masked = false, 
-  dateFormat = false, 
+  options = [],
+  masked = false,
+  dateFormat = false,
   textAlign = 'right',
   ...props
 }) => {
@@ -247,7 +247,6 @@ const CustomFormField = ({
         </div>
       );
     }
-
 
     if (dateFormat) {
       return (

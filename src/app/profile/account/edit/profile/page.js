@@ -8,16 +8,16 @@ export default function EditProfilePage() {
   const router = useRouter();
   const { profile, updateProfile, isProfileLoading } = useUserProfile();
 
-  const handleSubmit = (values) => {
+  const handleSubmit = values => {
     console.log('Submitting profile data:', values);
-    
+
     const updatedData = {
       ...values,
-      name: `${values.firstName} ${values.lastName}`
+      name: `${values.firstName} ${values.lastName}`,
     };
-    
+
     updateProfile(updatedData, 'profile');
-    
+
     router.push('/profile/account');
   };
 
@@ -26,7 +26,7 @@ export default function EditProfilePage() {
   }
 
   return (
-    <EditProfileCard 
+    <EditProfileCard
       initialData={getPersonalInitialValues}
       onSubmit={handleSubmit}
       returnPath="/profile/account"

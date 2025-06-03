@@ -1,12 +1,12 @@
-"use client"
-import { ChevronDown } from "lucide-react";
-import DetailBox from "./DetailBox";
-import { useState } from "react";
-import { formatPrice } from "../../../lib/utils/numbers";
+'use client';
+import { ChevronDown } from 'lucide-react';
+import DetailBox from './DetailBox';
+import { useState } from 'react';
+import { formatPrice } from '../../../lib/utils/numbers';
 
 function TransactionRow({ transaction }) {
   const [isOpen, setIsOpen] = useState(false);
-  
+
   return (
     <>
       <tr
@@ -62,4 +62,3 @@ function TransactionRow({ transaction }) {
 }
 
 export default TransactionRow;
-

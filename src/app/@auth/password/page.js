@@ -16,8 +16,7 @@ export default function PasswordPage() {
   const { loginWithPassword, isloginWithPasswordLoading, loginWithPasswordError } =
     usePasswordAuth();
 
-    const { getPhoneNumber } = usePhoneVerification();
-
+  const { getPhoneNumber } = usePhoneVerification();
 
   const phoneNumber = getPhoneNumber();
 

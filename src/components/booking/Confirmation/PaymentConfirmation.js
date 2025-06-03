@@ -11,29 +11,28 @@ import useBankList from '../../../hooks/BookingHooks/useBankList';
 import useBookingDetails from '../../../hooks/BookingHooks/useBookingDetails';
 import usePaymentProcess from '../../../hooks/BookingHooks/usePaymentProcess';
 
-
 export default function PaymentConfirmation({ bookingId }) {
   const router = useRouter();
   const { bookingDetails } = useBookingDetails(bookingId);
   const { banks } = useBankList();
-  const { processPaymentAsync , isProcessing } = usePaymentProcess();
+  const { processPaymentAsync, isProcessing } = usePaymentProcess();
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [selectedBank, setSelectedBank] = useState('');
 
   const totalPrice = bookingDetails?.payment?.totalPrice || 0;
   // const totalPriceUSD = bookingDetails?.payment?.totalPriceUSD || 0;
 
-  const handleSubmit = async (values) => {
+  const handleSubmit = async values => {
     const paymentData = {
       amount: totalPrice,
       currency: 'IRR',
       bank: values.bank,
     };
-  
+
     try {
       const result = await processPaymentAsync(paymentData);
       console.log('Payment result:', result);
-      
+
       if (result?.success) {
         setShowSuccessModal(true);
       }

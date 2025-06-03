@@ -5,7 +5,7 @@
 ## ⚠️ Development Status
 
 > **Note:** This project is currently under active development. Features may change and improve over time.
-> 
+>
 > **Important:** The main codebase is available in the `dev` branch. Please check out the dev branch to see the latest code and features.
 
 ## 🌟 Overview
@@ -109,7 +109,9 @@ my-next-app/
 
 2. Install dependencies:
    npm install
+
    # or
+
    yarn install
 
 3. Set up environment variables:
@@ -117,7 +119,9 @@ my-next-app/
 
 4. Start the development server:
    npm run dev
+
    # or
+
    yarn dev
 
 5. Open [http://localhost:3000](http://localhost:3000) in your browser
@@ -142,6 +146,7 @@ my-next-app/
 The application can be deployed on Vercel, Netlify, or any other platform that supports Next.js applications.
 
 # Example deployment on Vercel
+
 vercel
 
 ## 🤝 Contributing

@@ -8,14 +8,14 @@ export function useUserTrips() {
     data: trips,
     isLoading: isTripsLoading,
     error: tripsError,
-    refetch: refetchTrips
+    refetch: refetchTrips,
   } = useQuery({
     queryKey: ['userTrips'],
     queryFn: profileService.getUserTrips,
     staleTime: 5 * 60 * 1000,
   });
 
-  const getTripDetails = async (tripId) => {
+  const getTripDetails = async tripId => {
     try {
       return await profileService.getTripDetails(tripId);
     } catch (error) {

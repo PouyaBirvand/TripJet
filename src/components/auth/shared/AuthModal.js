@@ -1,13 +1,7 @@
 'use client';
 import { X } from 'lucide-react';
 
-export function AuthModal({ 
-  isOpen, 
-  onClose, 
-  title, 
-  description, 
-  children 
-}) {
+export function AuthModal({ isOpen, onClose, title, description, children }) {
   if (!isOpen) return null;
 
   return (
@@ -27,9 +21,7 @@ export function AuthModal({
         </div>
 
         <div className="flex flex-col items-center justify-center px-4 sm:px-8 pt-14 sm:pt-16 pb-8 sm:pb-10">
-          <h1 className="text-xl sm:text-2xl font-semibold mb-3 sm:mb-5 text-center">
-            {title}
-          </h1>
+          <h1 className="text-xl sm:text-2xl font-semibold mb-3 sm:mb-5 text-center">{title}</h1>
           {description && (
             <p className="text-center text-slate-400 font-light mb-6 sm:mb-8 max-w-md text-sm sm:text-base">
               {description}

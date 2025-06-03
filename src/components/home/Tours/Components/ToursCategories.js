@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import { useEffect, useState } from 'react';
 import { Map } from 'lucide-react';
 import { useQuery } from '@tanstack/react-query';
@@ -34,13 +34,13 @@ const TourCategories = () => {
     }
   }, [tours, activeFilter]);
 
-  const handleFilterChange = (filter) => {
+  const handleFilterChange = filter => {
     setActiveFilter(filter === activeFilter ? null : filter);
   };
 
   const swiperConfig = {
     items: filteredTours || [],
-    buttonsPosition: "header",
+    buttonsPosition: 'header',
     breakpoints: {
       0: {
         slidesPerView: 1,
@@ -65,18 +65,15 @@ const TourCategories = () => {
       default: {
         slidesPerView: 3,
         spaceBetween: 20,
-      }
+      },
     },
     defaultSlidesPerView: 1,
   };
 
   return (
     <div>
-      <Slider
-        renderItem={(tour) => <TourCategoryItem tour={tour} />}
-        {...swiperConfig}
-      >
-        <div className='flex flex-col'>
+      <Slider renderItem={tour => <TourCategoryItem tour={tour} />} {...swiperConfig}>
+        <div className="flex flex-col">
           <div className="w-full flex items-center gap-5 flex-wrap">
             <SecHeader lTitle="دسته بندی تور ها" rTitle="">
               <Map size={30} className="mt-1" />
@@ -84,15 +81,18 @@ const TourCategories = () => {
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 w-full md:w-max lg:mb-0 mb-5 text-nowrap">
               <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3 w-full">
                 {['luxury', 'special', 'nearest_date', 'weekend'].map(filter => (
-                  <button 
+                  <button
                     key={filter}
                     className={`btn btn-sm md:btn-md font-normal !text-[0.9rem] text-slate-500 bg-white ${activeFilter === filter ? '!bg-sky-200 !text-blue-600 !border-none' : 'btn-outline'} rounded-lg border border-slate-300 font-medium text-xs sm:text-sm`}
                     onClick={() => handleFilterChange(filter)}
                   >
-                    {filter === 'luxury' ? 'لوکس ترین' : 
-                     filter === 'special' ? 'تور های ویژه' : 
-                     filter === 'nearest_date' ? 'نزدیک ترین تاریخ اجرا' : 
-                     'تعطیلات اخر هفته'}
+                    {filter === 'luxury'
+                      ? 'لوکس ترین'
+                      : filter === 'special'
+                        ? 'تور های ویژه'
+                        : filter === 'nearest_date'
+                          ? 'نزدیک ترین تاریخ اجرا'
+                          : 'تعطیلات اخر هفته'}
                   </button>
                 ))}
               </div>

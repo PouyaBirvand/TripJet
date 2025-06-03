@@ -1,5 +1,5 @@
 'use client';
-import { redirect } from "next/navigation";
+import { redirect } from 'next/navigation';
 
 const AccountEditPage = () => {
   redirect('/profile/account/edit/travel');

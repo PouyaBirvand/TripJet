@@ -1,4 +1,4 @@
-import { Check, Clock, X } from "lucide-react";
+import { Check, Clock, X } from 'lucide-react';
 
 const getStatusInfo = status => {
   switch (status) {

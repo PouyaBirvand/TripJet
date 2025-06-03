@@ -9,7 +9,7 @@ export default function PassengerInfo({ bookingId }) {
   const [editingPassengerId, setEditingPassengerId] = useState(null);
   const { bookingDetails, isLoading, error } = useBookingDetails(bookingId);
 
-  const handleEdit = (passengerId) => {
+  const handleEdit = passengerId => {
     setEditingPassengerId(passengerId);
     alert(`ویرایش اطلاعات مسافر با شناسه ${passengerId}`);
   };
@@ -28,7 +28,7 @@ export default function PassengerInfo({ bookingId }) {
           اطلاعات مسافران
         </h3>
       </div>
-      
+
       <div className="overflow-x-auto">
         <table className="w-full">
           <thead>
@@ -42,8 +42,8 @@ export default function PassengerInfo({ bookingId }) {
           </thead>
           <tbody>
             {passengers.map((passenger, index) => (
-              <tr 
-                key={passenger.id} 
+              <tr
+                key={passenger.id}
                 className={`${index % 2 === 0 ? 'bg-white' : 'bg-gray-50'} transition-colors`}
               >
                 <td className="py-4 px-6 border-t border-gray-100">
@@ -58,26 +58,30 @@ export default function PassengerInfo({ bookingId }) {
                   </div>
                 </td>
                 <td className="py-4 px-6 border-t border-gray-100">
-                  <span className={`inline-block px-2 py-1 rounded-full text-xs ${
-                    passenger.type === 'بزرگسال' 
-                      ? 'bg-blue-100 text-blue-700' 
-                      : 'bg-amber-100 text-amber-700'
-                  }`}>
+                  <span
+                    className={`inline-block px-2 py-1 rounded-full text-xs ${
+                      passenger.type === 'بزرگسال'
+                        ? 'bg-blue-100 text-blue-700'
+                        : 'bg-amber-100 text-amber-700'
+                    }`}
+                  >
                     {passenger.type}
                   </span>
                 </td>
                 <td className="py-4 px-6 border-t border-gray-100">{passenger.birthDate}</td>
                 <td className="py-4 px-6 border-t border-gray-100">
-                  <span className={`inline-block px-2 py-1 rounded-full text-xs ${
-                    passenger.gender === 'مذکر' 
-                      ? 'bg-indigo-100 text-indigo-700' 
-                      : 'bg-pink-100 text-pink-700'
-                  }`}>
+                  <span
+                    className={`inline-block px-2 py-1 rounded-full text-xs ${
+                      passenger.gender === 'مذکر'
+                        ? 'bg-indigo-100 text-indigo-700'
+                        : 'bg-pink-100 text-pink-700'
+                    }`}
+                  >
                     {passenger.gender}
                   </span>
                 </td>
                 <td className="py-4 px-6 border-t border-gray-100">
-                  <button 
+                  <button
                     onClick={() => handleEdit(passenger.id)}
                     className="p-2 text-blue-600 hover:bg-blue-100 rounded-full transition-colors"
                     aria-label="ویرایش اطلاعات مسافر"

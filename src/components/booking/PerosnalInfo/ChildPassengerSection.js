@@ -2,12 +2,7 @@
 import { Users, UserPlus, AlertCircle } from 'lucide-react';
 import ChildPassengerForm from './ChildPassengerForm';
 
-const ChildPassengerSection = ({
-  children,
-  pushChild,
-  removeChild,
-  childInitialValues,
-}) => {
+const ChildPassengerSection = ({ children, pushChild, removeChild, childInitialValues }) => {
   return (
     <div className="mt-12 space-y-8">
       <h3 className="font-semibold text-lg flex items-center gap-2 mb-6">
@@ -22,12 +17,7 @@ const ChildPassengerSection = ({
       ) : (
         <>
           {children.map((child, index) => (
-            <ChildPassengerForm
-              key={index}
-              child={child}
-              index={index}
-              removeChild={removeChild}
-            />
+            <ChildPassengerForm key={index} child={child} index={index} removeChild={removeChild} />
           ))}
 
           <button
@@ -49,9 +39,7 @@ const EmptyChildPassengerSection = ({ pushChild, childInitialValues }) => (
     <div className="text-gray-400 mb-4">
       <AlertCircle size={40} />
     </div>
-    <p className="text-gray-500 mb-4 text-center">
-      هنوز کودکی به لیست مسافران اضافه نشده است
-    </p>
+    <p className="text-gray-500 mb-4 text-center">هنوز کودکی به لیست مسافران اضافه نشده است</p>
     <button
       type="button"
       className="flex items-center text-blue-600 bg-blue-50 hover:bg-blue-100 transition-all px-4 py-2 rounded-md"

@@ -22,14 +22,16 @@ const MockCommentsData = [
   },
   {
     id: 3,
-    message: 'برای سفر به استانبول از تریپ جت استفاده کردم. رزرو هتل سریع انجام شد اما پرواز کمی تاخیر داشت.',
+    message:
+      'برای سفر به استانبول از تریپ جت استفاده کردم. رزرو هتل سریع انجام شد اما پرواز کمی تاخیر داشت.',
     username: 'مریم حسینی',
     stars: 3,
     date: '۱۴۰۳/۰۲/۱۰',
   },
   {
     id: 4,
-    message: 'تریپ جت بهترین سایت برای رزرو سفر به آنتالیاست! همه چیز طبق برنامه پیش رفت و قیمت‌ها عالی بود.',
+    message:
+      'تریپ جت بهترین سایت برای رزرو سفر به آنتالیاست! همه چیز طبق برنامه پیش رفت و قیمت‌ها عالی بود.',
     username: 'امیر رضایی',
     stars: 5,
     date: '۱۴۰۳/۰۱/۰۵',
@@ -81,7 +83,7 @@ const Comments = () => {
 
   return (
     <Slider renderItem={item => <CommentsBox item={item} />} {...swiperConfig}>
-      <div className='relative top-3 md:top-0'>
+      <div className="relative top-3 md:top-0">
         <SecHeader lTitle="نظرات کاربران">
           <MessageCircleMore size={30} />
         </SecHeader>

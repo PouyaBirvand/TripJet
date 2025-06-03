@@ -9,7 +9,7 @@ export function usePhoneVerification() {
   const router = useRouter();
   const { setPhoneVerificationToken } = useAuth();
 
-  const storePhoneNumber = (phoneNumber) => {
+  const storePhoneNumber = phoneNumber => {
     Cookies.set('phone_number', phoneNumber, { expires: 1 / 24 }); // 1 hour
   };
 
@@ -18,16 +18,16 @@ export function usePhoneVerification() {
   };
 
   const phoneVerificationMutation = useMutation({
-    mutationFn: (phoneNumber) => {
+    mutationFn: phoneNumber => {
       storePhoneNumber(phoneNumber);
       return authService.sendOTP(phoneNumber);
     },
-    onSuccess: (data) => {
+    onSuccess: data => {
       setPhoneVerificationToken(data.token);
       Cookies.set('phone_verification_token', data.token, { expires: 1 / 24 });
       router.push('/otp');
     },
-    onError: (error) => {
+    onError: error => {
       if (error.isCodeAlreadySent) {
         router.push('/otp');
       }
@@ -37,7 +37,7 @@ export function usePhoneVerification() {
   const otpVerificationMutation = useMutation({
     mutationFn: ({ code, token }) => {
       return authService.verifyOTP({ code, token });
-    }
+    },
   });
 
   return {

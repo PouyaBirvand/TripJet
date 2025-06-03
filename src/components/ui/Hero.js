@@ -1,4 +1,4 @@
-"use client"
+'use client';
 import { usePathname } from 'next/navigation';
 const Hero = () => {
   const pathname = usePathname();
@@ -11,12 +11,12 @@ const Hero = () => {
     >
       <div className="hero-overlay"></div>
       <div className="container hero-content text-neutral-content text-right justify-start pt-10 pb-30 min-h-[20rem]">
-        {pathname === '/' &&
+        {pathname === '/' && (
           <div>
             <h1 className="mb-5 text-4xl sm:text-5xl font-bold">با تریپ جت جهان در جیب شماست!</h1>
             <p className="mb-5 text-xl">پیشنهادات ویژه متناسب با هدف شما.</p>
           </div>
-        }
+        )}
       </div>
     </div>
   );

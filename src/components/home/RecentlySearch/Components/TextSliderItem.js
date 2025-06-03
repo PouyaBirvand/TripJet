@@ -11,7 +11,7 @@ const TextSliderItem = ({ origin, destination }) => {
       <ArrowLeftRight className="flex-shrink-0 text-blue-600" size={16} />
       <span className="overflow-hidden text-ellipsis">{destination}</span>
     </Link>
-  )
-}
+  );
+};
 
 export default TextSliderItem;

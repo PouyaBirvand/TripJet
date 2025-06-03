@@ -1,22 +1,20 @@
 'use client';
 
-export function AuthSubmitButton({ 
-  isLoading, 
-  disabled, 
+export function AuthSubmitButton({
+  isLoading,
+  disabled,
   children,
   variant = 'primary',
-  fullWidth = true
+  fullWidth = true,
 }) {
   const baseClasses = `py-2.5 px-4 rounded-lg font-medium text-sm transition-all duration-200 flex items-center justify-center
-    focus:outline-none focus:ring-2 focus:ring-opacity-50 ${
-      fullWidth ? 'w-full' : ''
-    }`;
+    focus:outline-none focus:ring-2 focus:ring-opacity-50 ${fullWidth ? 'w-full' : ''}`;
 
   const variantClasses = {
     primary: `bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500 
       disabled:bg-blue-300 disabled:cursor-not-allowed disabled:hover:bg-blue-300`,
     secondary: `bg-white text-blue-600 border border-blue-600 hover:bg-blue-50 
-      focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed`
+      focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed`,
   };
 
   return (

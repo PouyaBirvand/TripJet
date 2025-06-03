@@ -5,6 +5,6 @@ export const travelInfoSchema = Yup.object({
   nationalId: Yup.string()
     .required('کد ملی الزامی است')
     .matches(/^[0-9]{10}$/, 'کد ملی باید ۱۰ رقم باشد'),
-    passportExpiry: Yup.string(),
+  passportExpiry: Yup.string(),
   passportNumber: Yup.string(),
 });

@@ -17,7 +17,7 @@ export default function PhonePage() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const mockSendPhoneVerification = async (phoneNumber) => {
+  const mockSendPhoneVerification = async phoneNumber => {
     setIsLoading(true);
     setError(null);
 
@@ -74,16 +74,9 @@ export default function PhonePage() {
               textAlign="left"
             />
 
-            {error && (
-              <div className="text-red-500 text-sm mb-4 text-center">
-                {error}
-              </div>
-            )}
+            {error && <div className="text-red-500 text-sm mb-4 text-center">{error}</div>}
 
-            <AuthSubmitButton
-              isLoading={isLoading}
-              disabled={isSubmitting || !(isValid && dirty)}
-            >
+            <AuthSubmitButton isLoading={isLoading} disabled={isSubmitting || !(isValid && dirty)}>
               تایید و ادامه
             </AuthSubmitButton>
           </Form>

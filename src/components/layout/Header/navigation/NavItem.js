@@ -9,7 +9,7 @@ const NavItem = ({ item, level = 0, mobileMode = false }) => {
   const isTopLevel = level === 0;
 
   useEffect(() => {
-    const handleClickOutside = (event) => {
+    const handleClickOutside = event => {
       if (ref.current && !ref.current.contains(event.target)) {
         setIsOpen(false);
       }
@@ -20,10 +20,7 @@ const NavItem = ({ item, level = 0, mobileMode = false }) => {
   }, []);
 
   return (
-    <li 
-      ref={ref}
-      className={`relative ${isTopLevel && !mobileMode ? 'mx-1' : ''}`}
-    >
+    <li ref={ref} className={`relative ${isTopLevel && !mobileMode ? 'mx-1' : ''}`}>
       <div className="flex items-center">
         {hasChildren ? (
           <button
@@ -38,10 +35,8 @@ const NavItem = ({ item, level = 0, mobileMode = false }) => {
               {item.icon}
               <span className="whitespace-nowrap font-normal">{item.title}</span>
             </div>
-            <ChevronDown 
-              className={`w-4 h-4 transition-transform duration-200 ${
-                isOpen ? 'rotate-180' : ''
-              }`}
+            <ChevronDown
+              className={`w-4 h-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
             />
           </button>
         ) : (
@@ -68,13 +63,8 @@ const NavItem = ({ item, level = 0, mobileMode = false }) => {
           }`}
           style={isTopLevel && !mobileMode ? { width: 'max-content' } : {}}
         >
-          {item.places.map((child) => (
-            <NavItem 
-              key={child.title} 
-              item={child} 
-              level={level + 1} 
-              mobileMode={mobileMode} 
-            />
+          {item.places.map(child => (
+            <NavItem key={child.title} item={child} level={level + 1} mobileMode={mobileMode} />
           ))}
         </ul>
       )}

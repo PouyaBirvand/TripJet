@@ -5,7 +5,6 @@ import ChildPassengerSection from './ChildPassengerSection';
 import PassengerHistoryModal from './PassengerHistoryModal';
 import { getAdultInitialValues, getChildInitialValues } from '../../../lib/formInitialValues';
 
-
 const PassengerForm = ({
   showPassengerModal,
   setShowPassengerModal,
@@ -14,7 +13,7 @@ const PassengerForm = ({
 }) => {
   const { values, setFieldValue } = useFormikContext();
 
-  const handleSelectPassengers = (selectedPassengers) => {
+  const handleSelectPassengers = selectedPassengers => {
     const adultPassengers = selectedPassengers
       .filter(p => p.type === 'بزرگسال')
       .map(passenger => ({

@@ -1,6 +1,6 @@
-export const getContactInitialValues = (profile) => ({
+export const getContactInitialValues = profile => ({
   phone: profile?.landline || '',
   mobile: profile?.phone || '',
   email: profile?.email || '',
-  alternateEmail: profile?.alternateEmail || ''
+  alternateEmail: profile?.alternateEmail || '',
 });

@@ -9,9 +9,9 @@ export function useUserPassword() {
     onSuccess: () => {
       alert('رمز عبور با موفقیت تغییر یافت');
     },
-    onError: (error) => {
+    onError: error => {
       alert(error.message || 'خطا در تغییر رمز عبور');
-    }
+    },
   });
 
   return {

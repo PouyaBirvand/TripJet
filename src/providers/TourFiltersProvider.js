@@ -8,7 +8,7 @@ import { TourFiltersContext } from '../contexts/TourFiltersContext';
 import { useRouter } from 'next/navigation';
 
 export function TourFiltersProvider({ children, initialFilters = {} }) {
-  const router = useRouter()
+  const router = useRouter();
   const [queryParams, setQueryParams] = useQueryStates({
     destination: parseAsString,
     origin: parseAsString,
@@ -74,10 +74,10 @@ export function TourFiltersProvider({ children, initialFilters = {} }) {
     }
   };
 
-const clearFilters = () => {
-  const currentPage = queryParams.page || '1';
-  router.push(`/tours?page=${currentPage}`);
-};
+  const clearFilters = () => {
+    const currentPage = queryParams.page || '1';
+    router.push(`/tours?page=${currentPage}`);
+  };
   const getFilterValue = key => filters[key] || '';
 
   return (

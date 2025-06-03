@@ -8,15 +8,18 @@ export default function EditPaymentPage() {
   const router = useRouter();
   const { profile, updateProfile, isProfileLoading } = useUserProfile();
 
-  const handleSubmit = (values) => {
+  const handleSubmit = values => {
     console.log('Submitting payment data:', values);
-    
-    updateProfile({
-      bank_account: values.accountNumber,
-      bank_sheba: values.sheba,
-      bank_card: values.cardNumber
-    }, 'payment');
-    
+
+    updateProfile(
+      {
+        bank_account: values.accountNumber,
+        bank_sheba: values.sheba,
+        bank_card: values.cardNumber,
+      },
+      'payment'
+    );
+
     router.push('/profile/account');
   };
 
@@ -24,10 +27,8 @@ export default function EditPaymentPage() {
     return <div className="animate-pulse bg-white rounded-xl p-6 h-96"></div>;
   }
 
-
-
   return (
-    <EditPaymentCard 
+    <EditPaymentCard
       initialData={getPaymentInitialValues}
       onSubmit={handleSubmit}
       returnPath="/profile/account"

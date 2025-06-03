@@ -4,4 +4,3 @@ export default function ProfilePage() {
   redirect('/profile/account');
   return null;
 }
-  

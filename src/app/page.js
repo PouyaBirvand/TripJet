@@ -1,4 +1,4 @@
-"use client"
+'use client';
 import Hero from '../components/ui/Hero';
 import RecentlySearch from '../components/home/RecentlySearch/RecentlySearch';
 import SpecialOffer from '../components/home/Tours/SpecialOffer';

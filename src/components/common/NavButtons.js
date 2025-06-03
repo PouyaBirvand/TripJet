@@ -1,11 +1,11 @@
-"use client"
+'use client';
 import { usePathname, useRouter } from 'next/navigation';
 import React from 'react';
 
 const NavButtons = () => {
   const pathname = usePathname();
-  const router = useRouter()
-  const handleButtonClick = (path) => {
+  const router = useRouter();
+  const handleButtonClick = path => {
     router.push(path);
   };
 

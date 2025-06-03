@@ -20,31 +20,31 @@ export default function Error({ error, reset }) {
               </div>
               <div className="absolute -top-1 -right-1 w-6 h-6 bg-red-500 rounded-full animate-pulse"></div>
             </div>
-            
-            <h2 className="text-2xl font-bold text-gray-800 mb-2">مشکلی در مسیر سفر شما پیش آمد!</h2>
+
+            <h2 className="text-2xl font-bold text-gray-800 mb-2">
+              مشکلی در مسیر سفر شما پیش آمد!
+            </h2>
             <p className="text-gray-600 max-w-md">
-              متأسفانه در پردازش درخواست شما خطایی رخ داده است. می‌توانید دوباره تلاش کنید یا به صفحه اصلی بازگردید.
+              متأسفانه در پردازش درخواست شما خطایی رخ داده است. می‌توانید دوباره تلاش کنید یا به
+              صفحه اصلی بازگردید.
             </p>
           </div>
-          
+
           <div className="flex flex-col sm:flex-row gap-3 w-full mb-8">
-            <button 
-              onClick={() => reset()} 
+            <button
+              onClick={() => reset()}
               className="btn bg-blue-600 text-white rounded-lg flex-1 gap-2"
             >
               <RefreshCw className="h-5 w-5" />
               تلاش مجدد
             </button>
-            
-            <Link 
-              href="/" 
-              className="btn btn-outline rounded-lg flex-1 gap-2"
-            >
+
+            <Link href="/" className="btn btn-outline rounded-lg flex-1 gap-2">
               <Home className="h-5 w-5" />
               بازگشت به صفحه اصلی
             </Link>
           </div>
-          
+
           {process.env.NODE_ENV === 'development' && (
             <div className="mb-8 p-4 bg-gray-50 border border-gray-200 rounded-xl w-full text-left overflow-auto">
               <h3 className="font-mono font-bold text-sm mb-2 text-gray-700">
@@ -60,13 +60,13 @@ export default function Error({ error, reset }) {
               )}
             </div>
           )}
-          
+
           <div className="bg-blue-50 rounded-xl p-5">
             <h3 className="font-medium text-blue-700 mb-3 flex items-center gap-2">
               <Globe className="h-5 w-5" />
               راهکارهای پیشنهادی
             </h3>
-            
+
             <ul className="text-sm text-gray-700 space-y-3">
               <li className="flex items-center gap-2">
                 <RefreshCw className="h-4 w-4 text-blue-500 flex-shrink-0" />
@@ -86,7 +86,7 @@ export default function Error({ error, reset }) {
               </li>
             </ul>
           </div>
-          
+
           <div className="mt-6 text-center text-sm text-gray-500">
             اگر مشکل همچنان ادامه دارد، لطفاً با پشتیبانی تماس بگیرید
           </div>

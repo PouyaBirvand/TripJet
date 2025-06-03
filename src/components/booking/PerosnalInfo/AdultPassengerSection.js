@@ -12,7 +12,7 @@ const AdultPassengerSection = ({
   setShowPassengerModal,
   isLoading,
 }) => {
-  const setAsLeader = (index) => {
+  const setAsLeader = index => {
     const updatedAdults = children.map((adult, i) => ({
       ...adult,
       isLeader: i === index,

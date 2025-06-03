@@ -18,10 +18,10 @@ function prefillCache(initialTours, initialFilterOptions) {
   queryClient.setQueryData(['filterOptions'], initialFilterOptions);
 }
 
-export default function ToursContainer({ initialTours ,initialFilterOptions }) {
+export default function ToursContainer({ initialTours, initialFilterOptions }) {
   // Prefill the cache with server data
   prefillCache(initialTours, initialFilterOptions);
-  
+
   return (
     <QueryClientProvider client={queryClient}>
       <TourFiltersProvider>

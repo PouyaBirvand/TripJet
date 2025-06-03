@@ -9,7 +9,7 @@ const mockBookingData = {
       type: 'بزرگسال',
       birthDate: '۱۳۷۵/۰۴/۱۲',
       gender: 'مذکر',
-      isLeader: true
+      isLeader: true,
     },
     {
       id: 2,
@@ -17,8 +17,8 @@ const mockBookingData = {
       type: 'بزرگسال',
       birthDate: '۱۳۷۸/۰۹/۲۳',
       gender: 'مؤنث',
-      isLeader: false
-    }
+      isLeader: false,
+    },
   ],
   hotel: {
     name: 'هتل ۴ ستاره میکلو',
@@ -27,7 +27,7 @@ const mockBookingData = {
     checkOut: '۱۴۰۳/۰۷/۲۱',
     checkInTime: '۱۲:۳۰',
     checkOutTime: '۰۰:۳۰',
-    amenities: ['واي فاي رايگان', 'استخر', 'صبحانه']
+    amenities: ['واي فاي رايگان', 'استخر', 'صبحانه'],
   },
   ticket: {
     departureDate: '۱۴۰۳/۰۷/۱۸',
@@ -37,14 +37,14 @@ const mockBookingData = {
     allowedBaggage: '۳۰ کیلوگرم',
     airline: 'قشم ایر',
     departureAirport: 'فرودگاه امام خمینی',
-    arrivalAirport: 'فرودگاه دبی'
+    arrivalAirport: 'فرودگاه دبی',
   },
   payment: {
     totalPrice: 300000000,
     totalPriceUSD: 300,
     currency: 'IRR',
-    status: 'paid'
-  }
+    status: 'paid',
+  },
 };
 
 const mockPassengerHistory = [
@@ -54,7 +54,7 @@ const mockPassengerHistory = [
     type: 'بزرگسال',
     birthDate: '۱۳۷۵/۰۴/۱۲',
     gender: 'مذکر',
-    lastUsed: '۱۴۰۲/۱۰/۱۵'
+    lastUsed: '۱۴۰۲/۱۰/۱۵',
   },
   {
     id: 2,
@@ -62,7 +62,7 @@ const mockPassengerHistory = [
     type: 'بزرگسال',
     birthDate: '۱۳۷۸/۰۹/۲۳',
     gender: 'مؤنث',
-    lastUsed: '۱۴۰۲/۰۹/۲۰'
+    lastUsed: '۱۴۰۲/۰۹/۲۰',
   },
   {
     id: 3,
@@ -70,8 +70,8 @@ const mockPassengerHistory = [
     type: 'کودک',
     birthDate: '۱۳۹۵/۰۲/۱۵',
     gender: 'مذکر',
-    lastUsed: '۱۴۰۲/۰۹/۲۰'
-  }
+    lastUsed: '۱۴۰۲/۰۹/۲۰',
+  },
 ];
 
 const mockBanks = [
@@ -85,13 +85,13 @@ export const bookingService = {
       await new Promise(resolve => setTimeout(resolve, 500));
       return {
         success: true,
-        data: mockPassengerHistory
+        data: mockPassengerHistory,
       };
     } catch (error) {
       console.error('Error fetching passenger history:', error);
       return {
         success: false,
-        error: 'خطا در دریافت لیست مسافران'
+        error: 'خطا در دریافت لیست مسافران',
       };
     }
   },
@@ -99,16 +99,16 @@ export const bookingService = {
   async savePassengers(passengers) {
     try {
       await new Promise(resolve => setTimeout(resolve, 800));
-      
-      return { 
+
+      return {
         success: true,
-        message: 'اطلاعات مسافران با موفقیت ذخیره شد'
+        message: 'اطلاعات مسافران با موفقیت ذخیره شد',
       };
     } catch (error) {
       console.error('Error saving passengers:', error);
-      return { 
-        success: false, 
-        error: 'خطا در ذخیره مسافران' 
+      return {
+        success: false,
+        error: 'خطا در ذخیره مسافران',
       };
     }
   },
@@ -118,13 +118,13 @@ export const bookingService = {
       await new Promise(resolve => setTimeout(resolve, 800));
       return {
         success: true,
-        data: mockBookingData
+        data: mockBookingData,
       };
     } catch (error) {
       console.error('Error fetching booking details:', error);
       return {
         success: false,
-        error: 'خطا در دریافت اطلاعات رزرو'
+        error: 'خطا در دریافت اطلاعات رزرو',
       };
     }
   },
@@ -134,13 +134,13 @@ export const bookingService = {
       await new Promise(resolve => setTimeout(resolve, 500));
       return {
         success: true,
-        data: mockBanks
+        data: mockBanks,
       };
     } catch (error) {
       console.error('Error fetching bank list:', error);
       return {
         success: false,
-        error: 'خطا در دریافت لیست بانک‌ها'
+        error: 'خطا در دریافت لیست بانک‌ها',
       };
     }
   },
@@ -148,7 +148,7 @@ export const bookingService = {
   async processPayment(paymentData) {
     try {
       await new Promise(resolve => setTimeout(resolve, 1500));
-      
+
       return {
         success: true,
         data: {
@@ -156,15 +156,15 @@ export const bookingService = {
           trackingCode: Math.floor(1000000 + Math.random() * 9000000).toString(),
           amount: paymentData.amount,
           date: new Date().toLocaleDateString('fa-IR'),
-          bank: paymentData.bank
-        }
+          bank: paymentData.bank,
+        },
       };
     } catch (error) {
       console.error('Error processing payment:', error);
       return {
         success: false,
-        error: 'خطا در پردازش پرداخت'
+        error: 'خطا در پردازش پرداخت',
       };
     }
-  }
+  },
 };

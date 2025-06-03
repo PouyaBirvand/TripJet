@@ -5,7 +5,7 @@ import { toEnglishNumber } from './numbers';
  * @param {string} value - The phone number to validate
  * @returns {boolean} Whether the phone number is valid
  */
-export const validateIranianMobile = (value) => {
+export const validateIranianMobile = value => {
   if (!value) return false;
   const englishNumber = toEnglishNumber(value);
   const pattern = /^9\d{9}$/;

@@ -11,7 +11,7 @@ import { useUserProfile } from '../../../../hooks/ProfileHooks/useUserProfile';
 
 const TripDetailsModal = ({ trip, onClose }) => {
   const { profile } = useUserProfile();
-  
+
   const [passengers, setPassengers] = useState([]);
   const statusInfo = getStatusInfo(trip.status);
 
@@ -21,14 +21,14 @@ const TripDetailsModal = ({ trip, onClose }) => {
     } else {
       const defaultPassengers = [];
       const passengerCount = trip.participants || 2;
-      
+
       defaultPassengers.push({
         name: profile ? `${profile.firstName} ${profile.lastName}` : 'کوروش صفایی',
         type: 'بزرگسال',
         birthDate: profile?.birth_date || '۱۳۶۲/۰۴/۲۳',
         gender: profile?.gender === 'male' ? 'مذکر' : 'مؤنث',
       });
-      
+
       for (let i = 1; i < passengerCount; i++) {
         const isChild = i === passengerCount - 1;
         defaultPassengers.push({

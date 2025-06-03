@@ -12,8 +12,7 @@ const RecentlySearch = () => {
     { origin: 'ترکیه', destination: 'افریقا' },
     { origin: 'سبزوار', destination: 'گوهردشت' },
     { origin: 'کرج', destination: 'دزفول' },
-    { origin: 'شاهین شهر', destination: 'بهبان' }
-
+    { origin: 'شاهین شهر', destination: 'بهبان' },
   ];
 
   return (

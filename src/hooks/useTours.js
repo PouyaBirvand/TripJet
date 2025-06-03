@@ -2,14 +2,10 @@ import { useQuery } from '@tanstack/react-query';
 import { tourService } from '../services/tour/tourService';
 
 export function useTours(filters) {
-  const {
-    data,
-    isLoading,
-    error,
-  } = useQuery({
+  const { data, isLoading, error } = useQuery({
     queryKey: ['tours', filters],
     queryFn: () => tourService.getTours(filters),
-    select: (response) => ({
+    select: response => ({
       tours: response.data,
       totalResults: response.meta.total,
     }),

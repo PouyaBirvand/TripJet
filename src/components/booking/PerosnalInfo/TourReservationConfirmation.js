@@ -8,7 +8,7 @@ import { useRouter } from 'next/navigation';
 export default function TourReservationConfirmation() {
   const { isValid, values } = useFormikContext();
   const router = useRouter();
-  
+
   const totalPrice = 300000000;
 
   const handleContinue = () => {
@@ -35,14 +35,14 @@ export default function TourReservationConfirmation() {
           </p>
         </div>
       </div>
-      
+
       <div className="w-full lg:w-1/3 flex flex-col sm:flex-row lg:flex-col items-center sm:justify-between lg:items-end gap-4">
         <div className="flex flex-col md:items-center items-start">
           <div className="flex items-center gap-2 mb-1">
             <span className="text-xl font-bold text-blue-600">{formatPrice(totalPrice)}</span>
           </div>
         </div>
-        
+
         <button
           type="submit"
           disabled={!isValid || values.adults.length === 0}

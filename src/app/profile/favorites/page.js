@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import { useState, useEffect } from 'react';
 import { useQueryState } from 'nuqs';
 import { useFavorite } from '../../../hooks/useFavorite';
@@ -16,7 +16,7 @@ export default function FavoritesPage() {
     }
   }, [sortParam]);
 
-  const handleSortChange = (sortType) => {
+  const handleSortChange = sortType => {
     setCurrentSort(sortType);
     setSortParam(sortType);
   };
@@ -42,21 +42,25 @@ export default function FavoritesPage() {
         <h2 className="font-bold text-xl pb-3">مدیریت علاقه‌مندی‌ها</h2>
         <SortButtons currentSort={currentSort} onSortChange={handleSortChange} />
       </div>
-            
+
       {isLoading ? (
         <div className="flex justify-center items-center min-h-[300px]">
           <div className="loading loading-spinner loading-lg"></div>
         </div>
       ) : filteredFavorites.length === 0 ? (
         <div className="text-center py-8 md:py-10 bg-white rounded-xl border border-base-300 p-4 md:p-6">
-          <h3 className="text-lg md:text-xl font-semibold mb-2">لیست علاقه‌مندی‌های شما خالی است</h3>
-          <p className="text-gray-500 text-sm md:text-base">تورهای مورد علاقه خود را با کلیک بر روی آیکون قلب به این لیست اضافه کنید.</p>
+          <h3 className="text-lg md:text-xl font-semibold mb-2">
+            لیست علاقه‌مندی‌های شما خالی است
+          </h3>
+          <p className="text-gray-500 text-sm md:text-base">
+            تورهای مورد علاقه خود را با کلیک بر روی آیکون قلب به این لیست اضافه کنید.
+          </p>
         </div>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
           {filteredFavorites.map(tour => (
             <FavoriteItem
-              key={tour.id} 
+              key={tour.id}
               tour={tour}
               onRemoveFavorite={handleRemoveFavorite}
               isRemoving={isRemoving}

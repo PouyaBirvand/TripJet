@@ -8,14 +8,14 @@ export function useUserTransactions() {
     data: transactions,
     isLoading: isTransactionsLoading,
     error: transactionsError,
-    refetch: refetchTransactions
+    refetch: refetchTransactions,
   } = useQuery({
     queryKey: ['userTransactions'],
     queryFn: profileService.getUserTransactions,
     staleTime: 5 * 60 * 1000,
   });
 
-  const getTransactionDetails = async (transactionId) => {
+  const getTransactionDetails = async transactionId => {
     try {
       return await profileService.getTransactionDetails(transactionId);
     } catch (error) {

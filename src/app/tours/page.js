@@ -15,14 +15,16 @@ export default async function ToursPage({ searchParams }) {
   const filterOptions = await tourService.getFiltersOptions();
 
   return (
-    <Suspense fallback={<LoadingSpinner />}>
+    <>
       <Hero />
       <TripSearch />
-      <ToursContainer
-        initialTours={initialTours}
-        initialFilters={searchParams}
-        initialFilterOptions={filterOptions}
-      />
-    </Suspense>
+      <Suspense fallback={<LoadingSpinner />}>
+        <ToursContainer
+          initialTours={initialTours}
+          initialFilters={searchParams}
+          initialFilterOptions={filterOptions}
+        />
+      </Suspense>
+    </>
   );
 }

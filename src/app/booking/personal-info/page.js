@@ -29,10 +29,7 @@ export default function PersonalInfoPage() {
           </div>
         </div>
 
-        <Formik
-          initialValues={getPersonalInfoInitialValue}
-          onSubmit={handleSubmit}
-        >
+        <Formik initialValues={getPersonalInfoInitialValue} onSubmit={handleSubmit}>
           <Form>
             <div className="p-6">
               <PassengerForm

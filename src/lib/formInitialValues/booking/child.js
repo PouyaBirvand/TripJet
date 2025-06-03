@@ -1,5 +1,5 @@
 export const getChildInitialValues = {
-    fullName: '',
-    nationality: 'ایران',
-    birthDate: '',
-  };
+  fullName: '',
+  nationality: 'ایران',
+  birthDate: '',
+};

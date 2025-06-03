@@ -12,7 +12,7 @@ export function usePasswordSetup() {
     },
     onSuccess: () => {
       setNeedsPasswordSetup(false);
-    }
+    },
   });
 
   return {

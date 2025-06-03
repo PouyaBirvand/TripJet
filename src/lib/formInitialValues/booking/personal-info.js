@@ -1,4 +1,4 @@
 export const getPersonalInfoInitialValue = {
-    adults: [],
-    children: [],
-  }
+  adults: [],
+  children: [],
+};

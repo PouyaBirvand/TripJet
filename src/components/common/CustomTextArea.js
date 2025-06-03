@@ -3,14 +3,7 @@ import { useRef, useState } from 'react';
 import { CheckCircle, CircleAlert, XCircle } from 'lucide-react';
 import { useField } from 'formik';
 
-const CustomTextArea = ({
-  name,
-  label,
-  placeholder,
-  rows = 6,
-  maxLength,
-  ...props
-}) => {
+const CustomTextArea = ({ name, label, placeholder, rows = 6, maxLength, ...props }) => {
   const [field, meta, helpers] = useField(name);
   const { setValue, setTouched } = helpers;
   const { value } = field;
@@ -85,7 +78,7 @@ const CustomTextArea = ({
             dir="rtl"
             {...props}
           />
-          
+
           {value && value.length > 0 && (
             <div
               className="absolute left-3 top-3 cursor-pointer hover:opacity-70 transition-opacity z-10"
@@ -95,7 +88,7 @@ const CustomTextArea = ({
               <XCircle size={18} className={getColorClass()} />
             </div>
           )}
-          
+
           {value && value.length > 0 && !error && (
             <div className="absolute left-3 bottom-3">
               <CheckCircle size="18" stroke="1" className="text-success" />

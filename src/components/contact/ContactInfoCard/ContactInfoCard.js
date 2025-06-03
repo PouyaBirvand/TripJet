@@ -9,15 +9,12 @@ export default function ContactInfoCard() {
       <div className="relative z-10">
         <h2 className="text-2xl font-bold mb-8">اطلاعات تماس</h2>
         <p className="text-lg font-normal mb-8">برای شروع چت فیلد های مقابل را تکمیل کنید.</p>
-        
+
         <ContactInfoList />
         <SocialMediaLinks />
       </div>
-      
+
       <ContactCardDecorations />
     </div>
   );
 }
-
-
-

@@ -1,19 +1,15 @@
-import { Star } from "lucide-react"
+import { Star } from 'lucide-react';
 
 const Stars = ({ filled = 0 }) => {
-    const stars = [];
-    
-    for (let i = 0; i < 5; i++) {
-        stars.push(
-            <Star 
-                key={i} 
-                className={i < filled ? "fill-yellow-400 text-yellow-400" : "text-gray-300"} 
-            />
-        );
-    }
-    
-    return <div className="flex flex-row-reverse">{stars}</div>;
-}
+  const stars = [];
 
-export default Stars
+  for (let i = 0; i < 5; i++) {
+    stars.push(
+      <Star key={i} className={i < filled ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300'} />
+    );
+  }
 
+  return <div className="flex flex-row-reverse">{stars}</div>;
+};
+
+export default Stars;

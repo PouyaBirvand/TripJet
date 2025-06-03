@@ -4,7 +4,10 @@ import CustomFormField from '../../common/CustomFormField';
 import MessageTextArea from './MessageTextArea';
 import SubmitButton from './SubmitButton';
 import { contactFormSchema } from '../../../lib/validation';
-import { getContactInitialValues, getSubjectOptionsInitialValues } from '../../../lib/formInitialValues';
+import {
+  getContactInitialValues,
+  getSubjectOptionsInitialValues,
+} from '../../../lib/formInitialValues';
 
 export default function ContactForm() {
   const handleSubmit = (values, { setSubmitting, resetForm }) => {
@@ -70,12 +73,7 @@ function ContactFields() {
         digitsOnly={true}
         inputMode="numeric"
       />
-      <CustomFormField
-        name="email"
-        label="ایمیل"
-        placeholder="tripjet@gmail.com"
-        type="email"
-      />
+      <CustomFormField name="email" label="ایمیل" placeholder="tripjet@gmail.com" type="email" />
     </div>
   );
 }

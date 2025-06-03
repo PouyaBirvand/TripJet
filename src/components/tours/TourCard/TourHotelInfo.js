@@ -11,7 +11,7 @@ export default function TourHotelInfo({ hotel, remaining }) {
         </div>
         <span className="text-sm font-medium text-gray-700">{hotel.description}</span>
       </div>
-      
+
       <div className="flex items-center gap-2 text-red-600 font-medium bg-red-50 px-3 py-2 rounded-lg">
         <AlertCircle size={16} className="text-red-500" />
         <span className="text-sm">{remaining} نفر باقیمانده</span>

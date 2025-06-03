@@ -8,7 +8,7 @@ import Logo from './Logo';
 import { useRouter } from 'next/navigation';
 
 const DesktopNav = ({ isLoggedIn }) => {
-  const router = useRouter()
+  const router = useRouter();
   return (
     <div className="hidden lg:flex items-center justify-between h-20">
       <div className="flex items-center gap-8">
@@ -27,7 +27,7 @@ const DesktopNav = ({ isLoggedIn }) => {
         ) : (
           <>
             <TelBtn className="hidden lg:flex" />
-            <LoginButton className="hidden lg:flex" onClick={() => router.push("/phone")} />
+            <LoginButton className="hidden lg:flex" onClick={() => router.push('/phone')} />
           </>
         )}
       </div>
