@@ -10,15 +10,13 @@ const nextConfig = {
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
-  basePath: process.env.NODE_ENV === 'production' ? '/https://github.com/PouyaBirvand/TripJet' : '',
-  assetPrefix:
-    process.env.NODE_ENV === 'production' ? '/https://github.com/PouyaBirvand/TripJet' : '',
+  basePath: '/https://github.com/PouyaBirvand/TripJet',
+  assetPrefix: '/https://github.com/PouyaBirvand/TripJet',
 
   compress: true,
   poweredByHeader: false,
   generateEtags: true,
 
-  swcMinify: true,
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
