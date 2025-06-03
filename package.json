@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "install": "npm install --force"
+    
   },
   "dependencies": {
     "@fontsource/vazirmatn": "^5.2.5",
