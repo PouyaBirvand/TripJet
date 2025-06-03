@@ -8,8 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write .",
-    "install": "npm install --force"
-    
+    "postinstall": "npm install --legacy-peer-deps || true"
   },
   "dependencies": {
     "@fontsource/vazirmatn": "^5.2.5",
