@@ -6,13 +6,6 @@ import { AuthProvider } from '../providers/AuthProvider';
 import { NuqsAdapter } from 'nuqs/adapters/next/app';
 import Header from '../components/layout/Header/Header';
 
-const vazir = Vazirmatn({
-  variable: '--font-vazir',
-  subsets: ['arabic'],
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
-  display: 'swap',
-});
-
 export const metadata = {
   title: 'تریپ جت | رزرو آنلاین تور و سفر | بهترین قیمت تورهای گردشگری',
   description:
@@ -88,6 +81,10 @@ export default function RootLayout({ children, auth }) {
   return (
     <html lang="fa" dir="rtl">
       <head>
+      <link
+          href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <meta name="theme-color" content="#ffffff" />
@@ -116,7 +113,7 @@ export default function RootLayout({ children, auth }) {
           }}
         />
       </head>
-      <body className={`${vazir.className} antialiased min-h-screen flex flex-col bg-base-200`}>
+      <body className={`antialiased min-h-screen flex flex-col bg-base-200`}>
         <NuqsAdapter>
           <QueryProvider>
             <AuthProvider>

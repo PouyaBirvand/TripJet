@@ -7,8 +7,9 @@ import LoginButton from './AuthButtons/LoginButton';
 import Logo from './Logo';
 import { useRouter } from 'next/navigation';
 
-const DesktopNav = ({ isLoggedIn }) => {
+const DesktopNav = ({ isLoggedIn, user }) => {
   const router = useRouter();
+
   return (
     <div className="hidden lg:flex items-center justify-between h-20">
       <div className="flex items-center gap-8">
@@ -22,7 +23,18 @@ const DesktopNav = ({ isLoggedIn }) => {
         {isLoggedIn ? (
           <>
             <MyTravelsButton className="hidden lg:flex" />
-            <ProfileButton className="hidden lg:flex" />
+            <ProfileButton 
+              className="hidden lg:flex" 
+              user={user}
+              isGuest={user?.isGuest}
+            />
+            {/* {user?.isGuest && (
+              <LoginButton 
+                className="hidden lg:flex bg-green-600 text-white" 
+                onClick={() => router.push('/phone')}
+                text="ورود / ثبت نام"
+              />
+            )} */}
           </>
         ) : (
           <>

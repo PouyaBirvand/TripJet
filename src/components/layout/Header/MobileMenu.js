@@ -5,7 +5,7 @@ import TelBtn from './buttons/TelButton';
 import ProfileButton from './AuthButtons/ProfileButton';
 import LoginButton from './AuthButtons/LoginButton';
 
-const MobileMenu = ({ isOpen, isLoggedIn, onClose }) => {
+const MobileMenu = ({ isOpen, isLoggedIn, user, onClose }) => {
   const router = useRouter();
 
   if (!isOpen) return null;
@@ -22,11 +22,23 @@ const MobileMenu = ({ isOpen, isLoggedIn, onClose }) => {
               <MyTravelsButton className="w-full justify-center mb-3 !py-2" />
               <ProfileButton
                 className="w-full justify-center py-5 text-base"
+                user={user}
+                isGuest={user?.isGuest}
                 onClick={() => {
                   router.push('/profile');
                   onClose();
                 }}
               />
+              {user?.isGuest && (
+                <LoginButton
+                  className="w-full justify-center py-3 text-base bg-green-600 text-white mt-3"
+                  onClick={() => {
+                    router.push('/phone');
+                    onClose();
+                  }}
+                  text="ورود / ثبت نام"
+                />
+              )}
             </>
           ) : (
             <>
