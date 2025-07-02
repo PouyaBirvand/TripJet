@@ -13,44 +13,25 @@ export function AuthProvider({ children }) {
   const [needsPasswordSetup, setNeedsPasswordSetup] = useState(false);
   const queryClient = useQueryClient();
 
-  // تولید توکن پیشفرض و ست کردن کوکی
-  const generateDefaultAuth = () => {
-    const defaultToken = 'default-user-token-' + Date.now();
-    const defaultUser = {
-      id: 'default-user',
-      name: 'کاربر مهمان',
-      phone: '09123456789',
-      isGuest: true
-    };
-    
-    setAuthToken(defaultToken);
-    setUser(defaultUser);
-    setLoading(false);
-    
-    // ذخیره در کوکی برای 30 روز
-    Cookies.set('phone_verification_token', defaultToken, { expires: 30 });
-    Cookies.set('default_user', JSON.stringify(defaultUser), { expires: 30 });
-  };
-
   useEffect(() => {
     const savedToken = Cookies.get('phone_verification_token');
-    const savedUser = Cookies.get('default_user');
-    
-    if (savedToken && savedUser) {
-      // اگر کوکی موجود است، از آن استفاده کن
+    const savedVerificationToken = Cookies.get('phone_verification_token'); // dead code  ...
+
+    if (savedVerificationToken) {
+      setPhoneVerificationToken(savedVerificationToken);
+    }
+
+    if (savedToken) {
       setAuthToken(savedToken);
-      setUser(JSON.parse(savedUser));
-      setLoading(false);
     } else {
-      // اگر کوکی موجود نیست، کاربر پیشفرض ایجاد کن
-      generateDefaultAuth();
+      setLoading(false);
     }
   }, []);
 
   const { isLoading } = useQuery({
     queryKey: ['currentUser', authToken],
     queryFn: () => authService.getCurrentUser(authToken),
-    enabled: !!authToken && !user?.isGuest, // فقط برای کاربران واقعی API کال کن
+    enabled: !!authToken,
     onSuccess: userData => {
       setUser(userData);
       setNeedsPasswordSetup(false);
@@ -60,8 +41,7 @@ export function AuthProvider({ children }) {
       if (error.needsPassword) {
         setNeedsPasswordSetup(true);
       } else {
-        // در صورت خطا، کاربر پیشفرض ایجاد کن
-        generateDefaultAuth();
+        logout();
       }
       setLoading(false);
     },
@@ -70,39 +50,33 @@ export function AuthProvider({ children }) {
   });
 
   useEffect(() => {
-    if (authToken && !user?.isGuest) {
+    if (authToken) {
       setLoading(isLoading);
     }
-  }, [isLoading, authToken, user]);
+  }, [isLoading, authToken]);
 
   const login = token => {
     setAuthToken(token);
     Cookies.set('phone_verification_token', token, { expires: 7 });
-    // حذف کاربر پیشفرض هنگام لاگین واقعی
-    Cookies.remove('default_user');
-    queryClient.invalidateQueries({ queryKey: ['currentUser', token] });
+    queryClient.invalidateQueries({ queryKey: ['currentUser', 'mock-token-123456'] });
   };
 
   const logout = () => {
-    // بعد از لاگ اوت، دوباره کاربر پیشفرض ایجاد کن
     setUser(null);
     setAuthToken(null);
     setNeedsPasswordSetup(false);
     setPhoneVerificationToken(null);
+
     Cookies.remove('phone_verification_token');
-    Cookies.remove('user');
+    Cookies.remove('user'); // dead code
     Cookies.remove('phone_number');
-    queryClient.removeQueries();
-    
-    // ایجاد کاربر پیشفرض جدید
-    setTimeout(() => {
-      generateDefaultAuth();
-    }, 100);
+
+    queryClient.removeQueries({ queryKey: ['currentUser', 'mock-token-123456'] });
   };
 
   const setPhoneVerificationTokenHandler = token => {
     setPhoneVerificationToken(token);
-    Cookies.set('phone_verification_token', token, { expires: 1 / 24 });
+    Cookies.set('phone_verification_token', token, { expires: 1 / 24 }); // 1 hour
   };
 
   const value = {
@@ -115,7 +89,6 @@ export function AuthProvider({ children }) {
     logout,
     setPhoneVerificationToken: setPhoneVerificationTokenHandler,
     setNeedsPasswordSetup,
-    isGuest: user?.isGuest || false,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

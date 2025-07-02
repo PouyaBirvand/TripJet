@@ -29,12 +29,12 @@ const nextConfig = {
     maxInactiveAge: 25 * 1000,
     pagesBufferLength: 2,
   },
-  
+
   webpack: (config, { dev, isServer }) => {
     // ignore کردن warnings در production
     if (!dev && !isServer) {
       config.stats = {
-        warnings: false
+        warnings: false,
       };
     }
     return config;

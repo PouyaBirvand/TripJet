@@ -23,11 +23,7 @@ const DesktopNav = ({ isLoggedIn, user }) => {
         {isLoggedIn ? (
           <>
             <MyTravelsButton className="hidden lg:flex" />
-            <ProfileButton 
-              className="hidden lg:flex" 
-              user={user}
-              isGuest={user?.isGuest}
-            />
+            <ProfileButton className="hidden lg:flex" user={user} isGuest={user?.isGuest} />
             {/* {user?.isGuest && (
               <LoginButton 
                 className="hidden lg:flex bg-green-600 text-white" 

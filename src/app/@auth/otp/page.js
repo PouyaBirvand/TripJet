@@ -13,7 +13,7 @@ import { AuthSubmitButton } from '../../../components/auth/shared/AuthSubmitButt
 import OTPField from '../../../components/auth/OTPField';
 import { getOtpInitialValues } from '../../../lib/formInitialValues';
 
-export const dynamic = 'force-dynamic'
+export const dynamic = 'force-dynamic';
 export default function OtpPage() {
   const { isOpen, handleClose } = useModal();
   const router = useRouter();

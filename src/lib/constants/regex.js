@@ -3,5 +3,4 @@ export const PATTERNS = {
   DIGITS_ONLY: /^\d+$/,
 };
 
-
-// WAR 
+// WAR

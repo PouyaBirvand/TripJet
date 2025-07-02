@@ -1,4 +1,3 @@
-import AvatarEditor from 'react-avatar-editor';
 import { X, Check } from 'lucide-react';
 
 export default function ProfileImageModal({
@@ -27,7 +26,7 @@ export default function ProfileImageModal({
         </div>
 
         <div className="flex flex-col items-center">
-          <div className="mb-5 ring-2 ring-primary/20 rounded-full p-1">
+          {/* <div className="mb-5 ring-2 ring-primary/20 rounded-full p-1">
             <AvatarEditor
               ref={editorRef}
               image={newImage}
@@ -39,7 +38,7 @@ export default function ProfileImageModal({
               scale={scale}
               rotate={0}
             />
-          </div>
+          </div> */}
 
           <div className="w-full mb-6">
             <div className="flex justify-between text-sm mb-1">
@@ -71,7 +70,7 @@ export default function ProfileImageModal({
             </button>
             <button
               onClick={onSave}
-              className="flex-1 py-2.5 bg-blue-600 text-white text-white rounded-lg hover:bg-blue-600 text-white/90 transition-colors flex items-center justify-center gap-1.5 font-medium"
+              className="flex-1 py-2.5 bg-blue-600 rounded-lg hover:bg-blue-600 text-white/90 transition-colors flex items-center justify-center gap-1.5 font-medium"
             >
               <Check size={16} />
               ذخیره تصویر
