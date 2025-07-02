@@ -2,10 +2,10 @@
 import Hero from '../../components/ui/Hero';
 import NavButtons from '../../components/common/NavButtons';
 import Comments from '../../components/home/Comments/Comments';
-import OurStory from '../../components/aboutus/OurStory/OurStory';
-import RecentEventsSlider from '../../components/aboutus/RecentEvents/RecentEventsSlider';
-import TeamMembersSlider from '../../components/aboutus/TeamMembers/TeamMembersSlider';
-import FAQ from '../../components/aboutus/FAQ/FAQ';
+import OurStory from '../../components/AboutUs/OurStory/OurStory';
+import RecentEventsSlider from '../../components/AboutUs/RecentEvents/RecentEventsSlider';
+import TeamMembersSlider from '../../components/AboutUs/TeamMembers/TeamMembersSlider';
+import FAQ from '../../components/AboutUs/FAQ/FAQ';
 
 export default function AboutusPage() {
   const recentEvents = [
