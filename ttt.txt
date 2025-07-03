@@ -1,0 +1,1134 @@
+ازت میخوام تمام ui ux این رو درست اصولی دوباره بزنی
+و همه چیز رو طبق Mockdata داینامیک کنی بدون اینکه ماک دیتای چیزه دیگه ای به هم بخوره متوجهی چی میگم؟
+چون اگه ماک دیتای جای دیگه ای مثلا اسمی چیزی رو فکر میکنم اگه عوض کنی چیزای دیگه ممکنه خراب بشنو اینا
+و لازم نیست کل کد tourService رو دوباره بنویسی و فقط جاییش که نیاز هست رو دوباره بنویس چون کارت اشتباهه و فقط وقتمون بیشتر تلف میشه پس این نکته رو یادت باشه
+
+در ضمن کل کد رو با اصول SOLID , Reusiblity , abstartion قوی باید بنویسی واسم
+و همه چیز رو با ماک دیتا یه جورایی داینامیک کن
+و دیتا رو هم همینطور
+و مثلا جایی اگه نیاز به تغییر داشت یا یه فیچری باید بهتر پیاده میشه مثل فیچر تعداد مسافران که نباید استاتیک باشه و خود کاربر باید بتونه دقیقا انتخاب کنه چند نفرو میخواد با خودش ببره مسافرت و تور رو رزرو کنه و این داستانا
+خلاصه منظورم اینه اگه جایی به نظرت بهتر بود که جور دیگه ای پیاده میشد تغییر بده
+و ui ux هم خیلی سنگین نباشه و فکر میکنم متوجه شده باشی که Ui ux قرار بوده چطور باشه؟
+
+و همه چیز به بهترین شکل ممکن پیاده بشه
+
+
+import Image from 'next/image';
+
+
+export default function GalleryGrid() {
+  const TourImages = [
+    {
+      id: 1,
+      img: '/japen.png',
+      alt: 'tourimg',
+    },
+    {
+      id: 2,
+      img: '/japen.png',
+      alt: 'tourimg',
+    },
+    {
+      id: 3,
+      img: '/japen.png',
+      alt: 'tourimg',
+    },
+    {
+      id: 4,
+      img: '/japen.png',
+      alt: 'tourimg',
+    },
+    {
+      id: 5,
+      img: '/japen.png',
+      alt: 'tourimg',
+    },
+  ];
+
+
+  const LeftTourImgs = TourImages.slice(0, 4);
+  const RightTourImg = TourImages[4];
+
+
+  return (
+    <div>
+      <div className="flex gap-4 h-96">
+        {/* LEFT SIDE - Grid of 4 images */}
+
+
+        <div className="flex-1 relative overflow-hidden rounded-lg">
+          <Image
+            alt={RightTourImg.alt}
+            src={RightTourImg.img}
+            fill
+            className="object-cover hover:scale-105 transition-transform duration-300"
+          />
+        </div>
+
+
+        {/* RIGHT SIDE - Single large image */}
+
+
+        <div className="flex-1 grid grid-cols-2 grid-rows-2 gap-2">
+          {LeftTourImgs.map(tourimg => (
+            <div key={tourimg.id} className="relative overflow-hidden rounded-lg">
+              <Image
+                alt={tourimg.alt}
+                src={tourimg.img}
+                fill
+                className="object-cover hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}import { Dot, OctagonAlert } from 'lucide-react';
+
+
+export default function PolicyConditions() {
+  const Tools = [
+    { id: 1, title: 'از زمان ثبت نام تا 15 روز قبل از سفر شامل جریمه نمی شود' },
+    { id: 2, title: 'از زمان ثبت نام تا 15 روز قبل از سفر شامل جریمه نمی شود' },
+    { id: 3, title: 'از زمان ثبت نام تا 15 روز قبل از سفر شامل جریمه نمی شود' },
+    { id: 4, title: 'از زمان ثبت نام تا 15 روز قبل از سفر شامل جریمه نمی شود' },
+    { id: 5, title: 'از زمان ثبت نام تا 15 روز قبل از سفر شامل جریمه نمی شود' },
+  ];
+  return (
+    <div>
+      <h1 className="text-2xl flex items-center gap-2">
+        <OctagonAlert className="text-blue-600 h-7 w-7" />
+        قوانین و شرایط
+      </h1>
+      <div className="border border-slate-300 rounded-xl p-6">
+        {Tools.map(tool => (
+          <div key={tool.id}>
+            <h1 className="text-xl font-medium flex items-center">
+              <Dot size={50} />
+              {tool.title}
+            </h1>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}import { Dot, ShoppingBag } from 'lucide-react';
+
+
+export default function RequiredTools() {
+  const Tools = [
+    { id: 1, title: 'کفش کتونی مناسب برای گشت ها کلاه نقاب دار وسایل حمام' },
+    { id: 2, title: 'کفش کتونی مناسب برای گشت ها کلاه نقاب دار وسایل حمام' },
+    { id: 3, title: 'کفش کتونی مناسب برای گشت ها کلاه نقاب دار وسایل حمام' },
+    { id: 4, title: 'کفش کتونی مناسب برای گشت ها کلاه نقاب دار وسایل حمام' },
+    { id: 5, title: 'کفش کتونی مناسب برای گشت ها کلاه نقاب دار وسایل حمام' },
+  ];
+  return (
+    <div>
+      <h1 className="text-2xl flex items-center gap-2">
+        <ShoppingBag className="text-blue-600 h-7 w-7" />
+        لوازم موردنیاز
+      </h1>
+      <div className="border border-slate-300 rounded-xl p-6">
+        {Tools.map(tool => (
+          <div key={tool.id}>
+            <h1 className="text-xl font-medium flex items-center">
+              <Dot size={50} />
+              {tool.title}
+            </h1>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}import { ChevronDown, ChevronUp, Dot } from 'lucide-react';
+
+
+export default function TourCalendar() {
+  const calendarDays = [
+    {
+      id: 1,
+      day: 'شنبه',
+      dayNum: 5,
+      closed: true,
+      notfound: true,
+    },
+    {
+      id: 1,
+      day: 'یکشنبه',
+      dayNum: 30,
+      closed: true,
+      notfound: false,
+    },
+    {
+      id: 1,
+      day: 'دوشنبه',
+      dayNum: 16,
+      closed: false,
+      notfound: false,
+    },
+    {
+      id: 1,
+      day: 'سه شنبه',
+      dayNum: 11,
+      closed: true,
+      notfound: true,
+    },
+    {
+      id: 1,
+      day: 'چهارشنبه',
+      dayNum: 2,
+      closed: false,
+      notfound: true,
+    },
+    {
+      id: 1,
+      day: 'پنج شنبه',
+      dayNum: 1,
+      closed: false,
+      notfound: false,
+    },
+    {
+      id: 1,
+      day: 'جمعه',
+      dayNum: 25,
+      closed: true,
+      notfound: false,
+    },
+  ];
+
+
+  return (
+    <div className="border-y-1 border-slate-300 p-4">
+      <div className="flex items-center justify-between">
+        <h2 className="text-lg">مهر 1403</h2>
+        <div className="flex items-center gap-2">
+          <ChevronDown size={32} strokeWidth={1.2} />
+          <ChevronUp size={32} strokeWidth={1.2} />
+        </div>
+      </div>
+      <div className="flex items-center justify-center gap-8">
+        {calendarDays.map(calenday => (
+          <div key={calenday.id} className="flex flex-col items-center">
+            <span className={` ${calenday.notfound && "text-slate-400"} ${calenday.closed && "text-red-500"}`}>{calenday.day}</span>
+            <span className={`font-medium ${calenday.notfound && "text-slate-400"} ${calenday.closed && "text-red-500"}`}>{calenday.dayNum}</span>
+            {!calenday.notfound && (
+              <span>
+                <Dot className="text-blue-600 h-8 w-8" />
+              </span>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}import { Calendar } from 'lucide-react';
+
+
+export default function TourInfo() {
+  return (
+    <div className='flex flex-col gap-5'>
+      <div className='flex items-center gap-36'>
+        <span className='flex items-center flex-row-reverse gap-2 font-medium'>
+          تاریخ سفر
+          <Calendar className="text-slate-500 w-5 h-5" />
+        </span>
+        <span className='text-slate-500'>
+            چهارشنبه 18 مهر , ساعت 6:30 صبح
+        </span>
+      </div>
+      <div className='flex items-center gap-36'>
+        <span className='flex items-center flex-row-reverse gap-2 font-medium'>
+          تاریخ سفر
+          <Calendar className="text-slate-500 w-5 h-5" />
+        </span>
+        <span className='text-slate-500'>
+            چهارشنبه 18 مهر , ساعت 6:30 صبح
+        </span>
+      </div>
+      <div className='flex items-center gap-36'>
+        <span className='flex items-center flex-row-reverse gap-2 font-medium'>
+          تاریخ سفر
+          <Calendar className="text-slate-500 w-5 h-5" />
+        </span>
+        <span className='text-slate-500'>
+            چهارشنبه 18 مهر , ساعت 6:30 صبح
+        </span>
+      </div>
+      <div className='flex items-center gap-36'>
+        <span className='flex items-center flex-row-reverse gap-2 font-medium'>
+          تاریخ سفر
+          <Calendar className="text-slate-500 w-5 h-5" />
+        </span>
+        <span className='text-slate-500'>
+            چهارشنبه 18 مهر , ساعت 6:30 صبح
+        </span>
+      </div>
+      <div className='flex items-center gap-36'>
+        <span className='flex items-center flex-row-reverse gap-2 font-medium'>
+          تاریخ سفر
+          <Calendar className="text-slate-500 w-5 h-5" />
+        </span>
+        <span className='text-slate-500'>
+            چهارشنبه 18 مهر , ساعت 6:30 صبح
+        </span>
+      </div>
+      <div className='flex items-center gap-36'>
+        <span className='flex items-center flex-row-reverse gap-2 font-medium'>
+          تاریخ سفر
+          <Calendar className="text-slate-500 w-5 h-5" />
+        </span>
+        <span className='text-slate-500'>
+            چهارشنبه 18 مهر , ساعت 6:30 صبح
+        </span>
+      </div>
+      <div className='flex items-center gap-36'>
+        <span className='flex items-center flex-row-reverse gap-2 font-medium'>
+          تاریخ سفر
+          <Calendar className="text-slate-500 w-5 h-5" />
+        </span>
+        <span className='text-slate-500'>
+            چهارشنبه 18 مهر , ساعت 6:30 صبح
+        </span>
+      </div>
+    </div>
+  );
+}import { Plane } from 'lucide-react';
+import TourCalendar from './TourCalendar';
+import TourInfo from './TourInfo';
+
+
+export default function TourInfoBox() {
+  return (
+    <div className="border border-slate-200 rounded-lg p-4 mt-10">
+      <div className="flex items-center justify-between">
+        <div className="flex flex-col">
+          <h2 className="font-bold text-xl">تور مثلث طلایی هند</h2>
+          <span className="text-slate-500">مدت زمان سفر : 4 روز و 3 شب</span>
+        </div>
+        <button className="btn btn-outline text-blue-500 px-6 py-2 rounded-md flex items-center gap-2">
+          <Plane />
+          مشاهده مسیر در نقشه
+        </button>
+      </div>
+      <TourCalendar />
+      <TourInfo />
+    </div>
+  );
+}import { Dot } from "lucide-react";
+import Image from "next/image";
+
+
+export default function TourPlan({ key, title , day , image , id }) {
+  return (
+    <div key={key} className="border border-slate-300 rounded-lg p-2 mt-6 flex items-start justify-between">
+        <div className="p-5">
+            <h1 className="text-xl flex items-center gap-4 text-slate-500 font-normal">
+                <span className="text-white bg-blue-600 w-10 flex items-center justify-center h-10 rounded-lg">{id}</span>
+                {day}
+            </h1>
+            <h3 className="text-xl flex font-normal">
+                <Dot className="h-18 w-18 pb-6"/>
+                {title}
+            </h3>
+        </div>
+        <div>
+            <Image alt={title} src={image} className="object-cover rounded-lg" width={500} height={500}/>
+        </div>
+    </div>
+  );
+}import { Layers } from "lucide-react";
+import TourPlan from "./TourPlan";
+
+
+export default function TourPlans() {
+    const TourPlans = [
+        {
+            id:1,
+            title: "بعد از رسیدن به هتل به فرودگاه انتقال داده می شوید , که به محض رسیدن به هتل مراحل پذیرش صورت میگیرد.",
+            day: "چهارشنبه 18 مهر",
+            image: "/japen.png"
+        },
+        {
+            id:2,
+            title: "بعد از رسیدن به هتل به فرودگاه انتقال داده می شوید , که به محض رسیدن به هتل مراحل پذیرش صورت میگیرد.",
+            day: "چهارشنبه 18 مهر",
+            image: "/japen.png"
+        },
+        {
+            id:3,
+            title: "بعد از رسیدن به هتل به فرودگاه انتقال داده می شوید , که به محض رسیدن به هتل مراحل پذیرش صورت میگیرد.",
+            day: "چهارشنبه 18 مهر",
+            image: "/japen.png"
+        },
+        {
+            id:4,
+            title: "بعد از رسیدن به هتل به فرودگاه انتقال داده می شوید , که به محض رسیدن به هتل مراحل پذیرش صورت میگیرد.",
+            day: "چهارشنبه 18 مهر",
+            image: "/japen.png"
+        },
+        {
+            id:5,
+            title: "بعد از رسیدن به هتل به فرودگاه انتقال داده می شوید , که به محض رسیدن به هتل مراحل پذیرش صورت میگیرد.",
+            day: "چهارشنبه 18 مهر",
+            image: "/japen.png"
+        },
+    ]
+  return (
+    <div>
+      <h1 className="text-2xl flex items-center gap-2">
+        <Layers className="text-blue-600 h-7 w-7"/>
+        برنامه تور
+      </h1>
+      {TourPlans.map((tourplan) => (
+        <TourPlan key={tourplan.id} {...tourplan}/>
+      ))}
+    </div>
+  );
+}import { tourValidationSchema } from '@/lib/validation/tour/tour.schema';
+import { getTourInitialValues } from '../../../lib/formInitialValues/index';
+import { Form, Formik } from 'formik';
+import CustomFormField from '../../../components/common/CustomFormField';
+import {
+  selectdateOptions,
+  travelersOptions,
+} from '../../../lib/formInitialValues/tour/tourOptions';
+import { formatPrice } from '@/lib/utils/numbers';
+
+
+export default function TourReserveForm() {
+  const handleSubmit = async values => {
+    console.log(values);
+    
+  };
+  return (
+    <Formik
+      initialValues={getTourInitialValues}
+      validationSchema={tourValidationSchema}
+      onSubmit={handleSubmit}
+    >
+      {({ isValid, dirty }) => (
+        <Form>
+          <CustomFormField
+            name="selectdate"
+            label="انتخاب تاریخ اجرای تور"
+            type="select"
+            options={selectdateOptions}
+          />
+
+
+          <CustomFormField
+            name="travelers"
+            label="تعداد مسافران"
+            type="select"
+            options={travelersOptions}
+          />
+
+
+          <CustomFormField
+            name="phonenumber"
+            label="شماره موبایل"
+            placeholder="۹۱۲۳۴۵۶۷۸۹"
+            inputMode="numeric"
+            convertToFarsi={true}
+            digitsOnly={true}
+            maxLength={10}
+            showPrefix={true}
+            prefix="| +۹۸"
+            autoComplete="tel-national"
+            textAlign="left"
+          />
+          <div className="flex items-center justify-between text-lg">
+            کل مبلغ پرداختی
+            <span className='text-blue-500'>{formatPrice(30000000)}</span>
+          </div>
+
+
+          <button disabled={!(isValid && dirty)} className="btn text-white px-8 py-2">
+            رزرو تور
+          </button>
+        </Form>
+      )}
+    </Formik>
+  );
+}import { Crown, Dot } from 'lucide-react';
+
+
+export default function TourServices() {
+  const Tools = [
+    { id: 1, title: "اقامتگاه" },
+    { id: 2, title: "حمل و نقل" },
+    { id: 3, title: "لیدر محلی" },
+    { id: 4, title: "وعده غذایی" },
+    { id: 5, title: "اتاق ماساژ" },
+  ];
+  return (
+    <div>
+      <h1 className="text-2xl flex items-center gap-2">
+        <Crown className="text-blue-600 h-7 w-7" />
+        خدمات تور
+      </h1>
+      <div className="border border-slate-300 rounded-xl p-6 flex items-center">
+        {Tools.map(tool => (
+          <div key={tool.id} className=''>
+            <h1 className="text-xl font-medium flex items-center">
+              <Dot size={50} />
+              {tool.title}
+            </h1>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+'use client';
+import TourPlan from '../../../components/tours/tour/TourPlans';
+import GalleryGrid from '../../../components/tours/tour/GalleryGrid';
+import TourInfoBox from '../../../components/tours/tour/TourInfoBox';
+import RequiredTools from '../../../components/tours/tour/RequiredTools';
+import TourServices from '../../../components/tours/tour/TourServices';
+import Comments from '../../../components/home/Comments/Comments';
+import PolicyConditions from '../../../components/tours/tour/PolicyConditions';
+import { useTour } from '../../../hooks/useTour';
+import { use } from 'react';
+import TourReserveForm from '../../../components/tours/tour/TourReserveForm';
+
+
+export default function TourPage({ params }) {
+  const id = use(params);
+  const { tour, isLoading, error } = useTour(id.id);
+
+
+  return (
+    <div className="min-h-screen mx-auto px-4 py-8">
+      <GalleryGrid tour={tour} />
+      <div className="flex gap-10 mt-20">
+        <div className="w-2/3">
+          <TourInfoBox tour={tour} />
+          <TourPlan tour={tour} />
+          <RequiredTools tour={tour} />
+          <TourServices tour={tour} />
+          <Comments />
+          <PolicyConditions />
+        </div>
+
+
+        <div className="w-1/3 mt-10">
+          <TourReserveForm />
+        </div>
+      </div>
+    </div>
+  );
+}
+import { tourService } from '../services/tour/tourService';
+import { useQuery } from '@tanstack/react-query';
+
+
+export function useTour(TourId) {
+  const { data: tour, isLoading, error } = useQuery({
+    queryKey: ['tour', TourId],
+    queryFn: () => tourService.getTourById(TourId), // اصلاح شده
+    enabled: !!TourId, // فقط زمانی اجرا شود که TourId موجود باشد
+  });
+
+
+  console.log(tour);
+  
+  return {
+    tour,
+    isLoading,
+    error, // اضافه کردن error handling
+  };
+}
+  async getTourById(id) {
+    try {
+      await new Promise(resolve => setTimeout(resolve, 500));
+
+
+      const tour = mockTourData.find(tour => tour.id.toString() === id.toString());
+
+
+      if (!tour) {
+        throw new Error('تور مورد نظر یافت نشد');
+      }
+
+
+      return tour;
+    } catch (error) {
+      console.error(`Error fetching tour with ID ${id}:`, error);
+      throw error;
+    }
+  },
+
+
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3000/api';
+const isBrowser = typeof window !== 'undefined';
+
+
+export const mockTourData = [
+  {
+    id: 1,
+    destination: 'هندوستان',
+    title: 'تور ویژه هندوستان',
+    date: '۱۴۰۳/۰۵/۰۶',
+    duration: {
+      nights: 9,
+      days: 10,
+      description: '۹ شب و ۱۰ روز',
+    },
+    price: {
+      original: 85000000,
+      discounted: 75000000,
+      hasDiscount: true,
+    },
+    hotel: {
+      stars: 4,
+      description: 'اقامت در هتل ۴ ستاره',
+    },
+    services: {
+      insurance: 'بيمه مسافرتي',
+      transport: 'حمل و نقل هواپيما',
+      capacity: 'ظرفيت تور حداکثر ۳۰ نفر',
+      meals: '۷ وعده غذايي',
+      accommodation: 'اقامت در هتل',
+    },
+    remaining: 5,
+    isLastMinute: false,
+    image: 'https://example.com/images/india-tour.jpg',
+  },
+  {
+    id: 2,
+    destination: 'ترکیه',
+    title: 'تور استانبول',
+    date: '۱۴۰۳/۰۵/۱۵',
+    duration: {
+      nights: 7,
+      days: 8,
+      description: '۷ شب و ۸ روز',
+    },
+    price: {
+      original: 95000000,
+      discounted: 85000000,
+      hasDiscount: true,
+    },
+    hotel: {
+      stars: 5,
+      description: 'اقامت در هتل ۵ ستاره',
+    },
+    services: {
+      insurance: 'بيمه مسافرتي',
+      transport: 'حمل و نقل هواپيما',
+      capacity: 'ظرفيت تور حداکثر ۲۵ نفر',
+      meals: '۱۰ وعده غذايي',
+      accommodation: 'اقامت در هتل',
+    },
+    remaining: 3,
+    isLastMinute: true,
+    image: 'https://example.com/images/turkey-tour.jpg',
+  },
+  {
+    id: 3,
+    destination: 'مالزی',
+    title: 'تور کوالالامپور',
+    date: '۱۴۰۳/۰۶/۱۰',
+    duration: {
+      nights: 8,
+      days: 9,
+      description: '۸ شب و ۹ روز',
+    },
+    price: {
+      original: 78000000,
+      discounted: 78000000,
+      hasDiscount: false,
+    },
+    hotel: {
+      stars: 4,
+      description: 'اقامت در هتل ۴ ستاره',
+    },
+    services: {
+      insurance: 'بيمه مسافرتي',
+      transport: 'حمل و نقل هواپيما',
+      capacity: 'ظرفيت تور حداکثر ۲۰ نفر',
+      meals: '۸ وعده غذايي',
+      accommodation: 'اقامت در هتل',
+    },
+    remaining: 8,
+    isLastMinute: false,
+    image: 'https://example.com/images/malaysia-tour.jpg',
+  },
+  {
+    id: 4,
+    destination: 'تایلند',
+    title: 'تور بانکوک',
+    date: '۱۴۰۳/۰۵/۲۵',
+    duration: {
+      nights: 10,
+      days: 11,
+      description: '۱۰ شب و ۱۱ روز',
+    },
+    price: {
+      original: 110000000,
+      discounted: 95000000,
+      hasDiscount: true,
+    },
+    hotel: {
+      stars: 5,
+      description: 'اقامت در هتل ۵ ستاره',
+    },
+    services: {
+      insurance: 'بيمه مسافرتي',
+      transport: 'حمل و نقل هواپيما',
+      capacity: 'ظرفيت تور حداکثر ۳۵ نفر',
+      meals: '۱۲ وعده غذايي',
+      accommodation: 'اقامت در هتل',
+    },
+    remaining: 2,
+    isLastMinute: true,
+    image: 'https://example.com/images/thailand-tour.jpg',
+  },
+  {
+    id: 5,
+    destination: 'دبی',
+    title: 'تور دبی',
+    date: '۱۴۰۳/۰۶/۰۵',
+    duration: {
+      nights: 6,
+      days: 7,
+      description: '۶ شب و ۷ روز',
+    },
+    price: {
+      original: 65000000,
+      discounted: 60000000,
+      hasDiscount: true,
+    },
+    hotel: {
+      stars: 4,
+      description: 'اقامت در هتل ۴ ستاره',
+    },
+    services: {
+      insurance: 'بيمه مسافرتي',
+      transport: 'حمل و نقل هواپيما',
+      capacity: 'ظرفيت تور حداکثر ۲۸ نفر',
+      meals: '۶ وعده غذايي',
+      accommodation: 'اقامت در هتل',
+    },
+    remaining: 7,
+    isLastMinute: false,
+    image: 'https://example.com/images/dubai-tour.jpg',
+  },
+  {
+    id: 6,
+    destination: 'ارمنستان',
+    title: 'تور ایروان',
+    date: '۱۴۰۳/۰۵/۲۰',
+    duration: {
+      nights: 5,
+      days: 6,
+      description: '۵ شب و ۶ روز',
+    },
+    price: {
+      original: 45000000,
+      discounted: 40000000,
+      hasDiscount: true,
+    },
+    hotel: {
+      stars: 3,
+      description: 'اقامت در هتل ۳ ستاره',
+    },
+    services: {
+      insurance: 'بيمه مسافرتي',
+      transport: 'حمل و نقل هواپيما',
+      capacity: 'ظرفيت تور حداکثر ۲۵ نفر',
+      meals: '۵ وعده غذايي',
+      accommodation: 'اقامت در هتل',
+    },
+    remaining: 4,
+    isLastMinute: true,
+    image: 'https://example.com/images/armenia-tour.jpg',
+  },
+  {
+    id: 7,
+    destination: 'گرجستان',
+    title: 'تور تفلیس',
+    date: '۱۴۰۳/۰۶/۱۵',
+    duration: {
+      nights: 7,
+      days: 8,
+      description: '۷ شب و ۸ روز',
+    },
+    price: {
+      original: 55000000,
+      discounted: 55000000,
+      hasDiscount: false,
+    },
+    hotel: {
+      stars: 4,
+      description: 'اقامت در هتل ۴ ستاره',
+    },
+    services: {
+      insurance: 'بيمه مسافرتي',
+      transport: 'حمل و نقل هواپيما',
+      capacity: 'ظرفيت تور حداکثر ۲۰ نفر',
+      meals: '۷ وعده غذايي',
+      accommodation: 'اقامت در هتل',
+    },
+    remaining: 6,
+    isLastMinute: false,
+    image: 'https://example.com/images/georgia-tour.jpg',
+  },
+  {
+    id: 8,
+    destination: 'سریلانکا',
+    title: 'تور کلمبو',
+    date: '۱۴۰۳/۰۷/۰۱',
+    duration: {
+      nights: 8,
+      days: 9,
+      description: '۸ شب و ۹ روز',
+    },
+    price: {
+      original: 90000000,
+      discounted: 80000000,
+      hasDiscount: true,
+    },
+    hotel: {
+      stars: 5,
+      description: 'اقامت در هتل ۵ ستاره',
+    },
+    services: {
+      insurance: 'بيمه مسافرتي',
+      transport: 'حمل و نقل هواپيما',
+      capacity: 'ظرفيت تور حداکثر ۲۲ نفر',
+      meals: '۹ وعده غذايي',
+      accommodation: 'اقامت در هتل',
+    },
+    remaining: 3,
+    isLastMinute: true,
+    image: 'https://example.com/images/srilanka-tour.jpg',
+  },
+  {
+    id: 9,
+    destination: 'ویتنام',
+    title: 'تور هانوی',
+    date: '۱۴۰۳/۰۶/۲۵',
+    duration: {
+      nights: 10,
+      days: 11,
+      description: '۱۰ شب و ۱۱ روز',
+    },
+    price: {
+      original: 120000000,
+      discounted: 110000000,
+      hasDiscount: true,
+    },
+    hotel: {
+      stars: 4,
+      description: 'اقامت در هتل ۴ ستاره',
+    },
+    services: {
+      insurance: 'بيمه مسافرتي',
+      transport: 'حمل و نقل هواپيما',
+      capacity: 'ظرفيت تور حداکثر ۱۸ نفر',
+      meals: '۱۱ وعده غذايي',
+      accommodation: 'اقامت در هتل',
+    },
+    remaining: 2,
+    isLastMinute: true,
+    image: 'https://example.com/images/vietnam-tour.jpg',
+  },
+  {
+    id: 10,
+    destination: 'چین',
+    title: 'تور پکن',
+    date: '۱۴۰۳/۰۷/۱۰',
+    duration: {
+      nights: 9,
+      days: 10,
+      description: '۹ شب و ۱۰ روز',
+    },
+    price: {
+      original: 130000000,
+      discounted: 120000000,
+      hasDiscount: true,
+    },
+    hotel: {
+      stars: 5,
+      description: 'اقامت در هتل ۵ ستاره',
+    },
+    services: {
+      insurance: 'بيمه مسافرتي',
+      transport: 'حمل و نقل هواپيما',
+      capacity: 'ظرفيت تور حداکثر ۱۵ نفر',
+      meals: '۱۰ وعده غذايي',
+      accommodation: 'اقامت در هتل',
+    },
+    remaining: 5,
+    isLastMinute: false,
+    image: 'https://example.com/images/china-tour.jpg',
+  },
+];
+
+
+let favoriteTours = [];
+
+
+if (isBrowser) {
+  try {
+    const stored = localStorage.getItem('favoriteTours');
+    if (stored) {
+      favoriteTours = JSON.parse(stored);
+    }
+  } catch (e) {
+    console.error('Error loading favorites from localStorage:', e);
+  }
+} else {
+  favoriteTours = [];
+}
+
+
+export const tourService = {
+  async getTours(filters = {}) {
+    try {
+      await new Promise(resolve => setTimeout(resolve, 500));
+
+
+      let filteredTours = [...mockTourData];
+
+
+      if (filters.isLastMinute) {
+        filteredTours = filteredTours.filter(tour => tour.isLastMinute === true);
+      }
+
+
+      if (filters.isPopular) {
+        filteredTours = filteredTours.filter(tour => tour.price.hasDiscount === true);
+      }
+
+
+      if (filters.destination) {
+        filteredTours = filteredTours.filter(tour =>
+          tour.destination.toLowerCase().includes(filters.destination.toLowerCase())
+        );
+      }
+
+
+      if (filters.minPrice) {
+        filteredTours = filteredTours.filter(
+          tour => tour.price.discounted >= parseInt(filters.minPrice, 10)
+        );
+      }
+
+
+      if (filters.maxPrice) {
+        filteredTours = filteredTours.filter(
+          tour => tour.price.discounted <= parseInt(filters.maxPrice, 10)
+        );
+      }
+
+
+      return {
+        data: filteredTours,
+        meta: {
+          total: filteredTours.length,
+          per_page: 10,
+          current_page: parseInt(filters.page || '1', 10),
+          last_page: Math.ceil(filteredTours.length / 10),
+        },
+      };
+    } catch (error) {
+      console.error('Error fetching tours:', error);
+      throw error;
+    }
+  },
+
+
+  async getTourById(id) {
+    try {
+      await new Promise(resolve => setTimeout(resolve, 500));
+
+
+      const tour = mockTourData.find(tour => tour.id.toString() === id.toString());
+
+
+      if (!tour) {
+        throw new Error('تور مورد نظر یافت نشد');
+      }
+
+
+      return tour;
+    } catch (error) {
+      console.error(`Error fetching tour with ID ${id}:`, error);
+      throw error;
+    }
+  },
+
+
+  async getFiltersOptions() {
+    try {
+      await new Promise(resolve => setTimeout(resolve, 500));
+
+
+      return {
+        price_ranges: [
+          { id: '1', label: 'کمتر از ۵۰ میلیون تومان' },
+          { id: '2', label: '۵۰ تا ۱۰۰ میلیون تومان' },
+          { id: '3', label: '۱۰۰ تا ۱۵۰ میلیون تومان' },
+          { id: '4', label: 'بیشتر از ۱۵۰ میلیون تومان' },
+        ],
+        tour_types: [
+          { id: '1', name: 'تور طبیعت‌گردی' },
+          { id: '2', name: 'تور تاریخی' },
+          { id: '3', name: 'تور ساحلی' },
+          { id: '4', name: 'تور ماه عسل' },
+          { id: '5', name: 'تور خانوادگی' },
+        ],
+        difficulty_levels: [
+          { id: '1', name: 'آسان' },
+          { id: '2', name: 'متوسط' },
+          { id: '3', name: 'سخت' },
+        ],
+        transport_types: [
+          { id: '1', name: 'هواپیما' },
+          { id: '2', name: 'قطار' },
+          { id: '3', name: 'اتوبوس' },
+          { id: '4', name: 'کشتی' },
+        ],
+        available_months: [
+          { id: '1', name: 'فروردین' },
+          { id: '2', name: 'اردیبهشت' },
+          { id: '3', name: 'خرداد' },
+          { id: '4', name: 'تیر' },
+          { id: '5', name: 'مرداد' },
+          { id: '6', name: 'شهریور' },
+          { id: '7', name: 'مهر' },
+          { id: '8', name: 'آبان' },
+          { id: '9', name: 'آذر' },
+          { id: '10', name: 'دی' },
+          { id: '11', name: 'بهمن' },
+          { id: '12', name: 'اسفند' },
+        ],
+      };
+    } catch (error) {
+      console.error('Error fetching filter options:', error);
+      throw error;
+    }
+  },
+
+
+  async getFavorites() {
+    try {
+      await new Promise(resolve => setTimeout(resolve, 300));
+
+
+      if (isBrowser) {
+        try {
+          const stored = localStorage.getItem('favoriteTours');
+          if (stored) {
+            favoriteTours = JSON.parse(stored);
+          }
+        } catch (e) {
+          console.error('Error loading favorites from localStorage:', e);
+        }
+      }
+
+
+      return favoriteTours;
+    } catch (error) {
+      console.error('Error fetching favorites:', error);
+      throw error;
+    }
+  },
+
+
+  async addToFavorites(tour) {
+    try {
+      await new Promise(resolve => setTimeout(resolve, 300));
+
+
+      if (!favoriteTours.some(fav => fav.id === tour.id)) {
+        favoriteTours.push(tour);
+
+
+        if (isBrowser) {
+          try {
+            localStorage.setItem('favoriteTours', JSON.stringify(favoriteTours));
+          } catch (e) {
+            console.error('Error saving to localStorage:', e);
+          }
+        }
+      }
+
+
+      return { success: true };
+    } catch (error) {
+      console.error('Error adding to favorites:', error);
+      throw error;
+    }
+  },
+
+
+  async removeFromFavorites(tourId) {
+    try {
+      await new Promise(resolve => setTimeout(resolve, 300));
+
+
+      favoriteTours = favoriteTours.filter(tour => tour.id !== tourId);
+
+
+      if (isBrowser) {
+        try {
+          localStorage.setItem('favoriteTours', JSON.stringify(favoriteTours));
+        } catch (e) {
+          console.error('Error saving to localStorage:', e);
+        }
+      }
+
+
+      return { success: true };
+    } catch (error) {
+      console.error('Error removing from favorites:', error);
+      throw error;
+    }
+  },
+};
+
+export const getTourInitialValues = {
+    selectdate: '',
+    travelers: '',
+    phonenumber: '',
+}
+
+export const selectdateOptions = [
+  { value: '18 - 21 Mehr', label: '18 تا 21 مهر' },
+  { value: '28 Mehr - 2 Aban', label: '28 مهر تا 2 ابان' },
+  { value: '10 - 14 Aban', label: '10 تا 14 ابان' },
+  { value: '24 - 20 Aban', label: '20 تا 24 ابان' },
+];
+
+
+export const travelersOptions = [
+  {value: "2 Adult - 1 Child", label: "دو بزرگسال + یک کودک"},
+  {value: "3 Adult - 2 Child", label: "سه بزرگسال و یک کودک"},
+  {value: "1 Adult", label: "یک بزرگسال"}
+]
+
+export * from './tour/tour'
+export * from './tour/tourOptions'
+
+import * as Yup from 'yup';
+export const tourValidationSchema = Yup.object({
+  selectdate: Yup.string().required('وارد کردن تاریخ انتخاب اجرای تور الزامی است'),
+  travelers: Yup.string().required('انتخاب تعداد مسافران الزامی است'),
+  phonenumber: Yup.string()
+    .required('شماره موبایل الزامی است')
+    .test('is-valid-iranian-mobile', 'لطفاً یک شماره موبایل معتبر وارد کنید', function (value) {
+      if (!value) return false;
+      return validateIranianMobile(value);
+    })
+    .test('is-10-digits', 'شماره موبایل باید ۱۰ رقم باشد (بدون صفر ابتدا)', function (value) {
+      if (!value) return false;
+      const englishNumber = toEnglishNumber(value);
+      return englishNumber.length === 10;
+    }),
+});

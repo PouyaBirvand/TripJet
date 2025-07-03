@@ -4,6 +4,7 @@ import MyTravelsButton from './buttons/MyTravelsButton';
 import TelBtn from './buttons/TelButton';
 import ProfileButton from './AuthButtons/ProfileButton';
 import LoginButton from './AuthButtons/LoginButton';
+import SearchButton from './buttons/SearchButton';
 
 const MobileMenu = ({ isOpen, isLoggedIn, user, onClose }) => {
   const router = useRouter();
@@ -14,6 +15,7 @@ const MobileMenu = ({ isOpen, isLoggedIn, user, onClose }) => {
     <div className="lg:hidden bg-white border-t border-gray-200 shadow-lg fixed inset-x-0 top-16 bottom-0 overflow-y-auto">
       <div className="container mx-auto px-4 py-3 h-full flex flex-col">
         <div className="overflow-y-auto flex-grow">
+          <SearchButton />
           <NavItems mobileMode />
         </div>
         <div className="mt-auto pt-4 border-t border-gray-100 pb-6">
@@ -39,6 +41,7 @@ const MobileMenu = ({ isOpen, isLoggedIn, user, onClose }) => {
                   text="ورود / ثبت نام"
                 />
               )}
+
             </>
           ) : (
             <>

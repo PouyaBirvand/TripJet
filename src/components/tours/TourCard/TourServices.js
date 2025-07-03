@@ -1,20 +1,34 @@
-import { Shield, Plane, Coffee, Building, Users } from 'lucide-react';
+import { Shield, Plane, Coffee, Building, Users, Check } from 'lucide-react';
 import React from 'react';
 
 export default function TourServices({ services }) {
+  if (!services || services.length === 0) return null;
+
+  // نقشه آیکون‌ها برای انواع مختلف خدمات
+  const getServiceIcon = (serviceTitle) => {
+    const title = serviceTitle.toLowerCase();
+    
+    if (title.includes('بیمه')) return <Shield size={16} />;
+    if (title.includes('حمل') || title.includes('پرواز') || title.includes('اتوبوس')) return <Plane size={16} />;
+    if (title.includes('صبحانه') || title.includes('غذا') || title.includes('وعده')) return <Coffee size={16} />;
+    if (title.includes('اقامت') || title.includes('هتل')) return <Building size={16} />;
+    if (title.includes('راهنما') || title.includes('گروه')) return <Users size={16} />;
+    
+    // آیکون پیش‌فرض
+    return <Check size={16} />;
+  };
+
   return (
     <div className="bg-gray-50 p-4 rounded-xl h-full">
       <h4 className="text-sm font-semibold text-gray-700 mb-3">خدمات تور:</h4>
       <div className="grid grid-cols-2 gap-3">
-        {services.insurance && (
-          <ServiceItem icon={<Shield size={16} />} text={services.insurance} />
-        )}
-        {services.transport && <ServiceItem icon={<Plane size={16} />} text={services.transport} />}
-        {services.meals && <ServiceItem icon={<Coffee size={16} />} text={services.meals} />}
-        {services.accommodation && (
-          <ServiceItem icon={<Building size={16} />} text={services.accommodation} />
-        )}
-        {services.capacity && <ServiceItem icon={<Users size={16} />} text={services.capacity} />}
+        {services.map((service) => (
+          <ServiceItem 
+            key={service.id} 
+            icon={getServiceIcon(service.title)} 
+            text={service.title} 
+          />
+        ))}
       </div>
     </div>
   );

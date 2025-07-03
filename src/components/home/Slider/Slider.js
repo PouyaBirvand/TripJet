@@ -6,8 +6,8 @@ import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import NavigationButtons from './Components/NavigationButtons';
-import Loading from '../../../app/loading';
 import SideNavigationButtons from './Components/SideNavigationButtons';
+import LoadingSpinner from '../../../components/ui/LoadingSpinner';
 
 const Slider = ({
   items,
@@ -84,7 +84,7 @@ const Slider = ({
     return (
       <div className="w-full mb-8 mt-32">
         {renderHeader()}
-        <Loading />
+        <LoadingSpinner />
       </div>
     );
   }

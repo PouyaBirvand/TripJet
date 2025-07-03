@@ -1,12 +1,12 @@
 'use client';
-import { BadgePercent } from 'lucide-react';
+import { BadgePercent, MessageSquareHeart } from 'lucide-react';
 import SecHeader from '../Slider/Components/SecHeader';
 import Slider from '../Slider/Slider';
 import TourBox from './Components/TourBox';
 import { useTours } from '../../../hooks/useTours';
 
 const SpecialOffer = () => {
-  const { tours, isLoading } = useTours({ isLastMinute: true });
+  const { tours, isLoading } = useTours({ isPopular: true });
 
   const swiperConfig = {
     items: tours,
@@ -43,7 +43,6 @@ const SpecialOffer = () => {
   if (isLoading) {
     return <div className="loading loading-spinner loading-lg"></div>;
   }
-
   return (
     <Slider renderItem={item => <TourBox item={item} />} {...swiperConfig}>
       <div className="mb-4 sm:mb-0">

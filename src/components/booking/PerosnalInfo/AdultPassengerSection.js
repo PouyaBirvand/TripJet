@@ -1,7 +1,7 @@
 'use client';
 import { Users, UserCheck, UserPlus } from 'lucide-react';
 import AdultPassengerForm from './AdultPassengerForm';
-import { adultInitialValues } from './constants/PassengerForm';
+import { getAdultInitialValues } from '../../../lib/formInitialValues';
 
 const AdultPassengerSection = ({
   children,
@@ -55,7 +55,7 @@ const AdultPassengerSection = ({
       <button
         type="button"
         className="flex items-center justify-center w-full border-2 border-dashed border-blue-300 text-blue-600 py-3 rounded-lg hover:bg-blue-50 transition-all mt-4 gap-2"
-        onClick={() => pushAdult({ ...adultInitialValues, isLeader: children.length === 0 })}
+        onClick={() => pushAdult({ ...getAdultInitialValues, isLeader: children.length === 0 })}
       >
         <UserPlus size={18} />
         افزودن بزرگسال

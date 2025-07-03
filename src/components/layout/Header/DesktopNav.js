@@ -1,11 +1,11 @@
 import NavItems from './navigation/NavItems';
-import SearchBtn from './buttons/SearchButton';
 import MyTravelsButton from './buttons/MyTravelsButton';
 import TelBtn from './buttons/TelButton';
 import ProfileButton from './AuthButtons/ProfileButton';
 import LoginButton from './AuthButtons/LoginButton';
 import Logo from './Logo';
 import { useRouter } from 'next/navigation';
+import SearchButton from './buttons/SearchButton';
 
 const DesktopNav = ({ isLoggedIn, user }) => {
   const router = useRouter();
@@ -19,18 +19,11 @@ const DesktopNav = ({ isLoggedIn, user }) => {
         </nav>
       </div>
       <div className="flex items-center gap-4">
-        <SearchBtn />
+        <SearchButton />
         {isLoggedIn ? (
           <>
             <MyTravelsButton className="hidden lg:flex" />
             <ProfileButton className="hidden lg:flex" user={user} isGuest={user?.isGuest} />
-            {/* {user?.isGuest && (
-              <LoginButton 
-                className="hidden lg:flex bg-green-600 text-white" 
-                onClick={() => router.push('/phone')}
-                text="ورود / ثبت نام"
-              />
-            )} */}
           </>
         ) : (
           <>

@@ -44,7 +44,7 @@ export default function TourCard({ tour }) {
         <div className="p-4 pt-0">
           <div className="grid md:grid-cols-2 gap-4">
             <TourServices services={tour.services} />
-            <TourPricing id={tour.id} price={tour.price} />
+            <TourPricing id={tour.id} price={tour.price} slug={tour.slug} />
           </div>
         </div>
       </div>

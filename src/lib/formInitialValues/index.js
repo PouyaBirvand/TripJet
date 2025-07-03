@@ -14,3 +14,6 @@ export * from './contact/options';
 export * from './booking/adult';
 export * from './booking/child';
 export * from './booking/personal-info';
+
+export * from './tour/tour'
+export * from './tour/tourOptions'

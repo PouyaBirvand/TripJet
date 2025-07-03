@@ -12,8 +12,8 @@ export default function ContactUsPage() {
       <NavButtons />
 
       <div className="w-full flex flex-col lg:flex-row gap-8 mt-10 mb-16">
-        <ContactInfoCard />
         <ContactForm />
+        <ContactInfoCard />
       </div>
     </div>
   );
