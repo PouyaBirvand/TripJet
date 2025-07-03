@@ -6,9 +6,9 @@ import { usePasswordSetup } from '../../../hooks/AuthHooks/usePasswordSetup';
 import CustomFormField from '../../../components/common/CustomFormField';
 import { AuthModal } from '../../../components/auth/shared/AuthModal';
 import { AuthSubmitButton } from '../../../components/auth/shared/AuthSubmitButton';
-import { passwordValidationSchema } from '../../../lib/validation/shared/password.schema';
 import { getPasswordInitialValues } from '../../../lib/formInitialValues';
 import { useEffect, useRef } from 'react';
+import { passwordValidationSchema } from '../../../lib/validation';
 
 export default function LoginPasswordPage() {
   const { isOpen, handleLastClose, handleClose } = useModal();

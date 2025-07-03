@@ -2,7 +2,7 @@
 import { useRouter } from 'next/navigation';
 import EditContactCard from '../../../../../components/profile/ProfileAccount/ProfileEdit/EditContactCard';
 import { useUserProfile } from '../../../../../hooks/ProfileHooks/useUserProfile';
-import { getContactInitialValues } from '../../../../../lib/formInitialValues';
+import { getContactInitialValues } from '../../../../../lib/formInitialValues/contact/contact';
 
 export default function EditContactPage() {
   const router = useRouter();
