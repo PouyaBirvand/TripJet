@@ -16,7 +16,7 @@ export default function PersonalInfoPage() {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8 max-w-5xl">
+    <div className="container mx-auto py-8 ">
       <div className="bg-white rounded-xl border border-slate-200 overflow-hidden mb-8">
         <div className="p-6 border-b border-slate-200 bg-slate-50">
           <div className="flex items-center gap-3">

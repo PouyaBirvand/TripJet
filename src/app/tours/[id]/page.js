@@ -7,12 +7,13 @@ import TourContent from '../../../components/tours/tour/TourContent';
 import TourBooking from '../../../components/tours/tour/TourBooking';
 import LoadingSpinner from '../../../components/ui/LoadingSpinner';
 import ErrorMessage from '../../../components/ui/ErrorMessage';
+import TourMap from '../../../components/tours/tour/TourMap';
 
 export default function TourPage({ params }) {
   const id = use(params);
   const { tour, isLoading, error } = useTour(id.id);
   const [showMap, setShowMap] = useState(false);
-  
+
   useEffect(() => {
     window.scrollTo = 0;
   }, []);
@@ -50,12 +51,7 @@ export default function TourPage({ params }) {
       </div>
 
       {/* Map Modal */}
-      {/* {showMap && (
-        <TourMap 
-          tour={tour} 
-          onClose={() => setShowMap(false)} 
-        />
-      )} */}
+      {showMap && <TourMap tour={tour} onClose={() => setShowMap(false)} />}
     </div>
   );
 }

@@ -26,18 +26,19 @@ export default function TourCalendar({ availableDates }) {
       </div>
 
       <div className="grid grid-cols-7 gap-2">
-        {availableDates.map((date) => (
+        {availableDates.map(date => (
           <button
             key={date.id}
             onClick={() => !date.closed && !date.notfound && setSelectedDate(date.id)}
             disabled={date.closed || date.notfound}
             className={`
               p-3 rounded-lg text-center transition-all
-              ${date.closed || date.notfound
-                ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
-                : selectedDate === date.id
-                ? 'bg-blue-600 text-white'
-                : 'bg-white text-gray-700 hover:bg-blue-50 hover:text-blue-600'
+              ${
+                date.closed || date.notfound
+                  ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                  : selectedDate === date.id
+                    ? 'bg-blue-600 text-white'
+                    : 'bg-white text-gray-700 hover:bg-blue-50 hover:text-blue-600'
               }
             `}
           >

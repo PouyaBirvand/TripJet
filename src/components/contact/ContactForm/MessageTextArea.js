@@ -8,15 +8,13 @@ export default function MessageTextArea() {
         متن پیام
         <span className="text-red-500 mr-1">*</span>
       </label>
-      <CustomTextArea 
-        name="message" 
-        placeholder="متن پیام خود را بنویسید..." 
+      <CustomTextArea
+        name="message"
+        placeholder="متن پیام خود را بنویسید..."
         rows="5"
         className="resize-none outline-none p-3"
       />
-      <p className="text-xs text-gray-500">
-        حداقل ۱۰ کاراکتر وارد کنید
-      </p>
+      <p className="text-xs text-gray-500">حداقل ۱۰ کاراکتر وارد کنید</p>
     </div>
   );
 }

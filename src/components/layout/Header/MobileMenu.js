@@ -41,7 +41,6 @@ const MobileMenu = ({ isOpen, isLoggedIn, user, onClose }) => {
                   text="ورود / ثبت نام"
                 />
               )}
-
             </>
           ) : (
             <>

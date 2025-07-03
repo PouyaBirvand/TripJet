@@ -11,7 +11,7 @@ export default function TourServices({ tour }) {
       </h1>
       <div className="border border-slate-300 rounded-xl p-6 flex flex-wrap items-center">
         {tour.services.map(service => (
-          <div key={service.id} className=''>
+          <div key={service.id} className="">
             <h1 className="text-xl font-medium flex items-center">
               <Dot size={50} />
               {service.title}

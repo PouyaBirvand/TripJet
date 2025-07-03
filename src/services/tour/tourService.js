@@ -24,11 +24,11 @@ export const mockTourData = [
       description: 'اقامت در هتل ۴ ستاره',
     },
     services: [
-      { id: 1, title: "اقامتگاه" },
-      { id: 2, title: "حمل و نقل" },
-      { id: 3, title: "لیدر محلی" },
-      { id: 4, title: "وعده غذایی" },
-      { id: 5, title: "بیمه مسافرتی" },
+      { id: 1, title: 'اقامتگاه' },
+      { id: 2, title: 'حمل و نقل' },
+      { id: 3, title: 'لیدر محلی' },
+      { id: 4, title: 'وعده غذایی' },
+      { id: 5, title: 'بیمه مسافرتی' },
     ],
     requiredTools: [
       { id: 1, title: 'کفش کتونی مناسب برای گشت‌های طولانی' },
@@ -49,75 +49,75 @@ export const mockTourData = [
         id: 1,
         icon: 'Calendar',
         label: 'تاریخ شروع',
-        value: 'چهارشنبه 18 مهر، ساعت 6:30 صبح'
+        value: 'چهارشنبه 18 مهر، ساعت 6:30 صبح',
       },
       {
         id: 2,
         icon: 'MapPin',
         label: 'مبدا حرکت',
-        value: 'فرودگاه امام خمینی (ره)'
+        value: 'فرودگاه امام خمینی (ره)',
       },
       {
         id: 3,
         icon: 'Users',
         label: 'ظرفیت تور',
-        value: 'حداکثر 25 نفر'
+        value: 'حداکثر 25 نفر',
       },
       {
         id: 4,
         icon: 'Utensils',
         label: 'وعده غذایی',
-        value: '7 وعده غذایی کامل'
+        value: '7 وعده غذایی کامل',
       },
       {
         id: 5,
         icon: 'Bed',
         label: 'اقامت',
-        value: 'هتل 4 ستاره در مرکز شهر'
+        value: 'هتل 4 ستاره در مرکز شهر',
       },
       {
         id: 6,
         icon: 'Shield',
         label: 'بیمه',
-        value: 'بیمه مسافرتی کامل'
+        value: 'بیمه مسافرتی کامل',
       },
       {
         id: 7,
         icon: 'Car',
         label: 'حمل و نقل',
-        value: 'اتوبوس VIP + پروازهای داخلی'
-      }
+        value: 'اتوبوس VIP + پروازهای داخلی',
+      },
     ],
     tourPlans: [
       {
         id: 1,
-        title: "پرواز تهران به دهلی و انتقال به هتل",
-        day: "چهارشنبه 18 مهر",
-        image: "https://images.unsplash.com/photo-1587474260584-136574528ed5?w=500&h=300&fit=crop"
+        title: 'پرواز تهران به دهلی و انتقال به هتل',
+        day: 'چهارشنبه 18 مهر',
+        image: 'https://images.unsplash.com/photo-1587474260584-136574528ed5?w=500&h=300&fit=crop',
       },
       {
         id: 2,
-        title: "بازدید از قلعه سرخ دهلی و مسجد جامع",
-        day: "پنج‌شنبه 19 مهر",
-        image: "https://images.unsplash.com/photo-1564507592333-c60657eea523?w=500&h=300&fit=crop"
+        title: 'بازدید از قلعه سرخ دهلی و مسجد جامع',
+        day: 'پنج‌شنبه 19 مهر',
+        image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?w=500&h=300&fit=crop',
       },
       {
         id: 3,
-        title: "سفر به آگرا و بازدید از تاج محل",
-        day: "جمعه 20 مهر",
-        image: "https://images.unsplash.com/photo-1564507592333-c60657eea523?w=500&h=300&fit=crop"
+        title: 'سفر به آگرا و بازدید از تاج محل',
+        day: 'جمعه 20 مهر',
+        image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?w=500&h=300&fit=crop',
       },
       {
         id: 4,
-        title: "حرکت به جیپور و بازدید از قلعه عنبر",
-        day: "شنبه 21 مهر",
-        image: "https://images.unsplash.com/photo-1599661046827-dacde6976549?w=500&h=300&fit=crop"
+        title: 'حرکت به جیپور و بازدید از قلعه عنبر',
+        day: 'شنبه 21 مهر',
+        image: 'https://images.unsplash.com/photo-1599661046827-dacde6976549?w=500&h=300&fit=crop',
       },
       {
         id: 5,
-        title: "بازدید از کاخ بادها و بازگشت به دهلی",
-        day: "یکشنبه 22 مهر",
-        image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=300&fit=crop"
+        title: 'بازدید از کاخ بادها و بازگشت به دهلی',
+        day: 'یکشنبه 22 مهر',
+        image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=300&fit=crop',
       },
     ],
     gallery: [
@@ -224,11 +224,11 @@ export const mockTourData = [
       description: 'اقامت در هتل ۴ ستاره',
     },
     services: [
-      { id: 1, title: "اقامتگاه" },
-      { id: 2, title: "حمل و نقل" },
-      { id: 3, title: "لیدر محلی" },
-      { id: 4, title: "وعده غذایی" },
-      { id: 5, title: "بیمه مسافرتی" },
+      { id: 1, title: 'اقامتگاه' },
+      { id: 2, title: 'حمل و نقل' },
+      { id: 3, title: 'لیدر محلی' },
+      { id: 4, title: 'وعده غذایی' },
+      { id: 5, title: 'بیمه مسافرتی' },
     ],
     requiredTools: [
       { id: 1, title: 'کفش کتونی مناسب برای گشت‌های طولانی' },
@@ -249,75 +249,75 @@ export const mockTourData = [
         id: 1,
         icon: 'Calendar',
         label: 'تاریخ شروع',
-        value: 'چهارشنبه 18 مهر، ساعت 6:30 صبح'
+        value: 'چهارشنبه 18 مهر، ساعت 6:30 صبح',
       },
       {
         id: 2,
         icon: 'MapPin',
         label: 'مبدا حرکت',
-        value: 'فرودگاه امام خمینی (ره)'
+        value: 'فرودگاه امام خمینی (ره)',
       },
       {
         id: 3,
         icon: 'Users',
         label: 'ظرفیت تور',
-        value: 'حداکثر 25 نفر'
+        value: 'حداکثر 25 نفر',
       },
       {
         id: 4,
         icon: 'Utensils',
         label: 'وعده غذایی',
-        value: '7 وعده غذایی کامل'
+        value: '7 وعده غذایی کامل',
       },
       {
         id: 5,
         icon: 'Bed',
         label: 'اقامت',
-        value: 'هتل 4 ستاره در مرکز شهر'
+        value: 'هتل 4 ستاره در مرکز شهر',
       },
       {
         id: 6,
         icon: 'Shield',
         label: 'بیمه',
-        value: 'بیمه مسافرتی کامل'
+        value: 'بیمه مسافرتی کامل',
       },
       {
         id: 7,
         icon: 'Car',
         label: 'حمل و نقل',
-        value: 'اتوبوس VIP + پروازهای داخلی'
-      }
+        value: 'اتوبوس VIP + پروازهای داخلی',
+      },
     ],
     tourPlans: [
       {
         id: 1,
-        title: "پرواز تهران به دهلی و انتقال به هتل",
-        day: "چهارشنبه 18 مهر",
-        image: "https://images.unsplash.com/photo-1587474260584-136574528ed5?w=500&h=300&fit=crop"
+        title: 'پرواز تهران به دهلی و انتقال به هتل',
+        day: 'چهارشنبه 18 مهر',
+        image: 'https://images.unsplash.com/photo-1587474260584-136574528ed5?w=500&h=300&fit=crop',
       },
       {
         id: 2,
-        title: "بازدید از قلعه سرخ دهلی و مسجد جامع",
-        day: "پنج‌شنبه 19 مهر",
-        image: "https://images.unsplash.com/photo-1564507592333-c60657eea523?w=500&h=300&fit=crop"
+        title: 'بازدید از قلعه سرخ دهلی و مسجد جامع',
+        day: 'پنج‌شنبه 19 مهر',
+        image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?w=500&h=300&fit=crop',
       },
       {
         id: 3,
-        title: "سفر به آگرا و بازدید از تاج محل",
-        day: "جمعه 20 مهر",
-        image: "https://images.unsplash.com/photo-1564507592333-c60657eea523?w=500&h=300&fit=crop"
+        title: 'سفر به آگرا و بازدید از تاج محل',
+        day: 'جمعه 20 مهر',
+        image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?w=500&h=300&fit=crop',
       },
       {
         id: 4,
-        title: "حرکت به جیپور و بازدید از قلعه عنبر",
-        day: "شنبه 21 مهر",
-        image: "https://images.unsplash.com/photo-1599661046827-dacde6976549?w=500&h=300&fit=crop"
+        title: 'حرکت به جیپور و بازدید از قلعه عنبر',
+        day: 'شنبه 21 مهر',
+        image: 'https://images.unsplash.com/photo-1599661046827-dacde6976549?w=500&h=300&fit=crop',
       },
       {
         id: 5,
-        title: "بازدید از کاخ بادها و بازگشت به دهلی",
-        day: "یکشنبه 22 مهر",
-        image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=300&fit=crop"
+        title: 'بازدید از کاخ بادها و بازگشت به دهلی',
+        day: 'یکشنبه 22 مهر',
+        image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=300&fit=crop',
       },
     ],
     gallery: [
@@ -424,11 +424,11 @@ export const mockTourData = [
       description: 'اقامت در هتل ۴ ستاره',
     },
     services: [
-      { id: 1, title: "اقامتگاه" },
-      { id: 2, title: "حمل و نقل" },
-      { id: 3, title: "لیدر محلی" },
-      { id: 4, title: "وعده غذایی" },
-      { id: 5, title: "بیمه مسافرتی" },
+      { id: 1, title: 'اقامتگاه' },
+      { id: 2, title: 'حمل و نقل' },
+      { id: 3, title: 'لیدر محلی' },
+      { id: 4, title: 'وعده غذایی' },
+      { id: 5, title: 'بیمه مسافرتی' },
     ],
     requiredTools: [
       { id: 1, title: 'کفش کتونی مناسب برای گشت‌های طولانی' },
@@ -449,75 +449,75 @@ export const mockTourData = [
         id: 1,
         icon: 'Calendar',
         label: 'تاریخ شروع',
-        value: 'چهارشنبه 18 مهر، ساعت 6:30 صبح'
+        value: 'چهارشنبه 18 مهر، ساعت 6:30 صبح',
       },
       {
         id: 2,
         icon: 'MapPin',
         label: 'مبدا حرکت',
-        value: 'فرودگاه امام خمینی (ره)'
+        value: 'فرودگاه امام خمینی (ره)',
       },
       {
         id: 3,
         icon: 'Users',
         label: 'ظرفیت تور',
-        value: 'حداکثر 25 نفر'
+        value: 'حداکثر 25 نفر',
       },
       {
         id: 4,
         icon: 'Utensils',
         label: 'وعده غذایی',
-        value: '7 وعده غذایی کامل'
+        value: '7 وعده غذایی کامل',
       },
       {
         id: 5,
         icon: 'Bed',
         label: 'اقامت',
-        value: 'هتل 4 ستاره در مرکز شهر'
+        value: 'هتل 4 ستاره در مرکز شهر',
       },
       {
         id: 6,
         icon: 'Shield',
         label: 'بیمه',
-        value: 'بیمه مسافرتی کامل'
+        value: 'بیمه مسافرتی کامل',
       },
       {
         id: 7,
         icon: 'Car',
         label: 'حمل و نقل',
-        value: 'اتوبوس VIP + پروازهای داخلی'
-      }
+        value: 'اتوبوس VIP + پروازهای داخلی',
+      },
     ],
     tourPlans: [
       {
         id: 1,
-        title: "پرواز تهران به دهلی و انتقال به هتل",
-        day: "چهارشنبه 18 مهر",
-        image: "https://images.unsplash.com/photo-1587474260584-136574528ed5?w=500&h=300&fit=crop"
+        title: 'پرواز تهران به دهلی و انتقال به هتل',
+        day: 'چهارشنبه 18 مهر',
+        image: 'https://images.unsplash.com/photo-1587474260584-136574528ed5?w=500&h=300&fit=crop',
       },
       {
         id: 2,
-        title: "بازدید از قلعه سرخ دهلی و مسجد جامع",
-        day: "پنج‌شنبه 19 مهر",
-        image: "https://images.unsplash.com/photo-1564507592333-c60657eea523?w=500&h=300&fit=crop"
+        title: 'بازدید از قلعه سرخ دهلی و مسجد جامع',
+        day: 'پنج‌شنبه 19 مهر',
+        image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?w=500&h=300&fit=crop',
       },
       {
         id: 3,
-        title: "سفر به آگرا و بازدید از تاج محل",
-        day: "جمعه 20 مهر",
-        image: "https://images.unsplash.com/photo-1564507592333-c60657eea523?w=500&h=300&fit=crop"
+        title: 'سفر به آگرا و بازدید از تاج محل',
+        day: 'جمعه 20 مهر',
+        image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?w=500&h=300&fit=crop',
       },
       {
         id: 4,
-        title: "حرکت به جیپور و بازدید از قلعه عنبر",
-        day: "شنبه 21 مهر",
-        image: "https://images.unsplash.com/photo-1599661046827-dacde6976549?w=500&h=300&fit=crop"
+        title: 'حرکت به جیپور و بازدید از قلعه عنبر',
+        day: 'شنبه 21 مهر',
+        image: 'https://images.unsplash.com/photo-1599661046827-dacde6976549?w=500&h=300&fit=crop',
       },
       {
         id: 5,
-        title: "بازدید از کاخ بادها و بازگشت به دهلی",
-        day: "یکشنبه 22 مهر",
-        image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=300&fit=crop"
+        title: 'بازدید از کاخ بادها و بازگشت به دهلی',
+        day: 'یکشنبه 22 مهر',
+        image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=300&fit=crop',
       },
     ],
     gallery: [
@@ -624,11 +624,11 @@ export const mockTourData = [
       description: 'اقامت در هتل ۴ ستاره',
     },
     services: [
-      { id: 1, title: "اقامتگاه" },
-      { id: 2, title: "حمل و نقل" },
-      { id: 3, title: "لیدر محلی" },
-      { id: 4, title: "وعده غذایی" },
-      { id: 5, title: "بیمه مسافرتی" },
+      { id: 1, title: 'اقامتگاه' },
+      { id: 2, title: 'حمل و نقل' },
+      { id: 3, title: 'لیدر محلی' },
+      { id: 4, title: 'وعده غذایی' },
+      { id: 5, title: 'بیمه مسافرتی' },
     ],
     requiredTools: [
       { id: 1, title: 'کفش کتونی مناسب برای گشت‌های طولانی' },
@@ -649,75 +649,75 @@ export const mockTourData = [
         id: 1,
         icon: 'Calendar',
         label: 'تاریخ شروع',
-        value: 'چهارشنبه 18 مهر، ساعت 6:30 صبح'
+        value: 'چهارشنبه 18 مهر، ساعت 6:30 صبح',
       },
       {
         id: 2,
         icon: 'MapPin',
         label: 'مبدا حرکت',
-        value: 'فرودگاه امام خمینی (ره)'
+        value: 'فرودگاه امام خمینی (ره)',
       },
       {
         id: 3,
         icon: 'Users',
         label: 'ظرفیت تور',
-        value: 'حداکثر 25 نفر'
+        value: 'حداکثر 25 نفر',
       },
       {
         id: 4,
         icon: 'Utensils',
         label: 'وعده غذایی',
-        value: '7 وعده غذایی کامل'
+        value: '7 وعده غذایی کامل',
       },
       {
         id: 5,
         icon: 'Bed',
         label: 'اقامت',
-        value: 'هتل 4 ستاره در مرکز شهر'
+        value: 'هتل 4 ستاره در مرکز شهر',
       },
       {
         id: 6,
         icon: 'Shield',
         label: 'بیمه',
-        value: 'بیمه مسافرتی کامل'
+        value: 'بیمه مسافرتی کامل',
       },
       {
         id: 7,
         icon: 'Car',
         label: 'حمل و نقل',
-        value: 'اتوبوس VIP + پروازهای داخلی'
-      }
+        value: 'اتوبوس VIP + پروازهای داخلی',
+      },
     ],
     tourPlans: [
       {
         id: 1,
-        title: "پرواز تهران به دهلی و انتقال به هتل",
-        day: "چهارشنبه 18 مهر",
-        image: "https://images.unsplash.com/photo-1587474260584-136574528ed5?w=500&h=300&fit=crop"
+        title: 'پرواز تهران به دهلی و انتقال به هتل',
+        day: 'چهارشنبه 18 مهر',
+        image: 'https://images.unsplash.com/photo-1587474260584-136574528ed5?w=500&h=300&fit=crop',
       },
       {
         id: 2,
-        title: "بازدید از قلعه سرخ دهلی و مسجد جامع",
-        day: "پنج‌شنبه 19 مهر",
-        image: "https://images.unsplash.com/photo-1564507592333-c60657eea523?w=500&h=300&fit=crop"
+        title: 'بازدید از قلعه سرخ دهلی و مسجد جامع',
+        day: 'پنج‌شنبه 19 مهر',
+        image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?w=500&h=300&fit=crop',
       },
       {
         id: 3,
-        title: "سفر به آگرا و بازدید از تاج محل",
-        day: "جمعه 20 مهر",
-        image: "https://images.unsplash.com/photo-1564507592333-c60657eea523?w=500&h=300&fit=crop"
+        title: 'سفر به آگرا و بازدید از تاج محل',
+        day: 'جمعه 20 مهر',
+        image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?w=500&h=300&fit=crop',
       },
       {
         id: 4,
-        title: "حرکت به جیپور و بازدید از قلعه عنبر",
-        day: "شنبه 21 مهر",
-        image: "https://images.unsplash.com/photo-1599661046827-dacde6976549?w=500&h=300&fit=crop"
+        title: 'حرکت به جیپور و بازدید از قلعه عنبر',
+        day: 'شنبه 21 مهر',
+        image: 'https://images.unsplash.com/photo-1599661046827-dacde6976549?w=500&h=300&fit=crop',
       },
       {
         id: 5,
-        title: "بازدید از کاخ بادها و بازگشت به دهلی",
-        day: "یکشنبه 22 مهر",
-        image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=300&fit=crop"
+        title: 'بازدید از کاخ بادها و بازگشت به دهلی',
+        day: 'یکشنبه 22 مهر',
+        image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=300&fit=crop',
       },
     ],
     gallery: [
@@ -824,11 +824,11 @@ export const mockTourData = [
       description: 'اقامت در هتل ۴ ستاره',
     },
     services: [
-      { id: 1, title: "اقامتگاه" },
-      { id: 2, title: "حمل و نقل" },
-      { id: 3, title: "لیدر محلی" },
-      { id: 4, title: "وعده غذایی" },
-      { id: 5, title: "بیمه مسافرتی" },
+      { id: 1, title: 'اقامتگاه' },
+      { id: 2, title: 'حمل و نقل' },
+      { id: 3, title: 'لیدر محلی' },
+      { id: 4, title: 'وعده غذایی' },
+      { id: 5, title: 'بیمه مسافرتی' },
     ],
     requiredTools: [
       { id: 1, title: 'کفش کتونی مناسب برای گشت‌های طولانی' },
@@ -849,75 +849,75 @@ export const mockTourData = [
         id: 1,
         icon: 'Calendar',
         label: 'تاریخ شروع',
-        value: 'چهارشنبه 18 مهر، ساعت 6:30 صبح'
+        value: 'چهارشنبه 18 مهر، ساعت 6:30 صبح',
       },
       {
         id: 2,
         icon: 'MapPin',
         label: 'مبدا حرکت',
-        value: 'فرودگاه امام خمینی (ره)'
+        value: 'فرودگاه امام خمینی (ره)',
       },
       {
         id: 3,
         icon: 'Users',
         label: 'ظرفیت تور',
-        value: 'حداکثر 25 نفر'
+        value: 'حداکثر 25 نفر',
       },
       {
         id: 4,
         icon: 'Utensils',
         label: 'وعده غذایی',
-        value: '7 وعده غذایی کامل'
+        value: '7 وعده غذایی کامل',
       },
       {
         id: 5,
         icon: 'Bed',
         label: 'اقامت',
-        value: 'هتل 4 ستاره در مرکز شهر'
+        value: 'هتل 4 ستاره در مرکز شهر',
       },
       {
         id: 6,
         icon: 'Shield',
         label: 'بیمه',
-        value: 'بیمه مسافرتی کامل'
+        value: 'بیمه مسافرتی کامل',
       },
       {
         id: 7,
         icon: 'Car',
         label: 'حمل و نقل',
-        value: 'اتوبوس VIP + پروازهای داخلی'
-      }
+        value: 'اتوبوس VIP + پروازهای داخلی',
+      },
     ],
     tourPlans: [
       {
         id: 1,
-        title: "پرواز تهران به دهلی و انتقال به هتل",
-        day: "چهارشنبه 18 مهر",
-        image: "https://images.unsplash.com/photo-1587474260584-136574528ed5?w=500&h=300&fit=crop"
+        title: 'پرواز تهران به دهلی و انتقال به هتل',
+        day: 'چهارشنبه 18 مهر',
+        image: 'https://images.unsplash.com/photo-1587474260584-136574528ed5?w=500&h=300&fit=crop',
       },
       {
         id: 2,
-        title: "بازدید از قلعه سرخ دهلی و مسجد جامع",
-        day: "پنج‌شنبه 19 مهر",
-        image: "https://images.unsplash.com/photo-1564507592333-c60657eea523?w=500&h=300&fit=crop"
+        title: 'بازدید از قلعه سرخ دهلی و مسجد جامع',
+        day: 'پنج‌شنبه 19 مهر',
+        image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?w=500&h=300&fit=crop',
       },
       {
         id: 3,
-        title: "سفر به آگرا و بازدید از تاج محل",
-        day: "جمعه 20 مهر",
-        image: "https://images.unsplash.com/photo-1564507592333-c60657eea523?w=500&h=300&fit=crop"
+        title: 'سفر به آگرا و بازدید از تاج محل',
+        day: 'جمعه 20 مهر',
+        image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?w=500&h=300&fit=crop',
       },
       {
         id: 4,
-        title: "حرکت به جیپور و بازدید از قلعه عنبر",
-        day: "شنبه 21 مهر",
-        image: "https://images.unsplash.com/photo-1599661046827-dacde6976549?w=500&h=300&fit=crop"
+        title: 'حرکت به جیپور و بازدید از قلعه عنبر',
+        day: 'شنبه 21 مهر',
+        image: 'https://images.unsplash.com/photo-1599661046827-dacde6976549?w=500&h=300&fit=crop',
       },
       {
         id: 5,
-        title: "بازدید از کاخ بادها و بازگشت به دهلی",
-        day: "یکشنبه 22 مهر",
-        image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=300&fit=crop"
+        title: 'بازدید از کاخ بادها و بازگشت به دهلی',
+        day: 'یکشنبه 22 مهر',
+        image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=300&fit=crop',
       },
     ],
     gallery: [
@@ -1024,11 +1024,11 @@ export const mockTourData = [
       description: 'اقامت در هتل ۴ ستاره',
     },
     services: [
-      { id: 1, title: "اقامتگاه" },
-      { id: 2, title: "حمل و نقل" },
-      { id: 3, title: "لیدر محلی" },
-      { id: 4, title: "وعده غذایی" },
-      { id: 5, title: "بیمه مسافرتی" },
+      { id: 1, title: 'اقامتگاه' },
+      { id: 2, title: 'حمل و نقل' },
+      { id: 3, title: 'لیدر محلی' },
+      { id: 4, title: 'وعده غذایی' },
+      { id: 5, title: 'بیمه مسافرتی' },
     ],
     requiredTools: [
       { id: 1, title: 'کفش کتونی مناسب برای گشت‌های طولانی' },
@@ -1049,75 +1049,75 @@ export const mockTourData = [
         id: 1,
         icon: 'Calendar',
         label: 'تاریخ شروع',
-        value: 'چهارشنبه 18 مهر، ساعت 6:30 صبح'
+        value: 'چهارشنبه 18 مهر، ساعت 6:30 صبح',
       },
       {
         id: 2,
         icon: 'MapPin',
         label: 'مبدا حرکت',
-        value: 'فرودگاه امام خمینی (ره)'
+        value: 'فرودگاه امام خمینی (ره)',
       },
       {
         id: 3,
         icon: 'Users',
         label: 'ظرفیت تور',
-        value: 'حداکثر 25 نفر'
+        value: 'حداکثر 25 نفر',
       },
       {
         id: 4,
         icon: 'Utensils',
         label: 'وعده غذایی',
-        value: '7 وعده غذایی کامل'
+        value: '7 وعده غذایی کامل',
       },
       {
         id: 5,
         icon: 'Bed',
         label: 'اقامت',
-        value: 'هتل 4 ستاره در مرکز شهر'
+        value: 'هتل 4 ستاره در مرکز شهر',
       },
       {
         id: 6,
         icon: 'Shield',
         label: 'بیمه',
-        value: 'بیمه مسافرتی کامل'
+        value: 'بیمه مسافرتی کامل',
       },
       {
         id: 7,
         icon: 'Car',
         label: 'حمل و نقل',
-        value: 'اتوبوس VIP + پروازهای داخلی'
-      }
+        value: 'اتوبوس VIP + پروازهای داخلی',
+      },
     ],
     tourPlans: [
       {
         id: 1,
-        title: "پرواز تهران به دهلی و انتقال به هتل",
-        day: "چهارشنبه 18 مهر",
-        image: "https://images.unsplash.com/photo-1587474260584-136574528ed5?w=500&h=300&fit=crop"
+        title: 'پرواز تهران به دهلی و انتقال به هتل',
+        day: 'چهارشنبه 18 مهر',
+        image: 'https://images.unsplash.com/photo-1587474260584-136574528ed5?w=500&h=300&fit=crop',
       },
       {
         id: 2,
-        title: "بازدید از قلعه سرخ دهلی و مسجد جامع",
-        day: "پنج‌شنبه 19 مهر",
-        image: "https://images.unsplash.com/photo-1564507592333-c60657eea523?w=500&h=300&fit=crop"
+        title: 'بازدید از قلعه سرخ دهلی و مسجد جامع',
+        day: 'پنج‌شنبه 19 مهر',
+        image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?w=500&h=300&fit=crop',
       },
       {
         id: 3,
-        title: "سفر به آگرا و بازدید از تاج محل",
-        day: "جمعه 20 مهر",
-        image: "https://images.unsplash.com/photo-1564507592333-c60657eea523?w=500&h=300&fit=crop"
+        title: 'سفر به آگرا و بازدید از تاج محل',
+        day: 'جمعه 20 مهر',
+        image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?w=500&h=300&fit=crop',
       },
       {
         id: 4,
-        title: "حرکت به جیپور و بازدید از قلعه عنبر",
-        day: "شنبه 21 مهر",
-        image: "https://images.unsplash.com/photo-1599661046827-dacde6976549?w=500&h=300&fit=crop"
+        title: 'حرکت به جیپور و بازدید از قلعه عنبر',
+        day: 'شنبه 21 مهر',
+        image: 'https://images.unsplash.com/photo-1599661046827-dacde6976549?w=500&h=300&fit=crop',
       },
       {
         id: 5,
-        title: "بازدید از کاخ بادها و بازگشت به دهلی",
-        day: "یکشنبه 22 مهر",
-        image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=300&fit=crop"
+        title: 'بازدید از کاخ بادها و بازگشت به دهلی',
+        day: 'یکشنبه 22 مهر',
+        image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&h=300&fit=crop',
       },
     ],
     gallery: [
@@ -1224,11 +1224,11 @@ export const mockTourData = [
       description: 'اقامت در هتل ۵ ستاره',
     },
     services: [
-      { id: 1, title: "اقامتگاه لاکچری" },
-      { id: 2, title: "حمل و نقل VIP" },
-      { id: 3, title: "گاید فارسی‌زبان" },
-      { id: 4, title: "وعده غذایی" },
-      { id: 5, title: "تورهای اختیاری" },
+      { id: 1, title: 'اقامتگاه لاکچری' },
+      { id: 2, title: 'حمل و نقل VIP' },
+      { id: 3, title: 'گاید فارسی‌زبان' },
+      { id: 4, title: 'وعده غذایی' },
+      { id: 5, title: 'تورهای اختیاری' },
     ],
     requiredTools: [
       { id: 1, title: 'لباس‌های تابستانی و راحت' },
@@ -1249,75 +1249,75 @@ export const mockTourData = [
         id: 1,
         icon: 'Calendar',
         label: 'تاریخ شروع',
-        value: 'جمعه 25 مهر، ساعت 14:30'
+        value: 'جمعه 25 مهر، ساعت 14:30',
       },
       {
         id: 2,
         icon: 'MapPin',
         label: 'مبدا حرکت',
-        value: 'فرودگاه امام خمینی (ره)'
+        value: 'فرودگاه امام خمینی (ره)',
       },
       {
         id: 3,
         icon: 'Users',
         label: 'ظرفیت تور',
-        value: 'حداکثر 20 نفر'
+        value: 'حداکثر 20 نفر',
       },
       {
         id: 4,
         icon: 'Utensils',
         label: 'وعده غذایی',
-        value: '6 وعده غذایی'
+        value: '6 وعده غذایی',
       },
       {
         id: 5,
         icon: 'Bed',
         label: 'اقامت',
-        value: 'هتل 5 ستاره در مرکز دبی'
+        value: 'هتل 5 ستاره در مرکز دبی',
       },
       {
         id: 6,
         icon: 'Shield',
         label: 'بیمه',
-        value: 'بیمه مسافرتی کامل'
+        value: 'بیمه مسافرتی کامل',
       },
       {
         id: 7,
         icon: 'Car',
         label: 'حمل و نقل',
-        value: 'خودروی VIP + پرواز مستقیم'
-      }
+        value: 'خودروی VIP + پرواز مستقیم',
+      },
     ],
     tourPlans: [
       {
         id: 1,
-        title: "پرواز تهران به دبی و اسکان در هتل",
-        day: "جمعه 25 مهر",
-        image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=500&h=300&fit=crop"
+        title: 'پرواز تهران به دبی و اسکان در هتل',
+        day: 'جمعه 25 مهر',
+        image: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=500&h=300&fit=crop',
       },
       {
         id: 2,
-        title: "بازدید از برج خلیفه و مال دبی",
-        day: "شنبه 26 مهر",
-        image: "https://images.unsplash.com/photo-1518684079-3c830dcef090?w=500&h=300&fit=crop"
+        title: 'بازدید از برج خلیفه و مال دبی',
+        day: 'شنبه 26 مهر',
+        image: 'https://images.unsplash.com/photo-1518684079-3c830dcef090?w=500&h=300&fit=crop',
       },
       {
         id: 3,
-        title: "تور صحرا و شام در کویر",
-        day: "یکشنبه 27 مهر",
-        image: "https://images.unsplash.com/photo-1451337516015-6b6e9a44a8a3?w=500&h=300&fit=crop"
+        title: 'تور صحرا و شام در کویر',
+        day: 'یکشنبه 27 مهر',
+        image: 'https://images.unsplash.com/photo-1451337516015-6b6e9a44a8a3?w=500&h=300&fit=crop',
       },
       {
         id: 4,
-        title: "کروز در خلیج فارس و بازدید از جزیره پالم",
-        day: "دوشنبه 28 مهر",
-        image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=500&h=300&fit=crop"
+        title: 'کروز در خلیج فارس و بازدید از جزیره پالم',
+        day: 'دوشنبه 28 مهر',
+        image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=500&h=300&fit=crop',
       },
       {
         id: 5,
-        title: "خرید از بازار طلا و ادویه‌جات",
-        day: "سه‌شنبه 29 مهر",
-        image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=300&fit=crop"
+        title: 'خرید از بازار طلا و ادویه‌جات',
+        day: 'سه‌شنبه 29 مهر',
+        image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=300&fit=crop',
       },
     ],
     gallery: [
@@ -1424,11 +1424,11 @@ export const mockTourData = [
       description: 'اقامت در هتل ۴ ستاره',
     },
     services: [
-      { id: 1, title: "اقامتگاه" },
-      { id: 2, title: "حمل و نقل" },
-      { id: 3, title: "راهنمای محلی" },
-      { id: 4, title: "صبحانه روزانه" },
-      { id: 5, title: "بیمه مسافرتی" },
+      { id: 1, title: 'اقامتگاه' },
+      { id: 2, title: 'حمل و نقل' },
+      { id: 3, title: 'راهنمای محلی' },
+      { id: 4, title: 'صبحانه روزانه' },
+      { id: 5, title: 'بیمه مسافرتی' },
     ],
     requiredTools: [
       { id: 1, title: 'کفش راحت برای پیاده‌روی در شهر' },
@@ -1449,75 +1449,75 @@ export const mockTourData = [
         id: 1,
         icon: 'Calendar',
         label: 'تاریخ شروع',
-        value: 'دوشنبه 5 آذر، ساعت 10:00 صبح'
+        value: 'دوشنبه 5 آذر، ساعت 10:00 صبح',
       },
       {
         id: 2,
         icon: 'MapPin',
         label: 'مبدا حرکت',
-        value: 'فرودگاه مهرآباد'
+        value: 'فرودگاه مهرآباد',
       },
       {
         id: 3,
         icon: 'Users',
         label: 'ظرفیت تور',
-        value: 'حداکثر 30 نفر'
+        value: 'حداکثر 30 نفر',
       },
       {
         id: 4,
         icon: 'Utensils',
         label: 'وعده غذایی',
-        value: '8 صبحانه + 4 شام'
+        value: '8 صبحانه + 4 شام',
       },
       {
         id: 5,
         icon: 'Bed',
         label: 'اقامت',
-        value: 'هتل 4 ستاره در منطقه سلطان احمد'
+        value: 'هتل 4 ستاره در منطقه سلطان احمد',
       },
       {
         id: 6,
         icon: 'Shield',
         label: 'بیمه',
-        value: 'بیمه مسافرتی اروپا'
+        value: 'بیمه مسافرتی اروپا',
       },
       {
         id: 7,
         icon: 'Car',
         label: 'حمل و نقل',
-        value: 'اتوبوس توریستی + پرواز مستقیم'
-      }
+        value: 'اتوبوس توریستی + پرواز مستقیم',
+      },
     ],
     tourPlans: [
       {
         id: 1,
-        title: "پرواز تهران به استانبول و اسکان در هتل",
-        day: "دوشنبه 5 آذر",
-        image: "https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?w=500&h=300&fit=crop"
+        title: 'پرواز تهران به استانبول و اسکان در هتل',
+        day: 'دوشنبه 5 آذر',
+        image: 'https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?w=500&h=300&fit=crop',
       },
       {
         id: 2,
-        title: "بازدید از آیاصوفیه و مسجد آبی",
-        day: "سه‌شنبه 6 آذر",
-        image: "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=500&h=300&fit=crop"
+        title: 'بازدید از آیاصوفیه و مسجد آبی',
+        day: 'سه‌شنبه 6 آذر',
+        image: 'https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=500&h=300&fit=crop',
       },
       {
         id: 3,
-        title: "کاخ توپکاپی و بازار بزرگ",
-        day: "چهارشنبه 7 آذر",
-        image: "https://images.unsplash.com/photo-1527838832700-5059252407fa?w=500&h=300&fit=crop"
+        title: 'کاخ توپکاپی و بازار بزرگ',
+        day: 'چهارشنبه 7 آذر',
+        image: 'https://images.unsplash.com/photo-1527838832700-5059252407fa?w=500&h=300&fit=crop',
       },
       {
         id: 4,
-        title: "کروز در تنگه بسفر",
-        day: "پنج‌شنبه 8 آذر",
-        image: "https://images.unsplash.com/photo-1570939274717-7eda259b50ed?w=500&h=300&fit=crop"
+        title: 'کروز در تنگه بسفر',
+        day: 'پنج‌شنبه 8 آذر',
+        image: 'https://images.unsplash.com/photo-1570939274717-7eda259b50ed?w=500&h=300&fit=crop',
       },
       {
         id: 5,
-        title: "منطقه گالاتا و برج گالاتا",
-        day: "جمعه 9 آذر",
-        image: "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=500&h=300&fit=crop"
+        title: 'منطقه گالاتا و برج گالاتا',
+        day: 'جمعه 9 آذر',
+        image: 'https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=500&h=300&fit=crop',
       },
     ],
     gallery: [
@@ -1601,9 +1601,8 @@ export const mockTourData = [
     remaining: 8,
     isLastMinute: false,
     maxCapacity: 30,
-  }
+  },
 ];
-
 
 let favoriteTours = [];
 

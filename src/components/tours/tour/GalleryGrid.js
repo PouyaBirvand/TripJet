@@ -20,7 +20,7 @@ export default function GalleryGrid({ tour }) {
   if (showAllImages) {
     return (
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {tour.gallery.map((image) => (
+        {tour.gallery.map(image => (
           <div key={image.id} className="relative h-64 overflow-hidden rounded-lg">
             <Image
               alt={image.alt}
@@ -30,7 +30,7 @@ export default function GalleryGrid({ tour }) {
             />
           </div>
         ))}
-        <button 
+        <button
           onClick={() => setShowAllImages(false)}
           className="col-span-full btn btn-outline text-blue-500 px-6 py-2 rounded-md mt-4"
         >
@@ -50,7 +50,7 @@ export default function GalleryGrid({ tour }) {
           className="object-cover hover:scale-105 transition-transform duration-300"
         />
       </div>
-      
+
       <div className="flex-1 grid grid-cols-2 grid-rows-2 gap-2">
         {gridImages.map((image, index) => (
           <div key={image.id} className="relative overflow-hidden rounded-lg">
@@ -62,7 +62,7 @@ export default function GalleryGrid({ tour }) {
             />
             {index === 3 && remainingCount > 0 && (
               <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-                <button 
+                <button
                   onClick={handleShowMore}
                   className="text-white flex items-center gap-2 text-lg font-medium hover:scale-105 transition-transform"
                 >

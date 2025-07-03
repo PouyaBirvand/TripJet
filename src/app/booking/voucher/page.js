@@ -9,7 +9,7 @@ import { Calendar, MapPin, Download, Home } from 'lucide-react';
 
 export default function VoucherPage() {
   return (
-    <div className="container mx-auto px-4 max-w-5xl">
+    <div className="container mx-auto">
       <div className="flex flex-col gap-6 items-center justify-center">
         <SuccessIcon />
         <SuccessMessage />

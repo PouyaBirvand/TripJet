@@ -8,12 +8,7 @@ export default function TourPlan({ title, day, image, id }) {
       <div className="flex flex-col sm:flex-row">
         {/* Image */}
         <div className="relative w-full sm:w-48 h-48 sm:h-32 flex-shrink-0">
-          <Image
-            alt={title}
-            src={image}
-            fill
-            className="object-cover"
-          />
+          <Image alt={title} src={image} fill className="object-cover" />
           <div className="absolute top-3 right-3 bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">
             {id}
           </div>

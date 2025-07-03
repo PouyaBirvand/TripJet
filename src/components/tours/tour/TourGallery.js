@@ -1,4 +1,3 @@
-
 'use client';
 import Image from 'next/image';
 import { useState } from 'react';
@@ -15,11 +14,11 @@ export default function TourGallery({ tour }) {
   const remainingCount = tour.gallery.length - 5;
 
   const nextImage = () => {
-    setCurrentImage((prev) => (prev + 1) % tour.gallery.length);
+    setCurrentImage(prev => (prev + 1) % tour.gallery.length);
   };
 
   const prevImage = () => {
-    setCurrentImage((prev) => (prev - 1 + tour.gallery.length) % tour.gallery.length);
+    setCurrentImage(prev => (prev - 1 + tour.gallery.length) % tour.gallery.length);
   };
 
   if (showAllImages) {
@@ -100,7 +99,7 @@ export default function TourGallery({ tour }) {
               {index === 3 && remainingCount > 0 && (
                 <div className="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center">
                   <button
-                    onClick={(e) => {
+                    onClick={e => {
                       e.stopPropagation();
                       setShowAllImages(true);
                     }}
@@ -125,14 +124,14 @@ export default function TourGallery({ tour }) {
           >
             <X className="w-8 h-8" />
           </button>
-          
+
           <button
             onClick={prevImage}
             className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 z-10"
           >
             <ChevronLeft className="w-8 h-8" />
           </button>
-          
+
           <button
             onClick={nextImage}
             className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 z-10"
@@ -148,7 +147,7 @@ export default function TourGallery({ tour }) {
               className="object-contain"
             />
           </div>
-          
+
           <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white text-sm">
             {currentImage + 1} از {tour.gallery.length}
           </div>

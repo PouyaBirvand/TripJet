@@ -49,7 +49,7 @@ export default function TourReserveForm({ tour }) {
               autoComplete="tel-national"
               textAlign="left"
             />
-            
+
             {tour?.price && (
               <div className="border-t pt-4">
                 {tour.price.hasDiscount && (
@@ -60,13 +60,13 @@ export default function TourReserveForm({ tour }) {
                 )}
                 <div className="flex items-center justify-between text-lg font-medium">
                   کل مبلغ پرداختی
-                  <span className='text-blue-500'>{formatPrice(totalPrice)}</span>
+                  <span className="text-blue-500">{formatPrice(totalPrice)}</span>
                 </div>
               </div>
             )}
-            
-            <button 
-              disabled={!(isValid && dirty)} 
+
+            <button
+              disabled={!(isValid && dirty)}
               className="btn text-white px-8 py-2 w-full bg-blue-600 hover:bg-blue-700 disabled:opacity-50"
             >
               رزرو تور

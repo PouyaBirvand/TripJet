@@ -8,26 +8,26 @@ import CustomFormField from '../../common/CustomFormField';
 import { useRouter } from 'next/navigation';
 
 export default function TourBooking({ tour }) {
-    const router = useRouter()
+  const router = useRouter();
   const [travelers, setTravelers] = useState({
     adults: 1,
     children: 0,
-    infants: 0
+    infants: 0,
   });
 
   const totalTravelers = travelers.adults + travelers.children + travelers.infants;
   const basePrice = tour?.price?.hasDiscount ? tour.price.discounted : tour.price.original;
-  const totalPrice = basePrice * travelers.adults + (basePrice * 0.7 * travelers.children);
+  const totalPrice = basePrice * travelers.adults + basePrice * 0.7 * travelers.children;
 
-  const handleSubmit = async (values) => {
+  const handleSubmit = async values => {
     const bookingData = {
       ...values,
       travelers,
       totalPrice,
-      tourId: tour.id
+      tourId: tour.id,
     };
     console.log('Booking Data:', bookingData);
-    router.push("/booking/personal-info")
+    router.push('/booking/personal-info');
   };
 
   const updateTravelers = (type, operation) => {
@@ -52,7 +52,7 @@ export default function TourBooking({ tour }) {
             initialValues={{
               selectedDate: '',
               phoneNumber: '',
-              specialRequests: ''
+              specialRequests: '',
             }}
             validationSchema={tourValidationSchema}
             onSubmit={handleSubmit}
@@ -69,10 +69,12 @@ export default function TourBooking({ tour }) {
                     name="selectedDate"
                     type="select"
                     placeholder="تاریخ مورد نظر را انتخاب کنید"
-                    options={tour.availableDates?.map(date => ({
-                      value: date.id,
-                      label: `${date.day} ${date.dayNum} - ${date.closed ? 'تکمیل ظرفیت' : 'آزاد'}`
-                    })) || []}
+                    options={
+                      tour.availableDates?.map(date => ({
+                        value: date.id,
+                        label: `${date.day} ${date.dayNum} - ${date.closed ? 'تکمیل ظرفیت' : 'آزاد'}`,
+                      })) || []
+                    }
                   />
                 </div>
 

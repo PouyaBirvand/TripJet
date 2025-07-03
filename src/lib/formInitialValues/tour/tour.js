@@ -1,5 +1,5 @@
 export const getTourInitialValues = {
-    selectdate: '',
-    travelers: '',
-    phonenumber: '',
-}
+  selectdate: '',
+  travelers: '',
+  phonenumber: '',
+};

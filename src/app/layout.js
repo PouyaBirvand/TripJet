@@ -116,7 +116,7 @@ export default function RootLayout({ children, auth }) {
           }}
         />
       </head>
-      <body className={`antialiased ${vazir.className} min-h-screen flex flex-col bg-base-200`} >
+      <body className={`antialiased ${vazir.className} min-h-screen flex flex-col bg-base-200`}>
         <NuqsAdapter>
           <QueryProvider>
             <AuthProvider>

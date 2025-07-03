@@ -1,6 +1,19 @@
 'use client';
 import { useState } from 'react';
-import { Calendar, MapPin, Users, Utensils, Bed, Shield, Car, Layers, ShoppingBag, Crown, OctagonAlert, MessageCircle } from 'lucide-react';
+import {
+  Calendar,
+  MapPin,
+  Users,
+  Utensils,
+  Bed,
+  Shield,
+  Car,
+  Layers,
+  ShoppingBag,
+  Crown,
+  OctagonAlert,
+  MessageCircle,
+} from 'lucide-react';
 import TourCalendar from './TourCalendar';
 import TourPlan from './TourPlan';
 import Comments from '../../home/Comments/Comments';
@@ -12,7 +25,7 @@ const iconMap = {
   Utensils,
   Bed,
   Shield,
-  Car
+  Car,
 };
 
 export default function TourContent({ tour }) {
@@ -23,7 +36,7 @@ export default function TourContent({ tour }) {
     { id: 'itinerary', label: 'برنامه سفر', icon: Layers },
     { id: 'services', label: 'خدمات و امکانات', icon: Crown },
     { id: 'policies', label: 'قوانین و شرایط', icon: OctagonAlert },
-    { id: 'comments', label: 'نظرات', icon: MessageCircle }
+    { id: 'comments', label: 'نظرات', icon: MessageCircle },
   ];
 
   return (
@@ -32,7 +45,7 @@ export default function TourContent({ tour }) {
       <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
         <div className="border-b border-gray-200">
           <nav className="flex overflow-x-auto">
-            {tabs.map((tab) => {
+            {tabs.map(tab => {
               const Icon = tab.icon;
               return (
                 <button
@@ -66,10 +79,13 @@ export default function TourContent({ tour }) {
               <div>
                 <h3 className="text-xl font-bold text-gray-900 mb-4">جزئیات تور</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {tour.tourInfo.map((info) => {
+                  {tour.tourInfo.map(info => {
                     const Icon = iconMap[info.icon] || MapPin;
                     return (
-                      <div key={info.id} className="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+                      <div
+                        key={info.id}
+                        className="flex items-start gap-3 p-4 bg-gray-50 rounded-xl"
+                      >
                         <div className="flex-shrink-0 w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
                           <Icon className="w-5 h-5 text-blue-600" />
                         </div>
@@ -89,7 +105,7 @@ export default function TourContent({ tour }) {
             <div>
               <h3 className="text-xl font-bold text-gray-900 mb-6">برنامه روزانه سفر</h3>
               <div className="space-y-4">
-                {tour.tourPlans.map((plan) => (
+                {tour.tourPlans.map(plan => (
                   <TourPlan key={plan.id} {...plan} />
                 ))}
               </div>
@@ -105,8 +121,11 @@ export default function TourContent({ tour }) {
                   خدمات شامل تور
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {tour.services.map((service) => (
-                    <div key={service.id} className="flex items-center gap-3 p-3 bg-green-50 rounded-lg">
+                  {tour.services.map(service => (
+                    <div
+                      key={service.id}
+                      className="flex items-center gap-3 p-3 bg-green-50 rounded-lg"
+                    >
                       <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                       <span className="text-gray-700">{service.title}</span>
                     </div>
@@ -121,8 +140,11 @@ export default function TourContent({ tour }) {
                   لوازم پیشنهادی
                 </h3>
                 <div className="grid grid-cols-1 gap-3">
-                  {tour.requiredTools.map((tool) => (
-                    <div key={tool.id} className="flex items-start gap-3 p-3 bg-yellow-50 rounded-lg">
+                  {tour.requiredTools.map(tool => (
+                    <div
+                      key={tool.id}
+                      className="flex items-start gap-3 p-3 bg-yellow-50 rounded-lg"
+                    >
                       <div className="w-2 h-2 bg-yellow-500 rounded-full mt-2"></div>
                       <span className="text-gray-700">{tool.title}</span>
                     </div>
@@ -139,7 +161,7 @@ export default function TourContent({ tour }) {
                 قوانین کنسلی و شرایط
               </h3>
               <div className="space-y-3">
-                {tour.policies.map((policy) => (
+                {tour.policies.map(policy => (
                   <div key={policy.id} className="flex items-start gap-3 p-4 bg-red-50 rounded-lg">
                     <div className="w-2 h-2 bg-red-500 rounded-full mt-2"></div>
                     <span className="text-gray-700">{policy.title}</span>

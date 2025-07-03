@@ -6,7 +6,7 @@ export const selectdateOptions = [
 ];
 
 export const travelersOptions = [
-  {value: "2 Adult - 1 Child", label: "دو بزرگسال + یک کودک"},
-  {value: "3 Adult - 2 Child", label: "سه بزرگسال و یک کودک"},
-  {value: "1 Adult", label: "یک بزرگسال"}
-]
+  { value: '2 Adult - 1 Child', label: 'دو بزرگسال + یک کودک' },
+  { value: '3 Adult - 2 Child', label: 'سه بزرگسال و یک کودک' },
+  { value: '1 Adult', label: 'یک بزرگسال' },
+];

@@ -474,3 +474,17 @@
     padding: 0 !important;
   }
 }
+
+@import 'leaflet/dist/leaflet.css';
+
+/* استایل‌های سفارشی برای مارکرهای نقشه */
+.custom-marker {
+  background: transparent !important;
+  border: none !important;
+}
+
+/* حل مشکل آیکون‌های Leaflet */
+.leaflet-marker-icon {
+  margin-left: -12px !important;
+  margin-top: -41px !important;
+}

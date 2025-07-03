@@ -12,14 +12,12 @@ export default function TourHeader({ tour, onShowMap }) {
             <MapPin className="w-4 h-4" />
             {tour.destination}
           </div>
-          
+
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
             {tour.title}
           </h1>
-          
-          <p className="text-gray-600 text-lg mb-6">
-            {tour.shortDescription}
-          </p>
+
+          <p className="text-gray-600 text-lg mb-6">{tour.shortDescription}</p>
 
           {/* Quick Info */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
@@ -27,17 +25,17 @@ export default function TourHeader({ tour, onShowMap }) {
               <Clock className="w-5 h-5 text-blue-600" />
               <span className="text-sm">{tour.duration.description}</span>
             </div>
-            
+
             <div className="flex items-center gap-2 text-gray-600">
               <Users className="w-5 h-5 text-blue-600" />
               <span className="text-sm">حداکثر {tour.maxCapacity} نفر</span>
             </div>
-            
+
             <div className="flex items-center gap-2 text-gray-600">
               <Star className="w-5 h-5 text-yellow-500" />
               <span className="text-sm">هتل {tour.hotel.stars} ستاره</span>
             </div>
-            
+
             <div className="flex items-center gap-2 text-gray-600">
               <Calendar className="w-5 h-5 text-blue-600" />
               <span className="text-sm">{tour.date}</span>
@@ -53,7 +51,7 @@ export default function TourHeader({ tour, onShowMap }) {
               <Plane className="w-5 h-5" />
               مشاهده مسیر در نقشه
             </button>
-            
+
             {/* <button className="flex items-center gap-2 px-6 py-3 border border-gray-300 text-gray-700 rounded-xl hover:bg-gray-50 transition-colors">
               <Star className="w-5 h-5" />
               افزودن به علاقه‌مندی‌ها
@@ -72,10 +70,8 @@ export default function TourHeader({ tour, onShowMap }) {
             <div className="text-3xl font-bold text-blue-600 mb-2">
               {formatPrice(tour.price.hasDiscount ? tour.price.discounted : tour.price.original)}
             </div>
-            <div className="text-gray-600 text-sm mb-4">
-              قیمت هر نفر
-            </div>
-            
+            <div className="text-gray-600 text-sm mb-4">قیمت هر نفر</div>
+
             {tour.remaining <= 5 && (
               <div className="bg-red-100 text-red-700 px-3 py-1 rounded-full text-sm font-medium">
                 تنها {tour.remaining} جا باقی مانده!
