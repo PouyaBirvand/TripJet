@@ -6,7 +6,7 @@ const mockBookingData = {
     {
       id: 1,
       name: 'علی بیروند',
-      type: 'بزرگسال',
+      type: 'بچه سال',
       birthDate: '۱۳۷۵/۰۴/۱۲',
       gender: 'مذکر',
       isLeader: true,

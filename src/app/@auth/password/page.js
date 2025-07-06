@@ -2,7 +2,7 @@
 import { Formik, Form } from 'formik';
 import { useRouter } from 'next/navigation';
 import { useModal } from '../../../hooks/useModal';
-import { passwordValidationSchema } from '../../../lib/validation';
+import { passwordValidationSchemaFromAuth } from '../../../lib/validation';
 import { getLoginPasswordInitialValues } from '../../../lib/formInitialValues';
 import { usePasswordAuth } from '../../../hooks/AuthHooks/usePasswordAuth';
 import { usePhoneVerification } from '../../../hooks/AuthHooks/usePhoneVerification';
@@ -40,7 +40,7 @@ export default function PasswordPage() {
     >
       <Formik
         initialValues={getLoginPasswordInitialValues}
-        validationSchema={passwordValidationSchema}
+        validationSchema={passwordValidationSchemaFromAuth}
         onSubmit={handleSubmit}
       >
         {({ isValid, dirty }) => (
