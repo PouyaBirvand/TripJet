@@ -1,4 +1,4 @@
-export const getContactInitialValues = profile => ({
+export const getContactInitialValuesForProfile = profile => ({
   phone: profile?.landline || '',
   mobile: profile?.phone || '',
   email: profile?.email || '',

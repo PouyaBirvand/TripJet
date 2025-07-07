@@ -1,3 +1,5 @@
+export * from './contact/contact';
+
 export * from './profile/personal';
 export * from './profile/contact';
 export * from './profile/payment';
@@ -8,7 +10,6 @@ export * from './auth/password';
 export * from './auth/otp';
 export * from './auth/loginPassword';
 
-export * from './contact/contact';
 export * from './contact/options';
 
 export * from './booking/adult';

@@ -8,7 +8,7 @@ import { AuthModal } from '../../../components/auth/shared/AuthModal';
 import { AuthSubmitButton } from '../../../components/auth/shared/AuthSubmitButton';
 import { getPasswordInitialValues } from '../../../lib/formInitialValues';
 import { useEffect, useRef } from 'react';
-import { passwordValidationSchema } from '../../../lib/validation';
+import { passwordValidationSchemaFromShared } from '../../../lib/validation';
 
 export default function LoginPasswordPage() {
   const { isOpen, handleLastClose, handleClose } = useModal();
@@ -43,7 +43,7 @@ export default function LoginPasswordPage() {
     >
       <Formik
         initialValues={getPasswordInitialValues}
-        validationSchema={passwordValidationSchema}
+        validationSchema={passwordValidationSchemaFromShared}
         onSubmit={handleSubmit}
       >
         {({ isValid, dirty }) => (

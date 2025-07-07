@@ -4,8 +4,19 @@ import { useQueryState } from 'nuqs';
 import { useFavorite } from '../../../hooks/useFavorite';
 import SortButtons from '../../../components/profile/ProfileFavorites/SortButtons';
 import FavoriteItem from '../../../components/profile/ProfileFavorites/FavoriteItem';
+import { Suspense } from 'react';
 
 export default function FavoritesPage() {
+  return (
+    <div className="container mx-auto px-4">
+      <Suspense fallback={<div className="text-center py-10">در حال بارگذاری...</div>}>
+        <FavoritesContent />
+      </Suspense>
+    </div>
+  );
+}
+
+function FavoritesContent() {
   const [sortParam, setSortParam] = useQueryState('sort');
   const [currentSort, setCurrentSort] = useState('');
   const { favorites, isLoading, toggleFavorite, isRemoving } = useFavorite();
@@ -37,7 +48,7 @@ export default function FavoritesPage() {
   };
 
   return (
-    <div className="container mx-auto px-4">
+    <>
       <div className="bg-white border border-base-300 rounded-xl p-4 md:p-5 mb-6">
         <h2 className="font-bold text-xl pb-3">مدیریت علاقه‌مندی‌ها</h2>
         <SortButtons currentSort={currentSort} onSortChange={handleSortChange} />
@@ -68,6 +79,6 @@ export default function FavoritesPage() {
           ))}
         </div>
       )}
-    </div>
+    </>
   );
 }

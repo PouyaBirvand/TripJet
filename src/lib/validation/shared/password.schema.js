@@ -1,6 +1,6 @@
 import * as Yup from 'yup';
 
-export const passwordValidationSchema = Yup.object({
+export const passwordValidationSchemaFromShared = Yup.object({
   password: Yup.string()
     .required('رمز عبور الزامی است')
     .min(8, 'رمز عبور باید حداقل ۸ کاراکتر باشد')
