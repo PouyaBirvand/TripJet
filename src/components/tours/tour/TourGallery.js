@@ -7,6 +7,7 @@ export default function TourGallery({ tour }) {
   const [currentImage, setCurrentImage] = useState(0);
   const [showLightbox, setShowLightbox] = useState(false);
   const [showAllImages, setShowAllImages] = useState(false);
+  const tourImage = `https://picsum.photos/700/500?random=${tour.id}`;
 
   if (!tour?.gallery?.length) return null;
 
@@ -46,7 +47,7 @@ export default function TourGallery({ tour }) {
               >
                 <Image
                   alt={image.alt}
-                  src="/japen.png"
+                  src={tourImage}
                   fill
                   className="object-cover group-hover:scale-110 transition-transform duration-300"
                 />
@@ -61,8 +62,8 @@ export default function TourGallery({ tour }) {
 
   return (
     <>
-      <div className="relative h-[60vh] sm:h-[70vh] lg:h-[40vh] mt-15">
-        <div className="grid grid-cols-4 grid-rows-2 gap-2 h-full mx-auto">
+      <div className="relative h-[60vh] sm:h-[70vh] lg:h-[60vh] mt-15">
+        <div className="grid grid-cols-4 grid-rows-2 gap-4 h-full mx-auto">
           {/* Main Image */}
           <div
             className="col-span-4 sm:col-span-2 row-span-2 relative overflow-hidden rounded-xl cursor-pointer group"
@@ -73,7 +74,7 @@ export default function TourGallery({ tour }) {
           >
             <Image
               alt={displayImages[0].alt}
-              src="/japen.png"
+              src={tourImage}
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-300"
               priority
@@ -92,7 +93,7 @@ export default function TourGallery({ tour }) {
             >
               <Image
                 alt={image.alt}
-                src="/japen.png"
+                src='/japen.png'
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-300"
               />
@@ -117,38 +118,38 @@ export default function TourGallery({ tour }) {
 
       {/* Lightbox */}
       {showLightbox && (
-        <div className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center">
+        <div className="fixed inset-0 backdrop-blur-md bg-white/30 bg-opacity-90 z-50 flex items-center justify-center">
           <button
             onClick={() => setShowLightbox(false)}
             className="absolute top-4 right-4 text-white hover:text-gray-300 z-10"
           >
-            <X className="w-8 h-8" />
+            <X size={40} className="bg-black text-white rounded-full p-2" />
           </button>
 
           <button
             onClick={prevImage}
             className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 z-10"
           >
-            <ChevronLeft className="w-8 h-8" />
+            <ChevronLeft size={40} className="bg-black text-white rounded-full p-2" />
           </button>
 
           <button
             onClick={nextImage}
             className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 z-10"
           >
-            <ChevronRight className="w-8 h-8" />
+            <ChevronRight size={40} className="bg-black text-white rounded-full p-2" />
           </button>
 
           <div className="relative w-full h-full max-w-4xl max-h-[80vh] mx-4">
             <Image
               alt={tour.gallery[currentImage].alt}
-              src="/japen.png"
+              src={tourImage}
               fill
               className="object-contain"
             />
           </div>
 
-          <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white text-sm">
+          <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white bg-black px-6 py-4 rounded-full text-sm">
             {currentImage + 1} از {tour.gallery.length}
           </div>
         </div>

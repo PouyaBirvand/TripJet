@@ -4,7 +4,7 @@ export const tourValidationSchema = Yup.object({
   selectedDate: Yup.string().required('انتخاب تاریخ سفر الزامی است'),
 
   phoneNumber: Yup.string()
-    .matches(/^09[0-9]{9}$/, 'شماره تلفن معتبر نیست')
+    .matches(/^9[0-9]{9}$/, 'شماره تلفن معتبر نیست')
     .required('شماره تماس الزامی است'),
 
   specialRequests: Yup.string().max(500, 'درخواست‌های ویژه نباید بیش از ۵۰۰ کاراکتر باشد'),

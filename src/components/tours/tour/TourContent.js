@@ -42,7 +42,7 @@ export default function TourContent({ tour }) {
   return (
     <div className="space-y-6">
       {/* Tabs */}
-      <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+      <div className="bg-white rounded-lg border border-slate-200 overflow-hidden">
         <div className="border-b border-gray-200">
           <nav className="flex overflow-x-auto">
             {tabs.map(tab => {

@@ -8,8 +8,8 @@ export function useTour(TourId) {
     error,
   } = useQuery({
     queryKey: ['tour', TourId],
-    queryFn: () => tourService.getTourById(TourId), // اصلاح شده
-    enabled: !!TourId, // فقط زمانی اجرا شود که TourId موجود باشد
+    queryFn: () => tourService.getTourById(TourId), 
+    enabled: !!TourId,
   });
 
   console.log(tour);
@@ -17,6 +17,6 @@ export function useTour(TourId) {
   return {
     tour,
     isLoading,
-    error, // اضافه کردن error handling
+    error, 
   };
 }

@@ -19,7 +19,7 @@ const TourBox = ({ item }) => {
         <div className="relative pt-[75%] overflow-hidden rounded-t-lg">
           <Image src="/japen.png" alt={item.title} fill className="object-cover" />
 
-          <div className="absolute top-2 left-2 z-10">
+          <div className="absolute top-2 left-12 z-10">
             <FavoriteButton isFavorite={isFavorite(item.id)} onClick={handleFavorite} />
           </div>
 

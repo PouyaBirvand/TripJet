@@ -4,7 +4,7 @@ import { formatPrice } from '@/lib/utils/numbers';
 
 export default function TourHeader({ tour, onShowMap }) {
   return (
-    <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8">
+    <div className="bg-white rounded-lg border border-slate-200 p-6 sm:p-8">
       <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
         {/* Tour Info */}
         <div className="flex-1">

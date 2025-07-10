@@ -1,4 +1,3 @@
-'use client';
 import Hero from '../../components/ui/Hero';
 import NavButtons from '../../components/common/NavButtons';
 import ContactInfoCard from '../../components/contact/ContactInfoCard/ContactInfoCard';

@@ -1,7 +1,6 @@
 'use client';
 
 import { usePathname, useRouter } from 'next/navigation';
-import { Search } from 'lucide-react';
 import { Formik, Form } from 'formik';
 import { useQueryStates } from 'nuqs';
 import { useEffect, useState } from 'react';
@@ -116,10 +115,9 @@ const TripSearchForm = ({ tripType, initialOrigin = '', initialDestination = '' 
 
           <button
             type="submit"
-            className="btn bg-blue-600 text-white rounded-xl !py-6 font-normal px-10 w-full sm:w-auto sm:flex-shrink-0 gap-2"
+            className="btn bg-blue-600 text-white text-lg font-normal rounded-xl !py-6 px-10 w-full sm:w-auto sm:flex-shrink-0 gap-2"
           >
             {pathname === '/' ? 'جستجو' : 'ویرایش'}
-            <Search className="h-4 w-4" />
           </button>
         </div>
       </Form>

@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { Form, Formik } from 'formik';
-import { Plus, Minus, Phone, Calendar, Users, CreditCard } from 'lucide-react';
+import { Plus, Minus, Phone, Calendar, Users, CreditCard, Lock } from 'lucide-react';
 import { tourValidationSchema } from '@/lib/validation/tour/tour.schema';
 import { formatPrice } from '@/lib/utils/numbers';
 import CustomFormField from '../../common/CustomFormField';
@@ -15,7 +15,6 @@ export default function TourBooking({ tour }) {
     infants: 0,
   });
 
-  const totalTravelers = travelers.adults + travelers.children + travelers.infants;
   const basePrice = tour?.price?.hasDiscount ? tour.price.discounted : tour.price.original;
   const totalPrice = basePrice * travelers.adults + basePrice * 0.7 * travelers.children;
 
@@ -33,21 +32,21 @@ export default function TourBooking({ tour }) {
   const updateTravelers = (type, operation) => {
     setTravelers(prev => {
       const newValue = operation === 'add' ? prev[type] + 1 : Math.max(0, prev[type] - 1);
-      if (type === 'adults' && newValue === 0) return prev; // At least 1 adult required
+      if (type === 'adults' && newValue === 0) return prev;
       return { ...prev, [type]: newValue };
     });
   };
 
   return (
     <div className="sticky top-4">
-      <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+      <div className="bg-white rounded-lg overflow-hidden">
         {/* Header */}
         <div className="bg-gradient-to-r from-blue-600 to-indigo-600 p-6 text-white">
           <h3 className="text-xl font-bold mb-2">رزرو آنلاین تور</h3>
           <p className="text-blue-100 text-sm">رزرو سریع و آسان با تضمین بهترین قیمت</p>
         </div>
 
-        <div className="p-6">
+        <div className="p-6 border border-slate-200">
           <Formik
             initialValues={{
               selectedDate: '',
@@ -62,7 +61,7 @@ export default function TourBooking({ tour }) {
                 {/* Date Selection */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    <Calendar className="w-4 h-4 inline mr-2" />
+                    <Calendar className="w-4 h-4 inline mx-2" />
                     انتخاب تاریخ سفر
                   </label>
                   <CustomFormField
@@ -168,14 +167,21 @@ export default function TourBooking({ tour }) {
                 {/* Phone Number */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    <Phone className="w-4 h-4 inline mr-2" />
+                    <Phone className="w-4 h-4 inline mx-2" />
                     شماره تماس
                   </label>
                   <CustomFormField
                     name="phoneNumber"
-                    type="tel"
-                    placeholder="۰۹۱۲۳۴۵۶۷۸۹"
-                    dir="ltr"
+                    label="شماره موبایل"
+                    placeholder="۹۱۲۳۴۵۶۷۸۹"
+                    inputMode="numeric"
+                    convertToFarsi={true}
+                    digitsOnly={true}
+                    maxLength={10}
+                    showPrefix={true}
+                    prefix="| +۹۸"
+                    autoComplete="tel-national"
+                    textAlign="left"
                   />
                 </div>
 
@@ -193,16 +199,16 @@ export default function TourBooking({ tour }) {
                 </div>
 
                 {/* Price Summary */}
-                <div className="border-t pt-4">
+                <div className="border-t border-slate-300 pt-4">
                   <div className="space-y-2">
                     <div className="flex justify-between text-sm">
                       <span>بزرگسال ({travelers.adults} نفر)</span>
-                      <span>{formatPrice(basePrice * travelers.adults)} تومان</span>
+                      <span>{formatPrice(basePrice * travelers.adults)}</span>
                     </div>
                     {travelers.children > 0 && (
                       <div className="flex justify-between text-sm">
                         <span>کودک ({travelers.children} نفر)</span>
-                        <span>{formatPrice(basePrice * 0.7 * travelers.children)} تومان</span>
+                        <span>{formatPrice(basePrice * 0.7 * travelers.children)}</span>
                       </div>
                     )}
                     {travelers.infants > 0 && (
@@ -211,9 +217,9 @@ export default function TourBooking({ tour }) {
                         <span>رایگان</span>
                       </div>
                     )}
-                    <div className="border-t pt-2 flex justify-between font-bold text-lg">
+                    <div className="border-t border-slate-300 pt-2 flex justify-between font-bold text-lg">
                       <span>مجموع</span>
-                      <span className="text-blue-600">{formatPrice(totalPrice)} تومان</span>
+                      <span className="text-blue-600">{formatPrice(totalPrice)}</span>
                     </div>
                   </div>
                 </div>
@@ -230,7 +236,10 @@ export default function TourBooking({ tour }) {
 
                 {/* Security Note */}
                 <div className="text-xs text-gray-500 text-center">
-                  <p>🔒 اطلاعات شما کاملاً محفوظ و امن است</p>
+                  <p className="flex items-center justify-center gap-2">
+                    <Lock color="blue" className="mb-1" size={20} /> اطلاعات شما کاملاً محفوظ و امن
+                    است
+                  </p>
                 </div>
               </Form>
             )}

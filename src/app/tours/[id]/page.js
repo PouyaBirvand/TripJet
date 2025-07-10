@@ -7,7 +7,7 @@ import TourContent from '../../../components/tours/tour/TourContent';
 import TourBooking from '../../../components/tours/tour/TourBooking';
 import LoadingSpinner from '../../../components/ui/LoadingSpinner';
 import ErrorMessage from '../../../components/ui/ErrorMessage';
-import TourMap from '../../../components/tours/tour/TourMap';
+import TourMap from '@/components/tours/tour/TourMap/TourMap';
 
 export default function TourPage({ params }) {
   const id = use(params);

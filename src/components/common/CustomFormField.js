@@ -202,7 +202,7 @@ const CustomFormField = ({
     if (error && touched && !isFocused) return 'border-error';
     if (!error && value && value.length > 0) return 'border-success';
     if (isFocused) return 'border-primary';
-    return 'border-base-300 dark:border-base-content/20';
+    return 'border-slate-300';
   };
 
   const getColorClass = () => {
