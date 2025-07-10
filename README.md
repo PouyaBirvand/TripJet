@@ -22,18 +22,18 @@ TripJet is a cutting-edge tourism booking platform built with Next.js 15 and Rea
 </div>
 
 ## ✨ Features
-
 - 🔐 **User Authentication**: Secure login and registration with Next-Auth
 - 🔍 **Tour Discovery**: Browse and search for tours with advanced filtering
 - 📅 **Booking System**: Easy and intuitive booking process
+- 🗺️ **Interactive Maps**: Visualize tour routes and locations with Leaflet maps integration
 - 👤 **User Profiles**: Manage personal information and booking history
 - 📱 **Responsive Design**: Optimized for all devices using Tailwind CSS
 - 🌐 **Multilingual Support**: Including Persian (Farsi) with Vazirmatn font integration
 
 ## 🛠️ Tech Stack
-
 - 🔥 **Frontend**: [Next.js](https://nextjs.org/) 15, [React](https://react.dev/) 19
 - 💅 **Styling**: [Tailwind CSS](https://tailwindcss.com/) 4, [DaisyUI](https://daisyui.com/)
+- 🗺️ **Maps**: [Leaflet](https://leafletjs.com/) for interactive map visualization
 - 📊 **State Management**: [React Query](https://tanstack.com/query/latest) (TanStack Query)
 - 📝 **Forms**: [Formik](https://formik.org/) with [Yup](https://github.com/jquense/yup) validation
 - 🎨 **UI Components**: [Lucide React](https://lucide.dev/) icons, [React Modal](https://reactcommunity.org/react-modal/), [Swiper](https://swiperjs.com/)
