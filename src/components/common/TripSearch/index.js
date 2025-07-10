@@ -5,6 +5,7 @@ import TripTypeSelector from './TripTypeSelector';
 import TripSearchForm from './TripSearchForm';
 
 export default function TripSearch() {
+
   const [queryParams, setQueryParams] = useQueryStates({
     type: {},
     origin: {},
